@@ -1,0 +1,108 @@
+        hackbytes.com v0.1 <http://hackbytes.com>
+
+This is the master repository of the http://hackbytes.com website. The
+submodule repositories can be found at the following locations:
+
+  http://github.com/byronsanchez/hackbytes.com-resources
+  http://github.com/byronsanchez/hackbytes.com-dependencies
+
+INSTRUCTIONS
+
+  Clone the hackbytes.com repository, or alternatively, clone your fork
+  of the hackbytes.com repository. Then add the necessary submodules:
+
+    cd hackbytes.com
+    git submodule add https://github.com/byronsanchez/hackbytes.com-dependencies.git vendor
+    git submodule add https://github.com/byronsanchez/hackbytes.com-resources.git resources
+    git commit -m 'first commit with submodules'
+
+  Afterwards, you can install the packaged gems. The following install
+  the gems to your system:
+
+    bundle install
+
+  If you want to install the packaged gems in the vendor directory, as
+  opposed to having them installed directly on your system, run:
+
+    bundle install --deployment
+
+  Note that this command will enable a persistent switch that makes
+  bundler look for the installed gems in the vendor directory. See the
+  bundler documentation for more information:
+
+    http://gembundler.com/
+
+  The deploy.rb script has not been checked into the repository. It is
+  simply an rsync command which uploads the _site/ directory to my
+  server. Feel free to write a script tailored to your workflow.
+
+  Now you're all set and can use hackBytes as a baseline to building
+  your own custom Jekyll website!
+
+STRUCTURE
+
+  The repository tree structure.
+
+    /           - contains the entire hackbytes.com website.
+
+    _includes/  - contains common HTML files used in multiple webpages.
+                  These are typically short snippets, like common
+                  headers or footers.
+
+    _layouts/   - contains the major theme templates.
+
+    _plugins/   - contains plugins that extend and customize Jekyll
+                  functionality.
+
+    _site/      - The fully "compiled" website after Jekyll filters
+                  every file through the different converters and
+                  generators. This directory contains what website
+                  users see.
+
+    _posts/     - contains the website posts and other content.
+
+    assets/     - contains files that extend website functionality.
+                  These files don't go in the _plugins/ directory
+                  because these files are not used by Jekyll. The
+                  functionality is invoked in other ways (e.g.,
+                  server-side syntax highlighting). This directory also
+                  contains the website's Sass files.
+
+    css/        - contains the sites stylesheets. These are generated
+                  by Sass.
+
+    js/         - contains the sites JavaScript files. Some of the
+                  files are minimized by the Closure Compiler, and
+                  some serve as CDN fallbacks.
+
+    resources/  - contains the hackbytes.com-resources submodule. This
+                  submodule contains image and media assets used on the
+                  website
+
+    vendor/     - contains the hackbytes.com-dependencies submodule.
+
+LICENSE
+  
+  hackbytes.com source code is Copyright (c) 2013 by Byron Sanchez, licensed
+  under the GNU GPL v2.0.
+  
+  hackbytes.com logo is Copyright (c) 2013 by Byron Sanchez. All rights
+  reserved.
+  
+  hackbytes.com images and any media (defined as binary files that are not
+  software dependencies) are Copyright (c) 2013 Byron Sanchez, licensed
+  under Creative Commons: BY-SA Attribution 3.0 unless otherwise noted.
+  http://creativecommons.org/licenses/by-sa/3.0/
+  Attribution specification is in the COPYRIGHT file.
+  
+  hackbytes.com copy is Copyright (c) 2013 by Byron Sanchez. All rights
+  reserved.
+  
+  hackbytes.com copy "code snippets" in the _posts/ directory and any
+  subdirectories thereof are Copyright (c) 2013 by Byron Sanchez, licensed
+  under the MIT license.
+  
+  ---
+  
+  Read the COPYRIGHT file carefully for the details of what this all
+  means.

@@ -1,0 +1,62 @@
+#########
+# GENERAL
+#########
+
+# OS Files
+.DS_Store
+
+# vi/vim
+*~
+*.swp
+*.swo
+
+# Eclipse files
+.settings*/
+.buildpath*
+project.properties*
+.htaccess*
+error_log*
+.project*
+
+# Jekyll files
+_site/**
+.sass-cache
+
+# Ant files
+build.xml
+
+# Ruby and Rails files
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+tmp/*
+doc/api
+doc/app
+
+
+##################
+# PROJECT-SPECIFIC
+##################
+
+# Ignore compiled/derivative files that can be rebuilt from already
+# committed files.
+hackbytes.min.js
+
+# Absolutely no binary files. Binary files can be added some other way.
+img/
+*.png
+*.ico
+*.gif
+css/*.gif
+
+# Some of the bootstrap resources don't need to be version controlled.
+# If they exist, just ignore them.
+assets/bin/
+assets/sass/bootstrap/docs/
+assets/sass/bootstrap/js/
+assets/sass/bootstrap/lib/tests/
+
+# Locally bundled resources don't need to be version controlled.
+assets/vendor/bundle/
+vendor/bundle/
