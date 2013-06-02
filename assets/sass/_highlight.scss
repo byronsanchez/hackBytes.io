@@ -1,0 +1,368 @@
+/**
+ * Highlight styles.
+ *
+ * A heavily customized styling of Pygments-generated syntax highlighting.
+ * Place the Pygments CSS at the bottom of this file where indicated.
+ */
+
+
+//
+// BOOTSTRAP OVERRIDES 
+// Currently designed to use WITHOUT including bootstrap's code.css
+// --------------------------------------------------
+
+
+/* Imported from Bootstrap's code.css
+-------------------------------------------------- */
+
+// Inline and block code styles
+code,
+pre {
+  padding: 0 3px 2px;
+}
+
+// Inline code
+code {
+  padding: 2px 4px;
+}
+
+// Blocks of code
+pre {
+  display: block;
+  margin: 0 0;
+  
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+
+/* Pre and code blocks. 
+-------------------------------------------------- */
+
+$background_code: #1c1c1c; // original: 242424
+$background_numbers: #080808; // original: 444444
+$color_numbers: #626262;
+$border_code: #f4f4f4;
+$border_numbers: #171717;
+$color_shadow: #111111;
+$color_code_text: #f6f3e8;
+
+$code_green: #d7ff66; //original: cae682
+$code_dark_green: #66d75f; //original: 95e454
+$code_red: #d7875f; //original: e5786d
+$code_yellow: #d7d777; // not used yet
+$code_blue: #87afff; // original: 8ac6f2
+
+pre,code,tt,p code,li code,.highlight code,.highlight {
+  //font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+  font-family: Consolas,"Liberation Mono",Courier,monospace;
+}
+
+// The inline styles for code.
+pre, code {
+  line-height: 1.45em;
+  font-size: 12px;
+}
+
+pre {
+  word-break: normal;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+code {
+  white-space: pre;
+}
+
+pre code {
+  white-space: pre;
+}
+
+
+/* Highlight blocks.
+-------------------------------------------------- */
+
+//matches with portfolio - the table overflows, not the code block
+// HIGHLIGHT WILL ABSORB ALL OVERFLOWS, SO USE THIS IF YOU WANT
+// SCROLLBARS
+.highlight {
+  border: 1px solid $color_shadow;
+  background: $background_code; 
+  overflow-y: hidden;
+  overflow-x: auto;
+  max-width: 960px;
+  width: auto;
+  margin: 1em auto;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+
+// Reset everything on pre, code will do the legwork for all syntax highlighting.
+.highlight pre {
+  padding: 0;
+  background: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  -ms-border-radius: none;
+  -o-border-radius: none;
+  border-radius: none;
+  border: none;
+  margin-bottom: 0;
+}
+
+// Customize!
+.highlight pre, .highlight pre code {
+  color: $color_code_text;
+}
+
+.highlight code, .highlight pre code {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+// matches with front page code posts, not portfolio. - no table to overflow
+// so the code block does.
+  //overflow: scroll;
+  //overflow-y: hidden;
+  display: block;
+  padding: .8em !important;
+  //overflow-x: auto;
+  background: $background_code;
+  line-height: 1.45em;
+}
+
+.highlight table td.code {
+  width: 100%;
+}
+
+// BLOG HIGHLIGHT OVERRIDES
+
+#blog .highlight table
+{
+	margin:0;
+	padding:0;
+}
+
+#blog .highlight table tr
+{
+	border: none;
+	background:none;
+	margin:0;
+	padding:0;
+}
+
+#blog .highlight table tr:nth-child(2n)
+{
+	background:none;
+}
+
+#blog .highlight table tr th[align="center"], #blog table .highlight tr td[align="center"] {
+	text-align:center;
+}
+
+// BOOTSTRAP OVERRIDE to kill scrollbar overflow quirkiness (bootstrap's
+// default styles add a 1px padding to td on all sides which would randomnly be
+// the cause of spontaneous premature overflows.
+#blog .highlight table tr th, #blog .highlight table tr td, .highlight td
+{
+	border:none;
+	text-align:left;
+	margin:0;
+	padding:0;
+}
+
+
+/* Line numbers.
+-------------------------------------------------- */
+
+.highlight .line-numbers {
+  text-align: right;
+  font-size: 12px;
+  line-height: 1.45em;
+  background: $background_numbers;
+  border-right: 1px solid $border_numbers !important;
+  -webkit-box-shadow: $background_numbers -1px 0 inset;
+  -moz-box-shadow: $background_numbers -1px 0 inset;
+  box-shadow: $background_numbers -1px 0 inset;
+  text-shadow: $color_shadow 0 -1px;
+  padding: .8em !important;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+
+.highlight .line-numbers span {
+  color: $color_numbers;
+}
+
+
+/* Scrollbar styles.
+-------------------------------------------------- */
+
+pre::-webkit-scrollbar,.highlight::-webkit-scrollbar {
+  height: .5em;
+  background: rgba(255,255,255,0.15);
+}
+
+pre::-webkit-scrollbar-thumb:horizontal,.highlight::-webkit-scrollbar-thumb:horizontal {
+  background: rgba(255,255,255,0.2);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar,.pre-code::-webkit-scrollbar,.highlight code::-webkit-scrollbar,.highlight::-webkit-scrollbar,.highlight code::-webkit-scrollbar {
+  height: .7em;
+  background: rgba(255,255,255,0.15);
+}
+
+
+/* Specific-language overrides.
+-------------------------------------------------- */
+
+/* "text"
+-------------------------------------------------- */
+
+// From bootstrap's pre code styles
+$text_background_code: #f5f5f5;
+$text_color_code_text: #333333;
+$text_border_code: #cccccc;
+// Custom complements to the bootstrap styles.
+$text_background_numbers: #e1e1e1;
+$text_border_numbers: #d2d2d2; //up = f0f0f0
+$text_color_numbers: #878787; // up = bounded by max rgb
+$text_color_shadow: #d8d8d8; // up = eaeaea
+
+.highlight.text {
+  background-color: $text_background_code;
+  border: 1px solid $text_border_code;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: $text_color_code_text;
+}
+
+.highlight.text pre, .highlight.text pre code {
+  color: $text_color_code_text;
+}
+
+.highlight.text code, .highlight.text pre code {
+  background: $text_background_code;
+}
+
+.highlight.text .line-numbers {
+  background: $text_background_numbers;
+  border-right: 1px solid $text_border_numbers !important;
+  -webkit-box-shadow: $text_background_numbers -1px 0 inset;
+  -moz-box-shadow: $text_background_numbers -1px 0 inset;
+  box-shadow: $text_background_numbers -1px 0 inset;
+  text-shadow: $text_color_shadow 0 -1px;
+}
+
+.highlight.text .line-numbers span {
+  color: $text_color_numbers;
+}
+
+pre::-webkit-scrollbar,.highlight.text::-webkit-scrollbar {
+  background: rgba(0,0,0,0.15);
+}
+
+pre::-webkit-scrollbar-thumb:horizontal,.highlight.text::-webkit-scrollbar-thumb:horizontal {
+  background: rgba(0,0,0,0.2);
+}
+
+pre::-webkit-scrollbar,.pre-code::-webkit-scrollbar,.highlight.text code::-webkit-scrollbar,.highlight.text::-webkit-scrollbar,.highlight.text code::-webkit-scrollbar {
+  background: rgba(0,0,0,0.15);
+}
+
+
+/* Pygments Stylesheet - Place pygments styles here. Place the main bgcolor in the var at the top of this file.
+-------------------------------------------------- */
+
+/* Wombat Pygments style
+    This isn't the original wombats style (original can be found on github).
+    This one has been modified to match the custom site styles.
+*/
+
+.highlight .hll { background-color: #ffffcc }
+.highlight .c { color: #aaaaaa; font-style: italic} /* Comment */
+.highlight .err { color: $color_code_text} /* Error */
+.highlight .g { color: $color_code_text} /* Generic */
+.highlight .k { color: $code_blue} /* Keyword */
+.highlight .l { color: $color_code_text} /* Literal */
+.highlight .n { color: $color_code_text} /* Name */
+.highlight .o { color: $color_code_text} /* Operator */
+.highlight .x { color: $color_code_text} /* Other */
+.highlight .p { color: $color_code_text} /* Punctuation */
+.highlight .cm { color: #aaaaaa; font-style: italic} /* Comment.Multiline */
+.highlight .cp { color: $code_red} /* Comment.Preproc */
+.highlight .c1 { color: #aaaaaa; font-style: italic} /* Comment.Single */
+.highlight .cs { color: #aaaaaa; font-style: italic} /* Comment.Special */
+.highlight .gd { color: $color_code_text} /* Generic.Deleted */
+.highlight .ge { color: $color_code_text} /* Generic.Emph */
+.highlight .gr { color: $color_code_text} /* Generic.Error */
+.highlight .gh { color: $color_code_text; font-weight: bold} /* Generic.Heading */
+.highlight .gi { color: $color_code_text} /* Generic.Inserted */
+.highlight .go { color: #808080; background-color: #303030 } /* Generic.Output */
+.highlight .gp { color: $color_code_text} /* Generic.Prompt */
+.highlight .gs { color: $color_code_text} /* Generic.Strong */
+.highlight .gu { color: $color_code_text; font-weight: bold} /* Generic.Subheading */
+.highlight .gt { color: $color_code_text} /* Generic.Traceback */
+.highlight .kc { color: $code_blue} /* Keyword.Constant */
+.highlight .kd { color: $code_blue} /* Keyword.Declaration */
+.highlight .kn { color: $code_blue} /* Keyword.Namespace */
+.highlight .kp { color: $code_blue} /* Keyword.Pseudo */
+.highlight .kr { color: $code_blue} /* Keyword.Reserved */
+.highlight .kt { color: $code_green} /* Keyword.Type */
+.highlight .ld { color: $color_code_text} /* Literal.Date */
+.highlight .m { color: $code_red} /* Literal.Number */
+.highlight .s { color: $code_dark_green; font-style: italic} /* Literal.String */
+.highlight .na { color: $code_green} /* Name.Attribute */
+.highlight .nb { color: $color_code_text} /* Name.Builtin */
+.highlight .nc { color: $color_code_text} /* Name.Class */
+.highlight .no { color: $code_red} /* Name.Constant */
+.highlight .nd { color: $color_code_text} /* Name.Decorator */
+.highlight .ni { color: #e7f6da} /* Name.Entity */
+.highlight .ne { color: $color_code_text} /* Name.Exception */
+.highlight .nf { color: $code_green} /* Name.Function */
+.highlight .nl { color: $color_code_text} /* Name.Label */
+.highlight .nn { color: $color_code_text} /* Name.Namespace */
+.highlight .nx { color: $color_code_text} /* Name.Other */
+.highlight .py { color: $color_code_text} /* Name.Property */
+.highlight .nt { color: $code_blue} /* Name.Tag */
+.highlight .nv { color: $code_green} /* Name.Variable */
+.highlight .ow { color: $color_code_text} /* Operator.Word */
+.highlight .w { color: $color_code_text} /* Text.Whitespace */
+.highlight .mf { color: $code_red} /* Literal.Number.Float */
+.highlight .mh { color: $code_red} /* Literal.Number.Hex */
+.highlight .mi { color: $code_red} /* Literal.Number.Integer */
+.highlight .mo { color: $code_red} /* Literal.Number.Oct */
+.highlight .sb { color: $code_dark_green; font-style: italic} /* Literal.String.Backtick */
+.highlight .sc { color: $code_dark_green; font-style: italic} /* Literal.String.Char */
+.highlight .sd { color: $code_dark_green; font-style: italic} /* Literal.String.Doc */
+.highlight .s2 { color: $code_dark_green; font-style: italic} /* Literal.String.Double */
+.highlight .se { color: $code_dark_green; font-style: italic} /* Literal.String.Escape */
+.highlight .sh { color: $code_dark_green; font-style: italic} /* Literal.String.Heredoc */
+.highlight .si { color: $code_dark_green; font-style: italic} /* Literal.String.Interpol */
+.highlight .sx { color: $code_dark_green; font-style: italic} /* Literal.String.Other */
+.highlight .sr { color: $code_dark_green; font-style: italic} /* Literal.String.Regex */
+.highlight .s1 { color: $code_dark_green; font-style: italic} /* Literal.String.Single */
+.highlight .ss { color: $code_dark_green; font-style: italic} /* Literal.String.Symbol */
+.highlight .bp { color: $color_code_text} /* Name.Builtin.Pseudo */
+.highlight .vc { color: $code_green} /* Name.Variable.Class */
+.highlight .vg { color: $code_green} /* Name.Variable.Global */
+.highlight .vi { color: $code_green} /* Name.Variable.Instance */
+.highlight .il { color: $code_red} /* Literal.Number.Integer.Long */
