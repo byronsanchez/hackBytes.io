@@ -1,0 +1,61 @@
+---
+layout: blog-page
+title: Resume
+nav_id: 2
+---
+
+<!-- Background/About me section -->
+<div class="row-fluid">
+  <div class="span12">
+  
+    <h2 class="resume-title">Background</h2>
+
+    {% include about.html %}
+
+    {% include services.html %}
+
+    <p>Feel free to <a href="{{ site.url }}/contact-me/">contact me</a> if you want more information.</p>
+
+  </div>
+</div>
+
+<!-- SKILLS SECTION -->
+<div class="row-fluid">
+  <div class="span6">
+    <h2 class="resume-title">Skills</h2>
+    
+    {% include skills.html %}
+    
+  </div>
+
+  <div class="span6">
+    <h2 class="resume-title">Environment</h2>
+
+    {% include environment.html %}
+
+  </div>
+  
+</div>
+
+<!-- EDUCATION SECTION -->
+<div class="row-fluid resume-outro">
+  <div class="span12">
+  
+    <h2 class="resume-title">Education</h2>
+    <p>BA in Crime Law and Justice, Pennsylvania State University, August 2012.</p>
+    
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <ul class="resume-info">
+      <li>Byron Sanchez</li>
+      <li class="muted">&middot;</li>
+      <li>Philadelphia, PA</li>
+      <li class="muted">&middot;</li>
+      <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+    </ul>
+  </div>
+</div>
+

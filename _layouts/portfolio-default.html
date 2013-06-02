@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+  {% include header.html %}
+
+  <body id="portfolio">
+        
+    {% include navbar-fluid.html %}
+
+    <div class="masthead" id="hello-world">
+      <div class="container">
+      
+        <div class="row">
+          <div class="span6">
+            <div class="intro-images">
+              <span class="computer"><img src="{{ site.url }}/img/computer.png" alt="Photo of a computer with code on the screen." /></span>
+              <span class="code-screenshot"><img src="{{ site.url }}/img/code-screenshot.png" alt="Screenshot of a text editor containing code." /></span>
+            </div>
+          </div>
+          <div class="span6">
+            <div class="intro-container">
+              <div class="intro">
+                <h1>Mobile and Web Application Development</h1>
+                <p class="lead">Get your applications developed and deployed.</p>
+                <p>Hi, I'm Byron, and I build mobile and web apps that are easy to use. I can help you offer your clients a great mobile or online experience.</p>
+                <p><a href="#contact-me" class="btn btn-warning btn-large" id="contact-button">Contact Me</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container-fluid content-inverse">
+      <div class="row-fluid">
+        <div id="sidebar">
+          <div class="sidebar-nav nav-left">
+            <div class="bs-docs-sidebar social">
+              <ul class="nav nav-list bs-docs-sidenav">
+                <li><a href="#hello-world"><i class="icon-chevron-right icon-white"></i> Byron Sanchez</a></li>
+                <li><a>&nbsp;</a></li>
+                
+                {% for item in site.categories.portfolio limit: 10  %}
+                  <li><a href="#{{ item.title | downcase |  replace:' ','-' }}"><i class="icon-chevron-right icon-white"></i> {{ item.title }}</a></li>
+                {% endfor %}
+                
+              </ul>
+            </div> <!-- /bs-docs-sidebar -->
+          </div> <!-- /sidebar-nav -->
+        </div> <!--/sidebar-->
+        <div id="content">
+          <div class="content fixed-fluid">
+            <div class="span12">
+              <div class="content-no-shadow">
+                {{ content }}
+              </div>
+            </div> <!-- /content-no-shadow -->
+              
+          </div> <!-- /content -->
+        </div> <!--/content-->
+      </div> <!-- row-fluid bootstrap -->
+    </div> <!-- container bootstrap -->
+    
+    <!-- Footer
+    ================================================== -->
+    <div class="content footer-contact" id="contact-me">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3">
+            <div class="footer-block">
+              <h2>About Me</h2>
+              {% include about.html %}
+              
+              <h2>Current Projects</h2>
+              {% include projects.html %}
+            </div>
+          </div>
+          <div class="span6">
+            <div class="footer-block">
+
+              <h2>Contact Me</h2>
+              {% include contact.html %}
+
+            </div>
+          </div>
+          <div class="span3">
+            <div class="footer-block">
+
+              <h2>Services</h2>
+              {% include services.html %}
+              
+              <h3>Skills</h3>
+              {% include skills.html %}
+              
+              <h3>Environment</h3>
+              {% include environment.html %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-bottom">
+      <div class="container-fluid">
+
+      {% include footer.html %}
+      
+      </div>
+    </footer>
+      
+{% include scripts.html %}
+  </body>
+</html>

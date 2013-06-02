@@ -1,0 +1,92 @@
+<!-- section headers -->
+<h3 id="header-verify-comment" class="comments-header hiddenBox">Verify your message</h3>
+
+<p>If you are thinking about working together, want some more information, or just want to chat, feel free to send me an email at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+
+<p>You can also use the form below.</p>
+
+<p></p>
+<div id="endcomments"></div>
+
+<!-- CONTACT FORM BEGINS -->
+<!-- comment form -->
+<div id="bs-comments">
+  
+  <!-- comment notices. -->
+  <div id="comments-open-response-success" class="alert alert-success hiddenBox">
+    <p class="comments-open-subtext">
+      Success! Your message has been submitted! 
+      {% case page.url %}
+      {% when "/contact-me/index.html" %}
+      <a href="javascript:void 0;" onclick="window.location.hash='#contact-form';window.location.reload(false)">Reload form.</a>
+      {% else %}
+      <a href="javascript:void 0;" onclick="window.location.hash='#contact-me';window.location.reload(false)">Reload form.</a>
+      {% endcase %}
+    </p>
+  </div> <!-- comments-open-response-success -->
+  
+  <div id="comments-open-response-error" class="alert alert-error hiddenBox">
+  </div> <!-- comments-open-response-error -->
+
+  <!-- The main comment section -->
+  <div id="primary-comment-form" class="comment-form">
+    <form id="contact-form">
+      <fieldset>
+        {% case page.url %}
+        {% when "/contact-me/index.html" %}
+        <input type="hidden" name="post_id" value="/contact-me" />
+        {% else %}
+        <input type="hidden" name="post_id" value="/portfolio/#contact-me" />
+        {% endcase %}
+        <input type="hidden" name="return_url" value="{{site.url}}{{page.url}}" />
+
+        <div class="comments-open">
+          <div id="comments-open-content" class="comments-open-content">
+            
+            <!-- Comment form fields. -->
+            
+            <div id="comments-open-text" style="display: none;">
+              <label for="comment-text">Message <span class="form-required" title="This field is required.">*</span></label>
+              <textarea id="comment-text" name="comment" rows="10" cols="30" required></textarea>
+            </div> <!-- comments-open-text -->
+        
+            <div id="comments-open-data" style="display: none;">
+            
+              <!-- <p>Your Information</p> -->
+              <p>
+                <label for="comment-author">Name <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="comment-author" name="name" size="30" class="grayText" placeholder="Name" required/>
+                <span id="comment-author-error" class="comment-error hiddenBox">Name is required to send a message</span>
+              </p>
+              <p>
+                <label for="comment-email">Email Address <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="comment-email" name="email" size="30" class="grayText" placeholder="test@example.com" required/>
+                <span id="comment-email-error" class="comment-error hiddenBox">Please enter a valid email address</span>
+              </p>
+              <p>
+                <label for="comment-url">Web Site URL</label>
+                <input type="text" id="comment-url" name="link" size="30" class="grayText"  placeholder="http://www.example.com" />
+                <span id="comment-url-error" class="comment-error hiddenBox">Invalid URL</span>
+              </p>
+          
+            </div> <!-- comments-open-data -->
+          
+            <div id="comments-open-footer" class="comments-open-footer" style="display: none;">
+              <!-- Initial button states == disabled -->
+              <input type="submit" name="contact" id="comment-post-button" value="&nbsp;Send Message&nbsp;" class="btn btn-primary" disabled="disabled" />
+              <div id="commentEntryFormSpinner" class="commentSpinner hiddenBox"></div>
+            </div> <!-- comments-open-footer -->
+
+          </div> <!-- comments-open-content -->
+          
+        </div> <!-- comments-open -->
+      </fieldset>
+    </form>
+  
+  <!-- noscript warning-->
+  <noscript>
+    <p>Please enable JavaScript to send a message.</p>
+  </noscript>
+
+  </div> <!-- primary-comment-form -->
+</div> <!-- bs-comments -->

@@ -1,0 +1,64 @@
+####################
+# Main Configuration
+####################
+
+url: "http://hackbytes.com"
+title: hackBytes
+subtitle: "programming and design concepts"
+author: Byron Sanchez
+description: "programming and design concepts"
+
+# Ruby format reference:
+# http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
+date_format: "%B %e, %Y %l:%M %p"
+email: bfs5030@gmail.com
+recent_posts: 10       # Posts in the sidebar Recent Posts section
+
+######################
+# Jekyll Configuration
+######################
+
+# If publishing to a subdirectory, set this as necessary.
+root: /
+permalink: /:title
+lsi: false
+auto: false
+future: false
+server: false
+
+#########
+# Plugins
+#########
+
+markdown: redcarpet
+redcarpet:
+  extensions: ["fenced_code_blocks", "no_intra_emphasis", "autolink", "strikethrough", "lax_spacing", "superscript", "hard_wrap", "tables", "xhtml", "with_toc-data"]
+#paginate: 10          # Posts per page on the blog index
+#paginate_path: /page/:num # The path for paginated pages
+pygments: true
+
+# Gravatar settings
+gravatar_url: "http://www.gravatar.com/avatar"
+gravatar_size: 64
+gravatar_default: "identicon"
+
+#####################
+# Inclusion/Exclusion
+#####################
+
+exclude:
+- README
+- Rakefile
+- Gemfile
+- Gemfile.lock
+- comments.sh
+- config.rb
+- resources
+- vendor
+- sass
+- .rvmrc
+- scripts
+- resources
+- bin
+include:
+- .htaccess
