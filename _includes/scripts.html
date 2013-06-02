@@ -1,0 +1,21 @@
+    <!-- jQuery CDN and fallback -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      window.jQuery || document.write(unescape("%3Cscript src='{{ site.url }}/js/jquery-1.9.1.min.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+    <!-- Bootstrap CDN and fallback -->
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script>
+      $.fn.modal || document.write(unescape("%3Cscript src='{{ site.url }}/js/bootstrap.min.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+    <!-- Plugins and custom javascript -->
+    <script src="{{ site.url }}/js/hackbytes.min.js"></script>
+    
+    <!--[if lte IE 6]>
+    <script src="{{ site.url }}/js/supersleight.plugin.js"></script>
+    <script language="javascript" type="text/javascript">
+        $("img").each(function(){ $(this).supersleight() });
+    </script> 
+    <![endif]-->

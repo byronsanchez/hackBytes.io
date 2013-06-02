@@ -1,0 +1,31 @@
+/**
+ * IE styles for <= IE7.
+ *
+ * Support for versions >= IE8 can be managed with common polyfills and shivs.
+ * Just don't overdo it with unnecessary features for those versions or
+ * performance will suffer.
+ */
+
+/* Vertical alignment (to make inline-blocks work). ( <=IE7 )
+-------------------------------------------------------------- */
+
+// Blog's hero-unit.
+.logo,
+.logo-text, .logo-text h1, .logo-text h1 a,
+// Form spinners
+#commentEntryFormSpinner,
+#previewFormSpinner,
+// Keyboard.
+kbd,
+// Avatars
+.avatar,
+.comment-info,
+span.comment-error,
+// PORTFOLIO
+.computer,
+.code-screenshot,
+.bs-docs-social-buttons li {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
