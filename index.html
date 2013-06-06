@@ -50,13 +50,13 @@ excerpt: true
         {% if post.comments_enabled %}
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <a href="{{ site.url }}{{ post.url }}/#comments">
-            {% case post.comment_count %}
+            {% case post.comments_num %}
               {% when 0 %}
                 No Comments
               {% when 1 %}
                 1 Comment
               {% else %}
-                {{post.comment_count}} Comments
+                {{post.comments_num}} Comments
             {% endcase %}
           </a>
         {% endif %}

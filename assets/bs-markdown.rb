@@ -13,7 +13,7 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
     options = parse_options(lang)
 
     # Update the language based on our custom options feature.
-    lang = options["lang"]
+    lang = options["lang"] || "text"
 
     #lang = lang && lang.split.first || "text"
     

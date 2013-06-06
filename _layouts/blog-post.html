@@ -50,13 +50,13 @@ layout: blog-default
 
 <!-- Comments Section -->
 {% if page.comments_enabled %}
-    {% case page.comment_count %}
+    {% case page.comments_num %}
       {% when 0 %}
         <div class="comments-count">No Comments</div>
       {% when 1 %}
         <div class="comments-count">1 Comment</div> 
       {% else %}
-        <div class="comments-count">{{page.comment_count}} Comments</div>
+        <div class="comments-count">{{page.comments_num}} Comments</div>
     {% endcase %}
     {% for c in page.comments %}
       <div class="comments-body {{ c.name | handleize }} {% cycle 'odd', 'even' %}" id="{{ c.id }}"> 
