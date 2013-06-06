@@ -39,6 +39,12 @@ doc/app
 # PROJECT-SPECIFIC
 ##################
 
+# Post drafts don't need to be committed. They are CONSTANTLY changing.
+_posts/_drafts
+
+# A custom command list.
+assets/scripts/cmds.txt
+
 # Ignore compiled/derivative files that can be rebuilt from already
 # committed files.
 hackbytes.min.js
@@ -52,7 +58,6 @@ css/*.gif
 
 # Some of the bootstrap resources don't need to be version controlled.
 # If they exist, just ignore them.
-assets/bin/
 assets/sass/bootstrap/docs/
 assets/sass/bootstrap/js/
 assets/sass/bootstrap/lib/tests/

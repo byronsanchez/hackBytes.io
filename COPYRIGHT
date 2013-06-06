@@ -2,9 +2,7 @@
  NOTE:
 
  Different parts of the project are licensed under different terms.
- This is necessary to provide extra flexibility for usage of non-source
- code files (images, media, etc.) outside of forks. Here are the
- details.
+ Here are the details.
 
  1] The hackbytes.com source code is copyrighted by me and licensed under
     the GPL v2.0.
@@ -14,7 +12,7 @@
     Forks may contain the logo, but the logo may not be used outside of
     the scope of forks (barring fair use).
 
- 3] All other images and any media (binary files that are not software
+ 3] All images and media (binary files that are not software
     dependencies) not described in section 2 are licensed under the
     Creative Commons: BY-SA Attribution 3.0 license.
 
@@ -35,23 +33,23 @@
  
      a] You must visually indicate that the content was created by
         "Byron Sanchez". A text credit is sufficient. If you make
-	      modifications to the work, then you must state that the original
+        modifications to the work, then you must state that the original
         work was created by "Byron Sanchez".
 
      b] Link the text "Byron Sanchez" directly to the website:
      
         http://hackbytes.com
 
-	      A special exception to this applies to any form of distribution
-	      or publication in which a link is not technologically possible
-	      (e.g. a fork). If links are not technologically possible, simply
-	      place the url next to my name. Websites must actually use a
-	      standard HTML link.
+        A special exception to this applies to any form of distribution
+        or publication in which a link is not technologically possible
+        (e.g. a fork). If links are not technologically possible, simply
+        place the url next to my name. Websites must actually use a
+        standard HTML link.
 
      c] The attribution must be visible. In the case of websites, it
         must be visible even with JavaScript disabled. You may not use
-	      any form of redirection or obfuscation. Links must NOT be
-	      nofollowed.
+        any form of redirection or obfuscation. Links must NOT be
+        nofollowed.
 
     SAMPLE: Image by Byron Sanchez
  
@@ -156,11 +154,13 @@ Ruby
 
   Albino - Copyright (c) 2011 Chris Wanstrath
 
+  Chunky PNG - Copyright (c) 2010-2013 Willem van Bergen
+  
   Classifier - Copyright (c) 2010 Lucas Carlson, David Fayram II, and Cameron McBride
     Licensed under the LGPL v2.1 - https://github.com/cardmagic/classifier
     Source available in the vendor/src/ directory, or alternatively, the github repository.
 
-  Chunky PNG - Copyright (c) 2010-2013 Willem van Bergen
+  Compass - Copyright (c) 2009 Christopher M. Eppstein
 
   Directory Watcher - Copyright (c) 2007-2013 Tim Pease
 
@@ -180,11 +180,13 @@ Ruby
 
   pygments.rb - Copyright (c) Ted Nyman and Aman Gupta, 2012-2013
 
-  related_posts - Copyright (c) 2011-2012 Lawrence Woodman
-
   Redcarpet - Copyright (c) 2011, Vicent Martí and Copyright (c) 2009, Natacha Porté
 
+  related_posts plugin - Copyright (c) 2011-2012 Lawrence Woodman
+
   SafeYAML - Copyright (c) 2013 Dan Tao
+
+  Sass - Copyright (c) 2006-2009 Hampton Catlin, Nathan Weizenbaum, and Chris Eppstein
 
   Syntax - Copyright (c) 2004, Jamis Buck (jgb3@email.byu.edu)
 
@@ -194,11 +196,6 @@ CSS
 
   Bootstrap - Copyright (c) 2012 Twitter, Inc.
 
-  Compass - Copyright (c) 2009 Christopher M. Eppstein
-
   CSS3 PIE - Copyright (c) 2010 Jason Johnston
 
   responsive-video.css - Copyright (c) 2011 ZURB, http://www.zurb.com/
-
-  Sass - Copyright (c) 2006-2009 Hampton Catlin, Nathan Weizenbaum, and Chris Eppstein
-
