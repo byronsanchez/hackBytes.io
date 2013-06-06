@@ -12,7 +12,7 @@
 # root directory changes.
 
 require 'pathname'
-require ENV['HOME'] + '/Developer/web/hackbytes/assets/scripts/colorize' # in same directory as this file.
+require ENV['HOME'] + '/Developer/web/hackbytes.com/assets/scripts/colorize' # in same directory as this file.
 
 
 #######################
@@ -20,7 +20,7 @@ require ENV['HOME'] + '/Developer/web/hackbytes/assets/scripts/colorize' # in sa
 #######################
 
 # Root project directory
-PROJECT_DIR = ENV['HOME'] + "/Developer/web/hackbytes"
+PROJECT_DIR = ENV['HOME'] + "/Developer/web/hackbytes.com"
 
 # Absolute paths for files that need to be updated for production.
 FILE_CONFIG           = PROJECT_DIR + "/_config.yml"

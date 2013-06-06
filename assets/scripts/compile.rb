@@ -9,7 +9,7 @@ require 'pathname'
 #######################
 
 # Root project directory
-PROJECT_DIR = ENV['HOME'] + "/Developer/web/hackbytes"
+PROJECT_DIR = ENV['HOME'] + "/Developer/web/hackbytes.com"
 # For color output when necessary.
 require PROJECT_DIR + '/assets/scripts/colorize'
 
