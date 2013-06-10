@@ -41,12 +41,6 @@ def update_development()
   parsed_content = content.sub("http://hackbytes.com", "http://hackbytes-devel.com")
   File.write(FILE_CONFIG, parsed_content)
   puts "#{FILE_CONFIG} updated"
-
-  # Ruby PATH configs
-  content = File.read(FORM_PHP)
-  parsed_content = content.sub("putenv('PATH=' . '/opt/ruby/1.9.3-p374/bin' . getenv('PATH') . PATH_SEPARATOR );", "// putenv('PATH=' . '/opt/ruby/1.9.3-p374/bin' . getenv('PATH') . PATH_SEPARATOR );")
-  File.write(FORM_PHP, parsed_content)
-  puts "#{FORM_PHP} updated"
 end
 
 # Updates the project's files to reflect the production environment.
@@ -59,12 +53,6 @@ def update_production()
   parsed_content = content.sub("http://hackbytes-devel.com", "http://hackbytes.com")
   File.write(FILE_CONFIG, parsed_content)
   puts "#{FILE_CONFIG} updated"
-
-  # Ruby PATH configs
-  content = File.read(FORM_PHP)
-  parsed_content = content.sub("// putenv('PATH=' . '/opt/ruby/1.9.3-p374/bin' . getenv('PATH') . PATH_SEPARATOR );", "putenv('PATH=' . '/opt/ruby/1.9.3-p374/bin' . getenv('PATH') . PATH_SEPARATOR );")
-  File.write(FORM_PHP, parsed_content)
-  puts "#{FORM_PHP} updated"
 end
 
 
