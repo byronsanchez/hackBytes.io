@@ -17,7 +17,7 @@ module Jekyll
       def initialize(tag_name, markup, tokens)
         super
         if markup.strip =~ SYNTAX
-          @lang = $1
+          @lang = $1 || "text"
           @options = {}
           @isTable = false
           if defined?($2) && $2 != ''
@@ -103,7 +103,7 @@ eos
         code = code.sub(/<\/pre>/,"</code></pre>")
       end
       
-      # Manually add table and structure it the way we want to. (From Octopress)
+      # Manually add table and structure it the way we want to.
       def tableize_code (str, lang = 'text')
         table = '<div class="highlight ' + lang + '"><table><tr><td class="gutter"><pre class="line-numbers">'
         code = ''
