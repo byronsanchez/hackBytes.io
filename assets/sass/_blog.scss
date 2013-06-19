@@ -170,7 +170,6 @@ article > :first-child {
 #blog table tr th, #blog table tr td
 {
 	border:1px solid #ccc;
-	text-align:left;
 	margin:0;
 	padding:6px 13px;
 }
@@ -484,7 +483,8 @@ kbd {
 }
 
 .comments-body.even {
-  background: #eee;
+  //background: #eee;
+  background: #f8f8f8;
 }
 
 .even hr {
@@ -729,6 +729,42 @@ only screen and (max-width: 767px) {
   .footer-link-top {
     padding: 10px;
   }
+  // TODO: Apply a class to tables with table headers in case there is code
+  // interference.
+  /* Force table to not be like tables anymore */
+  #blog table, #blog thead, #blog tbody, #blog th, #blog td, #blog tr { 
+    display: block; 
+  }
+  
+  /* Hide table headers (but not display: none;, for accessibility) */
+  #blog thead tr { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  #blog table tr { border: 1px solid #ccc; }
+  
+  #blog table tr td { 
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+    padding-left: 50%;
+  }
+  
+  #blog td:before { 
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;
+  }
+
+  #blog td:before { content: attr(axis); }
 }
 
 @media (max-width: 767px) {
