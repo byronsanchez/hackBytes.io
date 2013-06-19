@@ -97,7 +97,8 @@ module Jekyll
           @redcarpet_extensions[:fenced_code_blocks] = !@redcarpet_extensions[:no_fenced_code_blocks]
           @renderer.send :include, Redcarpet::Render::SmartyPants if @redcarpet_extensions[:smart]
           markdown = Redcarpet::Markdown.new(@renderer.new(@redcarpet_extensions), @redcarpet_extensions)
-          markdown.render(content)
+          output = markdown.render(content)
+          render_table_headers(output)
         when 'kramdown'
           # Check for use of coderay
           if @config['kramdown']['use_coderay']
@@ -134,6 +135,51 @@ module Jekyll
           html
         when 'maruku'
           Maruku.new(content).to_html
+      end
+    end
+
+    def render_table_headers(html)
+      th_array = Array.new
+      syntax = /<table><thead>(.+?)<\/thead><tbody>(.+?)<\/tbody><\/table>/m
+      # Load the data
+      results = html.to_enum(:scan, syntax).map { Regexp.last_match }.map! { |x| x.to_s }
+      matches = results.dup
+  
+      if results.nil? || results.empty?
+        html
+      else
+        i = 0
+        j = 0
+        # Modify the data
+        results.map! { |table|
+          table = table.lines.map { |line|
+            # If string contains th, copy the value locally and insert it to axis
+            th_match = /<th>(.+?)<\/th>/.match(line)
+            td_match =  /(<td>.+?<\/td>)/.match(line)
+            if th_match
+              th_array.push(th_match[1])
+              line.sub!(/<th>/, '<th axis="' + th_array[j] + '">')
+              j += 1
+              line
+            elsif td_match
+              if i >= j
+                i = 0
+              end
+              line.sub!(/<td>/, '<td axis="' + th_array[i] + '">')
+              i += 1
+              line
+            else
+              line
+            end
+          }.join
+
+          table
+        }
+
+        matches.zip(results).each do |match, result|
+          html.sub!(match, result)
+        end
+        html
       end
     end
   end
