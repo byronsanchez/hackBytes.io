@@ -139,7 +139,6 @@ module Jekyll
     end
 
     def render_table_headers(html)
-      th_array = Array.new
       syntax = /<table><thead>(.+?)<\/thead><tbody>(.+?)<\/tbody><\/table>/m
       # Load the data
       results = html.to_enum(:scan, syntax).map { Regexp.last_match }.map! { |x| x.to_s }
@@ -148,15 +147,20 @@ module Jekyll
       if results.nil? || results.empty?
         html
       else
-        i = 0
-        j = 0
         # Modify the data
         results.map! { |table|
+          th_array = Array.new
+          i = 0
+          j = 0
           table = table.lines.map { |line|
             # If string contains th, copy the value locally and insert it to axis
+            table_match = /(<table>)/.match(line)
             th_match = /<th>(.+?)<\/th>/.match(line)
             td_match =  /(<td>.+?<\/td>)/.match(line)
-            if th_match
+            if table_match
+              line.sub!(/<table>/, '<table class="headers">')
+              line
+            elsif th_match
               th_array.push(th_match[1])
               line.sub!(/<th>/, '<th axis="' + th_array[j] + '">')
               j += 1
