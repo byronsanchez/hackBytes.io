@@ -98,7 +98,8 @@ module Jekyll
           @renderer.send :include, Redcarpet::Render::SmartyPants if @redcarpet_extensions[:smart]
           markdown = Redcarpet::Markdown.new(@renderer.new(@redcarpet_extensions), @redcarpet_extensions)
           output = markdown.render(content)
-          render_table_headers(output)
+          output = render_table_headers(output)
+          render_footnotes(output)
         when 'kramdown'
           # Check for use of coderay
           if @config['kramdown']['use_coderay']
@@ -185,6 +186,12 @@ module Jekyll
         end
         html
       end
+    end
+
+    # Yet another hack to let us customize the styling for footnotes.
+    def render_footnotes(html)
+      syntax = /<div class="footnotes">\s*?<hr>/m
+      html.gsub!(syntax, '<div class="footnotes">')
     end
   end
 
