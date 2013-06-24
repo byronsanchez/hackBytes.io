@@ -44,13 +44,14 @@ h3 {
 }
 
 h4 {
-	font-size:16px;
+	font-size:14px;
 	font-weight:bold;
 	margin:1.333em 0 10px;
   line-height: 1.6em;
 }
 
 h5 {
+	color:#333;
 	font-size:14px;
 	font-weight:bold;
 	margin:1.333em 0 10px;
@@ -179,6 +180,16 @@ article > :first-child {
 	border-radius:3px;
   margin: 0;
 	padding:3px;
+}
+
+.footnotes {
+  background: #f8f8f8;
+  font-size: 12px;
+  margin: 48px 0 0 0;
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-style: dashed;
 }
 
 .shadow {
@@ -732,20 +743,20 @@ only screen and (max-width: 767px) {
   // TODO: Apply a class to tables with table headers in case there is code
   // interference.
   /* Force table to not be like tables anymore */
-  #blog table, #blog thead, #blog tbody, #blog th, #blog td, #blog tr { 
+  #blog table.headers, #blog table.headers thead, #blog table.headers tbody, #blog table.headers th, #blog table.headers td, #blog table.headers tr { 
     display: block; 
   }
   
   /* Hide table headers (but not display: none;, for accessibility) */
-  #blog thead tr { 
+  #blog table.headers thead tr { 
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
   
-  #blog table tr { border: 1px solid #ccc; }
+  #blog table.headers tr { border: 1px solid #ccc; }
   
-  #blog table tr td { 
+  #blog table.headers tr td { 
     /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee; 
@@ -753,7 +764,7 @@ only screen and (max-width: 767px) {
     padding-left: 50%;
   }
   
-  #blog td:before { 
+  #blog table.headers td:before { 
     /* Now like a table header */
     position: absolute;
     /* Top/left values mimic padding */
@@ -764,7 +775,7 @@ only screen and (max-width: 767px) {
     white-space: nowrap;
   }
 
-  #blog td:before { content: attr(axis); }
+  #blog table.headers td:before { content: attr(axis); }
 }
 
 @media (max-width: 767px) {
