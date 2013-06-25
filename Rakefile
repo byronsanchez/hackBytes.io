@@ -55,7 +55,7 @@ task :post, :title do |t, args|
     open("#{CONFIG['posts']}/#{filename}", 'w') do |post|
       post.puts "---"
       post.puts "title: \"#{title.gsub(/-/,' ')}\""
-      post.puts 'description: ""'
+      post.puts 'description: false'
       post.puts "date: " + date + " " + (Time.now).strftime('%H:%M:%S')
       post.puts "category: blog"
       post.puts "comments_enabled: true"
@@ -92,7 +92,7 @@ task :draft, :title do |t, args|
     open("#{CONFIG['drafts']}/#{filename}", 'w') do |post|
       post.puts "---"
       post.puts "title: \"#{title.gsub(/-/,' ')}\""
-      post.puts 'description: ""'
+      post.puts 'description: false'
       post.puts "date:"
       post.puts "category: blog"
       post.puts "comments_enabled: true"
