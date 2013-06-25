@@ -8,6 +8,8 @@ subtitle: "programming and design concepts"
 author: Byron Sanchez
 description: "programming and design concepts"
 comments_enabled: true
+pagination_enabled: true
+pagination_extensions: ["categories"]
 
 # Ruby format reference:
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
@@ -31,10 +33,12 @@ server: false
 # Plugins
 #########
 
+# NOTE: If you change this, be sure to change the corresponding code in
+# assets/bs-markdown.rb
 markdown: redcarpet
 redcarpet:
-  extensions: ["fenced_code_blocks", "no_intra_emphasis", "autolink", "strikethrough", "lax_spacing", "superscript", "hard_wrap", "tables", "xhtml", "with_toc-data"]
-#paginate: 10          # Posts per page on the blog index
+  extensions: ["fenced_code_blocks", "disable_indented_code_blocks", "no_intra_emphasis", "autolink", "strikethrough", "lax_spacing", "superscript", "tables", "xhtml", "with_toc-data", "underline", "footnotes"]
+#paginate: 5          # Posts per page on the blog index
 #paginate_path: /page/:num # The path for paginated pages
 pygments: true
 
