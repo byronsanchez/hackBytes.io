@@ -6,6 +6,18 @@ rendered as the previous/next page (if it has pagination enabled).
 Pagination is enabled by default and turned off explicitly in the YAML
 front-matter.
 
+Two pagination modes are currently available:
+
+- "categories" => use page.category_name.previous and
+  page.category_name.next to generate pager links for a specific
+  category.
+
+- "default" => The default pager will be generated (all pages will be
+  paginated based on publication date). The one difference is that you
+  can make the paginator skip certain pages by adding
+  "pagination_enabled: false" to the YAML front-matter of pages you
+  want skipped.
+
 =end
 
 module Jekyll
@@ -22,9 +34,19 @@ module Jekyll
     # Returns nothing.
     def generate(site)
       update_post_timeline(site, site.config)
-      build_category_pager(site, site.config)
-      site.posts.each do |post|
-        build_pager(site, post)
+      # Build a category pager if enabled in _config.yml
+      if site.config['pagination_mode'].nil?
+        site.posts.each do |post|
+          build_pager(site, post)
+        end
+      else
+        if site.config['pagination_mode'] == "categories"
+          build_category_pager(site, site.config)
+        elsif site.config['pagination_mode'] == "default"
+          site.posts.each do |post|
+            build_pager(site, post)
+          end
+        end
       end
     end
 
@@ -66,35 +88,32 @@ module Jekyll
     #
     # Returns nothing.
     def build_category_pager(site, config)
-      # Build a category pager if enabled in _config.yml
-      unless site.config['pagination_extensions'].nil?
-        if site.config['pagination_extensions'].include? 'categories'
-          site.categories.each do |category|
-            category_name = category[0]
-            # Must be updated in place so that the post indexes match
-            # the category filters. Otherwise, the array will be sorted
-            # by the default global order based on published date as
-            # opposed to category.
-            category[1].sort_by! {|s| s.date.to_i }.each do |post|
-              # Initialize category array if needed.
-              if post.data[category_name].nil?
-                post.data[category_name] = Hash.new
-              end
-              current_post_index = category[1].index(post)
-              prev_post_index = current_post_index - 1
-              next_post_index = current_post_index + 1
-              # lower bound
-              if current_post_index <= 0
-                post.data[category_name]['smart_previous'] = nil
-              # upper bound
-              elsif current_post_index >= category[1].length - 1
-                post.data[category_name]['smart_next'] = nil
-              # everything else
-              else
-                post.data[category_name]['smart_previous'] = category[1][prev_post_index]
-                post.data[category_name]['smart_next'] = category[1][next_post_index]
-              end
-            end
+      site.categories.each do |category|
+        category_name = category[0]
+        # Must be updated in place so that the post indexes match
+        # the category filters. Otherwise, the array will be sorted
+        # by the default global order based on published date as
+        # opposed to category.
+        category[1].sort_by! {|s| s.date.to_i }.each do |post|
+          # Initialize category array if needed.
+          if post.data[category_name].nil?
+            post.data[category_name] = Hash.new
+          end
+          current_post_index = category[1].index(post)
+          prev_post_index = current_post_index - 1
+          next_post_index = current_post_index + 1
+          # lower bound
+          if current_post_index <= 0
+            post.data[category_name]['previous'] = nil
+            post.data[category_name]['next'] = category[1][next_post_index]
+          # upper bound
+          elsif current_post_index >= category[1].length - 1
+            post.data[category_name]['previous'] = category[1][prev_post_index]
+            post.data[category_name]['next'] = nil
+          # everything else
+          else
+            post.data[category_name]['previous'] = category[1][prev_post_index]
+            post.data[category_name]['next'] = category[1][next_post_index]
           end
         end
       end

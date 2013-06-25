@@ -9,7 +9,9 @@ author: Byron Sanchez
 description: "programming and design concepts"
 comments_enabled: true
 pagination_enabled: true
-pagination_extensions: ["categories"]
+pagination_mode: "categories" # categories => use page.category_name.smart_previous
+                              #               and page.category_name.smart_next
+                              # default => use page.smart_previous and page.smart_next
 
 # Ruby format reference:
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime

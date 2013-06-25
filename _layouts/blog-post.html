@@ -31,15 +31,15 @@ layout: blog-default
       <!-- Pagination -->
       <div class="footernav">
       
-        {% if page.previous %}
-      
-        <div style="float:left;"><a rel="prev" href="{{ site.url }}{{ page.previous.url }}/">&laquo;&nbsp;{{ page.previous.title }}</a></div> 
+        {% if page.blog.previous %}
+
+        <div style="float:left;"><a rel="prev" href="{{ site.url }}{{ page.blog.previous.url }}/">&laquo;&nbsp;{{ page.blog.previous.title }}</a></div>
         
         {% endif %}
         
-        {% if page.next %}
-        
-        <div style="float:right;"><a rel="next" href="{{ site.url }}{{ page.next.url }}/">{{ page.next.title }}&nbsp;&raquo;</a></div>
+        {% if page.blog.next %}
+
+        <div style="float:right;"><a rel="next" href="{{ site.url }}{{ page.blog.next.url }}/">{{ page.blog.next.title }}&nbsp;&raquo;</a></div>
         
         {% endif %}
       
