@@ -206,3 +206,12 @@ desc "Deploy the app to the production server."
 task :deploy do
   system("ruby ./assets/scripts/deploy.rb")
 end
+
+# rake nuke
+# where list = list all available options and all = nuke the project
+desc "Removes all copyrighted material under which no reuse license has been provided."
+task :nuke, :nuke_op do |t, args|
+  nuke_op       = args[:nuke_op]
+  
+  system("ruby ./assets/scripts/nuke.rb #{nuke_op}")
+end
