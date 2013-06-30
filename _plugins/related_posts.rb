@@ -25,7 +25,15 @@ module RelatedPosts
       end
     end
 
-    Jekyll::Post.sort_related_posts(related_scores)
+    # If there are no related posts, output nil so that the liquid
+    # object can be used as part of an if check.
+    output = Jekyll::Post.sort_related_posts(related_scores)
+    if output.length == 0
+      output = nil
+    else
+      output
+    end
+
   end
 
   module ClassMethods

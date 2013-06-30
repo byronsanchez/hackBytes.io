@@ -192,6 +192,7 @@ module Jekyll
     def render_footnotes(html)
       syntax = /<div class="footnotes">\s*?<hr>/m
       html.gsub!(syntax, '<div class="footnotes">')
+      html
     end
   end
 
