@@ -17,7 +17,8 @@ layout: blog-default
       <div class="posted muted">
         Published by Byron Sanchez
       </div>
-    
+
+      {% if site.related_posts %}
       <!-- Related Posts -->
       <h3>Related posts:</h3>
       <div class="related-posts">
@@ -27,23 +28,22 @@ layout: blog-default
           {% endfor %}
         </ul>
       </div>
+      {% endif %}
 
+      {% if page.blog.previous or page.blog.next %}
       <!-- Pagination -->
       <div class="footernav">
       
         {% if page.blog.previous %}
-
         <div style="float:left;"><a rel="prev" href="{{ site.url }}{{ page.blog.previous.url }}/">&laquo;&nbsp;{{ page.blog.previous.title }}</a></div>
-        
         {% endif %}
         
         {% if page.blog.next %}
-
         <div style="float:right;"><a rel="next" href="{{ site.url }}{{ page.blog.next.url }}/">{{ page.blog.next.title }}&nbsp;&raquo;</a></div>
-        
         {% endif %}
       
       </div> <!-- footernav -->
+      {% endif %}
     </footer>
   </article>
 </div> <!-- blogbody solo -->
