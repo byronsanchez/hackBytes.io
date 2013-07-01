@@ -36,10 +36,16 @@ def update_development()
   # Revert all necessary file contents for development.
   puts "Updating files for development."
 
-  # FILE_CONFIG
+  #############
+  # _config.yml
+  #############
+
   content  = File.read(FILE_CONFIG)
-  parsed_content = content.sub("http://hackbytes.com", "http://hackbytes-devel.com")
-  File.write(FILE_CONFIG, parsed_content)
+  # domain name
+  content = content.sub("http://hackbytes.com", "http://hackbytes-devel.com")
+  # future posts
+  content = content.sub("future: false", "future: true")
+  File.write(FILE_CONFIG, content)
   puts "#{FILE_CONFIG} updated"
 end
 
@@ -48,10 +54,14 @@ def update_production()
   # Update all necessary file contents for production.
   puts "Updating files for production."
 
-  # FILE_CONFIG
+  #############
+  # _config.yml
+  #############
+
   content  = File.read(FILE_CONFIG)
-  parsed_content = content.sub("http://hackbytes-devel.com", "http://hackbytes.com")
-  File.write(FILE_CONFIG, parsed_content)
+  content = content.sub("http://hackbytes-devel.com", "http://hackbytes.com")
+  content = content.sub("future: true", "future: false");
+  File.write(FILE_CONFIG, content)
   puts "#{FILE_CONFIG} updated"
 end
 

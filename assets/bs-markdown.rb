@@ -34,6 +34,40 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
     code = code.sub(/<\/pre>/,"</code></pre>")
   end
 
+  def preprocess(html)
+    html = render_custom_tags(html)
+    html
+  end
+
+  # ADD CUSTOM REDCARPET TAGS HERE
+  def render_custom_tags(html)
+    # Video tags.
+    # Only replace if there's at least one match. This is why scanning
+    # happens first.
+    syntax = /\[video\s+?(.*?)(?:\s+?\|\s+?(.*?))?\]/m
+    html.scan(syntax)
+    source = $1
+    style = $2
+    unless source.nil? || source.empty?
+      # Set defaults and flags for optional components
+      if style.nil? || style.empty?
+        style= ""
+      else
+        style = " " + style
+      end
+
+      # Youtube Regex
+      syntax_youtube = /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?(\w{10,})/m
+      source.scan(syntax_youtube)
+      id = $1
+      unless id.nil? || id.empty?
+        html = html.gsub(syntax, '<div class="flex-video' + style + '"><iframe width="560" height="315" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe></div>')
+      end
+    end
+
+    html
+  end
+
   def tableize_code (str, lang = '')
     table = '<div class="highlight ' + lang + '"><table><tr><td class="gutter"><pre class="line-numbers">'
     code = ''
@@ -94,22 +128,26 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
     
     options
   end
-
+  
 end
 
 def fromMarkdown(text)
+  # NOTE: If you change this, be sure to change the corresponding
+  # value in _config.yml
 	markdown = Redcarpet::Markdown.new(HTMLwithPygments,
 		:fenced_code_blocks => true,
+    :disable_indented_code_blocks => true,
 		:no_intra_emphasis => true,
 		:autolink => true,
 		:strikethrough => true,
 		:lax_spacing => true,
 		:superscript => true,
-		:hard_wrap => true,
 		:tables => true,
 		:xhtml => true,
     :no_styles => true,
-    :with_toc_data => true)
-	markdown.render(text)
+    :with_toc_data => true,
+    :underline => true,
+    :footnotes => true)
+	markdown = markdown.render(text)
 end
 
