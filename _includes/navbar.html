@@ -16,7 +16,7 @@
                     Home Page == 0;
                     Portfolio == 1;
                     Resume == 2;
-                    About Me === 3;
+                    About == 3;
                     Contact Me == 4;
                   
                   {% endcomment %}
@@ -40,9 +40,9 @@
                   {% endif %}
                   
                   {% if page.nav_id == 3 %}
-                    <li class="active"><a href="{{ site.url }}/about-me/">About Me</a></li>
+                    <li class="active"><a href="{{ site.url }}/about/">About</a></li>
                   {% else %}
-                    <li><a href="{{ site.url }}/about-me/">About Me</a></li>
+                    <li><a href="{{ site.url }}/about/">About</a></li>
                   {% endif %}
                   
                   {% if page.nav_id == 4 %}
