@@ -14,7 +14,6 @@
 require 'pathname'
 require ENV['HOME'] + '/Developer/web/hackbytes.com/assets/scripts/colorize' # in same directory as this file.
 
-
 #######################
 # Script configuration.
 #######################
@@ -24,8 +23,7 @@ PROJECT_DIR = ENV['HOME'] + "/Developer/web/hackbytes.com"
 
 # Absolute paths for files that need to be updated for production.
 FILE_CONFIG           = PROJECT_DIR + "/_config.yml"
-FORM_PHP              = PROJECT_DIR + "/assets/bs-forms.php"
-
+FILE_COMPILE          = PROJECT_DIR + "/assets/scripts/compile.rb"
 
 #######################
 # Function definitions.
@@ -47,6 +45,17 @@ def update_development()
   content = content.sub("future: false", "future: true")
   File.write(FILE_CONFIG, content)
   puts "#{FILE_CONFIG} updated"
+
+  ############
+  # compile.rb
+  ############
+
+  # We don't want local ruby gem installation in production mode, but we do
+  # want it in development mode.
+  content = File.read(FILE_COMPILE)
+  content = content.sub(/compile_site\(\)[\n\r\s]+?package_resources\(\)/, "compile_site()\ninstall_gems()\npackage_resources()")
+  File.write(FILE_COMPILE, content)
+  puts "#{FILE_COMPILE} updated"
 end
 
 # Updates the project's files to reflect the production environment.
@@ -63,8 +72,16 @@ def update_production()
   content = content.sub("future: true", "future: false");
   File.write(FILE_CONFIG, content)
   puts "#{FILE_CONFIG} updated"
-end
 
+  ############
+  # compile.rb
+  ############
+
+  content = File.read(FILE_COMPILE)
+  content = content.sub(/compile_site\(\)[\n\r\s]+?install_gems\(\)/, "compile_site()")
+  File.write(FILE_COMPILE, content)
+  puts "#{FILE_COMPILE} updated"
+end
 
 #################################
 # Main argument validation phase.

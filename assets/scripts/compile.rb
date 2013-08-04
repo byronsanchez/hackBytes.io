@@ -106,18 +106,19 @@ def compile_site()
   NO_DEPLOY_DIRS.each { |dir| system "rm -rf #{PROJECT_DIR}/_site/#{dir}"
                               puts "#{PROJECT_DIR}/_site/#{dir} removed from deployment." }
   puts "Extra files successfully removed".green
-end
 
-# Moves the assets gem files to the _site/ directory, as these are needed as
-# part of the app.
-def package_gems()
   puts "-------------------------"
   puts "Packaging necessary gems."
   puts "-------------------------"
   system "cp #{PROJECT_DIR}/vendor/server/Gemfile #{PROJECT_DIR}/_site/assets/"
   system "cp #{PROJECT_DIR}/vendor/server/Gemfile.lock #{PROJECT_DIR}/_site/assets/"
-  system "cp -r #{PROJECT_DIR}/vendor/server/vendor #{PROJECT_DIR}/_site/assets/"
-  puts "Packaging gems to directory #{PROJECT_DIR}/_site/assets/"
+  #system "cp -r #{PROJECT_DIR}/vendor/server/vendor #{PROJECT_DIR}/_site/assets/"
+end
+
+# Moves the assets gem files to the _site/ directory, as these are needed as
+# part of the app.
+def install_gems()
+  puts "Installing gems to directory #{PROJECT_DIR}/_site/assets/"
   
   isDir = false
   # Only run the deployment install if the directory change was successful.
@@ -178,7 +179,6 @@ end
 ######
 
 compile_site()
-package_gems()
 package_resources()
 chmod_site()
 
