@@ -42,11 +42,9 @@ doc/app
 # Post drafts don't need to be committed. They are CONSTANTLY changing.
 _posts/_drafts
 
-# A custom command list.
-assets/scripts/cmds.txt
-
 # Ignore compiled/derivative files that can be rebuilt from already
 # committed files.
+hackbytes.db
 hackbytes.min.js
 
 # Absolutely no binary files. Binary files can be added some other way.
@@ -65,3 +63,7 @@ assets/sass/bootstrap/lib/tests/
 # Locally bundled resources don't need to be version controlled.
 assets/vendor/bundle/
 vendor/bundle/
+
+# The compiled css files does not need to be tracked, as rake compile
+# will create them.
+css/*.css
