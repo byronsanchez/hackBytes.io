@@ -120,6 +120,7 @@ licenses (or modified versions of such code, with unchanged license):
   Bootstrap under the Apache 2.0 License
   Closure Compiler under the Apache 2.0 License
   CSS3 PIE under the Apache 2.0 License
+  Github Buttons under the Apache 2.0 License
   jQuery-1.9.js Externs under the Apache 2.0 License
 
 You may copy and distribute such a system following the terms of the
@@ -197,5 +198,7 @@ CSS
   Bootstrap - Copyright (c) 2012 Twitter, Inc.
 
   CSS3 PIE - Copyright (c) 2010 Jason Johnston
+
+  Github Buttons - Copyright (c) 2011 Mark Otto
 
   responsive-video.css - Copyright (c) 2011 ZURB, http://www.zurb.com/
