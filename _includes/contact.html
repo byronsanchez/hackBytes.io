@@ -17,10 +17,10 @@
     <p class="comments-open-subtext">
       Success! Your message has been submitted! 
       {% case page.url %}
-      {% when "/contact-me/index.html" %}
+      {% when "/contact/index.html" %}
       <a href="javascript:void 0;" onclick="window.location.hash='#contact-form';window.location.reload(false)">Reload form.</a>
       {% else %}
-      <a href="javascript:void 0;" onclick="window.location.hash='#contact-me';window.location.reload(false)">Reload form.</a>
+      <a href="javascript:void 0;" onclick="window.location.hash='#contact';window.location.reload(false)">Reload form.</a>
       {% endcase %}
     </p>
   </div> <!-- comments-open-response-success -->
@@ -33,10 +33,10 @@
     <form id="contact-form">
       <fieldset>
         {% case page.url %}
-        {% when "/contact-me/index.html" %}
-        <input type="hidden" name="post_id" value="/contact-me" />
+        {% when "/contact/index.html" %}
+        <input type="hidden" name="post_id" value="/contact" />
         {% else %}
-        <input type="hidden" name="post_id" value="/portfolio/#contact-me" />
+        <input type="hidden" name="post_id" value="/portfolio/#contact" />
         {% endcase %}
         <input type="hidden" name="return_url" value="{{site.url}}{{page.url}}" />
 
