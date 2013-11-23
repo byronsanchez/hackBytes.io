@@ -31,7 +31,7 @@ module Jekyll
     def group_by_month(posts)
       months = []
       posts_by_month = {}
-      posts.reverse.each do |post|
+      posts.sort!.reverse.each do |post|
         key = Time.utc(post.date.year, post.date.month)
         if posts_by_month.has_key?(key)
           posts_by_month[key] << post
@@ -40,6 +40,7 @@ module Jekyll
           months << key
         end
       end
+
       return [months,posts_by_month]
     end
 
