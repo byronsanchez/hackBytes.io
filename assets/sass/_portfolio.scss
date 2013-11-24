@@ -905,6 +905,11 @@ h2 + .row {
     top: 0;
   }
 
+  // The sidenav should no longer float left
+  .nav-left {
+    float: none;
+  }
+
   .marketing .span4 + .span4 {
     margin-top: 40px;
   }
