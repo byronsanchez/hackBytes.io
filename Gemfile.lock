@@ -23,6 +23,13 @@ GEM
   specs:
     albino (1.3.3)
       posix-spawn (>= 0.3.6)
+    capistrano (3.0.1)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 0.0.23)
+    capistrano-bundler (1.1.0)
+      capistrano (~> 3.0)
+      sshkit (>= 1.2.0)
     chunky_png (1.2.8)
     classifier (1.3.3)
       fast-stemmer (>= 1.0.0)
@@ -33,17 +40,29 @@ GEM
     directory_watcher (1.5.1)
     fast-stemmer (1.0.2)
     fssm (0.2.10)
+    i18n (0.6.5)
     kramdown (0.14.2)
     liquid (2.5.0)
     maruku (0.6.1)
       syntax (>= 1.0.0)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.7.0)
     posix-spawn (0.3.6)
     pygments.rb (0.3.7)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
-    safe_yaml (0.7.1)
+    rake (10.1.0)
+    safe_yaml (0.9.7)
     sass (3.2.9)
+    sshkit (1.2.0)
+      net-scp (>= 1.1.2)
+      net-ssh
+      term-ansicolor
     syntax (1.0.0)
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
+    tins (0.13.1)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -51,11 +70,14 @@ PLATFORMS
 
 DEPENDENCIES
   albino (= 1.3.3)
+  capistrano (= 3.0.1)
+  capistrano-bundler (= 1.1.0)
   compass (~> 0.12.2)
   jekyll (= 0.12.1)!
   posix-spawn (= 0.3.6)
   pygments.rb (= 0.3.7)
+  rake (= 10.1.0)
   redcarpet (= 2.3.0)!
-  safe_yaml (= 0.7.1)
+  safe_yaml (= 0.9.7)
   sass (~> 3.2.9)
   yajl-ruby (= 1.1.0)

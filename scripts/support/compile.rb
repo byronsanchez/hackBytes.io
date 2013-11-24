@@ -2,37 +2,15 @@
 #
 # Local compilation script.
 
-require 'pathname'
-
-#######################
-# Script configuration.
-#######################
-
-# Root project directory
-PROJECT_DIR = ENV['HOME'] + "/Developer/web/hackbytes.com"
-# For color output when necessary.
-require PROJECT_DIR + '/assets/scripts/colorize'
-
-# Closure Compiler location
-CLOSURE = PROJECT_DIR + "/vendor/closure-compiler.jar"
-
-# Files to remove from compiled source. These are references to portfolio
-# pages.
-NO_DEPLOY_DIRS = ["coloring-book", "creepypasta-files", "custom-scripts", "hackbytes"]
-
-#######################
-# Function definitions.
-#######################
-
 # Compiles the entire site. Removes pages from compiled source if they have
 # been specified.
 def compile_site()
   puts "-------------------"
   puts "Compiling JS files."
   puts "-------------------"
-  system "java -jar #{CLOSURE} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_spin.js --js_output_file js/_compiled-spin.js"
-  system "java -jar #{CLOSURE} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_jquery.spin.js --js_output_file js/_compiled-jquery.spin.js"
-  system "java -jar #{CLOSURE} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_application.js --js js/_bs-comments.js --js_output_file js/_compiled-hackbytes.min.js"
+  system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_spin.js --js_output_file js/_compiled-spin.js"
+  system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_jquery.spin.js --js_output_file js/_compiled-jquery.spin.js"
+  system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_application.js --js js/_bs-comments.js --js_output_file js/_compiled-hackbytes.min.js"
   puts "JS files compiled".green
 
   puts "-------------------"
@@ -80,7 +58,7 @@ def compile_site()
   puts "--------------------"
   puts "Compiling CSS files."
   puts "--------------------"
-  output = system "bundle exec compass compile #{PROJECT_DIR}"
+  output = system "bundle exec compass compile #{@config['source']}"
 
   if output.nil? || output == 0
     puts "CSS compilation failed. The compass compile command failed to run.".red
@@ -99,37 +77,54 @@ def compile_site()
     puts "Website compiled.".green
   end
 
-  # Remove all files listed in the no-deploy array.
+  # Remove all files listed in the no_deploy array.
   puts "-------------------------------"
   puts "Removing files from deployment."
   puts "-------------------------------"
-  NO_DEPLOY_DIRS.each { |dir| system "rm -rf #{PROJECT_DIR}/_site/#{dir}"
-                              puts "#{PROJECT_DIR}/_site/#{dir} removed from deployment." }
+  @config["no_deploy"].each { |dir| system "rm -rf #{@config['destination']}/#{dir}"
+                              puts "#{@config['destination']}/#{dir} removed from deployment." }
   puts "Extra files successfully removed".green
 
   puts "-------------------------"
   puts "Packaging necessary gems."
   puts "-------------------------"
-  system "cp #{PROJECT_DIR}/vendor/server/Gemfile #{PROJECT_DIR}/_site/assets/"
-  system "cp #{PROJECT_DIR}/vendor/server/Gemfile.lock #{PROJECT_DIR}/_site/assets/"
-  #system "cp -r #{PROJECT_DIR}/vendor/server/vendor #{PROJECT_DIR}/_site/assets/"
+  system "cp #{@config['source']}/vendor/server/Gemfile #{@config['destination']}/assets/"
+  system "cp #{@config['source']}/vendor/server/Gemfile.lock #{@config['destination']}/assets/"
+  #system "cp -r #{@config['source']}/vendor/server/vendor #{@config['destination']}/assets/"
+end
+
+# Reads and execute the db schema changescripts in assets/database
+def build_db()
+  puts "-----------------------------"
+  puts "Generating the site database."
+  puts "-----------------------------"
+
+  if File.exist?("#{@config['assets']}/#{@config['database']}")
+    system "rm #{@config['assets']}/#{@config['database']}"
+  end
+  
+  files = Dir.glob(File.join("#{@config['database_scripts']}", "*"))
+
+  files.each { |x|
+    system "sqlite3 #{@config['assets']}/#{@config['database']} < #{x}"
+  }
 end
 
 # Moves the assets gem files to the _site/ directory, as these are needed as
 # part of the app.
 def install_gems()
-  puts "Installing gems to directory #{PROJECT_DIR}/_site/assets/"
+  puts "Installing gems to directory #{@config['destination']}/assets/"
   
   isDir = false
   # Only run the deployment install if the directory change was successful.
-  Dir.chdir("#{PROJECT_DIR}/_site/assets/") do
+  Dir.chdir("#{@config['destination']}/assets/") do
     isDir = true
     system "bundle install --deployment"
     puts "Required gems packaged successfully".green
   end
   
   if !isDir
-    puts "Failed to package gems in #{PROJECT_DIR}/_site/assets/. Check permissions or if the directory exists.".red
+    puts "Failed to package gems in #{@config['destination']}/assets/. Check permissions or if the directory exists.".red
     abort
   end
 end
@@ -140,8 +135,8 @@ def package_resources()
   puts "--------------------"
   puts "Packaging resources."
   puts "--------------------"
-  system "cp -r #{PROJECT_DIR}/resources/img/ #{PROJECT_DIR}/_site/"
-  system "cp -r #{PROJECT_DIR}/resources/favicons/* #{PROJECT_DIR}/_site/"
+  system "cp -r #{@config['source']}/resources/img/ #{@config['destination']}"
+  system "cp -r #{@config['source']}/resources/favicons/* #{@config['destination']}"
 
   puts "Required resources packaged successfully".green
 end
@@ -155,7 +150,7 @@ def chmod_site()
 
   isDir = false
   # Only run the chmod if the directory change was successful.
-  Dir.chdir("#{PROJECT_DIR}/_site/") do
+  Dir.chdir("#{@config['destination']}") do
     isDir = true
 
     puts "Modifying directory permissions..."
@@ -167,21 +162,9 @@ def chmod_site()
   end
   
   if !isDir
-    puts "Failed to modify permissions in #{PROJECT_DIR}/_site/. Check your user permissions or if the directory exists.".red
+    puts "Failed to modify permissions in #{@config['destination']}. Check your user permissions or if the directory exists.".red
     abort
   end
 
 end
 
-
-######
-# MAIN
-######
-
-compile_site()
-package_resources()
-chmod_site()
-
-puts "Local compilation complete!".green
-
-exit

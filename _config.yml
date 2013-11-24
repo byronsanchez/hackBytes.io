@@ -18,6 +18,7 @@ pagination_mode: "categories" # categories => use page.category_name.smart_previ
 date_format: "%B %e, %Y %l:%M %p"
 email: bfs5030@gmail.com
 recent_posts: 10       # Posts in the sidebar Recent Posts section
+environment_id: 1
 
 ######################
 # Jekyll Configuration
@@ -67,5 +68,6 @@ exclude:
 - scripts
 - resources
 - bin
+- database
 include:
 - .htaccess

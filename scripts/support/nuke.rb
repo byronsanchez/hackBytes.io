@@ -7,23 +7,18 @@
 # Script configuration.
 #######################
 
-require 'pathname'
-require './assets/scripts/colorize' # in same directory as this file.
-
-PROJECT_DIR = '.'
-
 # Don't modify, unless you are customizing this script for your own
 # purposes.
 NUKE = [
-  "#{PROJECT_DIR}/resources/favicons/",
-  "#{PROJECT_DIR}/resources/img/logo.png",
-  "#{PROJECT_DIR}/resources/img/launchers/",
-  "#{PROJECT_DIR}/resources/img/screenshots/",
-  "#{PROJECT_DIR}/resources/img/current-projects/",
-  "#{PROJECT_DIR}/resources/img/avatars/avatar-byronsanchez.png",
-  "#{PROJECT_DIR}/resources/img/screenshots/",
-  "#{PROJECT_DIR}/_posts/blog/",
-  "#{PROJECT_DIR}/_posts/portfolio/"
+  "#{@config['source']}/resources/favicons/",
+  "#{@config['source']}/resources/img/logo.png",
+  "#{@config['source']}/resources/img/launchers/",
+  "#{@config['source']}/resources/img/screenshots/",
+  "#{@config['source']}/resources/img/current-projects/",
+  "#{@config['source']}/resources/img/avatars/avatar-byronsanchez.png",
+  "#{@config['source']}/resources/img/screenshots/",
+  "#{@config['source']}/_posts/blog/",
+  "#{@config['source']}/_posts/portfolio/"
 ]
 
 #######################
@@ -90,53 +85,4 @@ def display_help
     puts " - #{option}"
   }
 end
-
-#################################
-# Main argument validation phase.
-#################################
-
-# Nuke ops:
-# all - Removes all copyrighted files for which a license has not been
-#       granted.
-# list - Lists all files that will be removed during a nuke op, but does
-#        not delete or modify anything.
-# Default - help
-nuke_op = "help"
-
-# Array to hold arguments
-argument_array = []
-
-# User can override default.
-ARGV.each do|a|
-  argument_array << a
-end
-
-# Check if arguments were passed (otherwise defaults will be used).
-if argument_array.length >= 1
-  # Argument validation.
-  if argument_array.length == 1
-    nuke_op = argument_array[0]
-  else
-    display_help()
-    abort
-  end
-end
-
-# Execute based on deployment type.
-case nuke_op
-when "all"
-  validate_user()
-  NUKE.each { |x|
-    puts "Nuking... #{x}"
-    run_nuke(x)
-  }
-  puts "Nuke complete!".green
-when "list"
-  nuke_list()
-else
-  display_help()
-  abort
-end
-
-exit
 
