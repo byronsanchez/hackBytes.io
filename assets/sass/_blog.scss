@@ -11,8 +11,8 @@
 -------------------------------------------------- */
 
 body {
-	font: 14px helvetica,arial,freesans,clean,sans-serif;
-	color: #333333;
+	font: 14px "Roboto","Helvetica Neue",Helvetica,Arial,Freesans,Clean,sans-serif;
+	color: #444;
   line-height: 1.6;
   background-color: #1d1d1d;
   background-image: url(../img/bg.png);
@@ -24,46 +24,51 @@ p {
   margin-bottom: 1.0em;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,freesans,clean,sans-serif;
+	font-weight:bold;
+}
+
+#blog h1,
+#blog h2,
+#blog h3,
+#blog h4,
+#blog h5,
+#blog h6 {
+	margin:1em 0 1em;
+  line-height: 1.6em;
+  color: #2F2F2F;
+}
+
 h1 {
 	font-size:28px;
-	margin:1.333em 0 10px;
-  color: black;
-  line-height: 1.6em;
 }
 
 h2 {
 	font-size:24px;
-	margin:1.333em 0 10px;
-  line-height: 1.6em;
 }
 
 h3 {
 	font-size:18px;
-	margin:1.333em 0 10px;
-  line-height: 1.6em;
 }
 
 h4 {
 	font-size:14px;
-	font-weight:bold;
-	margin:1.333em 0 10px;
-  line-height: 1.6em;
 }
 
 h5 {
 	color:#333;
 	font-size:14px;
-	font-weight:bold;
-	margin:1.333em 0 10px;
-  line-height: 1.6em;
 }
 
 h6 {
 	color:#777;
 	font-size:14px;
-	font-weight:bold;
-	margin:1.333em 0 10px;
-  line-height: 1.6em;
 }
 
 /*
@@ -102,8 +107,8 @@ blockquote {
   margin:1.0em;
   background: #F5F5F5;
   border-left:4px solid #ddd;
-  color:#555;
-  font-family: helvetica,arial,freesans,clean,sans-serif;
+  color:#666;
+  font-family: "Roboto","Helvetica Neue",Helvetica,Arial,freesans,clean,sans-serif;
   padding: 11px;
 }
 
@@ -227,8 +232,8 @@ article > :first-child {
 }
 
 // Text's parent div's line heights must match text size.
-.hero-unit h1, .hero-unit h1 a {
-  font-family: Consolas,"Liberation Mono",Courier,monospace;
+#blog .hero-unit h1, #blog .hero-unit h1 a {
+  font-family: Ubuntu,Consolas,"Liberation Mono",Courier,monospace;
   font-size: 60px;
   color: #fff;
   margin: 0;
@@ -237,7 +242,7 @@ article > :first-child {
   height: 60px;
 }
 
-.hero-unit h1 a:hover {
+#blog .hero-unit h1 a:hover {
   text-decoration: none;
 }
 
@@ -341,10 +346,10 @@ article > :first-child {
 	font-size: 24px;
 	color: #666;
   border: none;
-  line-height: 24px;
+  line-height: 32px;
 }
 
-.date
+#blog h3.date
 {
   margin: 0 0 10px 0;
 	color: #aaa;
@@ -392,7 +397,7 @@ article > :first-child {
   padding-right: 20px;
 }
 
-.dark-title {
+#blog h3.dark-title {
   background: #222222;
   /*background: #1b1b1b;*/
   -moz-border-radius: 4px;
@@ -443,8 +448,8 @@ kbd {
   border-color: #CCC #CCC white;
   border-style: solid solid none;
   border-width: 1px 1px medium;
-  color: #444;
-  font-family: 'Helvetica Neue',Helvetica,Arial,Sans-serif;
+  color: #555;
+  font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,Sans-serif;
   font-size: 11px;
   font-weight: bold;
   white-space: nowrap;

@@ -15,7 +15,6 @@
 /* Imported from Bootstrap's code.css
 -------------------------------------------------- */
 
-// Inline and block code styles
 code,
 pre {
   padding: 0 3px 2px;
@@ -49,7 +48,7 @@ pre {
 /* Pre and code blocks. 
 -------------------------------------------------- */
 
-$background_code: #1c1c1c; // original: 242424
+$background_code: #242424; // original: 242424
 $background_numbers: #080808; // original: 444444
 $color_numbers: #626262;
 $border_code: #f4f4f4;
@@ -63,15 +62,17 @@ $code_red: #d7875f; //original: e5786d
 $code_yellow: #d7d777; // not used yet
 $code_blue: #87afff; // original: 8ac6f2
 
+$inlineColor: #333333;
+
 pre,code,tt,p code,li code,.highlight code,.highlight {
   //font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
-  font-family: Consolas,"Liberation Mono",Courier,monospace;
+  font-family: "Ubuntu Mono",Consolas,"Liberation Mono",Courier,monospace;
 }
 
 // The inline styles for code.
 pre, code {
   line-height: 1.45em;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 pre {
@@ -81,6 +82,7 @@ pre {
 }
 
 code {
+  color: $inlineColor; // force override bootstrap
   white-space: pre;
 }
 
@@ -191,7 +193,7 @@ pre code {
 
 .highlight .line-numbers {
   text-align: right;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.45em;
   background: $background_numbers;
   border-right: 1px solid $border_numbers !important;

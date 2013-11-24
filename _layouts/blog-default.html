@@ -49,14 +49,14 @@
             <!-- Syndication -->
             <div class="side syndicate">
 
-              <div class="dark-title text-center">
-                Subscribe
+              <div class="text-center">
+                <h3 class="dark-title">Subscribe</h3>
               </div>
 
               <ul class="nav nav-list">
                 <li class="nav-header">Syndication</li>
 
-                <li><a href="http://feeds.feedburner.com/byronsanchez" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" class="sidebar-icon" alt="RSS icon" />&nbsp;Subscribe in a reader</a></li>
+                <li><a href="http://feeds.hackBytes.com/hackBytes" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" class="sidebar-icon" alt="RSS icon" />&nbsp;Subscribe in a reader</a></li>
               </ul>
 
             </div> <!-- syndicate -->
@@ -65,8 +65,8 @@
             <!-- Recent Posts -->
             <div class="side">
             
-              <div class="dark-title text-center">
-                Navigation
+              <div class="text-center">
+                <h3 class="dark-title">Navigation</h3>
               </div>
             
               <ul class="nav nav-list">
@@ -82,19 +82,17 @@
 
             <!-- About Me -->
             <div class="side">
-              <div class="dark-title text-center">
-                About the Author
+              <div class="text-center">
+                <h3 class="dark-title">About the Author</h3>
               </div>
               <p class="about-me">
-                <img src="{{ site.url }}/img/avatars/avatar-byronsanchez.png" title="Byron Sanchez" alt="Byron Sanchez" class="profile" />
-                I'm Byron Sanchez. I'm an Android, iOS and Web developer in
-                Philadelphia, Pennsylvania. Currently, I am focusing on web
-                development using Ruby, Python, PHP and various other tools.
+              <img src="{{ site.url }}/img/avatars/avatar-byronsanchez.png" title="Byron Sanchez" alt="Byron Sanchez" class="profile" />
+              {% include about.html %}
               </p>
 
               <ul class="nav nav-list">
                 <li class="nav-header">Links</li>
-                <li><a href="{{ site.url }}/about-me/">About Me</a></li>
+                <li><a href="{{ site.url }}/about/">About Me</a></li>
                 <li><a href="http://www.twitter.com/byronsanchez/">@byronsanchez</a></li>
                 <li><a href="http://www.github.com/byronsanchez/">GitHub</a></li>
                 <li><a href="https://plus.google.com/105947647411091420403/">Google+ Profile</a></li>

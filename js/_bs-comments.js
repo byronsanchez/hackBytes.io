@@ -264,6 +264,11 @@ $(document).ready(function () {
 
             $nodeArray = [];
 
+            // If name contains no input...
+            if (!optionalResponse.name) {
+              optionalResponse.name = "Anonymous";
+            }
+
             // If the link contains input...
             if (optionalResponse.link) {
                 // Add a link to the name.
@@ -409,24 +414,9 @@ $(document).ready(function () {
      * Performs validation on the name field. Mirrors server-side validation.
      */
     function validateName() {
-        // If the name is not valid...
-        if (!$fieldName.val()) {
-            // Display an error message.
-            $fieldName.addClass("comment-error");
-
-            // Remove the hidden class from span.
-            $nameInfo.removeClass("hiddenBox");
-
-            $isNameValid = false;
-        } else {
-            // Remove the error message.
-            $fieldName.removeClass("comment-error");
-
-            // Add the hidden class to span.
-            $nameInfo.addClass("hiddenBox");
-
-            $isNameValid = true;
-        }
+      // Blank names are anonymous
+      // No validation required
+      $isNameValid = true;
     }
 
     /**

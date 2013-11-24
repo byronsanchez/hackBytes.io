@@ -1,7 +1,7 @@
 // Override bootstrap's default link.
 a[href]:after {
   content: " [" attr(href) "]";
-  font: 12px helvetica,arial,freesans,clean,sans-serif;
+  font: 12px "Roboto","Helvetica Neue",Helvetica,Arial,freesans,clean,sans-serif;
   letter-spacing: normal;
   color: #999;
   font-weight: bold;
