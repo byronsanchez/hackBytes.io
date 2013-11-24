@@ -45,26 +45,28 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
     # Only replace if there's at least one match. This is why scanning
     # happens first.
     syntax = /\[video\s+?(.*?)(?:\s+?\|\s+?(.*?))?\]/m
-    html.scan(syntax)
-    source = $1
-    style = $2
-    unless source.nil? || source.empty?
-      # Set defaults and flags for optional components
-      if style.nil? || style.empty?
-        style= ""
-      else
-        style = " " + style
-      end
+    html.scan(syntax) { |source, style|
+      match_string = $&
 
-      # Youtube Regex
-      syntax_youtube = /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?(\w{10,})/m
-      source.scan(syntax_youtube)
-      id = $1
-      unless id.nil? || id.empty?
-        html = html.gsub(syntax, '<div class="flex-video' + style + '"><iframe width="560" height="315" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe></div>')
-      end
-    end
+      unless source.nil? || source.empty?
+        # Set defaults and flags for optional components
+        if style.nil? || style.empty?
+          style= ""
+        else
+          style = " " + style
+        end
 
+        # Youtube Regex
+        syntax_youtube = /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w\-]{10,})/m
+        source.scan(syntax_youtube)
+        id = $1
+        unless id.nil? || id.empty?
+          # Match only the particular tag we are working on. This is
+          # because there may be multiple video tags per page.
+          html = html.sub(match_string, '<div class="flex-video' + style + '"><iframe width="560" height="315" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe></div>')
+        end
+      end
+    }
     html
   end
 
