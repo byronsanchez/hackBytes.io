@@ -42,7 +42,7 @@ end
 @config['tests'] = File.join(@config['source'], "_tests")
 @config['closure'] = File.join(@config['vendor'], "closure-compiler.jar")
 @config['colorize'] = File.join(@config['scripts'], "colorize.rb")
-@config['database_scripts'] = File.join(@config['assets'], "assets")
+@config['database_scripts'] = File.join(@config['assets'], "database")
 @config['database'] = "hackbytes.db"
 # Files to remove from compiled source. These are references to portfolio
 # pages.
