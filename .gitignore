@@ -44,7 +44,8 @@ _posts/_drafts
 
 # Ignore compiled/derivative files that can be rebuilt from already
 # committed files.
-hackbytes.db
+hackbytes.db*
+comments.db*
 hackbytes.min.js
 
 # Absolutely no binary files. Binary files can be added some other way.

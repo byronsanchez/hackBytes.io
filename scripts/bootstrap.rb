@@ -26,6 +26,8 @@ end
 # Rake Tasks Configuration
 ##########################
 
+@config['remote_connection'] = "#{@config['remote_user']}@#{@config['remote_host']}"
+@config['remote_assets'] = File.join(@config['remote_destination'], "assets")
 @config['config_file'] = CONFIG_FILE
 @config['editor'] = "vim"
 @config['post_ext'] = "md"
@@ -44,6 +46,8 @@ end
 @config['colorize'] = File.join(@config['scripts'], "colorize.rb")
 @config['database_scripts'] = File.join(@config['assets'], "database")
 @config['database'] = "hackbytes.db"
+@config['comments_database'] = "comments.db"
+@config['comments_author'] = "Anonymous"
 # Files to remove from compiled source. These are references to portfolio
 # pages.
 @config['no_deploy'] = ["coloring-book", "creepypasta-files", "custom-scripts", "hackbytes"]

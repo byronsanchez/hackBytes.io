@@ -1,8 +1,21 @@
+##########################
+# Deployment Configuration
+##########################
+
+remote_user: "REMOTE USER"
+remote_host: "REMOTE HOST"
+remote_port: "REMOTE PORT"
+remote_destination: "REMOTE DESTINATION PATH"
+
 ####################
 # Main Configuration
 ####################
 
+# For use in hyperlinks
 url: "http://hackbytes.com"
+# For use in things like email addresses or anything else in which the hostname
+# does is referenced and not using the HTTP Protocol
+base_url: "hackbytes.com"
 title: hackBytes
 subtitle: "programming and design concepts"
 author: Byron Sanchez
