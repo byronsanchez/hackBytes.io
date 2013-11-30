@@ -60,15 +60,13 @@ task :env, :env_id do |t, args|
   case env_id
   when "0"
     update_development()
+    puts "The environment update is complete.".green
   when "1"
     update_production()
+    puts "The environment update is complete.".green
   else
-    puts "Please enter a valid environment type. 0 = development, 1 = production".red
-    abort
+    getEnvironmentId()
   end
-
-  puts "The environment update is complete.".green
-
 end
 
 desc "Removes all copyrighted material under which no reuse license has been provided."

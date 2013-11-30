@@ -42,3 +42,12 @@ def update_production()
   puts "#{@config['config_file']} updated"
 end
 
+# Outputs the current environment state
+def getEnvironmentId()
+  if @config['environment_id'] == 0
+    puts "Development Mode"
+  else
+    puts "Production Mode"
+  end
+end
+
