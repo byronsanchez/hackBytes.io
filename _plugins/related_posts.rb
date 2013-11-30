@@ -1,44 +1,41 @@
 require 'jekyll/post'
 
-module RelatedPosts
-
-  # Used to remove #related_posts so that it can be overridden
-  def self.included(klass)
-    klass.class_eval do
-      remove_method :related_posts
-    end
-  end
-
-  # Calculate related posts.
-  #
-  # Returns [<Post>]
-  def related_posts(posts)
-    return [] unless posts.size > 1
-    highest_freq = Jekyll::Post.tag_freq(posts).values.max
-    related_scores = Hash.new(0)
-    posts.each do |post|
-      post.tags.each do |tag|
-        if self.tags.include?(tag) && post != self
-          cat_freq = Jekyll::Post.tag_freq(posts)[tag]
-          related_scores[post] += (1+highest_freq-cat_freq)
-        end
+module Jekyll
+  module RelatedPostsByTags
+    # Used to remove #related_posts so that it can be overridden
+    def self.included(klass)
+      klass.class_eval do
+        remove_method :related_posts
       end
     end
 
-    # If there are no related posts, output nil so that the liquid
-    # object can be used as part of an if check.
-    output = Jekyll::Post.sort_related_posts(related_scores)
-    if output.length == 0
-      output = nil
-    else
-      output
+    # Calculate related posts.
+    # Returns [<Post>]
+    def related_posts(posts)
+      return [] unless posts.size > 1
+      highest_freq = tag_freq(posts).values.max
+      related_scores = Hash.new(0)
+
+      posts.each do |post|
+        post.tags.each do |tag|
+          if self.tags.include?(tag) && post != self
+            cat_freq = tag_freq(posts)[tag]
+            related_scores[post] += (1+highest_freq-cat_freq)
+          end
+        end
+      end
+
+      # If there are no related posts, output nil so that the liquid
+      # object can be used as part of an if check.
+      output = sort_related_posts(related_scores)
+      if output.length == 0
+        output = nil
+      else
+        output
+      end
     end
 
-  end
-
-  module ClassMethods
     # Calculate the frequency of each tag.
-    #
     # Returns {tag => freq, tag => freq, ...}
     def tag_freq(posts)
       return @tag_freq if @tag_freq
@@ -64,11 +61,8 @@ module RelatedPosts
     end
   end
 
-end
-
-module Jekyll
   class Post
-    include RelatedPosts
-    extend RelatedPosts::ClassMethods
+    include RelatedPostsByTags
   end
 end
+

@@ -28,9 +28,7 @@ environment_id: 1
 root: /
 permalink: /:title
 lsi: false
-auto: false
 future: false
-server: false
 
 #########
 # Plugins

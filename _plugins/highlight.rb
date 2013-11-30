@@ -17,7 +17,7 @@ module Jekyll
       def initialize(tag_name, markup, tokens)
         super
         if markup.strip =~ SYNTAX
-          @lang = $1 || "text"
+          @lang = $1.downcase || "text"
           @options = {}
           @isTable = false
           if defined?($2) && $2 != ''
@@ -71,6 +71,8 @@ eos
       end
 
       def render_pygments(context, code)
+        require 'pygments'
+
         @options[:encoding] = 'utf-8'
 
         # TODO: Remove the manual addition of the closing table tag once the
