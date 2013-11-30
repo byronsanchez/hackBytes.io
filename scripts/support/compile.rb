@@ -69,7 +69,7 @@ def compile_site()
   puts "-------------------------"
   puts "Compiling entire website."
   puts "-------------------------"
-  output = system "bundle exec jekyll --no-auto"
+  output = system "bundle exec jekyll build"
 
   if output.nil? || output == 0
     puts "Website failed to compile. The jekyll compilation command failed to run.".red
@@ -103,7 +103,7 @@ def build_db()
     system "rm #{@config['assets']}/#{@config['database']}"
   end
   
-  files = Dir.glob(File.join("#{@config['database_scripts']}", "*"))
+  files = Dir.glob(File.join(@config['database_scripts'],  '/sc*'))
 
   files.each { |x|
     system "sqlite3 #{@config['assets']}/#{@config['database']} < #{x}"
@@ -112,14 +112,16 @@ end
 
 # Moves the assets gem files to the _site/ directory, as these are needed as
 # part of the app.
-def install_gems()
+def test_gems_for_site()
   puts "Installing gems to directory #{@config['destination']}/assets/"
   
   isDir = false
   # Only run the deployment install if the directory change was successful.
   Dir.chdir("#{@config['destination']}/assets/") do
     isDir = true
-    system "bundle install --deployment"
+    Bundler.with_clean_env do
+      system "bundle install --deployment"
+    end
     puts "Required gems packaged successfully".green
   end
   
@@ -158,7 +160,7 @@ def chmod_site()
     puts "Modifying file permissions..."
     system "find . -type f -exec chmod u=rw,g=r,o= '{}' \\;"
 
-    puts "Required gems packaged successfully".green
+    puts "Permissions successfully set".green
   end
   
   if !isDir

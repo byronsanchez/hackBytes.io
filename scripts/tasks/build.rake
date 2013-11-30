@@ -29,7 +29,7 @@ task :build do
   build_db()
   compile_site()
   if @config['environment_id'] == 0
-    install_gems()
+    test_gems_for_site()
   end
   package_resources()
   chmod_site()
