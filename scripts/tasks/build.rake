@@ -24,9 +24,18 @@ task :init do
   install_gems()
 end
 
+desc "Compiles assets necessary before the website itself can be compiled."
+task :precompile do
+  build_db()
+  precompile_site()
+end
+
 desc "Compile every file used for hackBytes."
 task :build do
-  build_db()
+  if @config['environment_id'] == 0
+    build_db()
+    precompile_site()
+  end
   compile_site()
   if @config['environment_id'] == 0
     test_gems_for_site()

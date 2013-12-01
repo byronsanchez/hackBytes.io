@@ -2,9 +2,8 @@
 #
 # Local compilation script.
 
-# Compiles the entire site. Removes pages from compiled source if they have
-# been specified.
-def compile_site()
+# Precompiles any assets necessary that will not be created on the server.
+def precompile_site()
   puts "-------------------"
   puts "Compiling JS files."
   puts "-------------------"
@@ -54,7 +53,11 @@ def compile_site()
 
   # Remove temporary files
   system "rm js/_compiled-*"
+end
 
+# Compiles the entire site. Removes pages from compiled source if they have
+# been specified.
+def compile_site()
   puts "--------------------"
   puts "Compiling CSS files."
   puts "--------------------"
@@ -90,7 +93,6 @@ def compile_site()
   puts "-------------------------"
   system "cp #{@config['source']}/vendor/server/Gemfile #{@config['destination']}/assets/"
   system "cp #{@config['source']}/vendor/server/Gemfile.lock #{@config['destination']}/assets/"
-  #system "cp -r #{@config['source']}/vendor/server/vendor #{@config['destination']}/assets/"
 end
 
 # Reads and execute the db schema changescripts in assets/database
