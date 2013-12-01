@@ -1,0 +1,277 @@
+---
+title: "Coloring Book"
+description: ""
+date: 2013-04-18 00:09:45
+category: portfolio
+pagination_enabled: false
+layout: portfolio-default
+tags: []
+---
+
+<!-- START OF PROJECT -->
+<div id="{{ page.title | downcase |  replace:' ','-' }}">
+
+<!-- INTRO -->
+<div class="row-fluid">
+  <div class="span12">
+    <div class="project-intro">
+      <h1>{{ page.title }}</h1>
+      <p class="lead">
+        <span class="muted">An application fitted perfectly for both mobile devices and tablets.</span>
+      </p>
+      
+      <div class="cover-image-landscape">
+        <img src="{{ site.url }}/img/screenshots/coloring-book-ios-01.png" alt="Coloring Book screenshot of the meny screen." />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREENSHOT and DESCRIPTION -->
+<div class="row-fluid project-container">
+
+  <div class="span12">
+    <div class="screenshot-container right">
+      <div class="screenshot landscape">
+        <img src="{{ site.url }}/img/screenshots/coloring-book-ios-02.png" alt="Coloring Book screenshot of a coloring page. This coloring page is of a ship out at sea. Nothing has been colored yet, and so only the outline of the image is displayed." />
+      </div>
+    </div>
+
+    <div class="project-description left">
+      <h2 class="screenshot-heading">Multiple books <span class="muted">to choose from.</span></h2>
+      <p class="lead">Coloring Book contains many different collections of images to color.</p>
+      <h3>Coloring Books</h3>
+      <p>Each coloring book, represented by a single canvas, contains a set of 10 images. The application comes with a free set to color. Should you decide you want more, you can always purchase more sets in the application shop.</p>
+      <p>Each set is a purchase-once unlimited use item. All purchases are restorable. So even if, one day, you uninstall the application and decide to reinstall it in the future, you will be able to color your purchased sets.</p>
+      <p>The pictures range from toys and games to farm animals and cute pets. And more are on their way. As more sets get released, there will be more and more images to color.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SCREENSHOT and DESCRIPTION -->
+<div class="row-fluid project-container">
+
+  <div class="span12">
+    <div class="screenshot-container left">
+      <div class="screenshot landscape">
+        <img src="{{ site.url }}/img/screenshots/coloring-book-ios-03.png" alt="Coloring Book screenshot of a coloring page. This is another screenshot of the ship out at sea. This time, much of the image has been colored, but there are still some blank areas. The sky is a bright light-blue color with no clouds in sight. The sea is a deep dark-blue color." />
+      </div>
+    </div>
+
+    <div class="project-description right">
+      <h2 class="screenshot-heading">Paint or Fill? <span class="muted">Brush or bucket?</span></h2>
+      <p class="lead">With these tools at your disposal, you can color your images exactly how you want to.</p>
+      <h3>Brush-mode</h3>
+      <p>With brush-mode, gone are the days where you just touch an area to fill it with color. Brush-mode allows you to color an image exactly the way you want to.</p>
+      <p>The brush-mode algoritms are constantly being improved in each update to allow for ever-improving accuracy on mobile devices.</p>
+      <h3>Fill-mode</h3>
+      <p>Fill-mode allows you to completely fill a bounded section with color. The floodfill algorithm allows for pixel-perfect accuracy when using the fill-bucket.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SCREENSHOT and DESCRIPTION -->
+<div class="row-fluid project-container">
+
+  <div class="span12">
+    <div class="screenshot-container right">
+      <div class="screenshot landscape">
+        <img src="{{ site.url }}/img/screenshots/coloring-book-android-05.png" alt="Coloring Book screen shot of a tree. The tree has been colored. The leaves are a bright green color. The tree has a few branches, one of which contains a tire swing." />
+      </div>
+    </div>
+
+    <div class="project-description left">
+      <h2 class="screenshot-heading"><span class="muted">It's all in the</span> layers...</h2>
+      <p class="lead">The coloring book rendering engine uses multiple layers for rendering the image. This has many benefits and gives more control with regards to the presentation of the coloring pages.</p>
+      <h3>Erase with ease</h3>
+      <p>Erasing your colors will not erase the picture. The colors a user paints and the actual picture are drawn to two seperate layers. The result is that the picture will always be displayed, no matter how a user chooses to alter the image.</p>
+      <h3>Layer maps make flood-filling a breeze</h3>
+      <p>Each picture is backed by a "layer map." These maps contain an outline of the pictures, with the outline being 1 pixel in width. The on-screen picture's stroke-widths vary, as can be seen on the images to the left. The maps let the flood-fill algorithm fill an area without producing aliasing artifacts. The layering also allows for the fill to occur "behind-the-scenes." The user only sees the result of the algorithm.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CODE SNIPPET -->
+<div class="row-fluid project-container">
+  <div class="span12">
+    <div class="project-code">
+      <h2>Code Snippet: iOS</h2>
+      
+      <p class="lead">
+        The following code analyzes all touch events and constrains them to the portion of the screen containing the coloring page. If a user is coloring and if the drag event goes out of bounds, the most recent in-bound coordinates are used to render more coloring points. The result is that coloring out of bounds will simply color the edges of the page as opposed to having the application simply stop painting at the edges altogether. This way, the application remains responsive to all user input, while maintaining a consistent experience.
+      </p>
+      
+      <div class="code-sample">
+        
+{% highlight objective-c linenos %}
+
+- (void)touchEventX:(CGFloat *)x y:(CGFloat *)y {
+
+  // NOTE: Color strokes are referred to as drawings.
+  
+  // If the user exceeds any bound.
+  if (*x < 0) {
+    // Check if a draw has previously occured within bounds.
+    if (_lastX == -1) {
+      // If not, then use the default bound limit.
+      *x = 0;
+    } else {
+      // Else, use the last acceptable inbound position.
+      *x = _lastX;
+    }
+  }
+  // Do the same for the upper bound limit.
+  else if (*x > _imageWidth) {
+    if (_lastX == -1) {
+      *x = _imageWidth;
+    } else {
+      *x = _lastX;
+    }
+  }
+  // If a user is in bound...
+  else {
+    // Locally cache the bound for future out-of-bound handling.
+    _lastX = *x;
+  }
+  
+  // Rinse and repeat for y.
+  if (*y < 0) {
+    if (_lastY == -1) {
+      *y = 0;
+    } else {
+      *y = _lastY;
+    }
+  }
+  else if (*y > _imageHeight) {
+    if (_lastY == -1) {
+      *y = _imageHeight;
+    } else {
+      *y = _lastY;
+    }
+  }
+  else {
+    _lastY = *y;
+  }
+  
+}
+
+{% endhighlight %}
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CODE SNIPPET -->
+<div class="row-fluid project-container">
+  <div class="span12">
+    <div class="project-code">
+      <h2>Code Snippet: Android</h2>
+      
+      <p class="lead">
+        Because the device can be a phone, a tablet, or anything in between, this code first examines the picture to be loaded before performing any memory allocations. Scaling is performed only if the picture is bigger than the screen of the device in use. No scale-ups are performed to prevent degradation of picture quality. Memory allocation occurs only AFTER screen-metric analysis to ensure heap memory is preserved.
+      </p>
+      
+      <div class="code-sample">
+        
+{% highlight java linenos %}
+
+private Bitmap decodeImage(int resId) {
+
+    // Get the screen width and height.
+    DisplayMetrics dm = new DisplayMetrics();
+    getWindowManager().getDefaultDisplay().getMetrics(dm);
+    float screenWidth = dm.widthPixels;
+    float screenHeight = dm.heightPixels;
+
+    // Decode the resource's bound information.
+    BitmapFactory.Options options = new BitmapFactory.Options();
+    options.inJustDecodeBounds = true;
+    BitmapFactory.decodeResource(getResources(),
+            resId, options);
+
+    int inSampleSize = 1;
+    int imageWidth = options.outWidth;
+    int imageHeight = options.outHeight;
+
+    // If the scale fails, we will need to use more memory to perform
+    // scaling for the layout, to support all screen sizes.
+    boolean scaleFailed = false;
+    Bitmap scaledBitmap = null;
+    float resizeRatioHeight = 1;
+
+    // Scale down if the image width exceeds the screen width.
+    if (imageWidth > screenWidth || imageHeight > screenHeight) {
+
+        // If we need to resize the image because the width or height is too
+        // big, get the resize ratios relative to landscape orientation.
+        resizeRatioHeight = (float) imageHeight / (float) screenHeight;
+
+        inSampleSize = (int) resizeRatioHeight;
+
+        if (inSampleSize <= 1) {
+            scaleFailed = true;
+        }
+    }
+
+    // Decode Bitmap with the proper scaling factor.
+    options.inSampleSize = inSampleSize;
+    options.inJustDecodeBounds = false;
+
+    Bitmap picture = BitmapFactory.decodeResource(getResources(), resId, options);
+
+    // If the scale failed, that means a scale was needed but didn't occur.
+    // We need to create a scaled copy of the image by allocating more
+    // memory. This is a last-resort scaling operation.
+    if (scaleFailed) {
+        int newWidth = (int) (picture.getWidth() / resizeRatioHeight);
+        int newHeight = (int) (picture.getHeight() / resizeRatioHeight);
+
+        scaledBitmap = Bitmap.createScaledBitmap(picture, newWidth, newHeight, true);
+
+        // Release the original unscaled bitmap from memory.
+        picture.recycle();
+    }
+    else {
+        // No last-resort scaling was needed!
+        scaledBitmap = picture;
+    }
+
+    // Return the decoded picture to prepare for on-screen display.
+    return scaledBitmap;
+}
+
+{% endhighlight %}
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OUTRO -->
+<div class="row-fluid project-outro-container">
+  <div class="span12">
+    <div class="project-outro">
+      <img src="{{ site.url }}/img/launchers/launcher-android-coloring_book.png" alt="Coloring Book logo" class="project-logo" />
+      <h2>Coloring Book</h2>
+      <p class="lead">
+        Coloring Book is for anyone of any age and contains lots of pictures to color! This application contains no ads.
+      </p>
+      
+      <p><a href="https://itunes.apple.com/us/app/coloring-book-collection-fun/id611799960?mt=8&amp;uo=4" target="itunes_store" ><img src="http://linkmaker.itunes.apple.com/htmlResources/assets/images/web/linkmaker/badge_appstore-lrg.png" class="app-badge" alt="The App Store button for Coloring Book" /></a></p>
+      
+      <p><a href="https://play.google.com/store/apps/details?id=net.globide.coloring_book_08">
+        <img alt="Android app on Google Play"
+             src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" class="app-badge" />
+      </a></p>
+<!--
+      <p><iframe src="{{ site.url }}/assets/github-btn.html?user=byronsanchez&repo=coloring-book-ios&type=fork&size=jumbo&platform=ios&style=dark" allowtransparency="true" frameborder="0" scrolling="0" width="135" height="40"></iframe></p>
+      <p><iframe src="{{ site.url }}/assets/github-btn.html?user=byronsanchez&repo=coloring-book-android&type=fork&size=jumbo&platform=android&style=dark" allowtransparency="true" frameborder="0" scrolling="0" width="135" height="40"></iframe></p>
+      -->
+    </div>
+  </div>  
+</div>
+
+</div> <!-- /END DIV ID -->
+
+<!-- /END OF PROJECT -->
