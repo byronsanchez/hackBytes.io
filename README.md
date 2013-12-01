@@ -35,33 +35,84 @@ your own custom Jekyll website!
 To remove material that is copyrighted by me, run the following
 command from the root of the project directory:
 
-    rake nuke
+    bundle exec rake nuke
+
+## Configuration
+
+hackbytes.com uses several tools that provide a lot of flexibility and ease 
+when it comes to managing and maintaining the website.
+
+Be aware of the following configurations:
+
+  - \_config.yml - The main Jekyll configuration file.
+
+    - hackbytes.com treats this file as the "global" configuration file. All 
+      settings defined in this file are available to every maintenance script 
+      via the @config instance variable; thus, capistrano files, rake files, 
+      and ruby support files have access to this data.
+
+  - config.rb - The Compass configuration file for the scss compiler.
+
+  - config/ - The Capistrano configuration directory.
 
 ## Usage
 
 The following is a list of all available commands for managing the website.  
-Execute whichever you may need.
 
 To build the website:
 
-    rake build
+    bundle exec rake build
 
-To build and run both the application and all tests:
+To build and run both the website and all tests:
 
-    rake test
+    bundle exec rake test
 
 To build the tests without running them:
 
-    rake build-tests
+    bundle exec rake build-tests
 
 To run the tests without building them (this assumes you have previously built
 them):
 
-    rake run-tests
+    bundle exec rake run-tests
 
 To clean all built files:
 
-    rake clean
+    bundle exec rake clean
+
+To deploy the website to the server:
+
+    bundle exec rake deploy
+
+## Comments
+
+The comments database is created upon submission of the first comment. The 
+following is a list of all available commands for managing comments once the 
+database is created.
+
+To pull the comments database from the server:
+
+    bundle exec rake comments-pull
+
+To display a list of all comments along with their ids:
+
+    bundle exec rake comments-list
+
+To publish a comment:
+
+    bundle exec rake comments-publish[id]
+
+To unpublish a comment:
+
+    bundle exec rake comments-unpublish[id]
+
+To delete a comment:
+
+    bundle exec rake comments-delete[id]
+
+To push the modified database back to the server:
+
+    bundle exec rake comments-push
 
 ## Copyright / License
 
@@ -80,7 +131,7 @@ Attribution specification is in the COPYRIGHT file.
 hackbytes.com copy is Copyright (c) 2013 by Byron Sanchez. All rights
 reserved.
 
-hackbytes.com copy "code snippets" in the _posts/ directory and any
+hackbytes.com copy "code snippets" in the \_posts/ directory and any
 subdirectories thereof are Copyright (c) 2013 by Byron Sanchez, licensed
 under the MIT license.
 
@@ -96,7 +147,7 @@ In short:
 
   * The hackBytes logo
 
-  * Any content in the _posts directory (except for code snippets,
+  * Any content in the \_posts directory (except for code snippets,
     which I am licensing under the MIT license)
   
 - You can use anything else, so long as you follow the licensing
@@ -105,7 +156,7 @@ In short:
 
 - Also, remember to:
 
-  * Remove my Google Analytics ID from _includes/analytics.html
+  * Remove my Google Analytics ID from \_includes/analytics.html
 
   * Remove any custom RSS feeds, twitter embeds, github embeds, etc.
     You probably don't want my stuff to show up on anything you
