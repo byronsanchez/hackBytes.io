@@ -4,13 +4,17 @@
 
 remote_user: "REMOTE USER"
 remote_host: "REMOTE HOST"
-remote_port: "REMOTE PORT"
+remote_port: "SSH PORT"
 remote_destination: "REMOTE DESTINATION PATH"
+repo: "REPOSITORY TO DEPLOY"
+repo_branch: "REPOSITORY BRANCH"
+remote_path_env: "REMOTE RUBY PATH ENVIRONMENT VARIABLE"
 
 ####################
 # Main Configuration
 ####################
 
+application: "hackBytes.com"
 # For use in hyperlinks
 url: "http://hackbytes.com"
 # For use in things like email addresses or anything else in which the hostname
@@ -68,6 +72,7 @@ gravatar_default: "identicon"
 exclude:
 - README
 - Rakefile
+- Capfile
 - Gemfile
 - Gemfile.lock
 - comments.sh
@@ -80,5 +85,6 @@ exclude:
 - resources
 - bin
 - database
+- config
 include:
 - .htaccess
