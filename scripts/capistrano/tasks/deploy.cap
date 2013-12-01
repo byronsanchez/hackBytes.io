@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+namespace :deploy do
+  desc "Run the precompile task locally and rsync with the server path"
+  task :precompile do
+    puts %x{bundle exec rake precompile}
+    # Rsync the precompiled databases
+    puts %x{rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{@config['source']}/assets/ #{@config['remote_connection']}:#{release_path}/assets}
+    # Rsync the precompiled javascript files
+    puts %x{rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{@config['source']}/js/ #{@config['remote_connection']}:#{release_path}/js}
+  end
+
+  desc "Compile Jekyll Website"
+  task :compile do
+    on roles(:app) do
+      within release_path do
+        execute :rake, "build"
+      end
+    end
+  end
+
+  desc "Runs gem packaging stuff"
+  task :postcompile do
+    puts %x{ssh -tp #{@config['remote_port']} #{@config['remote_connection']} \"bash --login -c 'cd #{release_path}/_site/assets && export LANG=en_US.UTF-8 && bundle install --deployment'\"}
+  end
+
+  after "deploy", "deploy:precompile"
+  after "deploy:precompile", "deploy:compile"
+  after "deploy:compile", "deploy:postcompile"
+end
+

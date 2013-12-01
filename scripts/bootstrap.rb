@@ -27,7 +27,8 @@ end
 ##########################
 
 @config['remote_connection'] = "#{@config['remote_user']}@#{@config['remote_host']}"
-@config['remote_assets'] = File.join(@config['remote_destination'], "assets")
+@config['remote_current_path'] = File.join(@config['remote_destination'], "current/_site")
+@config['remote_assets'] = File.join(@config['remote_current_path'], "assets")
 @config['config_file'] = CONFIG_FILE
 @config['editor'] = "vim"
 @config['post_ext'] = "md"

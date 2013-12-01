@@ -1,3 +1,6 @@
+# Load the _config.yml
+require File.expand_path('../scripts/bootstrap', __FILE__)
+
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:

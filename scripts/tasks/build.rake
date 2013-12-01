@@ -54,7 +54,7 @@ end
 desc "Deploy the app to the production server."
 task :deploy do
   puts "Deploying application..."
-  execute_deploy_full()
+  system "bundle exec cap production deploy"
 end
 
 # TODO: Abstract the argument checker for env and nuke tasks
