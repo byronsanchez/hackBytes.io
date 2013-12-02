@@ -44,7 +44,7 @@ _posts/_drafts
 
 # Ignore compiled/derivative files that can be rebuilt from already
 # committed files.
-hackbytes.db*
+path.db*
 comments.db*
 hackbytes.min.js
 

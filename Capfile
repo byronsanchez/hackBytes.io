@@ -1,3 +1,5 @@
+#!/usr/bin/env rake
+
 # Load DSL and Setup Up Stages
 require 'capistrano/setup'
 
@@ -26,6 +28,6 @@ require 'capistrano/bundler'
 # Load the _config.yml and make all data accessible to cap files
 require File.expand_path('../scripts/bootstrap', __FILE__)
 
-# Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
-Dir.glob('scripts/capistrano/tasks/*.cap').each { |r| import r }
+load_support()
+load_caps()
 

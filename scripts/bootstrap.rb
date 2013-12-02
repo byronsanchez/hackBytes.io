@@ -29,6 +29,7 @@ end
 @config['remote_connection'] = "#{@config['remote_user']}@#{@config['remote_host']}"
 @config['remote_current_path'] = File.join(@config['remote_destination'], "current/_site")
 @config['remote_assets'] = File.join(@config['remote_current_path'], "assets")
+@config['remote_database_output'] = File.join(@config['remote_destination'], "shared/database")
 @config['config_file'] = CONFIG_FILE
 @config['editor'] = "vim"
 @config['post_ext'] = "md"
@@ -39,15 +40,16 @@ end
 @config['drafts'] = File.join(@config['source'], "_posts/_drafts")
 @config['scripts'] = File.join(@config['source'], "scripts")
 @config['tasks'] = File.join(@config['scripts'], "tasks")
+@config['caps'] = File.join(@config['scripts'], "capistrano/tasks")
 @config['support'] = File.join(@config['scripts'], "support")
 @config['vendor'] = File.join(@config['source'], "vendor")
 @config['assets'] = File.join(@config['source'], "assets")
 @config['tests'] = File.join(@config['source'], "_tests")
 @config['closure'] = File.join(@config['vendor'], "closure-compiler.jar")
 @config['colorize'] = File.join(@config['scripts'], "colorize.rb")
-@config['database_scripts'] = File.join(@config['assets'], "database")
-@config['database'] = "hackbytes.db"
-@config['comments_database'] = "comments.db"
+@config['database'] = File.join(@config['assets'], "database")
+@config['database_scripts'] = {"comments" => "comments.db", "path" => "path.db"}
+@config['database_output'] = File.join(@config['database'], "bin");
 @config['comments_author'] = "Anonymous"
 # Files to remove from compiled source. These are references to portfolio
 # pages.
@@ -56,6 +58,14 @@ end
 ###########
 # Functions
 ###########
+
+
+def load_caps
+  Dir["#{@config['caps']}/*.cap"].each {|file|
+    # Non .rb files must be imported
+    import file
+  }
+end
 
 def load_tasks
   Dir["#{@config['tasks']}/*.rake"].each {|file|

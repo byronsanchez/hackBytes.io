@@ -45,9 +45,10 @@ end
 
 desc "Resumes the building of a merged database if a conflict has been resolved."
 task :"comments-merge" do
-  local_db = "#{@config['assets']}/#{@config['comments_database']}"
-  backup_db = "#{@config['assets']}/#{@config['comments_database']}.backup"
-  server_db = "#{@config['assets']}/#{@config['comments_database']}.pre_push_check"
+  db_path = "#{@config['database_output']}/#{@config['database_scripts']['comments']}"
+  local_db = "#{db_path}"
+  backup_db = "#{db_path}.backup"
+  server_db = "#{db_path}.pre_push_check"
   buildMergedDatabase(local_db, backup_db, server_db)
 end
 

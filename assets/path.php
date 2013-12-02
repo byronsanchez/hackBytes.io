@@ -8,7 +8,7 @@
 // new valid location.
 
 define("ROOT_PATH", "http://hackbytes.com");
-define("DB_FILE", "hackbytes.db");
+define("DB_FILE", "path.db");
 define("ERROR_404", "errors/error_404.html");
 
 /**

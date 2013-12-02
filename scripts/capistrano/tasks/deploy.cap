@@ -24,8 +24,44 @@ namespace :deploy do
     puts %x{ssh -tp #{@config['remote_port']} #{@config['remote_connection']} \"bash --login -c 'cd #{release_path}/_site/assets && export LANG=en_US.UTF-8 && bundle install --deployment'\"}
   end
 
+  desc "Creates the database directory unless it exists and sets permissions"
+  task :symlink_setup do
+    on roles(:app) do
+      dirs = File.join(shared_path, "database")
+      execute "mkdir -p #{dirs} && chmod g+w #{dirs}"
+    end
+  end
+
+  desc "Moves new databases to the shared database directory"
+  task :move_db do
+    path_db = @config['database_scripts']['path']
+    comments_db = @config['database_scripts']['comments']
+    on roles(:app) do
+      execute "rsync -av #{release_path}/assets/database/bin/#{path_db} #{shared_path}/database/#{path_db}"
+      # Do not sync if a database already exists. This is meant to place a NEW 
+      # database in the proper location. Future database modifications from the 
+      # client will be done through rake tasks.
+      execute "rsync --ignore-existing #{release_path}/assets/database/bin/#{comments_db} #{shared_path}/database/#{comments_db}"
+      execute "rm -rf #{release_path}/assets/database/bin/*"
+    end
+  end
+
+  desc "Creates the symlink to the database folder"
+  task :symlink do
+    path_db = @config['database_scripts']['path']
+    comments_db = @config['database_scripts']['comments']
+    on roles(:app) do
+      execute "ln -nfs #{shared_path}/database/#{comments_db} #{release_path}/_site/assets/#{comments_db}"
+      execute "ln -nfs #{shared_path}/database/#{path_db} #{release_path}/_site/assets/#{path_db}"
+    end
+  end
+
   after "deploy", "deploy:precompile"
   after "deploy:precompile", "deploy:compile"
   after "deploy:compile", "deploy:postcompile"
+  after "deploy:postcompile", "deploy:symlink_setup"
+  after "deploy:symlink_setup", "deploy:move_db"
+  after "deploy:move_db", "deploy:symlink"
+
 end
 

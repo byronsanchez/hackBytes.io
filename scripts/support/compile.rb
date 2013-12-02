@@ -2,6 +2,34 @@
 #
 # Local compilation script.
 
+# Reads and execute the db schema changescripts in assets/database
+def build_db()
+  puts "------------------------------"
+  puts "Generating the site databases."
+  puts "------------------------------"
+
+  Dir.mkdir(@config['database_output']) unless File.exists?(@config['database_output'])
+
+  @config['database_scripts'].each do |path, db|
+    puts "Building #{db}..."
+    db_dir = "#{@config['database']}/#{path}"
+    db_path = "#{@config['database_output']}/#{db}"
+
+    # Only build the database if it does not already exist
+    # The path database can always be rebuilt
+    system "rm -f #{db_path}" if path == "path"
+    if !File.exist?(db_path)
+      files = Dir.glob(File.join(db_dir,  '/sc*'))
+      files.each { |x|
+        system "sqlite3 #{db_path} < #{x}"
+      }
+      puts "#{db} built successfully!".green
+    else
+      puts "#{db} already exists".yellow
+    end
+  end
+end
+
 # Precompiles any assets necessary that will not be created on the server.
 def precompile_site()
   puts "-------------------"
@@ -93,23 +121,6 @@ def compile_site()
   puts "-------------------------"
   system "cp #{@config['source']}/vendor/server/Gemfile #{@config['destination']}/assets/"
   system "cp #{@config['source']}/vendor/server/Gemfile.lock #{@config['destination']}/assets/"
-end
-
-# Reads and execute the db schema changescripts in assets/database
-def build_db()
-  puts "-----------------------------"
-  puts "Generating the site database."
-  puts "-----------------------------"
-
-  if File.exist?("#{@config['assets']}/#{@config['database']}")
-    system "rm #{@config['assets']}/#{@config['database']}"
-  end
-  
-  files = Dir.glob(File.join(@config['database_scripts'],  '/sc*'))
-
-  files.each { |x|
-    system "sqlite3 #{@config['assets']}/#{@config['database']} < #{x}"
-  }
 end
 
 # Moves the assets gem files to the _site/ directory, as these are needed as

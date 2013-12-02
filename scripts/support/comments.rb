@@ -15,11 +15,11 @@ end
 
 def createBackupDatabase
   # Do not attempt to extract comments from a file that does not exist.
-  if File.exists?("#{@config['assets']}/#{@config['comments_database']}")
+  if File.exists?("#{@config['database_output']}/#{@config['database_scripts']['comments']}")
     # Make a backup for comparisons in case there are changes to the server
     # database while modifying the local db.
     puts "Creating database backup..."
-    system "cp #{@config['assets']}/#{@config['comments_database']} #{@config['assets']}/#{@config['comments_database']}.backup"
+    system "cp #{@config['database_output']}/#{@config['database_scripts']['comments']} #{@config['database_output']}/#{@config['database_scripts']['comments']}.backup"
   else
     puts "Comments database does not exist.".red
   end
@@ -28,7 +28,7 @@ end
 def pullCommentsDatabase
   puts "Pulling comments from database..."
 
-  system "rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{@config['remote_connection']}:#{@config['remote_assets']}/#{@config['comments_database']} #{@config['assets']}/#{@config['comments_database']}"
+  system "rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{@config['remote_connection']}:#{@config['remote_database_output']}/#{@config['database_scripts']['comments']} #{@config['database_output']}/#{@config['database_scripts']['comments']}"
 
   if $?.exitstatus != 0
     #createCommentsDatabase()
@@ -41,12 +41,12 @@ end
 
 def pushCommentsDatabase
   # Do not attempt to extract comments from a file that does not exist.
-  if File.exists?("#{@config['assets']}/#{@config['comments_database']}")
+  if File.exists?("#{@config['database_output']}/#{@config['database_scripts']['comments']}")
 
-    local_db = "#{@config['assets']}/#{@config['comments_database']}"
-    backup_db = "#{@config['assets']}/#{@config['comments_database']}.backup"
-    pre_push_db = "#{@config['assets']}/#{@config['comments_database']}.pre_push_check"
-    server_db = "#{@config['remote_connection']}:#{@config['remote_assets']}/#{@config['comments_database']}"
+    local_db = "#{@config['database_output']}/#{@config['database_scripts']['comments']}"
+    backup_db = "#{@config['database_output']}/#{@config['database_scripts']['comments']}.backup"
+    pre_push_db = "#{@config['database_output']}/#{@config['database_scripts']['comments']}.pre_push_check"
+    server_db = "#{@config['remote_connection']}:#{@config['remote_database_output']}/#{@config['database_scripts']['comments']}"
 
     puts "Checking server database for new comments that may have been submitted during local modifications..."
     system "rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{server_db} #{pre_push_db}"
@@ -125,7 +125,7 @@ end
 
 def generateCommentsFromDatabase
   # Do not attempt to extract comments from a file that does not exist.
-  if File.exists?("#{@config['assets']}/#{@config['comments_database']}")
+  if File.exists?("#{@config['database_output']}/#{@config['database_scripts']['comments']}")
 
     # Comments must be cleaned in case previously generated comments were 
     # unpublished.
@@ -133,7 +133,7 @@ def generateCommentsFromDatabase
 
     puts "Generating comments from database..."
 
-    db = SQLite3::Database.new( "#{@config['assets']}/#{@config['comments_database']}" )
+    db = SQLite3::Database.new( "#{@config['database_output']}/#{@config['database_scripts']['comments']}" )
     db.execute( "SELECT _id, message FROM comments WHERE isPublished = 1" ) do |row|
       sql_id = row[0]
       message = row[1]
@@ -249,11 +249,11 @@ end
 
 def listComments()
   # Do not attempt to extract comments from a file that does not exist.
-  if File.exists?("#{@config['assets']}/#{@config['comments_database']}")
+  if File.exists?("#{@config['database_output']}/#{@config['database_scripts']['comments']}")
     puts "Comments pending approval:"
     puts "\n"
 
-    db = SQLite3::Database.new( "#{@config['assets']}/#{@config['comments_database']}" )
+    db = SQLite3::Database.new( "#{@config['database_output']}/#{@config['database_scripts']['comments']}" )
     db.execute( "SELECT _id, message, isPublished FROM comments" ) do |row|
       message = row[1]
       comment = YAML.safe_load(message)
@@ -277,11 +277,11 @@ end
 
 def reviewComment(id)
   # Do not attempt to extract comments from a file that does not exist.
-  if File.exists?("#{@config['assets']}/#{@config['comments_database']}")
+  if File.exists?("#{@config['database_output']}/#{@config['database_scripts']['comments']}")
     puts "Reviewing comment #{id}:"
     puts "\n"
 
-    db = SQLite3::Database.new( "#{@config['assets']}/#{@config['comments_database']}" )
+    db = SQLite3::Database.new( "#{@config['database_output']}/#{@config['database_scripts']['comments']}" )
     row = db.get_first_row("SELECT _id, message, isPublished FROM comments WHERE _id = #{id}")
     message = row[1]
     comment = YAML.safe_load(message)
@@ -315,10 +315,10 @@ end
 
 def deleteComment(id)
   # Do not attempt to extract comments from a file that does not exist.
-  if File.exists?("#{@config['assets']}/#{@config['comments_database']}")
+  if File.exists?("#{@config['database_output']}/#{@config['database_scripts']['comments']}")
     puts "Deleting comment #{id}..."
 
-    db = SQLite3::Database.new( "#{@config['assets']}/#{@config['comments_database']}" )
+    db = SQLite3::Database.new( "#{@config['database_output']}/#{@config['database_scripts']['comments']}" )
     result = db.execute("DELETE FROM comments WHERE _id = #{id}")
   else
     puts "Comments database does not exist.".red
@@ -327,10 +327,10 @@ end
 
 def publishComment(id)
   # Do not attempt to extract comments from a file that does not exist.
-  if File.exists?("#{@config['assets']}/#{@config['comments_database']}")
+  if File.exists?("#{@config['database_output']}/#{@config['database_scripts']['comments']}")
     puts "Publishing comment #{id}..."
 
-    db = SQLite3::Database.new( "#{@config['assets']}/#{@config['comments_database']}" )
+    db = SQLite3::Database.new( "#{@config['database_output']}/#{@config['database_scripts']['comments']}" )
     result = db.execute("UPDATE comments SET isPublished = 1 WHERE _id = #{id}")
   else
     puts "Comments database does not exist.".red
@@ -339,10 +339,10 @@ end
 
 def unpublishComment(id)
   # Do not attempt to extract comments from a file that does not exist.
-  if File.exists?("#{@config['assets']}/#{@config['comments_database']}")
+  if File.exists?("#{@config['database_output']}/#{@config['database_scripts']['comments']}")
     puts "Unpublishing comment #{id}..."
 
-    db = SQLite3::Database.new( "#{@config['assets']}/#{@config['comments_database']}" )
+    db = SQLite3::Database.new( "#{@config['database_output']}/#{@config['database_scripts']['comments']}" )
     result = db.execute("UPDATE comments SET isPublished = 0 WHERE _id = #{id}")
   else
     puts "Comments database does not exist.".red
