@@ -5,7 +5,7 @@ date: 2013-11-22 22:39:52
 category: blog
 comments_enabled: true
 layout: blog-post
-tags: ['android', 'mobile', 'development', 'robolectric', 'sqlite', 'testing']
+tags: [android, mobile, development, robolectric, sqlite, testing]
 ---
 
 Documentation was sparse regarding how to run Robolectric unit tests on a local

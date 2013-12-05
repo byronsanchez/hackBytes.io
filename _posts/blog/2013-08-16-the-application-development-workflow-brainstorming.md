@@ -5,7 +5,7 @@ date: 2013-08-16 14:03:12
 category: blog
 comments_enabled: true
 layout: blog-post
-tags: ['android', 'ios', 'mobile', 'development', 'brainstorming', 'market research']
+tags: [android, ios, mobile, development, brainstorming, market research]
 ---
 
 ### Introduction

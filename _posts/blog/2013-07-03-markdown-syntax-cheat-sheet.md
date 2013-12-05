@@ -1,11 +1,11 @@
 ---
-title: "Markdown Syntax Cheat Sheet"
+title: Markdown Syntax Cheat Sheet
 description: false
 date: 2013-07-03 12:23:21
 category: blog
 comments_enabled: true
 layout: blog-post
-tags: ['cheatsheet', 'markdown', 'reference', 'syntax']
+tags: [cheatsheet, markdown, reference, syntax]
 ---
 
 #### Different video tests

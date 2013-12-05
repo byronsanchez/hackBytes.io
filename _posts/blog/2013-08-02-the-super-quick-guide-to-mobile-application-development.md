@@ -1,11 +1,11 @@
 ---
-title: "The Super Quick Guide to Mobile Application Development"
+title: The Super Quick Guide to Mobile Application Development
 description: false
 date: 2013-08-02 14:49:43
 category: blog
 comments_enabled: true
 layout: blog-post
-tags: ['android', 'ios', 'mobile', 'development']
+tags: [android, ios, mobile, development]
 ---
 
 ### Introduction
