@@ -57,7 +57,7 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
         end
 
         # Youtube Regex
-        syntax_youtube = /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w\-]{10,})/m
+        syntax_youtube = /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:(?:watch\?v=)|(?:embed\/))?([\w\-]{10,})/m
         source.scan(syntax_youtube)
         id = $1
         unless id.nil? || id.empty?
