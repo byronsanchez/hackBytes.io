@@ -36,7 +36,7 @@ def update_production()
 
   content  = File.read(@config['config_file'])
   content = content.sub("http://hackbytes-devel.com", "http://hackbytes.com")
-  content = content.sub("future: true", "future: false");
+  content = content.sub("future: true", "future: false")
   content = content.sub("environment_id: 0", "environment_id: 1")
   File.write(@config['config_file'], content)
   puts "#{@config['config_file']} updated"

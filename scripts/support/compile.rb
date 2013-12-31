@@ -100,6 +100,8 @@ def compile_site()
   puts "-------------------------"
   puts "Compiling entire website."
   puts "-------------------------"
+  # TODO: If beneficial, use the API to run the build with the environment we 
+  # setup so far.
   output = system "bundle exec jekyll build"
 
   if output.nil? || output == 0

@@ -275,7 +275,7 @@ def listComments()
   end
 end
 
-def reviewComment(id)
+def viewComment(id)
   # Do not attempt to extract comments from a file that does not exist.
   if File.exists?("#{@config['database_output']}/#{@config['database_scripts']['comments']}")
     puts "Reviewing comment #{id}:"

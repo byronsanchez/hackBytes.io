@@ -59,7 +59,6 @@ end
 # Functions
 ###########
 
-
 def load_caps
   Dir["#{@config['caps']}/*.cap"].each {|file|
     # Non .rb files must be imported

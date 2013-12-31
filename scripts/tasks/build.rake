@@ -48,6 +48,7 @@ end
 
 desc "Perform a clean of the application"
 task :clean do
+  puts "Cleaning #{@config['destination']}..."
   system "rm -rf #{@config['destination']}"
 end
 
