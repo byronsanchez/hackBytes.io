@@ -8,6 +8,8 @@ task :draft, :title do |t, args|
     raise "Please add a title to your draft."
   end
 
+  title = title.strip()
+
   date     = Time.now.strftime("%Y-%m-%d")
   filename = "#{title.gsub(/(\'|\!|\?|\:|\s\z)/,"").gsub(/\s/,"-").downcase}.#{@config['post_ext']}"
 
@@ -18,6 +20,7 @@ task :draft, :title do |t, args|
     open("#{@config['drafts']}/#{filename}", 'w') do |post|
       post.puts "---"
       post.puts "title: \"#{title.gsub(/-/,' ')}\""
+      post.puts "author: \"#{@config['author']}\""
       post.puts 'description: false'
       post.puts "date:"
       post.puts "category: blog"
@@ -46,6 +49,8 @@ task :post, :title do |t, args|
     raise "Please add a title to your post."
   end
 
+  title = title.strip()
+
   date     = Time.now.strftime("%Y-%m-%d")
   filename = "#{date}-#{title.gsub(/(\'|\!|\?|\:|\s\z)/,"").gsub(/\s/,"-").downcase}.#{@config['post_ext']}"
 
@@ -56,6 +61,7 @@ task :post, :title do |t, args|
     open("#{@config['posts']}/#{filename}", 'w') do |post|
       post.puts "---"
       post.puts "title: \"#{title.gsub(/-/,' ')}\""
+      post.puts "author: \"#{@config['author']}\""
       post.puts 'description: false'
       post.puts "date: " + date + " " + (Time.now).strftime('%H:%M:%S')
       post.puts "category: blog"
@@ -102,29 +108,20 @@ task :publish, :post do |t, args|
 end
 
 desc "Create a page (with an optional filepath)"
-task :page, :title, :path, :ext do |t, args|
+task :page, :title do |t, args|
   # rake page["Page title"]
-  # rake page["Page title","Path/to/folder"]
-  # rake page["Page title","Path/to/folder","File extension"]
   title     = args[:title]
-  filepath  = args[:path]
-  extension  = args[:ext]
 
   if title.nil? or title.empty?
     raise "Please add a title to your page."
   end
 
-  if filepath.nil? or filepath.empty?
-    filepath = "./"
-  else
-    FileUtils.mkdir_p("#{filepath}")
-  end
-  
-  if extension.nil? or extension.empty?
-    extension = @config['post_ext']
-  end
+  title = title.strip()
 
-  filename = "index.#{extension}"
+  filepath = "#{title.gsub(/(\'|\!|\?|\:|\s\z)/,"").gsub(/\s/,"-").downcase}"
+  filename = "index.#{@config['post_ext']}"
+
+  FileUtils.mkdir_p("#{filepath}")
 
   if File.exists?("#{filepath}/#{filename}")
     raise "The page already exists."
