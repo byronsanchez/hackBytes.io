@@ -98,6 +98,10 @@ To display a list of all comments along with their ids:
 
     bundle exec rake comments-list
 
+To view the contents of a comment:
+
+    bundle exec rake comments-view[id]
+
 To publish a comment:
 
     bundle exec rake comments-publish[id]

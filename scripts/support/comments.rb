@@ -257,7 +257,7 @@ def listComments()
     db.execute( "SELECT _id, message, isPublished FROM comments" ) do |row|
       message = row[1]
       comment = YAML.safe_load(message)
-      list_data = {};
+      list_data = {}
       list_data['Post-ID'] = row[0]
       list_data['Post'] = comment['post_id']
       list_data['Author'] = get_or_set_name(comment['name'])
@@ -286,7 +286,7 @@ def viewComment(id)
     message = row[1]
     comment = YAML.safe_load(message)
 
-    list_data = {};
+    list_data = {}
     list_data['Post-ID'] = row[0]
     list_data['Post'] = comment['post_id']
     list_data['Author'] = get_or_set_name(comment['name'])
