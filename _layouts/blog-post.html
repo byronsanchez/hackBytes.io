@@ -15,7 +15,7 @@ layout: blog-default
     <footer>
       <!-- Author Information -->
       <div class="posted muted">
-        Published by Byron Sanchez
+        Published by {{ post.author }}
       </div>
 
       {% if site.related_posts %}
@@ -49,7 +49,6 @@ layout: blog-default
 </div> <!-- blogbody solo -->
 
 <!-- Comments Section -->
-{% if page.comments_enabled %}
     {% case page.comments_num %}
       {% when 0 %}
         <div class="comments-count">No Comments</div>
@@ -74,7 +73,9 @@ layout: blog-default
           </div>
         </div>
       </div>
-    {% endfor %}
+      {% endfor %}
+
+{% if page.comments_enabled %}
     
     <p></p>
     <div id="endcomments"></div>
@@ -138,7 +139,7 @@ layout: blog-default
                 <label for="comment-text">Comment <span class="form-required" title="This field is required.">*</span></label>
                 <textarea id="comment-text" name="comment" rows="10" cols="30" required></textarea>
                 <p class="comments-open-subtext">
-                  All comments are held for moderation. URLs are automatically linked.
+                  All comments are held for moderation. Markdown formatting is available.
                 </p>
               </div> <!-- comments-open-text -->
           

@@ -44,8 +44,7 @@ excerpt: true
     <footer>
       <!-- Author Information -->
       <div class="posted muted">
-        Published by Byron Sanchez
-        {% if post.comments_enabled %}
+        Published by {{ post.author }}
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <a href="{{ site.url }}{{ post.url }}/#comments">
             {% case post.comments_num %}
@@ -57,7 +56,6 @@ excerpt: true
                 {{post.comments_num}} Comments
             {% endcase %}
           </a>
-        {% endif %}
       </div>
     </footer>
   </article>
