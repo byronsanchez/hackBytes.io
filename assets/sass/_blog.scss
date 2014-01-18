@@ -549,6 +549,18 @@ kbd {
 /* Form styles.
 -------------------------------------------------- */
 
+#comments input, #comments textarea {
+  margin: 0;
+}
+
+#comments textarea {
+  margin-bottom: 1rem;
+}
+
+#comments-open-footer {
+  margin-top: 2rem;
+}
+
 .comments-open-subtext {
   font-style: none;
 }
@@ -601,7 +613,6 @@ span.comment-error {
   color: #c00;
   margin-left: 10px;
   /* padding-bottom is necessary to match bootstrap's default input margin-bottom of 10px. */
-  padding-bottom:10px;
   font-size: 11px;
   font-style: italic;
   font-weight: bold;
