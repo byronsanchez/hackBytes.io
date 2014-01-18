@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="container-fluid content-inverse">
       <div class="row-fluid">
         <div id="sidebar">
@@ -41,7 +41,7 @@
                 <li><a>&nbsp;</a></li>
                 
                 {% for item in site.categories.portfolio limit: 10  %}
-                  <li><a href="#{{ item.title | downcase |  replace:' ','-' }}"><i class="icon-chevron-right icon-white"></i> {{ item.title }}</a></li>
+                  <li><a href="#{{ item.title | downcase |  replace:' ','-' | replace:'.','-' }}"><i class="icon-chevron-right icon-white"></i> {{ item.title }}</a></li>
                 {% endfor %}
                 
               </ul>
