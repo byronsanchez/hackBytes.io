@@ -53,7 +53,7 @@ end
 @config['comments_author'] = "Anonymous"
 # Files to remove from compiled source. These are references to portfolio
 # pages.
-@config['no_deploy'] = ["coloring-book", "creepypasta-files", "custom-scripts", "hackbytes"]
+@config['no_deploy'] = ["coloring-book", "creepypasta-files", "custom-scripts", "hackbytes", "nitelite"]
 
 ###########
 # Functions
