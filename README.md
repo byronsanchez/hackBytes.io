@@ -31,7 +31,7 @@ For other versions of git, run:
 
 Afterwards, run:
 
-    bundle exec rake init
+    ./init.sh
 
 Now you're all set and can use hackBytes as a baseline to building
 your own custom Jekyll website!

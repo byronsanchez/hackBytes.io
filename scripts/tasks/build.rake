@@ -1,29 +1,3 @@
-def validate_system
-  if RUBY_VERSION != "2.0.0"
-    puts "Ruby version 2.0.0 required. Aborting task."
-    abort
-  end
-end
-
-def install_gems
-  puts "Installing Gems..."
-
-  if Gem::Specification::find_all_by_name('bundler').nil?
-    # Update rdoc first to prevent potential errors in doc conversion if
-    # a version less than 4.0.1 is installed.
-    system "gem update rdoc"
-    system "gem install bundler"
-  end
-
-  system "bundle install --local --path vendor/bundle"
-end
-
-desc "Run initial scripts to create a buildable project"
-task :init do
-  validate_system()
-  install_gems()
-end
-
 desc "Compiles assets necessary before the website itself can be compiled."
 task :precompile do
   build_db()
