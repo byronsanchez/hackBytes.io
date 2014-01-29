@@ -1,5 +1,9 @@
 # hackBytes.com
 
+[![Build Status](https://secure.travis-ci.org/byronsanchez/hackbytes.com.png?branch=develop)][travis]
+
+[travis]: https://travis-ci.org/byronsanchez/hackbytes.com
+
 hackBytes is a website dedicated to the mastery of software engineering and 
 computer science.
 
@@ -25,9 +29,9 @@ For other versions of git, run:
     cd hackbytes.com
     git submodule update --init
 
-Afterwards, you must install the packaged gems:
+Afterwards, run:
 
-    bundle install
+    bundle exec rake init
 
 Now you're all set and can use hackBytes as a baseline to building
 your own custom Jekyll website!
