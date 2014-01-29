@@ -15,7 +15,7 @@ def install_gems
     system "gem install bundler"
   end
 
-  system "bundle install"
+  system "bundle install --local --path vendor/bundle"
 end
 
 desc "Run initial scripts to create a buildable project"
