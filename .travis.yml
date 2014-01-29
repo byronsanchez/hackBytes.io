@@ -1,0 +1,10 @@
+language: ruby
+ruby:
+  - 2.0.0
+cache:
+  bundler: true
+  directories:
+    - vendor/bundle
+install:
+  - bundle exec rake init
+
