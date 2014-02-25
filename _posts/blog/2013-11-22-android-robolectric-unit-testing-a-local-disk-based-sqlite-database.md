@@ -56,7 +56,6 @@ on that "output directory" database file.
 Now create a new Java test file. We'll call ours `DaoTest.java`:
 
 ```java|linenos
-@DatabaseConfig.UsingDatabaseMap(SQLiteMap.class)
 @RunWith(RobolectricTestRunner.class)
 public class DaoTest {
 
