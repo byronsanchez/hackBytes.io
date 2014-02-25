@@ -44,7 +44,12 @@ excerpt: true
     <footer>
       <!-- Author Information -->
       <div class="posted muted">
-        Published by {{ post.author }}
+        Published by
+        {% if post.author %}
+          {{ post.author }}
+        {% else %}
+          {{ site.author }}
+        {% endif %}
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <a href="{{ site.url }}{{ post.url }}/#comments">
             {% case post.comments_num %}

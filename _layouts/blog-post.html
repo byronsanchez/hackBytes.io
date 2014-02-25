@@ -15,7 +15,12 @@ layout: blog-default
     <footer>
       <!-- Author Information -->
       <div class="posted muted">
-        Published by {{ post.author }}
+        Published by
+        {% if post.author %}
+          {{ post.author }}
+        {% else %}
+          {{ site.author }}
+        {% endif %}
       </div>
 
       {% if site.related_posts %}
