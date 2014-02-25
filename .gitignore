@@ -42,6 +42,10 @@ doc/app
 # Post drafts don't need to be committed. They are CONSTANTLY changing.
 _posts/_drafts
 
+# Comments do not need to be committed. They are generated on the server side
+# via a rake task if a comments sqlite database exists.
+_comments/
+
 # Ignore compiled/derivative files that can be rebuilt from already
 # committed files.
 path.db*
