@@ -70,7 +70,7 @@ public class DaoTest {
   public void setUp() throws Exception {
     String path = getClass.getResource(DB_PATH).toURI().getPath();
     File dbFile = new File(path);
-    assertThat(testDb.exists()).isTrue();
+    assertThat(dbFile.exists()).isTrue();
     dbPath = dbFile.getAbsolutePath();
 
     // Perform any other necessary set-up operations...
