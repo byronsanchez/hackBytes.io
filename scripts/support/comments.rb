@@ -289,6 +289,7 @@ def viewComment(id)
     list_data = {}
     list_data['Post-ID'] = row[0]
     list_data['Post'] = comment['post_id']
+    list_data['Date'] = comment['date']
     list_data['Author'] = get_or_set_name(comment['name'])
     list_data['Email'] = comment['email']
     list_data['Website'] = comment['link']
