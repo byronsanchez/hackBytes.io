@@ -192,7 +192,7 @@ end
 # Generates a gravatar hash based on the email address.
 def generate_gravatar_hash(email_address)
   if email_address.nil? || email_address.empty?
-    @hashed_email_address = Digest::MD5.hexdigest(SecureRandom.hex(8) + "@#{config['base_url']}")
+    @hashed_email_address = Digest::MD5.hexdigest(SecureRandom.hex(8) + "#{@config['base_url']}")
   else
     @hashed_email_address = Digest::MD5.hexdigest(email_address.strip.downcase)
   end
