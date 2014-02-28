@@ -131,7 +131,7 @@ task :page, :title do |t, args|
       post.puts "---"
       post.puts "title: \"#{title.gsub(/-/,' ')}\""
       post.puts 'description: ""'
-      post.puts "layout: blog-post"
+      post.puts "layout: blog-page"
       post.puts "---"
     end
     puts "#{filepath}/#{filename} was successfully created."

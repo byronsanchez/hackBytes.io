@@ -71,7 +71,7 @@ module Jekyll
           @comments << comment_hash
         end
       end
-      
+
       # Set "number of comments" variable and make it available to Liquid.
       comments_num = @comments.length
       post.data['comments_num'] = comments_num
