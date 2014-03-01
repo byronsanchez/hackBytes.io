@@ -1,90 +1,57 @@
 ---
 layout: portfolio-default
-title: Byron Sanchez's Portfolio
+title: Portfolio of Byron Sanchez
 category: portfolio
 nav_id: 1
 ---
 
-<div class="bs-docs-social social">
-  <div class="row-fluid">
-    <div class="span12">
-             
-      <ul class="bs-docs-social-buttons">
-        <li>
-        <iframe src="{{ site.url }}/assets/github-btn.html?user=byronsanchez&amp;type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="157" height="20"></iframe>
-        </li>
-        <li>
-          <a href="https://twitter.com/byronsanchez" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @byronsanchez</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </li>
-        <li>
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="byronsanchez" data-dnt="true">Tweet</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </li>
-      </ul>
-      
-    </div> <!-- /span -->
-  </div> <!-- /row -->
-</div>  <!-- /bs-docs-social -->
-
-<div class="row-fluid marketing">
-  <h2 class="market-title">Target Platforms</h2>
-</div>
-
-  
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
-<!-- Three columns of text below the carousel -->
-<div class="row-fluid marketing">
-  <div class="span4">
-    <div class="market">
-    
-      <div class="market-icon">
-        <img src="{{ site.url }}/img/icons/icon-tablets.png" alt="Icon of a tablet">
-      </div>
-      
-      <h2>Tablets</h2>
-      <p>Reach a wider audience with development and design for the growing tablet market. Applications are designed with varying tablet sizes and screen orientations in mind.</p>
-    </div>
-  </div><!-- /.span4 -->
-  <div class="span4">
-    <div class="market">
-    
-      <div class="market-icon">
-        <img src="{{ site.url }}/img/icons/icon-phone.png" alt="Icon of a phone">
-      </div>
-      
-      <h2>Phones</h2>
-      <p>Mobile devices offer many differing features across platforms. All applications are designed for a seamless experience across platforms while taking advantage of the unique features each platform offers.</p>
-    </div>
-  </div><!-- /.span4 -->
-  <div class="span4">
-    <div class="market">
-    
-      <div class="market-icon">
-        <img src="{{ site.url }}/img/icons/icon-computer.png" alt="Icon of a desktop computer">
-      </div>
-      
-      <h2>The Web</h2>
-      <p>Taking advantage of the web as a platform for applications opens them up to a global audience. The application becomes accessible from all devices and engages a larger and larger amount of users.</p>
-    </div>
-  </div><!-- /.span4 -->
-  
-</div> <!-- /row -->
-
-<hr class="project-divider" />
+<header>
+  <h2 class="title"><a href="{{ site.url }}/portfolio/" class="title-link">Portfolio of Byron Sanchez</a></h2>
+</header>
 
 <!-- Main portfolio content -->
+<div class="portfolio-container">
 
-{% comment %}
 
-// We're intentionally including every single post on this page. If it becomes
-// too much, set a limit to this AND the sidenav (in portfolio.html).
+  {% assign portfolio_tags = site.portfolio_tags | join " " %}
 
-{% endcomment %}
+  <ul id="filters" class="clearfix">
+    <li><span>Filter:</span></li>
+    <li><span class="filter active" data-filter="{{ portfolio_tags }}">All</span></li>
 
-{% for post in site.categories.portfolio %}
-  {{ post.content }}
-{% endfor %}
+    {% for tag in site.portfolio_tags %}
+    <li><span class="filter" data-filter="{{ tag }}">{{ tag | titleize }}</span></li>
+    {% endfor %}
+  </ul>
+
+  <div id="portfoliolist">
+
+  {% for post in site.categories.portfolio %}
+
+  {% assign tags = post.tags | join " " %}
+
+    <a href="{{ site.url }}{{ post.url }}">
+      <div class="portfolio {{ tags }}" data-cat="{{ tags }}">
+        <div class="portfolio-item">
+
+          <div class="portfolio-wrapper">       
+            <img src="{{ site.url }}/img/portfolios/{{ post.title | downcase | replace:' ','-' | replace:'.','-' }}/cover.png" alt="" />
+          </div>
+
+          <div class="project-label">
+            <div class="project-label-text">
+              <h3 class="project-title">{{ post.title }}</h3>
+            </div>
+          </div> <!--project-label-->
+
+        </div> <!--portfolio-item-->
+      </div>
+    </a>
+
+
+  {% endfor %}
+
+  </div>
+
+</div><!-- portfolio-container -->
+

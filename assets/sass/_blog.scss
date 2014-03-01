@@ -115,6 +115,7 @@ blockquote {
 // same as p (bootstrap override).
 blockquote p {
   @extend p;
+  font-size: 14px;
 }
 
 label {

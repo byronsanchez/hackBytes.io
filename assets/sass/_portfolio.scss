@@ -1,1000 +1,123 @@
-/**
- * Portfolio styles.
- */
+// MAIN PORTFOLIO PAGE
+// ---------------------------------------
 
-
-/* Variables */
-$project_padding: 5%; 
-
-
-/* Body and structure
--------------------------------------------------- */
-
-body#portfolio {
-  position: relative;
-  padding-top: 55px;
+h3.project-title {
+	font: 16px "Roboto","Helvetica Neue",Helvetica,Arial,Freesans,Clean,sans-serif;
+  color: #363636 !important;
+  font-weight: 500;
 }
 
-
-/* Sidenav for Docs
--------------------------------------------------- */
-
-// IMPORTANT NOTES:
-
-// WIDTH OVERFLOWS - This and the corresponding media queries overflow to fill
-// up the left-margin space typically provided by core bootstrap in the
-// adjacent span (the main content to the right of the sidebar).
-
-// WIDTH IS EXPLICIT - The sidebar implementation uses affix.js. Thus, when the
-// scroll offset is reached, the sidebar is taken out of the flow of the page
-// and remains in a fixed visible position. Thus, the width must be explicilty
-// set or else the sidebar will inherit the parent width. If inheritied, width
-// values are variable and quirks will happen! THIS IS WHY SIMPLY REMOVING THE
-// MARGIN IS INSUFFICIENT.
-
-// Main content bgcolor.
-.content-inverse {
-  //background: #252525;
-  background-color: #3a3a3a;
+.portfolio-container { 
+  position: relative; 
+  width: x; 
+  margin: 0 auto; 
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;  
 }
-
-.content-no-shadow {
-  background: #fff;
-}
-
-.sidebar-nav {
-  margin: 0 -20px; // counter the margin defined by core's container (20px)
-}
-
-.row-fluid > .sidebar-nav {
-  position: relative;
-  top: 0;
-  left: auto;
-  width: 240px;
-}
-
-.nav-left {
-  float: left;
-}
-
-.fixed-fluid {
-  margin-left: 220px; // width of sidebars - core container margin
-}
-
-.bs-docs-sidenav {
-  width: 240px;
-  margin: 30px 0 0;
-  padding: 0;
-  //background-color: #252525;
-  background-color: #3a3a3a;
-  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
-     -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
-          box-shadow: 0 1px 4px rgba(0,0,0,.065);
-}
-
-.bs-docs-sidenav > li > a {
+ 
+#filters {
+  margin: 1% 0 3.25% 0;
+  padding:0;
+  list-style:none;
   display: block;
-  width: 210px \9; 
-  margin: 0 0 -1px;
-  padding: 8px 14px;
-  //border: 1px solid #2f2f2f;
-  border: 1px solid #3f3f3f;
-}
-
-.bs-docs-sidenav > .active > a {
-  position: relative;
-  z-index: 2;
-  padding: 9px 15px;
-  border: 0;
-  text-shadow: 0 1px 0 rgba(0,0,0,.15);
-  -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-          box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-}
-
-/* Chevrons */
-.bs-docs-sidenav .icon-chevron-right {
-  float: right;
-  margin-top: 2px;
-  margin-right: -6px;
-  opacity: .50;
-}
-
-.bs-docs-sidenav > li > a {
-  color: #ccc;
-}
-
-.bs-docs-sidenav > li > a:hover {
-  color: #fff;
-  background-color: #252525;
-}
-
-.bs-docs-sidenav a:hover .icon-chevron-right {
-  opacity: .75;
-}
-
-.bs-docs-sidenav .active .icon-chevron-right,
-.bs-docs-sidenav .active a:hover .icon-chevron-right {
-  background-image: url(../img/glyphicons-halflings.png);
-  opacity: 1;
-}
-
-.bs-docs-sidenav.affix {
-  top: 55px;
-}
-
-
-/* Masthead 
--------------------------------------------------- */
-
-.masthead {
-  position: relative;
-  color: #fff;
+  float: left;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
-  background: #000; /* Old browsers */
-  background-image: url(../img/masthead-portfolio.png) repeat center center;
-  background: url(../img/masthead-portfolio.png) repeat center center, -moz-linear-gradient(45deg,  #000000 0%, #696969 100%); /* FF3.6+ */
-  background: url(../img/masthead-portfolio.png) repeat center center, -webkit-gradient(linear, left bottom, right top, color-stop(0%,#000000), color-stop(100%,#696969)); /* Chrome,Safari4+ */
-  background: url(../img/masthead-portfolio.png) repeat center center, -webkit-linear-gradient(45deg,  #000000 0%,#696969 100%); /* Chrome10+,Safari5.1+ */
-  background: url(../img/masthead-portfolio.png) repeat center center, -o-linear-gradient(45deg,  #000000 0%,#696969 100%); /* Opera 11.10+ */
-  background: url(../img/masthead-portfolio.png) repeat center center, -ms-linear-gradient(45deg,  #000000 0%,#696969 100%); /* IE10+ */
-  background: url(../img/masthead-portfolio.png) repeat center center, linear-gradient(45deg,  #000000 0%,#696969 100%); /* W3C */
-  -ms-filter:"progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#FF000000', endColorstr='#FF696969') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/masthead-portfolio.png',sizingMethod='crop')";
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#FF000000', endColorstr='#FF696969') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/masthead-portfolio.png',sizingMethod='crop'); /* IE6-9 fallback on horizontal gradient */
-  -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-     -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-          box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-  margin-bottom: 0;
-  overflow: hidden;
-}
-
-.masthead h1 {
-  font-size: 24px;
-  line-height: 1;
-  color: #fff;
-}
-
-.masthead .lead {   font-size: 12px;
-  font-size: 18px;
-  line-height: 1.25;
-}
-
-.masthead p {
-  font-size: 14px;
-  font-weight: 200;
-  line-height: 1.25;
-  margin-bottom: 30px;
-}
-
-/* Link styles (used on .masthead-links as well) */
-.masthead a {
-  color: #fff;
-  color: rgba(255, 255, 255, 0.5);
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-}
-
-.masthead a:hover {
-  color: #fff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
-}
-
-.masthead .btn {
-  @include pie;
-  position: relative;
-  padding: 14px 24px;
-  font-size: 24px;
-  font-weight: 200;
-  color: #fff; /* redeclare to override the `.jumbotron a` */
-  border: 0;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-     -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-          box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-  -webkit-transition: none;
-     -moz-transition: none;
-          transition: none;
-}
-
-.masthead .btn:hover {
-  @include pie;
-  position: relative;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-     -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-          box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-  color: white;
-  background-color: #f89406;
-}
-
-.masthead .btn:active {
-  @include pie;
-  position: relative;
-  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.1);
-     -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.1);
-          box-shadow: inset 0 2px 4px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.1);
-  color: white;
-  background-color: #f89406;
-}
-
-/* Textual links in masthead */
-.masthead-links {
-  margin: 0;
-  list-style: none;
-}
-
-.masthead-links li {
-  display: inline;
-  padding: 0 10px;
-  color: rgba(255,255,255,.25);
-}
-
-// We are using this container for the default view to provide spacing the
-// the intro box. This is because IE6 doesn't like margins in the box itself.
-// So the container will provide the same necessary spacing with padding.
-// Media queries will not be used by IE6, so in media queries, we zero out
-// the container and switch to using margins on the actual intro
-// box instead.
-.intro-container {
-  padding: 3em;
-}
-
-.intro {
-  @include pie;
-  position: relative;
-  background: rgba(0,0,0,0.4);
-  -pie-background: rgba(0,0,0,0.4); /*PIE*/
-  padding: 25px 25px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.intro-images {
-  max-width: 1024px;
-  margin: 0 auto;
-  clear: both;
-  position: relative;
-  padding-left: 15px;
-}
-
-.computer {
-  font-size: 0;
-  line-height: 0;
-  display: inline-block;
   width: 100%;
-  height: 0;
-  position: absolute;
-  top: 10%;
-  left: 0%;
-  min-width: 360px;
-  max-width: 640px;;
 }
 
-.code-screenshot {
-  font-size: 0;
-  line-height: 0;
-  display: inline-block;
-  width: 440px;
-  height: 440px;
-  position: absolute;
-  top: 128px;
-  left: 2.25%;
-  -o-transition: left .5s ease-in-out;
-  -moz-transition: left .5s ease-in-out;
-  -webkit-transition: left .5s ease-in-out;
-  transition: left .5s ease-in-out;
+#filters li {
+  display: inline;
 }
 
-/* Social proof buttons from GitHub & Twitter */
-.social ul, .social ol
-{
-	margin:0px;
-}
-
-.social ul li, .social ol li
-{
-	margin:0px;
-}
-
-.bs-docs-social {
-  padding: 15px 0;
-  text-align: center;
-  background-color: #f5f5f5;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #ddd;
-}
-
-/* Quick links on Home */
-.bs-docs-social-buttons {
-  margin-left: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-.bs-docs-social-buttons li {
-  display: inline-block;
-  padding: 5px 8px;
-  line-height: 1;
-  *display: inline;
-  *zoom: 1;
-}
-
-/* Marketing Section (below the masthead).
--------------------------------------------------- */
-.market {
-/* Center align the text within the three columns below the carousel */
-  font-size: 16px;
-  text-align: center;
-  padding: 80px 10px;
-
-}
-
-.marketing h2 {
-  font-weight: normal;
-  font-size: 2.4em;
-  color: #444;
-}
-
-h2.market-title {
-  color: #aaa;
-}
-
-.market-title {
-  padding: 15px;
-  text-align: center;
-  color: #5a5a5a;
-}
-
-.marketing .span4 p {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.market-icon {
-  max-width: 240px;
-  margin: auto;
-  width: auto;
-}
-
-#portfolio hr {
-  margin: 20px 0;
-  border: 0;
-  border-top: 1px solid #eeeeee;
-  border-bottom: 1px solid white;
-}
-
-/* Project section of Overview
--------------------------------------------------- */
-
-.project-container {
-  padding-bottom: 80px;
-}
-
-.project-container,
-.project-intro {
-  //border-top: 1px solid #c7c7c7;
-  //border-top: 1px solid rgba(199,199,199,0.4);
-  text-align: center;
-  color: #5a5a5a;
-}
-
-.project-intro {
-  margin: auto;
-  width: auto;
-  max-width: 960px;
-  padding: 80px $project_padding 210px;
-  border: 0px;
-}
-
-.project-intro .page-header {
-  border: 0;
-}
-
-// Kill the margin on all the headers so that text ALWAYS aligns with other
-// block-level elements.
-.project-container h1,
-.project-container h2,
-.project-container h3,
-.project-container h4,
-.project-container h5,
-.project-container h6 {
-  margin: 0px;
-}
-
-.project-container h1,
-.project-intro h1 {
-  font-size: 60px;
+#filters li span {
+  padding:5px 20px;   
+  text-decoration:none;
+  color:#666;
+  cursor: pointer;
   font-weight: bold;
-  line-height: 1em;
-  letter-spacing: -2px;
-  color: #333;
+  text-transform: uppercase;
 }
 
-.project-container h2 {
-  font-weight: 200;
-  margin-bottom: 5px;
+#filters li span.active {
+  background: #F9A732;
+  color:#fff;
 }
 
-.project-container h3 {
-  text-align: left;
-  color: #333;
-  font-size: 16px;
-  margin: 0 0 7px 0;
-  line-height: 1em;
+#portfoliolist .portfolio {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  width:24%;
+  margin:0.5%;
+  display:none;
+  float:left;
+  overflow:hidden;
 }
 
-// Remove any paragraph margins if they come right after the h3 heading (for
-// left aligned text blocks that serve as feature descriptions).
-.project-container h3 + p {
-  margin-top: 0px;
+.portfolio-wrapper {
+  overflow:hidden;
+  position: relative !important;
+  background: none repeat scroll 0 0 rgba(251, 180, 80, 0.2);
+  //border: 1px solid rgba(248, 148, 6, 0.2);
+  cursor:pointer;
 }
 
-.project-description p {
-  font-size: 14px;
-  line-height: 1.65em;
-  color: #3c3c3c;
-  text-align: left;
+.portfolio img {
+  max-width:100%;
+  position: relative;
 }
 
-.project-container .lead {
-  font-size: 18px;
-  //color: #5a5a5a;
-  color: #6f6f6f;
-  text-align: center;
-  border: 0;
-  font-weight: normal;
-  line-height: 1.45em;
+.portfolio .text-category {
+  display:block;
+  font-size:9px;
 }
 
-.project-intro > .lead {
-  padding-bottom: 80px;
-}
-
-.project-description {
-}
-
-// These are redundant and should be abstracted to the project-description class.
-// They're here for now in case directional-specific styles are required.
-.project-description.left {
-  padding: 0 $project_padding $project_padding $project_padding;
-}
-
-.project-description.right {
-  padding: 0 $project_padding $project_padding $project_padding ;
-}
-
-.cover-image {
-  max-width: 960px;
-  margin: auto;
-  width: auto;
-}
-
-
-// Match the screenshot  width percentages based on orientation.
-.cover-image-landscape {
-  max-width: 640px;
-  margin: auto;
-  width: auto;
-}
-
-.cover-image-portrait {
-  max-width: 320px;
-  margin: auto;
-  width: auto;
-}
-
-// Provides spacing between screenshots (minus the bg-color provided by this
-// container's child block.
-.screenshot-container {
-  width: 50%;
-  margin: auto;
-}
-
-.screenshot-container.left {
-  float: left;
-  padding: 0 $project_padding $project_padding $project_padding;
-}
-
-.screenshot-container.right {
-  float: right;
-  padding: 0 $project_padding $project_padding $project_padding;
-}
-
-.screenshot {
-  padding: 10px;
-  background: #f4f4f4;
-  background: rgba(204,204,204,0.25);
-}
-
-// Match the cover-image width percentages based on orientation.
-.landscape {
-  max-width: 640px;
-  margin: auto;
-  width: auto;
-}
-
-.portrait {
-  max-width: 320px;
-  margin: auto;
-  width: auto;
-}
-
-/* Thin out the marketing headings */
-.screenshot-heading {
-  font-size: 40px;
-  font-weight: 300;
-  line-height: 1em;
-  letter-spacing: -1px;
-}
-
-.project-code {
-  @extend .project-intro;
-  padding-bottom: 0px;
-  padding-top: 0px;
-  max-width: none;
-}
-
-.project-code .lead {
-  text-align: left;
-  padding-bottom: 40px;
-  font-size: 16px;
-  color: #888;
-}
-
-.project-code h2 {
-  font-size: 36px;
-  font-weight: bold;
-  font-color: #333;
-}
-
-.code-sample {
-  text-align: left;
- // margin: auto;
- // width: auto;
-}
-
-.project-outro-container {
-  background-color: #f4f4f4;
-  background-image: -moz-linear-gradient(top, #ffffff, #f4f4f4);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f4f4f4));
-  background-image: -webkit-linear-gradient(top, #ffffff, #f4f4f4);
-  background-image: -o-linear-gradient(top, #ffffff, #f4f4f4);
-  background-image: linear-gradient(to bottom, #ffffff, #f4f4f4);
-  background-repeat: repeat-x;
-  -ms-filter:"progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#FFFFFF', endColorstr='#F4F4F4')";
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#FFFFFF', endColorstr='#F4F4F4'); /* IE6-9 fallback on horizontal gradient */
-  border-bottom: 1px solid #e0e0e0;
-}
-
-// Change outro colors to stay even with the outro gradient.
-.project-outro h2 {
-  color: #5a5a5a;
-}
-
-.project-outro {
-  padding: 80px $project_padding 160px;
-  margin: auto;
-  width: auto;
-  max-width: 480px;
+.portfolio .project-label {
   text-align: center;
 }
 
-.project-outro img {
-  max-width: 170px;
-}
 
-.project-outro .lead {
-  color: #696969;
+/* #Tablet (Portrait) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+.portfolio-container {
+width: 768px; 
 }
-
-.app-badge {
-  display: inline-block;
-  overflow: hidden;
-  width: 135px;
-}
-
-.project-divider {
-  margin-top: 0px; // The header titles take care of the spacing below <hr>
-  //margin: 50px 0; /* Space out the Bootstrap <hr> more */
 }
 
 
-/* Footer
--------------------------------------------------- */
-
-.footer-contact {
-  text-align: center;
-  padding: 40px 0;
-  font-size: 14px;
-  background-color: #fff;
-}
-
-.footer-contact h1 {
-  color: #444;
-  font-size: 2.0em;
-}
-
-.footer-contact h2 {
-  color: #444;
-  font-size: 1.6em;
-}
-
-.footer-contact, .footer-contact label {
-  color: #696969;
-}
-
-.current-project {
-  width:auto;
-  margin: auto;
-}
-
-.current-project a {
-  padding: 10px;
-  margin: 1em auto 1em auto;
-  background: #f4f4f4;
-  background: rgba(204, 204, 204, 0.25);
-  display: block;
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-  width: auto;
-  max-width: 320px;
-}
-.current-project a:hover {
-  background: rgba(204, 204, 204, 0.5);
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
-.current-project a:hover {
-  opacity: 1;
-}
-
-/* Misc
--------------------------------------------------- */
-
-/* Make tables spaced out a bit more */
-h2 + table,
-h3 + table,
-h4 + table,
-h2 + .row {
-  margin-top: 5px;
-}
-
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
-/* Desktop large
-------------------------- */
-
-@media (min-width: 1200px) {
-
-  // Bigger masthead text.
-  .masthead h1 {
-    font-size: 32px;
-  }
-
-  .masthead .lead {
-    font-size: 24px;
-  }
-
-  .masthead p {
-    font-size: 16px;
+/*  #Mobile (Portrait) - Note: Design for a width of 320px */
+@media only screen and (max-width: 767px) {
+  .container { 
+    width: 95%; 
   }
   
-  .computer {
-    left: 10%;
-    top: 5%;
-  }
+  #portfoliolist .portfolio {
+    width:48%;
+    margin:1%;
+  }   
 
-  .code-screenshot {
-    left: -12.5%;
+  #ads {
+    display:none;
   }
   
-  .intro-container {
-    padding: 0;
-  }
-  
-  // Push the intro slightly to the left for more balance.
-  .intro {
-    margin: 3em 3em 3em 4.5em;
-  }
-
-  .bs-docs-container {
-    max-width: 970px;
-  }
-  
-  .row-fluid > .sidebar-nav {
-    width: 300px;
-  }
-
-  .fixed-fluid {
-    margin-left: 280px; // width of sidebars - core container margin
-  }
-
-  .bs-docs-sidenav {
-    width: 300px;
-  }
-
-  .bs-docs-sidenav > li > a {
-    width: 270px \9; /* Override the previous IE8-9 hack */
-  }
-
 }
 
 
-/* Tablet to desktop
-------------------------- */
-
-@media (max-width: 979px) {
-
-  /* Remove any padding from the body */
-  body#portfolio {
-    padding-top: 0;
-  }
-
-  // Account for the 1px box shadow in the navbar, now that it is no longer
-  // fixed.
-  .navbar.navbar-portfolio {
-    margin-bottom: 1px;
-  }
-
-  .row-fluid > .sidebar-nav {
-    width: 186px;
-  }
-
-  .left {
-    float: left;
-  }
-
-  .fixed-fluid {
-    margin-left: 166px; // width of sidebars - core container margin
-  }
-
-  /* Widen masthead and social buttons to fill body padding */
-  .bs-docs-sidenav {
-    width: 186px;
-    margin-top: 20px;
+/* #Mobile (Landscape) - Note: Design for a width of 480px */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .container {
+    width: 70%;
   }
   
-  .bs-docs-sidenav > li > a {
-    width: 156px \9; /* Override the previous IE8-9 hack */
-  }
-
-  .bs-docs-sidenav.affix {
-    top: 0;
-  }
-
-  .masthead p {
-    margin-bottom: 1em;
-  }
-
-  .computer {
-    left: -15%;
-    width: 440px;
-    height: 440px;
-  }
-
-  .code-screenshot {
-    width: 400px;
-    height: 400px;
-    left: -10%;
-  }
-
-  // Since IE6 doesn't use media queries, we can stop using the container and
-  // apply margin for simplicity (padding can't do the negative margin effects
-  // we need, so this is actually simpler).
-  .intro-container {
-    padding: 0;
+  #ads {
+    display:none;
   }
   
-  // Negative margin to balance out with the specifically positioned images.
-  .intro {
-    margin: 1.5em -3em 1.5em 3em;
-  }
-
-  .project-container {
-    height: auto;
-  }
-  
-  .screenshot-container {
-    width: auto;
-  }
-  .screenshot-container.left, .screenshot-container.right {
-    float: none;
-  }
 }
 
+// INDIVIDUAL PORTFOLIO PAGES
+// ---------------------------------------
 
-/* Tablet
-------------------------- */
-
-@media (max-width: 767px) {
-
-  /* Remove any padding from the body */
-  body#portfolio {
-    padding-top: 0;
-  }
-
-  // Default content override.
-  body#portfolio .content {
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border: 1px solid #e0e0e0;
-    border-top-style: none;
-  }
-
-  /* Widen masthead and social buttons to fill body padding */
-  .masthead {
-    padding: 0;
-  }
-
-  .computer {
-    display: none;
-  }
-
-  // Remove left/right-based padding and width since all elements are now
-  // vertical.
-  .project-description {
-    padding: 20px;
-    max-width: none;
-  }
-
-  .code-screenshot {
-    display: none;
-  }
-  
-  .intro {
-    margin: 1.5em;
-  }
-
-  .masthead .btn {
-    font-size: 24px;
-  }
-
-  .market {
-    padding: 0;
-  }
-
-  .marketing .span4 {
-    margin-bottom: 40px;
-  }
-
-  .sidebar-nav {
-    margin: 0;
-  }
-
-  .row-fluid > .sidebar-nav {
-    width: auto;
-    float: none;
-  }
-
-  .left {
-    float: none;
-  }
-
-  .fixed-fluid {
-    margin-left: 0; // width of sidebars - core container margin
-  }
-
-  /* Sidenav */
-  .bs-docs-sidenav {
-    width: auto;
-    margin-bottom: 20px;
-  }
-  
-  .bs-docs-sidenav > li > a {
-    width: auto \9; /* Override the previous IE8-9 hack */
-  }
-
-  .bs-docs-sidenav.affix {
-    position: static;
-    width: auto;
-    top: 0;
-  }
-
-  // The sidenav should no longer float left
-  .nav-left {
-    float: none;
-  }
-
-  .marketing .span4 + .span4 {
-    margin-top: 40px;
-  }
-  
-  .project-container {
-    padding-bottom: 64px;
-  }
-
-  // Once spans no longer control the grid, release the percentage-based widths
-  // for the cover-images
-  .cover-image, .cover-image.left, .cover-image.right {
-    width: auto;
-  }
-
-  .screenshot-heading {
-    font-size: 30px;
-  }
-    
-  .project-intro {
-    padding: 64px $project_padding 168px;
-  }
-  .project-code {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
-
-  .project-intro .lead {
-    padding-bottom: 40px;
-  }
-
-  .project-container .lead {
-    font-size: 18px;
-    line-height: 1.5;
-  }
-
-  .project-intro h1 {
-    font-size: 48px;
-  }
-
-  // Reset the margin, as the span no longer holds a margin.
-  .project-description.right {
-    margin: auto;
-    width: auto;
-    padding: $project_padding;
-  }
-
-  .screenshot-container.right {
-    margin: auto;
-    width: auto;
-    padding: $project_padding;
-  }
-  
-  .project-outro {
-    padding-top: 64px;
-    padding-bottom: 128px;
-  }
-
-  /* Unfloat the back to top link in footer */
-  /*.footer-contact {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;}*/
-
-  .footer-contact p {
-    margin-bottom: 9px;
-  }
-}
-
-
-/* Landscape phones
-------------------------- */
-
-@media (max-width: 480px) {
-
-  /* Remove padding above masthead */
-  body#portfolio {
-    padding-top: 0;
-  }
-
-  /* Tighten up footer */
-  .footer-contact {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-}
 

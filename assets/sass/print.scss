@@ -132,12 +132,6 @@ a[href]:after {
   word-break: break-all;
 }
 
-// PORTFOLIO STYLES
-
-body#portfolio {
-  padding-top: 0;
-}
-
 .navbar-fixed-top, .navbar-fixed-bottom {
   position: static
 }
@@ -153,10 +147,6 @@ body#portfolio {
 
 .masthead h1 {
   margin: 0;
-}
-
-body#portfolio .content {
-  border: 0;
 }
 
 .bs-docs-social {

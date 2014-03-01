@@ -178,4 +178,41 @@ $(document).ready(function () {
     // Set the initial state.
     updateWindow();
 
+    // Run portfolio code
+    var filterList = {
+    
+      init: function () {
+      
+        // MixItUp plugin
+        // http://mixitup.io
+        $('#portfoliolist').mixitup({
+          targetSelector: '.portfolio',
+          filterSelector: '.filter',
+          effects: ['fade'],
+          easing: 'snap',
+          // call the hover effect
+          onMixEnd: filterList.hoverEffect()
+        });       
+      
+      },
+      
+      hoverEffect: function () {
+      
+        // Simple parallax effect
+        $('#portfoliolist .portfolio').hover(
+          function () {
+            $(this).find('.portfolio-item').fadeTo(0, 0.5);
+          },
+          function () {
+            $(this).find('.portfolio-item').fadeTo(0, 1);
+          }
+        );        
+      
+      }
+
+    };
+    
+    // Run the show!
+    filterList.init();
+    
 });
