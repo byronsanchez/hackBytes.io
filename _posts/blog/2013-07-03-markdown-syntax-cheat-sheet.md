@@ -5,7 +5,7 @@ date: 2013-07-03 12:23:21
 category: blog
 comments_enabled: true
 layout: blog-post
-tags: [cheatsheet, markdown, reference, syntax]
+tags: [cheat sheet, markdown, reference, syntax]
 ---
 
 #### Different video tests
