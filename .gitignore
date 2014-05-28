@@ -52,13 +52,6 @@ path.db*
 comments.db*
 hackbytes.min.js
 
-# Absolutely no binary files. Binary files can be added some other way.
-img/
-*.png
-*.ico
-*.gif
-css/*.gif
-
 # Some of the bootstrap resources don't need to be version controlled.
 # If they exist, just ignore them.
 assets/sass/bootstrap/docs/
