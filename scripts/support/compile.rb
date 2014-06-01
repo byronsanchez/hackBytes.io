@@ -20,7 +20,7 @@ def build_db()
     system "rm -f #{db_path}" if path == "path"
     if !File.exist?(db_path)
       files = Dir.glob(File.join(db_dir,  '/sc*'))
-      files.each { |x|
+      files.sort.each { |x|
         system "sqlite3 #{db_path} < #{x}"
       }
       puts "#{db} built successfully!".green
@@ -135,7 +135,7 @@ def test_gems_for_site()
   Dir.chdir("#{@config['destination']}/assets/") do
     isDir = true
     Bundler.with_clean_env do
-      system "bundle install --deployment"
+      system "bundle exec gem pristine --all"
     end
     puts "Required gems packaged successfully".green
   end
