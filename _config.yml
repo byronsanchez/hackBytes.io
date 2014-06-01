@@ -2,13 +2,15 @@
 # Deployment Configuration
 ##########################
 
-remote_user: "REMOTE USER"
-remote_host: "REMOTE HOST"
-remote_port: "SSH PORT"
-remote_destination: "REMOTE DESTINATION PATH"
-repo: "REPOSITORY TO DEPLOY"
-repo_branch: "REPOSITORY BRANCH"
-remote_path_env: "REMOTE RUBY PATH ENVIRONMENT VARIABLE"
+remote_user: "deployer"
+remote_port: "1224"
+remote_destination: "/srv/www/hackbytes.com"
+repo: "https://github.com/byronsanchez/hackbytes.com.git"
+repo_branch: "develop"
+remote_path_env: "$PATH:/usr/local/bin"
+
+server_production: "production.hackbytes.com"
+server_staging: "stage.hackbytes.com"
 
 ####################
 # Main Configuration
@@ -33,7 +35,7 @@ pagination_mode: "categories" # categories => use page.category_name.smart_previ
 # Ruby format reference:
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
 date_format: "%B %e, %Y %l:%M %p"
-email: bfs5030@gmail.com
+email: byron@hackbytes.com
 recent_posts: 10       # Posts in the sidebar Recent Posts section
 environment_id: 1
 
@@ -65,6 +67,11 @@ gravatar_url: "http://www.gravatar.com/avatar"
 gravatar_size: 64
 gravatar_default: "identicon"
 
+# Portfolio settings
+portfolio_tags:
+- mobile
+- web
+
 #####################
 # Inclusion/Exclusion
 #####################
@@ -82,8 +89,6 @@ exclude:
 - .rvmrc
 - scripts
 - resources
-- bin
-- database
 - config
 include:
 - .htaccess
