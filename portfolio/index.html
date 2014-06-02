@@ -1,13 +1,17 @@
 ---
 layout: portfolio-default
-title: Portfolio of Byron Sanchez
+title: Portfolio
 category: portfolio
 nav_id: 1
 ---
 
+<div class="blog">
+
 <header>
-  <h2 class="title"><a href="{{ site.url }}/portfolio/" class="title-link">Portfolio of Byron Sanchez</a></h2>
+  <h2 class="title"><a href="/portfolio/" class="title-link">Portfolio</a></h2>
 </header>
+
+{% include services.html %}
 
 <!-- Main portfolio content -->
 <div class="portfolio-container">
@@ -30,12 +34,11 @@ nav_id: 1
 
   {% assign tags = post.tags | join " " %}
 
-    <a href="{{ site.url }}{{ post.url }}">
+    <a href="{{ post.url }}">
       <div class="portfolio {{ tags }}" data-cat="{{ tags }}">
         <div class="portfolio-item">
 
-          <div class="portfolio-wrapper">       
-            <img src="{{ site.url }}/img/portfolios/{{ post.title | downcase | replace:' ','-' | replace:'.','-' }}/cover.png" alt="" />
+          <div class="portfolio-wrapper">       <img src="/img/portfolios/{{ post.title | downcase | replace:' ','-' | replace:'.','-' }}/cover.png" alt="" />
           </div>
 
           <div class="project-label">
@@ -54,4 +57,6 @@ nav_id: 1
   </div>
 
 </div><!-- portfolio-container -->
+
+</div><!-- blog -->
 

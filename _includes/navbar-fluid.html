@@ -7,7 +7,7 @@
                     <span class="icon-th-list"></span>
                   </a>
                   
-                  <a href="{{ site.url }}/" class="brand">{{ site.title }}</a>
+                  <a href="/" class="brand">{{ site.title }}</a>
 
                   <div class="nav-collapse collapse">
                   
@@ -26,33 +26,34 @@
                       {% endcomment %}
                     
                       {% if page.nav_id == 0 %}
-                        <li class="active"><a href="{{ site.url }}/">Home</a></li>
+                        <li class="active"><a href="/">Home</a></li>
                       {% else %}
-                        <li><a href="{{ site.url }}/">Home</a></li>
+                        <li><a href="/">Home</a></li>
                       {% endif %}
                       
                       {% if page.nav_id == 1 %}
-                        <li class="active"><a href="{{ site.url }}/portfolio/">Portfolio</a></li>
+                        <li class="active"><a href="/portfolio/">Portfolio</a></li>
                       {% else %}
-                        <li><a href="{{ site.url }}/portfolio/">Portfolio</a></li>
+                        <li><a href="/portfolio/">Portfolio</a></li>
                       {% endif %}
                       
                       {% if page.nav_id == 2 %}
-                        <li class="active"><a href="{{ site.url }}/resume/">Resume</a></li>
+                        <li class="active"><a href="/resume/">Resume</a></li>
                       {% else %}
-                        <li><a href="{{ site.url }}/resume/">Resume</a></li>
+                        <li><a href="/resume/">Resume</a></li>
                       {% endif %}
                       
                       {% if page.nav_id == 3 %}
-                        <li class="active"><a href="{{ site.url }}/about/">About</a></li>
+                        <li class="active"><a href="/about/">About</a></li>
                       {% else %}
-                        <li><a href="{{ site.url }}/about/">About</a></li>
+                        <li><a href="/about/">About</a></li>
                       {% endif %}
                       
                       {% if page.nav_id == 4 %}
-                        <li class="active"><a href="{{ site.url }}/contact/">Contact Me</a></li>
+                        <li class="active"><a href="/contact/">Contact 
+                            Me</a></li>
                       {% else %}
-                        <li><a href="{{ site.url }}/contact/">Contact Me</a></li>
+                        <li><a href="/contact/">Contact Me</a></li>
                       {% endif %}
                       
                     </ul>

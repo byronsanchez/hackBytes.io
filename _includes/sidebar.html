@@ -25,7 +25,7 @@
     <li class="nav-header">Recent Posts</li>
     
     {% for post in site.categories.blog limit:10 %}
-    <li><a href="{{ site.url }}{{ post.url }}/" class="title-link">{{ post.title }}</a></li>
+    <li><a href="{{ post.url }}/" class="title-link">{{ post.title }}</a></li>
     {% endfor %}
 
   </ul>
@@ -38,13 +38,13 @@
     <h3 class="dark-title">About the Author</h3>
   </div>
   <p class="about-me">
-  <img src="{{ site.url }}/img/avatars/avatar-byronsanchez.png" title="Byron Sanchez" alt="Byron Sanchez" class="profile" />
+  <img src="/img/avatars/avatar-byronsanchez.png" title="Byron Sanchez" alt="Byron Sanchez" class="profile" />
   {% include about.html %}
   </p>
 
   <ul class="nav nav-list">
     <li class="nav-header">Links</li>
-    <li><a href="{{ site.url }}/about/">About Me</a></li>
+    <li><a href="/about/">About Me</a></li>
     <li><a href="http://www.twitter.com/byronsanchez/">@byronsanchez</a></li>
     <li><a href="http://www.github.com/byronsanchez/">GitHub</a></li>
     <li><a href="https://plus.google.com/105947647411091420403/">Google+ Profile</a></li>
