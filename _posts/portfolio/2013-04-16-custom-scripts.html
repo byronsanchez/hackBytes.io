@@ -21,7 +21,7 @@ tags: [web]
       </p>
       
       <div class="cover-image">
-        <img src="{{ site.url }}/img/screenshots/vim.png" alt="Vim screenshot of 3 source files and NERDTree." />
+        <img src="/img/screenshots/vim.png" alt="Vim screenshot of 3 source files and NERDTree." />
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@ tags: [web]
       <h2>Ruby Blog Comment Generator for Jekyll</h2>
       
       <p class="lead">
-        This is a Jekyll plugin I wrote for publishing comments to the <a href="{{ site.url }}/"><b>blog</b></a>. It takes comments from a predefined directory and attaches them to the post it is associated with.
+        This is a Jekyll plugin I wrote for publishing comments to the <a href="/"><b>blog</b></a>. It takes comments from a predefined directory and attaches them to the post it is associated with.
       </p>
       
       <div class="code-sample">
@@ -269,7 +269,7 @@ if (is_resource($process)) {
 <div class="blogbody">
   <article>
     <header>
-      <h2 class="title"><a href="{{ site.url }}{{ post.url }}/" class="title-link">{{ post.title }}</a></h2>
+      <h2 class="title"><a href="{{ post.url }}/" class="title-link">{{ post.title }}</a></h2>
       <h3 class="date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></h3>
     </header>
       
@@ -282,7 +282,7 @@ if (is_resource($process)) {
           {{ post.content }}
         {% endif %}
       {%endif %}
-      <p class="more-link"><a href="{{ site.url }}{{ post.url }}/">Read Article &#8594;</a></p>
+      <p class="more-link"><a href="{{ post.url }}/">Read Article &#8594;</a></p>
     
     <footer>
       <!-- Author Information -->
@@ -290,7 +290,7 @@ if (is_resource($process)) {
         Published by Byron Sanchez
         {% if post.comments_enabled %}
           &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="{{ site.url }}{{ post.url }}/#comments">
+          <a href="{{ post.url }}/#comments">
             {% case post.comments_num %}
               {% when 0 %}
                 No Comments
