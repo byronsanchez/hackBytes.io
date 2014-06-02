@@ -5,10 +5,10 @@ layout: blog-default
 <div class="blogbody">
   <article>
     <header>
-      <h2 class="title"><a href="{{ site.url }}{{ page.url }}/" class="title-link">{{ page.title }}</a></h2>
+      <h2 class="title"><a href="{{ page.url }}/" class="title-link">{{ page.title }}</a></h2>
       <h3 class="date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></h3>
     </header>
-    
+
     {{ content }}
 
     <br />
@@ -29,7 +29,7 @@ layout: blog-default
       <div class="related-posts">
         <ul>
           {% for post in site.related_posts limit:5 %}
-            <li><a href="{{ site.url}}{{ post.url }}/">{{ post.title }}</a></li>                     
+            <li><a href="{{ post.url }}/">{{ post.title }}</a></li>
           {% endfor %}
         </ul>
       </div>
@@ -38,15 +38,15 @@ layout: blog-default
       {% if page.blog.previous or page.blog.next %}
       <!-- Pagination -->
       <div class="footernav">
-      
+
         {% if page.blog.previous %}
-        <div style="float:left;"><a rel="prev" href="{{ site.url }}{{ page.blog.previous.url }}/">&laquo;&nbsp;{{ page.blog.previous.title }}</a></div>
+        <div style="float:left;"><a rel="prev" href="{{ page.blog.previous.url }}/">&laquo;&nbsp;{{ page.blog.previous.title }}</a></div>
         {% endif %}
-        
+
         {% if page.blog.next %}
-        <div style="float:right;"><a rel="next" href="{{ site.url }}{{ page.blog.next.url }}/">{{ page.blog.next.title }}&nbsp;&raquo;</a></div>
+        <div style="float:right;"><a rel="next" href="{{ page.blog.next.url }}/">{{ page.blog.next.title }}&nbsp;&raquo;</a></div>
         {% endif %}
-      
+
       </div> <!-- footernav -->
       {% endif %}
     </footer>
@@ -58,12 +58,12 @@ layout: blog-default
       {% when 0 %}
         <div class="comments-count">No Comments</div>
       {% when 1 %}
-        <div class="comments-count">1 Comment</div> 
+        <div class="comments-count">1 Comment</div>
       {% else %}
         <div class="comments-count">{{page.comments_num}} Comments</div>
     {% endcase %}
     {% for c in page.comments %}
-      <div class="comments-body {{ c.name | handleize }} {% cycle 'odd', 'even' %}" id="{{ c.id }}"> 
+      <div class="comments-body {{ c.name | handleize }} {% cycle 'odd', 'even' %}" id="{{ c.id }}">
         <!-- OLD: <p class="comment_header"> -->
           {{ c.comment }}
         <div class="comments-meta clearfix">
@@ -74,35 +74,35 @@ layout: blog-default
             {% else %}
             <p class="comment-name">{{c.name}}</p>
             {% endif %}
-            <p class="comment-date muted">{{c.date | date: "%B %e, %Y %l:%M %p"}} | <a href="{{ site.url }}{{ page.url}}/#{{ c.id }}">Permalink</a></p>
+            <p class="comment-date muted">{{c.date | date: "%B %e, %Y %l:%M %p"}} | <a href="{{ page.url}}/#{{ c.id }}">Permalink</a></p>
           </div>
         </div>
       </div>
       {% endfor %}
 
 {% if page.comments_enabled %}
-    
+
     <p></p>
     <div id="endcomments"></div>
-    
+
     <!-- comment form -->
     <div id="comments">
-  
+
     <!-- section headers -->
     <h2 id="header-post-comment" class="comments-header">Post a comment</h2>
     <h3 id="header-verify-comment" class="comments-header hiddenBox">Verify your Comment</h3>
     <h3 id="header-preview-comment" class="comments-header hiddenBox">Previewing your Comment</h3>
-    
+
     <!-- comment notices. -->
     <div id="comments-open-response-success" class="alert alert-success hiddenBox">
       <p class="comments-open-subtext">
         Success! Your comment has been submitted and is now pending approval. <a href="javascript:void 0;" onclick="window.location.hash='#comment-form';window.location.reload(false)">Post another comment</a>
       </p>
     </div> <!-- comments-open-response-success -->
-    
+
     <div id="comments-open-response-error" class="alert alert-error hiddenBox">
     </div> <!-- comments-open-response-error -->
-  
+
     <!-- comment preview -->
   	<div id="comment-preview" class="hiddenBox">
       <div class="comments-content">
@@ -117,7 +117,7 @@ layout: blog-default
         </div>
       </div>
     </div>
-    
+
     <!-- Notice below the comment preview. -->
     <div id="comment-preview-confirmation" class="hiddenBox yellowBox">
       <p>This is only a preview. Your comment has not yet been posted.</p>
@@ -133,13 +133,13 @@ layout: blog-default
       <form id="comment-form">
         <fieldset>
           <input type="hidden" name="post_id" value="{{page.id}}" />
-          <input type="hidden" name="return_url" value="{{site.url}}{{page.url}}" />
+          <input type="hidden" name="return_url" value="{{page.url}}" />
 
           <div class="comments-open">
             <div id="comments-open-content" class="comments-open-content">
-              
+
               <!-- Comment form fields. -->
-              
+
               <div id="comments-open-text" style="display: none;">
                 <label for="comment-text">Comment <span class="form-required" title="This field is required.">*</span></label>
                 <textarea id="comment-text" name="comment" rows="10" cols="30" required></textarea>
@@ -147,9 +147,9 @@ layout: blog-default
                   All comments are held for moderation. Markdown formatting is available.
                 </p>
               </div> <!-- comments-open-text -->
-          
+
               <div id="comments-open-data" style="display: none;">
-              
+
                 <!-- <p>Your Information</p> -->
                 <p>
                   <label for="comment-author">Name</label>
@@ -165,9 +165,9 @@ layout: blog-default
                   <input type="text" id="comment-url" name="link" size="30" class="grayText"  placeholder="http://www.example.com" />
                   <span id="comment-url-error" class="comment-error hiddenBox">Invalid URL</span>
                 </p>
-            
+
               </div> <!-- comments-open-data -->
-            
+
               <div id="comments-open-footer" class="comments-open-footer" style="display: none;">
                 <!-- Initial button states == disabled -->
                 <input type="submit" name="post" id="comment-post-button" value="&nbsp;Post&nbsp;" class="btn btn-primary" disabled="disabled" />
@@ -176,11 +176,11 @@ layout: blog-default
               </div> <!-- comments-open-footer -->
 
             </div> <!-- comments-open-content -->
-            
+
           </div> <!-- comments-open -->
         </fieldset>
       </form>
-    
+
     <!-- noscript warning-->
     <noscript>
 			<p>Please enable JavaScript to submit a comment.</p>
