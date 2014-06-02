@@ -37,6 +37,8 @@ def precompile_site()
   puts "-------------------"
   system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_spin.js --js_output_file js/_compiled-spin.js"
   system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_jquery.spin.js --js_output_file js/_compiled-jquery.spin.js"
+  system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_jquery.easing.js --js_output_file js/_compiled-jquery.easing.js"
+  system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_jquery.mixitup.js --js_output_file js/_compiled-jquery.mixitup.js"
   system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_application.js --js js/_bs-comments.js --js_output_file js/_compiled-hackbytes.min.js"
   puts "JS files compiled".green
 
@@ -65,6 +67,32 @@ def precompile_site()
     file.puts "\n"
   end
   system "cat js/_compiled-jquery.spin.js >> js/hackbytes.min.js"
+
+  # jquery.easing.js license
+  open("js/hackbytes.min.js", 'w') do |file|
+    file.puts "/**"
+    file.puts " * Easing equations"
+    file.puts " * Copyright (c) 2001 Robert Penner"
+    file.puts " * Licensed under the BSD license"
+    file.puts " *"
+    file.puts " * jQuery Easing"
+    file.puts " * Copyright (c) 2008 George McGinley"
+    file.puts " * Licensed under the BSD license"
+    file.puts " */"
+    file.puts "\n"
+  end
+  system "cat js/_compiled-jquery.easing.js >> js/hackbytes.min.js"
+
+  # jquery.mixitup.js license
+  open("js/hackbytes.min.js", 'w') do |file|
+    file.puts "/**"
+    file.puts " * jQuery mixitup"
+    file.puts " * Copyright (c) 2012-2013 Patrick Kunka, Barrel LLC, All Rights Reserved"
+    file.puts " * Licensed under the CC BY-ND 3.0 license"
+    file.puts " */"
+    file.puts "\n"
+  end
+  system "cat js/_compiled-jquery.mixitup.js >> js/hackbytes.min.js"
 
   # hackBytes license
   open("js/hackbytes.min.js", 'a') do |file|
