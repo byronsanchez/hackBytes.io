@@ -26,7 +26,9 @@ end
 # Rake Tasks Configuration
 ##########################
 
-@config['remote_connection'] = "#{@config['remote_user']}@#{@config['remote_host']}"
+@config['connection_production'] = "#{@config['remote_user']}@#{@config['server_production']}"
+@config['connection_staging'] = "#{@config['remote_user']}@#{@config['server_staging']}"
+
 @config['remote_current_path'] = File.join(@config['remote_destination'], "current/_site")
 @config['remote_assets'] = File.join(@config['remote_current_path'], "assets")
 @config['remote_database_output'] = File.join(@config['remote_destination'], "shared/database")

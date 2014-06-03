@@ -4,7 +4,7 @@ set :repo_url, @config['repo']
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 set :deploy_to, @config['remote_destination']
-set :scm, :git
+set :scm, "git"
 
 # set :format, :pretty
 # set :log_level, :debug
@@ -20,8 +20,9 @@ set :user, @config['remote_user']
 set :branch, @config['repo_branch']
 
 set :use_sudo, false
-set :deploy_via, :remote_cache
-set :git_enable_submodules, 1
+set :deploy_via, :copy
+set :copy_cache, "/tmp/#{@config['application']}"
+set :copy_compression,:gzip 
 set :keep_releases, 5
 #set :ssh_options, { :forward_agent => true }
 

@@ -27,9 +27,22 @@ task :clean do
 end
 
 desc "Deploy the app to the production server."
-task :deploy do
+task :deploy, :server_env do | t, args |
+  # staging
+  # production
+  server_id   = "-1"
+  server_id   = args[:server_env]
+
   puts "Deploying application..."
-  system "bundle exec cap production deploy"
+
+  case server_id
+  when "staging"
+    system "bundle exec cap staging deploy"
+  when "production"
+    system "bundle exec cap production deploy"
+  else
+    puts "Please enter a valid server environment: staging | production"
+  end
 end
 
 # TODO: Abstract the argument checker for env and nuke tasks

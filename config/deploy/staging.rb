@@ -6,9 +6,7 @@ set :stage, :staging
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 
-# TODO: Setup a staging server
-
-role :app, [@config['remote_connection']]
+role :app, [@config['connection_staging']]
 #role :web, [@config['remote_connection']]
 #role :db, [@config['remote_connection']]
 
@@ -18,7 +16,7 @@ role :app, [@config['remote_connection']]
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server @config['remote_host'], user: @config['remote_user'], roles: %w{app}, my_property: :my_value
+server @config['server_staging'], user: @config['remote_user'], roles: %w{app}, my_property: :my_value
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
