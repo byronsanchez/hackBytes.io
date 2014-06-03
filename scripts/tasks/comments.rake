@@ -1,35 +1,11 @@
 desc "Pull the comments database from the server"
-task :"comments-pull", :id do |t, args|
-  stage = args[:id]
-
-  case stage
-  when "production"
-    connection = @config['connection_production']
-    pullCommentsDatabase(connection)
-  when "staging"
-    connection = @config['connection_staging']
-    pullCommentsDatabase(connection)
-  else
-    puts "Please enter a valid server environment: staging | production"
-  end
-
+task :"comments-pull" do
+  pullCommentsDatabase()
 end
 
 desc "Push the comments database to the server"
-task :"comments-push", :id do |t, args|
-  stage = args[:id]
-
-  case stage
-  when "production"
-    connection = @config['connection_production']
-    pushCommentsDatabase(connection)
-  when "staging"
-    connection = @config['connection_staging']
-    pushCommentsDatabase(connection)
-  else
-    puts "Please enter a valid server environment: staging | production"
-  end
-
+task :"comments-push" do
+  pushCommentsDatabase()
 end
 
 desc "Create the comments directory and populate it with comments from the database"
