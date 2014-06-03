@@ -16,7 +16,7 @@ server_staging: "stage.hackbytes.com"
 # Main Configuration
 ####################
 
-application: "hackBytes.com"
+application: "hackbytes.com"
 # For use in hyperlinks
 url: "http://hackbytes.com"
 # For use in things like email addresses or anything else in which the hostname
