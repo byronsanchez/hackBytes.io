@@ -3,11 +3,23 @@
 namespace :deploy do
   desc "Run the precompile task locally and rsync with the server path"
   task :precompile do
+
     puts %x{bundle exec rake precompile}
+
+    case "#{fetch(:stage)}"
+    when 'production'
+      server = @config['server_production']
+    when 'staging'
+      server = @config['server_staging']
+    else
+      server = @config['server_staging']
+    end
+
     # Rsync the precompiled databases
-    puts %x{rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{@config['source']}/assets/ #{@config['remote_connection']}:#{release_path}/assets}
+    puts %x{rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{@config['source']}/assets/ #{server}:#{release_path}/assets}
     # Rsync the precompiled javascript files
-    puts %x{rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{@config['source']}/js/ #{@config['remote_connection']}:#{release_path}/js}
+    puts %x{rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{@config['source']}/js/ #{server}:#{release_path}/js}
+
   end
 
   desc "Compile Jekyll Website"
@@ -22,7 +34,18 @@ namespace :deploy do
 
   desc "Runs gem packaging stuff"
   task :postcompile do
-    puts %x{ssh -tp #{@config['remote_port']} #{@config['remote_connection']} \"bash --login -c 'cd #{release_path}/_site/assets && export LANG=en_US.UTF-8 && bundle install --deployment'\"}
+
+    case "#{fetch(:stage)}"
+    when 'production'
+      server = @config['server_production']
+    when 'staging'
+      server = @config['server_staging']
+    else
+      server = @config['server_staging']
+    end
+
+    puts %x{ssh -tp #{@config['remote_port']} #{server} \"bash --login -c 'cd #{release_path}/_site/assets && export LANG=en_US.UTF-8 && bundle install --deployment'\"}
+
   end
 
   desc "Creates the database directory unless it exists and sets permissions"
