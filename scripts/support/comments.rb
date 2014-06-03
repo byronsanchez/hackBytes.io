@@ -25,10 +25,10 @@ def createBackupDatabase
   end
 end
 
-def pullCommentsDatabase
+def pullCommentsDatabase(connection)
   puts "Pulling comments from database..."
 
-  system "rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{@config['remote_connection']}:#{@config['remote_database_output']}/#{@config['database_scripts']['comments']} #{@config['database_output']}/#{@config['database_scripts']['comments']}"
+  system "rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{connection}:#{@config['remote_database_output']}/#{@config['database_scripts']['comments']} #{@config['database_output']}/#{@config['database_scripts']['comments']}"
 
   if $?.exitstatus != 0
     #createCommentsDatabase()
@@ -39,14 +39,14 @@ def pullCommentsDatabase
   end
 end
 
-def pushCommentsDatabase
+def pushCommentsDatabase(connection)
   # Do not attempt to extract comments from a file that does not exist.
   if File.exists?("#{@config['database_output']}/#{@config['database_scripts']['comments']}")
 
     local_db = "#{@config['database_output']}/#{@config['database_scripts']['comments']}"
     backup_db = "#{@config['database_output']}/#{@config['database_scripts']['comments']}.backup"
     pre_push_db = "#{@config['database_output']}/#{@config['database_scripts']['comments']}.pre_push_check"
-    server_db = "#{@config['remote_connection']}:#{@config['remote_database_output']}/#{@config['database_scripts']['comments']}"
+    server_db = "#{connection}:#{@config['remote_database_output']}/#{@config['database_scripts']['comments']}"
 
     puts "Checking server database for new comments that may have been submitted during local modifications..."
     system "rsync -zptlr --progress --delete --rsh='ssh -p#{@config['remote_port']}' #{server_db} #{pre_push_db}"
