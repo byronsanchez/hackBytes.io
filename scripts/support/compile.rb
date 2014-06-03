@@ -69,7 +69,7 @@ def precompile_site()
   system "cat js/_compiled-jquery.spin.js >> js/hackbytes.min.js"
 
   # jquery.easing.js license
-  open("js/hackbytes.min.js", 'w') do |file|
+  open("js/hackbytes.min.js", 'a') do |file|
     file.puts "/**"
     file.puts " * Easing equations"
     file.puts " * Copyright (c) 2001 Robert Penner"
@@ -84,7 +84,7 @@ def precompile_site()
   system "cat js/_compiled-jquery.easing.js >> js/hackbytes.min.js"
 
   # jquery.mixitup.js license
-  open("js/hackbytes.min.js", 'w') do |file|
+  open("js/hackbytes.min.js", 'a') do |file|
     file.puts "/**"
     file.puts " * jQuery mixitup"
     file.puts " * Copyright (c) 2012-2013 Patrick Kunka, Barrel LLC, All Rights Reserved"
