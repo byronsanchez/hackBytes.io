@@ -7,7 +7,7 @@
  * Requires the YAML PECL Extension.
  */
 
-define("DB_FILE", "comments.db");
+define("DB_FILE", "/var/lib/nitelite/webserver/hackbytes.com/database/comments.db");
 define("TBL_NAME", "comments");
 define("COL_NAME", "message");
 // The date stored in YAML format
