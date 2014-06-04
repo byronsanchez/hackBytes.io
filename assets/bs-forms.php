@@ -22,11 +22,11 @@ define("DATE_PREVIEW", "F j, Y g:i A");
  * @return integer
  */
 function validate_comment(&$text_string = "", &$error_log) {
-  
+
   // If there are any errors, log them all and return false.
   if (empty($text_string)) {
     $error_log['comment'] = "Please enter something in the comment area.";
-    
+
     return 0;
   }
 
@@ -56,19 +56,19 @@ function validate_email(&$email_address, &$error_log) {
 
   // If there are any errors, log them all and return false.
 
-  // Emails are optional 
+  // Emails are optional
   if (!empty($email_address)) {
     // Email tags should always be valid as well (example+tag@example.com).
     //$result = preg_match("/.+@.+\..+/i", $email_address);
     $result = filter_var($email_address, FILTER_VALIDATE_EMAIL);
-    
+
     if (!$result) {
       $error_log['email'] = "Please enter a valid email address";
-      
+
       return 0;
     }
   }
-  
+
   // If there were no errors, return true.
   return 1;
 }
@@ -80,17 +80,17 @@ function validate_email(&$email_address, &$error_log) {
  * @return integer
  */
 function validate_link(&$text_string = "", &$error_log) {
-  
+
   // Links are optional, so don't return false for being empty.
   if (!empty($text_string)) {
-  	
+
   	// Ensure that the link begins with the |http://| portion
   	$text_string = ( strcmp("http://", substr($text_string, 0, 7)) == 0 ? $text_string : "http://" . $text_string );
-    
-  	
+
+
     // Validate the URL against RFC-2396 standards AFTER providing the resource identifier.
     $result = filter_var($text_string, FILTER_VALIDATE_URL, FILTER_FLAG_HOST_REQUIRED);
-    
+
     // If there are any errors, log them all and return false.
     if (!$result) {
       $error_log['link'] = "Please enter a valid link";
@@ -123,9 +123,9 @@ function build_form_string($data) {
 /**
  * Creates the SQLite database if it does not yet exist.
  *
- * NOTE: This is a fallback in case, for whatever reason, one does not yet 
- * exist. The database is also being created by the deployment process. This 
- * should be kept in mind in case there are ever any future changes to the 
+ * NOTE: This is a fallback in case, for whatever reason, one does not yet
+ * exist. The database is also being created by the deployment process. This
+ * should be kept in mind in case there are ever any future changes to the
  * database or deployment process.
  */
 function db_create() {
@@ -137,7 +137,7 @@ function db_create() {
     $db->setAttribute(PDO::ATTR_ERRMODE,
                         PDO::ERRMODE_SILENT);
 
-    $sql = "CREATE TABLE IF NOT EXISTS " . TBL_NAME . "(_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," . COL_NAME . " TEXT, isPublished INTEGER DEFAULT 0)"; 
+    $sql = "CREATE TABLE IF NOT EXISTS " . TBL_NAME . "(_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," . COL_NAME . " TEXT, isPublished INTEGER DEFAULT 0)";
     $db->exec($sql);
 
     // Close the connection
@@ -182,7 +182,7 @@ function db_insert($value) {
  * Generates a unique id for the comment.
  */
 function generate_unique_id(&$data) {
-  // NOTE: $cstrong will contain a boolean which determines whether or not the 
+  // NOTE: $cstrong will contain a boolean which determines whether or not the
   // algorithm used was crypto-strong. In this case, it doesn't matter and can
   // even be omitted.
   $bytes = openssl_random_pseudo_bytes(4, $cstrong);
@@ -192,7 +192,7 @@ function generate_unique_id(&$data) {
 
 /*
  * The main program.
- */ 
+ */
 
 // Initialize an error log to output any failed validation.
 $error_log = array();
@@ -201,30 +201,36 @@ $error_log = array();
  * For client-side validation responses for complex validation.
  * Called via AJAX.
  */
- 
+
 // Validate the email and return a JSON-encoded response.
-if ($_POST["invoke"] == "validate_email") {
+if (array_key_exists('invoke', $_POST)) {
 
-  $result = validate_email($_POST["email"], $error_log);
-  
-  // Display an error message by passing the JSON-encoded error log.
-  $json_array = $error_log;
-  $json_array["validate_result"] = $result;
-    
-  echo json_encode( $json_array );
+  if ($_POST["invoke"] == "validate_email") {
+
+    $result = validate_email($_POST["email"], $error_log);
+
+    // Display an error message by passing the JSON-encoded error log.
+    $json_array = $error_log;
+    $json_array["validate_result"] = $result;
+
+    echo json_encode( $json_array );
+  }
+
+  // Validate the link and return a JSON-encoded response.
+  else if ($_POST["invoke"] == "validate_link") {
+
+    $result = validate_link($_POST["link"], $error_log);
+
+    // Display an error message by passing the JSON-encoded error log.
+    $json_array = $error_log;
+    $json_array["validate_result"] = $result;
+
+    echo json_encode( $json_array );
+  }
+
 }
 
-// Validate the link and return a JSON-encoded response.
-else if ($_POST["invoke"] == "validate_link") {
-  
-  $result = validate_link($_POST["link"], $error_log);
-  
-  // Display an error message by passing the JSON-encoded error log.
-  $json_array = $error_log;
-  $json_array["validate_result"] = $result;
-    
-  echo json_encode( $json_array );
-}
+
 
 /**
  * Server-side validation invoked upon final form submission.
@@ -236,13 +242,13 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
 
   // Make a copy of all $_POST data.
   $data = $_POST;
-  // Add the date to the data. 
+  // Add the date to the data.
   $data['date'] = date(DATE_YAML);
 
   /**
    * Validation checks.
    */
-  
+
   // Validate the comment input.
   $isValidComment = validate_comment($data['comment'], $error_log);
   // Validate the name input.
@@ -251,7 +257,7 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
   $isValidEmail = validate_email($data['email'], $error_log);
   // Validate the link input
   $isValidLink = validate_link($data['link'], $error_log);
-  
+
   /**
    * Sanitization.
    */
@@ -265,7 +271,7 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
 
   // If all fields are valid...
   if ($isValidComment && $isValidName && $isValidEmail && $isValidLink) {
-  
+
     /**
      * Database storage. (COMMENT OR CONTACT)
      */
@@ -275,17 +281,17 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
       // Generate a unique id for the message
       generate_unique_id($data);
 
-      
+
       // Create the table IF IT DOES NOT ALREADY EXIST
       db_create();
       $value = build_form_string($data);
       $db_result = db_insert($value);
-      
+
       if ( $db_result ) {
         // Display a success message by passing a JSON-encoded success signal.
         $json_array = array();
         $json_array["submit_result"] = 1;
-      
+
         echo json_encode( $json_array );
       }
       else {
@@ -293,21 +299,21 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
         $json_array = array();
         $json_array["submit_result"] = 0;
         $json_array["error"] = "There was a problem processing the submission. Please try again.";
-      
+
         echo json_encode( $json_array );
       }
     }
-    
+
     /**
      * Preview formatting.
      */
-    
+
     if ($_POST["submit"] == "preview") {
-    
+
       /**
        * Redcarpet.
        */
-       
+
       // Build the descriptor spec for running an external process.
       $descriptorspec = array(
        0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
@@ -334,7 +340,7 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
         $data['comment'] = stream_get_contents($pipes[1]);
         // Close the STDOUT pipe.
         fclose($pipes[1]);
-        
+
         // Get STDERR data and store it locally.
         $pipe_error = stream_get_contents($pipes[2]);
         // Close the STDERR pipe.
@@ -342,11 +348,11 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
 
         // It is important that you close any pipes before calling
         // proc_close in order to avoid a deadlock
-        
+
         // This is the exit RV. NOT RELIABLE (the RV will be -1 if the application
         // exited on its own before this call).
         $return_value = proc_close($process);
-        
+
         // Update the return value based on whether the application itself
         // outputed any errors to STDERR.
         if (!empty($pipe_error)) {
@@ -359,12 +365,12 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
 
       // If the ruby application outputted no errors to STDERR
       if ($return_value == 0) {
-      
+
         // Format the data for preview.
-        
+
         // Add the date to the response object.
         $data['date'] = date(DATE_PREVIEW);
-        
+
         // Create the JSON object.
         $json_array = $data;
         $json_array["submit_result"] = 1;
@@ -375,23 +381,23 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
       else {
         // Log a preview error message.
         $error_log['redcarpet'] = "There was a problem loading the preview.";
-          
+
         // Display an error message by passing the JSON-encoded error log.
         $json_array = $error_log;
         $json_array["submit_result"] = 0;
-        
+
         echo json_encode( $json_array );
       }
 
     }
-    
+
   }
   // First validation fail - Else return a JSON object with a failure signal.
   else {
     // Display an error message by passing the JSON-encoded error log.
     $json_array = $error_log;
     $json_array["submit_result"] = 0;
-    
+
     echo json_encode( $json_array );
   }
 }
@@ -400,6 +406,6 @@ else {
   // Display an error message by passing the JSON-encoded error log.
   $json_array = $error_log;
   $json_array["submit_result"] = 0;
-  
+
   echo json_encode( $json_array );
 }
