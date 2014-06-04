@@ -31,7 +31,7 @@ end
 
 @config['remote_current_path'] = File.join(@config['remote_destination'], "current/_site")
 @config['remote_assets'] = File.join(@config['remote_current_path'], "assets")
-@config['remote_database_output'] = File.join(@config['remote_destination'], "shared/database")
+@config['remote_database_output'] = "/var/lib/nitelite/webserver/hackbytes.com/database"
 @config['config_file'] = CONFIG_FILE
 @config['editor'] = "vim"
 @config['post_ext'] = "md"

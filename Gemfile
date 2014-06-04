@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.0.0"
+ruby "1.9.3"
 
 gem "albino", "~> 1.3.3"
 gem "sass", "~> 3.2.12"
