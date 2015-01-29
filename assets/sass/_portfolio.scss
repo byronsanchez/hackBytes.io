@@ -7,16 +7,15 @@ h3.project-title {
   font-weight: 500;
 }
 
-.portfolio-container { 
-  position: relative; 
-  width: x; 
-  margin: 0 auto; 
+.portfolio-container {
+  position: relative;
+  margin: 0 auto;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
-  transition: all 1s ease;  
+  transition: all 1s ease;
 }
- 
+
 #filters {
   margin: 1% 0 3.25% 0;
   padding:0;
@@ -32,7 +31,7 @@ h3.project-title {
 }
 
 #filters li span {
-  padding:5px 20px;   
+  padding:5px 20px;
   text-decoration:none;
   color:#666;
   cursor: pointer;
@@ -81,40 +80,46 @@ h3.project-title {
 
 /* #Tablet (Portrait) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-.portfolio-container {
-width: 768px; 
-}
+  #portfoliolist .portfolio {
+    width:48%;
+    margin:1%;
+  }
 }
 
 
 /*  #Mobile (Portrait) - Note: Design for a width of 320px */
 @media only screen and (max-width: 767px) {
-  .container { 
-    width: 95%; 
-  }
-  
+
   #portfoliolist .portfolio {
     width:48%;
     margin:1%;
-  }   
+  }
 
   #ads {
     display:none;
   }
-  
+
 }
 
 
 /* #Mobile (Landscape) - Note: Design for a width of 480px */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  .container {
-    width: 70%;
-  }
-  
   #ads {
     display:none;
   }
-  
+
+}
+
+@media (max-width: 480px) {
+  #portfoliolist .portfolio {
+    width:98%;
+    margin:1%;
+  }
+
+  #ads {
+    display:none;
+  }
+
 }
 
 // INDIVIDUAL PORTFOLIO PAGES
