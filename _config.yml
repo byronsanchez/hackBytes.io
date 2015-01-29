@@ -96,5 +96,9 @@ exclude:
 - scripts
 - resources
 - config
+- coffee
+- assets/sass
+- bower.json
+- init.sh
 include:
 - .htaccess
