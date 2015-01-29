@@ -1,24 +1,18 @@
-GIT
-  remote: https://github.com/byronsanchez/redcarpet-footnotes.git
-  revision: 5d39cc7cfa3842f32598a3af7a82dbb6d98567b0
-  tag: v2.3.0-footnotes
-  specs:
-    redcarpet (2.3.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
-    posix-spawn (0.3.6)
-    pygments.rb (0.5.4)
+    posix-spawn (0.3.9)
+    pygments.rb (0.6.0)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
+    redcarpet (3.2.2)
     yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  posix-spawn (~> 0.3.6)
-  pygments.rb (~> 0.5.4)
-  redcarpet (~> 2.3.0)!
+  posix-spawn (~> 0.3.9)
+  pygments.rb (~> 0.6.0)
+  redcarpet (~> 3.2.2)
   yajl-ruby (~> 1.1.0)

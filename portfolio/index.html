@@ -21,10 +21,10 @@ nav_id: 1
 
   <ul id="filters" class="clearfix">
     <li><span>Filter:</span></li>
-    <li><span class="filter active" data-filter="{{ portfolio_tags }}">All</span></li>
+    <li><span class="filter" data-filter="all">All</span></li>
 
     {% for tag in site.portfolio_tags %}
-    <li><span class="filter" data-filter="{{ tag }}">{{ tag | titleize }}</span></li>
+    <li><span class="filter" data-filter=".{{ tag }}">{{ tag | titleize }}</span></li>
     {% endfor %}
   </ul>
 
@@ -35,10 +35,10 @@ nav_id: 1
   {% assign tags = post.tags | join " " %}
 
     <a href="{{ post.url }}">
-      <div class="portfolio {{ tags }}" data-cat="{{ tags }}">
+      <div class="portfolio {{ tags }}" data-myorder="{{ forloop.index }}" >
         <div class="portfolio-item">
 
-          <div class="portfolio-wrapper">       <img src="/img/portfolios/{{ post.title | downcase | replace:' ','-' | replace:'.','-' }}/cover.png" alt="" />
+          <div class="portfolio-wrapper">       <img src="/img/portfolio/{{ post.title | downcase | replace:' ','-' | replace:'.','-' }}/cover.png" alt="" />
           </div>
 
           <div class="project-label">

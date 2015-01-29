@@ -5,6 +5,7 @@ require 'fileutils'
 require 'time'
 require 'jekyll'
 require 'pathname'
+require 'uglifier'
 
 CONFIG_FILE = File.expand_path('../..', __FILE__) + '/_config.yml'
 
@@ -39,10 +40,8 @@ end
 @config['comments'] = File.join(@config['source'], "_comments")
 @config['layouts'] = File.join(@config['source'], "_layouts")
 @config['posts'] = File.join(@config['source'], "_posts/blog")
-@config['drafts'] = File.join(@config['source'], "_posts/_drafts")
 @config['scripts'] = File.join(@config['source'], "scripts")
 @config['tasks'] = File.join(@config['scripts'], "tasks")
-@config['caps'] = File.join(@config['scripts'], "capistrano/tasks")
 @config['support'] = File.join(@config['scripts'], "support")
 @config['vendor'] = File.join(@config['source'], "vendor")
 @config['assets'] = File.join(@config['source'], "assets")

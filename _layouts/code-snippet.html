@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+  {% include header.html %}
+
+  <body id="blog">
+
+    <div class="container">
+      <div class="row code-snippet-table">
+        <!-- The blog content -->
+        <div id="content">
+          <div class="span12">
+            {{ content }}
+          </div> <!-- span9 bootstrap -->
+        </div> <!--/content-->
+      </div> <!-- row bootstrap -->
+    </div> <!-- container -->
+
+    {% include scripts.html %}
+  </body>
+</html>

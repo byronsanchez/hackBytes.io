@@ -120,4 +120,26 @@ width: 768px;
 // INDIVIDUAL PORTFOLIO PAGES
 // ---------------------------------------
 
+.project-description {
+  margin-bottom: 2em;
+}
+
+.code-snippet-table {
+  margin: 0 auto;
+}
+
+#blog .code-snippet-table h2 {
+  color: #aaa;
+  text-align: center;
+}
+
+.code-snippet-table .snippet-description {
+  color: #aaa;
+  font-size: 1em;
+  text-align: center;
+}
+
+.project-tagline {
+  font-style: italic;
+}
 

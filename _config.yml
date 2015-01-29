@@ -9,7 +9,7 @@ repo: "https://github.com/byronsanchez/hackbytes.com.git"
 repo_branch: "develop"
 remote_path_env: "$PATH:/usr/local/bin"
 
-server_production: "production.hackbytes.com"
+server_production: "sirius-production-1.internal.nitelite.io"
 server_staging: "stage.hackbytes.com"
 
 ####################
@@ -36,8 +36,8 @@ pagination_mode: "categories" # categories => use page.category_name.smart_previ
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
 date_format: "%B %e, %Y %l:%M %p"
 email: byron@hackbytes.com
+phone: +1 (267) 779-7473
 recent_posts: 10       # Posts in the sidebar Recent Posts section
-environment_id: 1
 
 ######################
 # Jekyll Configuration
@@ -47,7 +47,7 @@ environment_id: 1
 root: /
 permalink: /:title
 lsi: false
-future: false
+future: true
 
 #########
 # Plugins
@@ -60,7 +60,8 @@ redcarpet:
   extensions: ["fenced_code_blocks", "disable_indented_code_blocks", "no_intra_emphasis", "autolink", "strikethrough", "lax_spacing", "superscript", "tables", "xhtml", "with_toc-data", "underline", "footnotes"]
 #paginate: 5          # Posts per page on the blog index
 #paginate_path: /page/:num # The path for paginated pages
-pygments: true
+highlighter: pygments
+excerpt_separator: <!--more-->
 
 # Gravatar settings
 gravatar_url: "http://www.gravatar.com/avatar"
@@ -71,6 +72,11 @@ gravatar_default: "identicon"
 portfolio_tags:
 - mobile
 - web
+- system
+
+######
+# Gems
+######
 
 #####################
 # Inclusion/Exclusion

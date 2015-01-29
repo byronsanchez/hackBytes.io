@@ -32,83 +32,57 @@ end
 
 # Precompiles any assets necessary that will not be created on the server.
 def precompile_site()
+  puts "-----------------------"
+  puts "Compiling Coffee files."
+  puts "-----------------------"
+
+  coffeeDir = "coffee/"
+  jsDir = "js/"
+
+  Dir.foreach(coffeeDir) do |coffeeFile|
+    unless coffeeFile == '.' || coffeeFile == '..'
+      js = CoffeeScript.compile File.read("#{coffeeDir}#{coffeeFile}")
+      open "#{jsDir}#{coffeeFile.gsub('.coffee', '.js')}", 'w' do |file|
+        file.puts js
+      end
+    end
+  end
+
+  puts "Coffee files compiled".green
+
   puts "-------------------"
   puts "Compiling JS files."
   puts "-------------------"
-  system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_spin.js --js_output_file js/_compiled-spin.js"
-  system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_jquery.spin.js --js_output_file js/_compiled-jquery.spin.js"
-  system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_jquery.easing.js --js_output_file js/_compiled-jquery.easing.js"
-  system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_jquery.mixitup.js --js_output_file js/_compiled-jquery.mixitup.js"
-  system "java -jar #{@config['closure']} --compilation_level SIMPLE_OPTIMIZATIONS --js js/_application.js --js js/_bs-comments.js --js_output_file js/_compiled-hackbytes.min.js"
+
+  File.open("js/hackbytes.min.js", "w") do |file|
+    # spin.js
+    file.write Uglifier.compile(File.read("vendor/assets/bower_components/spin.js/spin.js"))
+    # jquery.spin.js
+    file.write Uglifier.compile(File.read("vendor/assets/bower_components/spin.js/jquery.spin.js"))
+    # jquery.easing.js
+    file.write Uglifier.compile(File.read("vendor/assets/bower_components/jquery-easing-original/jquery.easing.1.3.js"))
+    # jquery.mixitup.js
+    file.write Uglifier.compile(File.read("vendor/assets/bower_components/mixitup2/src/jquery.mixitup.js"))
+    # jquery.jcarousel.js
+    file.write Uglifier.compile(File.read("vendor/assets/bower_components/jcarousel/dist/jquery.jcarousel.js"))
+    # jquery.pikachoose.js
+    file.write Uglifier.compile(File.read("vendor/assets/bower_components/pikachoose-bower/lib/jquery.pikachoose.js"))
+    # jquery.fancybox.js
+    file.write Uglifier.compile(File.read("vendor/assets/bower_components/fancybox/source/jquery.fancybox.js"))
+    # application.js
+    file.write Uglifier.compile(File.read("js/application.js"))
+    # bs-comments.js
+    file.write Uglifier.compile(File.read("js/bs-comments.js"))
+  end
+
+  system "cp vendor/assets/bower_components/jquery/dist/jquery.min.js js/jquery.min.js"
+  system "cp vendor/assets/bower_components/html5shiv/dist/html5shiv.min.js js/html5shiv.min.js"
+
+  system "cp -r vendor/assets/bower_components/pikachoose-bower/styles css/pikachoose"
+  system "cp -r vendor/assets/bower_components/fancybox/source css/fancybox"
+
   puts "JS files compiled".green
 
-  puts "-------------------"
-  puts "Inserting licenses."
-  puts "-------------------"
-  # spin.js license
-  open("js/hackbytes.min.js", 'w') do |file|
-    file.puts "/**"
-    file.puts " * spin.js"
-    file.puts " * Copyright (c) 2011-2013 Felix Gnass"
-    file.puts " * Licensed under the MIT license"
-    file.puts " */"
-    file.puts "\n"
-  end
-  system "cat js/_compiled-spin.js >> js/hackbytes.min.js"
-
-  # jquery.spin.js license
-  open("js/hackbytes.min.js", 'a') do |file|
-    file.puts "\n"
-    file.puts "/**"
-    file.puts " * jquery.spin.js"
-    file.puts " * Copyright (c) 2011-2013 Felix Gnass"
-    file.puts " * Licensed under the MIT license"
-    file.puts " */"
-    file.puts "\n"
-  end
-  system "cat js/_compiled-jquery.spin.js >> js/hackbytes.min.js"
-
-  # jquery.easing.js license
-  open("js/hackbytes.min.js", 'a') do |file|
-    file.puts "/**"
-    file.puts " * Easing equations"
-    file.puts " * Copyright (c) 2001 Robert Penner"
-    file.puts " * Licensed under the BSD license"
-    file.puts " *"
-    file.puts " * jQuery Easing"
-    file.puts " * Copyright (c) 2008 George McGinley"
-    file.puts " * Licensed under the BSD license"
-    file.puts " */"
-    file.puts "\n"
-  end
-  system "cat js/_compiled-jquery.easing.js >> js/hackbytes.min.js"
-
-  # jquery.mixitup.js license
-  open("js/hackbytes.min.js", 'a') do |file|
-    file.puts "/**"
-    file.puts " * jQuery mixitup"
-    file.puts " * Copyright (c) 2012-2013 Patrick Kunka, Barrel LLC, All Rights Reserved"
-    file.puts " * Licensed under the CC BY-ND 3.0 license"
-    file.puts " */"
-    file.puts "\n"
-  end
-  system "cat js/_compiled-jquery.mixitup.js >> js/hackbytes.min.js"
-
-  # hackBytes license
-  open("js/hackbytes.min.js", 'a') do |file|
-    file.puts "\n"
-    file.puts "/**"
-    file.puts " * hackbytes.js"
-    file.puts " * Copyright (c) 2013 Byron Sanchez"
-    file.puts " * Licensed under the GNU GPL v2.0 license"
-    file.puts " * https://www.github.com/byronsanchez/hackbytes.com"
-    file.puts " */"
-    file.puts "\n"
-  end
-  system "cat js/_compiled-hackbytes.min.js >> js/hackbytes.min.js"
-
-  # Remove temporary files
-  system "rm js/_compiled-*"
 end
 
 # Compiles the entire site. Removes pages from compiled source if they have
