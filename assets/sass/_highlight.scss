@@ -18,11 +18,14 @@
 code,
 pre {
   padding: 0 3px 2px;
+  border: 0px;
+  border-radius: 0px;
 }
 
 // Inline code
 code {
   padding: 2px 4px;
+    border: 0;
 }
 
 // Blocks of code
@@ -98,18 +101,12 @@ pre code {
 // HIGHLIGHT WILL ABSORB ALL OVERFLOWS, SO USE THIS IF YOU WANT
 // SCROLLBARS
 .highlight {
-  border: 1px solid $color_shadow;
   background: $background_code; 
   overflow-y: hidden;
   overflow-x: auto;
   max-width: 960px;
   width: auto;
   margin: 1em auto;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
 }
 
 // Reset everything on pre, code will do the legwork for all syntax highlighting.
@@ -131,11 +128,6 @@ pre code {
 }
 
 .highlight code, .highlight pre code {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
 // matches with front page code posts, not portfolio. - no table to overflow
 // so the code block does.
   //overflow: scroll;
@@ -196,11 +188,6 @@ pre code {
   font-size: 11px;
   line-height: 1.00em;
   background: $background_numbers;
-  border-right: 1px solid $border_numbers !important;
-  -webkit-box-shadow: $background_numbers -1px 0 inset;
-  -moz-box-shadow: $background_numbers -1px 0 inset;
-  box-shadow: $background_numbers -1px 0 inset;
-  text-shadow: $color_shadow 0 -1px;
   padding: .8em !important;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -224,8 +211,8 @@ pre::-webkit-scrollbar,.highlight::-webkit-scrollbar {
 
 pre::-webkit-scrollbar-thumb:horizontal,.highlight::-webkit-scrollbar-thumb:horizontal {
   background: rgba(255,255,255,0.2);
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
 }
 
 pre::-webkit-scrollbar,.pre-code::-webkit-scrollbar,.highlight code::-webkit-scrollbar,.highlight::-webkit-scrollbar,.highlight code::-webkit-scrollbar {
@@ -252,8 +239,6 @@ $text_color_shadow: #d8d8d8; // up = eaeaea
 
 .highlight.text {
   background-color: $text_background_code;
-  border: 1px solid $text_border_code;
-  border: 1px solid rgba(0, 0, 0, 0.15);
   color: $text_color_code_text;
 }
 
@@ -267,11 +252,6 @@ $text_color_shadow: #d8d8d8; // up = eaeaea
 
 .highlight.text .line-numbers {
   background: $text_background_numbers;
-  border-right: 1px solid $text_border_numbers !important;
-  -webkit-box-shadow: $text_background_numbers -1px 0 inset;
-  -moz-box-shadow: $text_background_numbers -1px 0 inset;
-  box-shadow: $text_background_numbers -1px 0 inset;
-  text-shadow: $text_color_shadow 0 -1px;
 }
 
 .highlight.text .line-numbers span {
