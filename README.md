@@ -124,48 +124,6 @@ To push the modified database back to the server:
 
 ## Copyright / License
 
-hackbytes.com source code is Copyright (c) 2013 by Byron Sanchez, licensed
-under the GNU GPL v2.0.
+The COPYRIGHT file contains copyright information for all content used in this 
+project.
 
-hackbytes.com logo is Copyright (c) 2013 by Byron Sanchez. All rights
-reserved.
-
-hackbytes.com images and any media (defined as binary files that are not
-software dependencies) are Copyright (c) 2013 Byron Sanchez, licensed
-under Creative Commons: BY-SA Attribution 3.0 unless otherwise noted.
-http://creativecommons.org/licenses/by-sa/3.0/
-Attribution specification is in the COPYRIGHT file.
-
-hackbytes.com copy is Copyright (c) 2013 by Byron Sanchez. All rights
-reserved.
-
-hackbytes.com copy "code snippets" in the \_posts/ directory and any
-subdirectories thereof are Copyright (c) 2013 by Byron Sanchez, licensed
-under the MIT license.
-
----
-
-Read the COPYRIGHT file carefully for the details of what this all
-means.
-
-In short:
-
-- You may not use the following content for any reason without my
-  explicit permission:
-
-  * The hackBytes logo
-
-  * Any content in the \_posts directory (except for code snippets,
-    which I am licensing under the MIT license)
-  
-- You can use anything else, so long as you follow the licensing
-  requirements for the content you are using. This is all detailed
-  in the COPYRIGHT file.
-
-- Also, remember to:
-
-  * Remove my Google Analytics ID from \_includes/analytics.html
-
-  * Remove any custom RSS feeds, twitter embeds, github embeds, etc.
-    You probably don't want my stuff to show up on anything you
-    decide to build.
