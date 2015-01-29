@@ -18,7 +18,7 @@ module Jekyll
 
       posts.each do |post|
         post.tags.each do |tag|
-          if self.tags.include?(tag) && post != self
+          if self.tags.include?(tag) && post != self && post.data['categpry'] != "code-snippet" && post.data['category'] != "portfolio"
             cat_freq = tag_freq(posts)[tag]
             related_scores[post] += (1+highest_freq-cat_freq)
           end
