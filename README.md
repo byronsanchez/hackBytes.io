@@ -1,9 +1,5 @@
 # hackBytes.com
 
-[![Build Status](https://secure.travis-ci.org/byronsanchez/hackbytes.com.png?branch=develop)][travis]
-
-[travis]: https://travis-ci.org/byronsanchez/hackbytes.com
-
 hackBytes is a website dedicated to the mastery of software engineering and 
 computer science.
 
