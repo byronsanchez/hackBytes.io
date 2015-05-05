@@ -1,17 +1,42 @@
+##########################
+# Deployment Configuration
+##########################
+
+remote_user: "deployer"
+remote_port: "1224"
+remote_destination: "/srv/www/hackbytes.com"
+repo: "https://github.com/byronsanchez/hackbytes.com.git"
+repo_branch: "develop"
+remote_path_env: "$PATH:/usr/local/bin"
+
+server_production: "sirius-production-1.internal.nitelite.io"
+server_staging: "stage.hackbytes.com"
+
 ####################
 # Main Configuration
 ####################
 
+application: "hackbytes.com"
+# For use in hyperlinks
 url: "http://hackbytes.com"
+# For use in things like email addresses or anything else in which the hostname
+# does is referenced and not using the HTTP Protocol
+base_url: "hackbytes.com"
 title: hackBytes
 subtitle: "programming and design concepts"
 author: Byron Sanchez
 description: "programming and design concepts"
+comments_enabled: true
+pagination_enabled: true
+pagination_mode: "categories" # categories => use page.category_name.smart_previous
+                              #               and page.category_name.smart_next
+                              # default => use page.smart_previous and page.smart_next
 
 # Ruby format reference:
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
 date_format: "%B %e, %Y %l:%M %p"
-email: bfs5030@gmail.com
+email: byron@hackbytes.com
+phone: +1 (267) 262-5832
 recent_posts: 10       # Posts in the sidebar Recent Posts section
 
 ######################
@@ -22,25 +47,36 @@ recent_posts: 10       # Posts in the sidebar Recent Posts section
 root: /
 permalink: /:title
 lsi: false
-auto: false
-future: false
-server: false
+future: true
 
 #########
 # Plugins
 #########
 
+# NOTE: If you change this, be sure to change the corresponding code in
+# assets/bs-markdown.rb
 markdown: redcarpet
 redcarpet:
-  extensions: ["fenced_code_blocks", "no_intra_emphasis", "autolink", "strikethrough", "lax_spacing", "superscript", "hard_wrap", "tables", "xhtml", "with_toc-data"]
-#paginate: 10          # Posts per page on the blog index
+  extensions: ["fenced_code_blocks", "disable_indented_code_blocks", "no_intra_emphasis", "autolink", "strikethrough", "lax_spacing", "superscript", "tables", "xhtml", "with_toc-data", "underline", "footnotes"]
+#paginate: 5          # Posts per page on the blog index
 #paginate_path: /page/:num # The path for paginated pages
-pygments: true
+highlighter: pygments
+excerpt_separator: <!--more-->
 
 # Gravatar settings
 gravatar_url: "http://www.gravatar.com/avatar"
 gravatar_size: 64
 gravatar_default: "identicon"
+
+# Portfolio settings
+portfolio_tags:
+- mobile
+- web
+- system
+
+######
+# Gems
+######
 
 #####################
 # Inclusion/Exclusion
@@ -49,16 +85,20 @@ gravatar_default: "identicon"
 exclude:
 - README
 - Rakefile
+- Capfile
 - Gemfile
 - Gemfile.lock
 - comments.sh
 - config.rb
-- resources
 - vendor
 - sass
 - .rvmrc
 - scripts
 - resources
-- bin
+- config
+- coffee
+- assets/sass
+- bower.json
+- init.sh
 include:
 - .htaccess

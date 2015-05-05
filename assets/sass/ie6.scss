@@ -27,17 +27,6 @@
   margin: 0;
 }
 
-// dirty fix for balancing the positioning of the market-icons and footer-blocks.
-// (this gives a portion of the original bootstrap margin spread out to all 3 icons
-// instead of the last 2 and not first child.
-// Also, the span12s used in the rest of the portfolio don't need this fix. They have no
-// need for margin because they take up the full space.
-body#portfolio .span3,
-body#portfolio .span4,
-body#portfolio .span6 {
-  margin-left: 1.2%;
-}
-
 // The widths are approximate, but have been calculated so that for any combination of
 // spanX that add up to 12, a total width of ~= 940px should be achieved.
 
@@ -73,11 +62,6 @@ body#portfolio .span6 {
 .span6 {
   //width: 460px;
   width: 470px;
-}
-
-// portfolio has its own margins to account for since it uses a fluid layout.
-body#portfolio .span6 {
-  width: 446px;
 }
 
 .span5 {
@@ -126,31 +110,6 @@ body#portfolio .span6 {
 
 .navbar .brand {
   margin-left: -10px;
-}
-
-.intro-images {
-  position: static;
-  margin: auto;
-  width: auto;
-}
-
-.computer {
-  width: 460px;
-  position: absolute;
-  top: 5.0%;
-  left: 3.0%;
-}
-
-.code-screenshot {
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  top: 128px;
-  left: 6.0%;
-}
-
-.project-intro .lead {
-  padding-bottom: 80px;
 }
 
 /* Bootstrap navbar fix.  ( <=IE6 )
@@ -246,86 +205,10 @@ body#portfolio .span6 {
   padding: 3px 15px;
 }
 
-// PORTFOLIO SIDEBAR
-
-.row-fluid .sidebar-nav {
-  position: relative;
-  top: 0;
-  left: auto;
-  width: 240px;
-}
-
-.bs-docs-sidenav li a {
-  display: block;
-  width: 210px \9; 
-  margin: 0 0 -1px;
-  padding: 8px 14px;
-  border: 1px solid #3f3f3f;
-}
-
-.bs-docs-sidenav .active a {
-  position: relative;
-  z-index: 2;
-  padding: 9px 15px;
-  border: 0;
-}
-
-.bs-docs-sidenav li a {
-  color: #ccc;
-}
-
-.nav li a:hover, .nav li a:focus {
-  text-decoration: none;
-}
-
-.bs-docs-sidenav li a:hover {
-  color: #fff;
-  background-color: #252525;
-}
-
 .nav-list .active a, .nav-list .active a:hover, .nav-list .active a:focus {
   color: white;
   background-color: #0088cc;
 }
-
-/* Fluid fix
--------------------------------------------------------------- */
-
-body#portfolio .content-inverse {
-  width: 1040px;
-  margin: auto;
-}
-
-body#portfolio .footer-contact, body#portfolio .footer-bottom {
-  width: 1040px;
-  margin: auto;
-}
-
-body#portfolio .footer-bottom .container-fluid, body#portfolio .footer-contact .container-fluid {
-  width: 1040px;
-  margin: auto;
-}
-
-body#portfolio .row-fluid.marketing {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Floating Image fix 
--------------------------------------------------------------- */
-
-.project-container {
-  height: auto;
-}
-
-.screenshot-container {
-  width: auto;
-}
-
-.screenshot-container.left, .screenshot-container.right {
-  float: none;
-}
-
 
 /* Max-width fix.  ( <=IE6 )
 -------------------------------------------------------------- */
@@ -337,44 +220,6 @@ body#portfolio .row-fluid.marketing {
 
 #comment-author, #comment-email, #comment-url {
   width: 350px;
-}
-
-// Since width is not fluid, the portfolio's form will need to be reduced in
-// size manually.
-body#portfolio #comment-text {
-  width: 440px;
-}
-
-.project-outro img.project-logo {
-  width: 170px;
-}
-
-.cover-image-portrait {
-  width: 320px;
-}
-
-.cover-image, .cover-image-landscape {
-  width: 640px;
-}
-
-.portrait {
-  width: 320px;
-}
-
-.landscape {
-  width: 640px;
-}
-
-.project-outro {
-  width: 480px;
-}
-
-
-
-/* Affix fixes ( <=IE6 )
--------------------------------------------------------------- */
-body#portfolio {
-  padding-top: 0px;
 }
 
  /* Overflow scroll fix.  ( <=IE6 )

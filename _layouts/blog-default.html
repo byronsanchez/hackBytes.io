@@ -1,128 +1,25 @@
-<!DOCTYPE html>
+---
+layout: site-default
+---
 
-<html>
-  {% include header.html %}
-
-  <body id="blog">
-    <div class="container content">
-      <div class="row">
-        <div class="span12">
-        
-          {% include navbar.html %}
-          
-        </div> <!-- /span bootstrap -->
-      </div> <!-- /row bootstrap -->
+<div class="row">
+  <!-- The blog content -->
+  <div id="content">
+    <div class="span9">
+      <div class="blog">          
       
-      <div class="row">
-        <div class="span12">
-          <div class="hero-unit">
-            <div class="logo-container">
-          
-              <div class="logo"><a href="{{ site.url }}"><img src="{{ site.url }}/img/logo.png" alt="hackBytes logo" /></a></div>
-            
-              <div class="logo-text">
-              
-                <h1><a href="{{ site.url }}/" class="brand"><span class="hack">hack</span><span class="pipe">|</span><span class="bytes">Bytes</span></a></h1>
-            
-              </div>
-            </div> 
-          </div> <!-- hero-unit bootstrap -->
-        </div> <!-- span bootstrap -->
-      </div> <!-- row bootstrap -->
-
-      <div class="row">
-        <!-- The blog content -->
-        <div id="content">
-          <div class="span9">
-            <div class="blog">          
-            
-              {{ content }}
-              
-            </div> <!-- blog -->
-          </div> <!-- span9 bootstrap -->
-        </div> <!--/content-->
+        {{ content }}
         
-        <div id="sidebar">
-          <!-- The sidebar -->
-          <div class="span3">
+      </div> <!-- blog -->
+    </div> <!-- span9 bootstrap -->
+  </div> <!--/content-->
 
-            <!-- Syndication -->
-            <div class="side syndicate">
+  <div id="sidebar">
+    <!-- The sidebar -->
+    <div class="span3">
+      {% include sidebar.html %}
+    </div> <!-- span bootstrap -->
+  </div> <!-- /sidebar -->
 
-              <div class="dark-title text-center">
-                Subscribe
-              </div>
+</div> <!-- row bootstrap --> 
 
-              <ul class="nav nav-list">
-                <li class="nav-header">Syndication</li>
-
-                <li><a href="http://feeds.feedburner.com/byronsanchez" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" class="sidebar-icon" alt="RSS icon" />&nbsp;Subscribe in a reader</a></li>
-              </ul>
-
-            </div> <!-- syndicate -->
-            <p></p>
-
-            <!-- Recent Posts -->
-            <div class="side">
-            
-              <div class="dark-title text-center">
-                Navigation
-              </div>
-            
-              <ul class="nav nav-list">
-                <li class="nav-header">Recent Posts</li>
-                
-                {% for post in site.categories.blog limit:10 %}
-                <li><a href="{{ site.url }}{{ post.url }}/" class="title-link">{{ post.title }}</a></li>
-                {% endfor %}
-
-              </ul>
-            </div> <!-- side -->
-            <p></p>
-
-            <!-- About Me -->
-            <div class="side">
-              <div class="dark-title text-center">
-                About the Author
-              </div>
-              <p class="about-me">
-                <img src="{{ site.url }}/img/avatars/avatar-byronsanchez.png" title="Byron Sanchez" alt="Byron Sanchez" class="profile" />
-                I'm Byron Sanchez. I'm an Android, iOS and Web developer in
-                Philadelphia, Pennsylvania. Currently, I am focusing on web
-                development using Ruby, Python, PHP and various other tools.
-              </p>
-
-              <ul class="nav nav-list">
-                <li class="nav-header">Links</li>
-                <li><a href="{{ site.url }}/about-me/">About Me</a></li>
-                <li><a href="http://www.twitter.com/byronsanchez/">@byronsanchez</a></li>
-                <li><a href="http://www.github.com/byronsanchez/">GitHub</a></li>
-                <li><a href="https://plus.google.com/105947647411091420403/">Google+ Profile</a></li>
-                <li><a href="http://www.linkedin.com/in/byronsanchez/">LinkedIn</a></li>
-              </ul>
-            </div> <!-- side -->
-            <p></p>
-
-            
-          </div> <!-- span bootstrap -->
-        </div> <!-- /sidebar -->
-      </div> <!-- row bootstrap --> 
-
-      <!-- FOOTER -->
-      <footer class="footer-bottom">
-        <div class="row">
-          <!-- The footer content -->
-          <div class="span12">
-
-            {% include footer.html %}
-
-          </div> <!-- span bootstrap -->
-        </div> <!-- row bootstrap -->
-      </footer>
-
-        
-    </div> <!-- container bootstrap -->
-
-{% include scripts.html %}
-  </body>
-</html>

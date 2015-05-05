@@ -4,13 +4,14 @@ title: Archives
 ---
 
 <section id="archives">
-  <h2 class="title"><a href="{{ site.url }}{{ page.url }}/" class="title-link">{{ page.title }}</a></h2>
+  <h2 class="title"><a href="{{ page.url }}/" class="title-link">{{ page.title }}</a></h2>
   {% for month in page.months %}
     <h3>{{ month | date:"%B" }} <small>{{ month | date:"%Y" }}</small></h3>
     <ul>
     {% for post in page.posts_by_month[month] %}
-    <li><a href="{{ site.url }}{{ post.url }}/">{{ post.title }}</a></li>
+    <li><a href="{{ post.url }}/">{{ post.title }}</a></li>
     {% endfor %}
     </ul>
   {% endfor %}
 </section>
+

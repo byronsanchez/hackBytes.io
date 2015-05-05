@@ -1,0 +1,213 @@
+---
+title: "dotfiles - Code Snippet 2"
+description: ""
+date: 2012-12-07 00:09:45
+category: code-snippet
+pagination_enabled: false
+layout: code-snippet
+tags:
+  - system
+---
+
+<!-- CODE SNIPPET -->
+<div class="row-fluid project-container">
+  <div class="span12">
+    <div class="project-code">
+      <h2>Code Snippet</h2>
+
+      <p class="snippet-description">
+        This is a script I wrote to toggle between audio devices on both linux
+        and osx. A hotkey can be mapped to execute this script and toggle
+        between one of two audio devices - the built in computer speaker or the
+        Zoom H4 audio interface I use.
+      </p>
+
+      <div class="code-sample">
+
+{% highlight bash linenos %}
+
+#!/bin/bash
+#
+# Dependencies: AudioSwitcher, terminal-notifier
+
+source $HOME/.dotfiles/scripts/helpers/common.lib.sh
+
+###############
+# CONFIGURATION
+
+# Set defaults
+notifier=""
+
+############################
+# Argument Parsing Functions
+
+function show_help ()
+{
+cat <<-EOM
+
+$0 [OPTION] command
+
+options:
+
+    -n --notifier=NAME  notification command to execute; if none, no notification will be sent
+
+commands:
+
+    toggle         toggle between audio devices
+
+EOM
+    exit 1
+}
+
+function get_options () {
+    argv=()
+    while [ $# -gt 0 ]
+    do
+        opt=$1
+        shift
+        case ${opt} in
+            -n|--notifier)
+                notifier=$1
+                shift
+                ;;
+            --notifier=*)
+                notifier=$(echo ${opt} | cut -d'=' -f 2);
+                ;;
+            -h|--help)
+                show_help
+                ;;
+            *)
+                if [ "${opt:0:1}" = "-" ]; then
+                    fail "${opt}: unknown option."
+                else
+                  # The action is the first argument passed with no associated
+                  # option. If more than one is passed, the most recent will
+                  # override and will be the action that is executed.
+                  action=${opt}
+                fi
+                argv+=(${opt})
+                ;;
+        esac
+    done
+}
+
+function notifier() {
+  f_notifier=$1
+  f_title=$2
+  f_message=$3
+
+  # Send the notification to the appropriate program
+  if [ -n "$f_notifier" ] && [ -n "$f_message" ];
+  then
+    if [ $f_notifier = "terminal-notifier" ];
+    then
+      terminal-notifier -message "$f_message" -title "$f_title"
+    elif [ $f_notifier = "ratpoison" ];
+    then
+      ratpoison -d :0 -c "echo [$f_title] $f_message"
+    elif [ $notifier = "dunstify" ];
+    then
+      dunstify -r 1 "[$f_title]" "$f_message"
+    else
+      # treat the notifer as a command and pass it the title and message as a
+      # string
+      $f_notifier "[$f_title] $f_message"
+    fi
+  fi
+}
+
+############
+# VALIDATION
+
+# Parse options if they were passed
+get_options $*
+
+if [ ! -n "$action" ];
+then
+  fail "Please provide a valid command to execute"
+fi
+
+#############
+# MAIN SCRIPT
+
+unset message
+
+case "$action" in
+toggle)
+
+  # TODO: implement toggle functionality for osx
+  if [ "$(uname -s)" == "Darwin" ];
+  then
+
+    # terminal-notifier notification title
+    title="core-audio"
+
+    case "$cmd" in
+    h4)
+      AudioSwitcher -s "H4"
+      message="core-audio output set to h4"
+      ;;
+    built-in)
+      message="core-audio output set to built-in"
+      AudioSwitcher -s "Built-in Output"
+      ;;
+    *)
+      usage
+    esac
+
+  elif [ "$(uname -s)" == "Linux" ];
+  then
+
+    # terminal-notifier notification title
+    title="jackd"
+
+    notifier "${notifier}" "${title}" "toggling audio device..."
+
+    aplay -l |grep -i h4 --silent
+    isH4Connected=$?
+
+    if [ $isH4Connected -eq 0 ];
+    then
+
+      ps aux | grep jackd | grep -v grep | grep -i h4 --silent
+      isH4ServerRunning=$?
+
+      if [ $isH4ServerRunning -eq 0 ];
+      then
+        killall jackd
+        /usr/bin/jackd -t2000 -dalsa -dhw:Intel -r44100 -p512 -n2 &
+        message="jackd output set to built-in"
+      else
+        killall jackd
+        /usr/bin/jackd -t2000 -dalsa -dhw:H4 -r44100 -p512 -n2 &
+        message="jackd output set to h4"
+      fi
+
+    else
+
+      killall jackd
+      /usr/bin/jackd -t2000 -dalsa -dhw:Intel -r44100 -p512 -n2 &
+      message="jackd output set to built-in"
+
+    fi
+
+    sleep 7
+
+    /usr/local/bin/loop2jack
+
+  fi
+  ;;
+*)
+  fail "${action}: unknown command."
+  ;;
+esac
+
+notifier "${notifier}" "${title}" "${message}"
+
+{% endhighlight %}
+
+      </div>
+    </div>
+  </div>
+</div>
+

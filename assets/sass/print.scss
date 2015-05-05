@@ -1,7 +1,63 @@
+* {
+  background: transparent !important;
+  color: #000 !important; /* Black prints faster: h5bp.com/s */
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+a,
+a:visited {
+  text-decoration: underline;
+}
+
+abbr[title]:after {
+  content: " [" attr(title) "]";
+}
+
+/*
+* Don't show links for images, or javascript/internal links
+*/
+
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+  content: "";
+}
+
+pre,
+blockquote {
+  border: 1px solid #999;
+  page-break-inside: avoid;
+}
+
+thead {
+  display: table-header-group; /* h5bp.com/t */
+}
+
+tr,
+img {
+  page-break-inside: avoid;
+}
+
+img {
+  max-width: 100% !important;
+}
+
+p,
+h2,
+h3 {
+  orphans: 3;
+  widows: 3;
+}
+
+h2,
+h3 {
+  page-break-after: avoid;
+}
+
 // Override bootstrap's default link.
 a[href]:after {
   content: " [" attr(href) "]";
-  font: 12px helvetica,arial,freesans,clean,sans-serif;
+  font: 12px "Roboto","Helvetica Neue",Helvetica,Arial,freesans,clean,sans-serif;
   letter-spacing: normal;
   color: #999;
   font-weight: bold;
@@ -76,12 +132,6 @@ a[href]:after {
   word-break: break-all;
 }
 
-// PORTFOLIO STYLES
-
-body#portfolio {
-  padding-top: 0;
-}
-
 .navbar-fixed-top, .navbar-fixed-bottom {
   position: static
 }
@@ -97,10 +147,6 @@ body#portfolio {
 
 .masthead h1 {
   margin: 0;
-}
-
-body#portfolio .content {
-  border: 0;
 }
 
 .bs-docs-social {

@@ -1,6 +1,0 @@
-[submodule "vendor"]
-	path = vendor
-	url = https://github.com/byronsanchez/hackbytes.com-dependencies.git
-[submodule "resources"]
-	path = resources
-	url = https://github.com/byronsanchez/hackbytes.com-resources.git

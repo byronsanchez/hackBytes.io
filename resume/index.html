@@ -14,7 +14,8 @@ nav_id: 2
 
     {% include services.html %}
 
-    <p>Feel free to <a href="{{ site.url }}/contact-me/">contact me</a> if you want more information.</p>
+    <p>Feel free to <a href="/contact/">contact me</a> if you want more 
+      information.</p>
 
   </div>
 </div>
@@ -41,8 +42,20 @@ nav_id: 2
 <div class="row-fluid resume-outro">
   <div class="span12">
   
-    <h2 class="resume-title">Education</h2>
-    <p>BA in Crime Law and Justice, Pennsylvania State University, August 2012.</p>
+    <h2 class="resume-title">Resume</h2>
+
+    <p>
+
+      <a href="/byronsanchez-resume.pdf">
+        <img src="/img/icons/pdf-icon-24x24.png"
+        class="resume-icon-large" alt="PDF icon" />&nbsp;Download PDF
+      </a>
+    &nbsp;|&nbsp;
+      <a href="/byronsanchez-resume.docx">
+        <img src="/img/icons/docx-icon-24x24.png"
+        class="resume-icon-large" alt="DOCX icon" />&nbsp;Download DOCX
+      </a>
+    </p>
     
   </div>
 </div>
@@ -50,11 +63,41 @@ nav_id: 2
 <div class="row-fluid">
   <div class="span12">
     <ul class="resume-info">
-      <li>Byron Sanchez</li>
+
+      <li>
+        <a
+          href="http://hackbytes.com"
+          rel="alternate">
+          <img src="/img/icons/person-icon-16x16.png"
+          class="resume-icon" alt="Person icon" />&nbsp;Byron Sanchez
+        </a>
+      </li>
+
       <li class="muted">&middot;</li>
-      <li>Philadelphia, PA</li>
+
+      <li>
+        <img src="/img/icons/phone-icon-16x16.png"
+        class="resume-icon" alt="Phone icon" />&nbsp;{{ site.phone }}
+      </li>
+
       <li class="muted">&middot;</li>
-      <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+
+      <li>
+        <a
+          href="mailto:{{ site.email }}"
+          rel="alternate">
+          <img src="/img/icons/mail-icon-16x16.png"
+          class="resume-icon" alt="Mail icon" />&nbsp;{{ site.email }}
+        </a>
+      </li>
+
+      <li class="muted">&middot;</li>
+
+      <li>
+        <img src="/img/icons/location-icon-16x16.png"
+        class="resume-icon" alt="Location icon" />&nbsp;Philadelphia, PA
+      </li>
+
     </ul>
   </div>
 </div>

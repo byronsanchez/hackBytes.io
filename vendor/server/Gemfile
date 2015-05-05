@@ -1,0 +1,9 @@
+source 'https://rubygems.org'
+
+ruby "1.9.3"
+
+gem "redcarpet", "~> 3.2.2"
+gem "pygments.rb", "~> 0.6.0"
+gem "yajl-ruby", "~> 1.1.0"
+gem "posix-spawn", "~> 0.3.9"
+

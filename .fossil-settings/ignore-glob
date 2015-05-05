@@ -1,0 +1,72 @@
+#########
+# GENERAL
+#########
+
+# OS Files
+.DS_Store
+
+# vi/vim
+*~
+*.swp
+*.swo
+
+# Eclipse files
+.settings*/
+.buildpath*
+project.properties*
+.htaccess*
+error_log*
+.project*
+
+# Jekyll files
+_site/**
+.sass-cache/
+
+# Ant files
+build.xml
+
+# Ruby and Rails files
+.bundle/
+db/*.sqlite3
+log/*.log
+tmp/**/*
+tmp/*
+doc/api
+doc/app
+
+# Bower files
+vendor/assets/bower_components
+
+project.vim
+
+##################
+# PROJECT-SPECIFIC
+##################
+
+# Post drafts don't need to be committed. They are CONSTANTLY changing.
+_posts/_drafts/
+
+css/
+js/
+fonts/
+
+# Comments do not need to be committed. They are generated on the server side
+# via a rake task if a comments sqlite database exists.
+_comments/
+
+# Ignore compiled/derivative files that can be rebuilt from already
+# committed files.
+*.db
+*.db*
+js/hackbytes.min.js
+
+# Some of the bootstrap resources don't need to be version controlled.
+# If they exist, just ignore them.
+assets/sass/bootstrap/docs/
+assets/sass/bootstrap/js/
+assets/sass/bootstrap/lib/tests/
+
+# Locally bundled resources don't need to be version controlled.
+assets/vendor/bundle/
+vendor/bundle/
+

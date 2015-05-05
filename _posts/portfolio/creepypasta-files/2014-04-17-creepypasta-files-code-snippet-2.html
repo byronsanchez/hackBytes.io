@@ -1,0 +1,76 @@
+---
+title: "Creepypasta Files - Code Snippet 2"
+description: false
+date: 2013-04-17 00:09:45
+category: code-snippet
+pagination_enabled: false
+layout: code-snippet
+tags:
+  - mobile
+---
+
+<!-- CODE SNIPPET -->
+<div class="row-fluid project-container">
+  <div class="span12">
+    <div class="project-code">
+      <h2>Code Snippet</h2>
+
+      <p class="snippet-description">
+        The following snippet shows a portion of the story-loading process. A
+        connection to the SQLite database is made. If there were no problems,
+        the data is retrieved and the application's UI elements are populated.
+        This results in the user actually being able to read the story.
+      </p>
+
+      <div class="code-sample">
+
+{% highlight java linenos %}
+
+// Get stored preferences, if any.
+mSharedPreferences = getSharedPreferences(sFilename, 0);
+
+// Create our database object.
+mDbNodeHelper = new NodeDatabase(this);
+
+// Call the createDatabase() function...just in case 
+// the database does not yet exist. Otherwise, it will load our database
+// for use.
+mDbNodeHelper.createDatabase();
+
+// Setup a bundle and store any data passed from the activity
+// (BrowseActivity) that invoked this NodeActivity. The data passed
+// should be the id of the story the user wants to read.
+Bundle extras = getIntent().getExtras();
+mId = (long) extras.getInt("id");
+
+// Attach the views to their corresponding resource ids.
+mIbNodeBookmark = (ImageButton) findViewById(R.id.ibNodeBookmark);
+mTvNodeTitle = (TextView) findViewById(R.id.tvNodeTitle);
+mIbNodeSettings = (ImageButton) findViewById(R.id.ibNodeSettings);
+mTvNodeBody = (TextView) findViewById(R.id.tvNodeBody);
+
+// Set any necessary event listeners.
+mIbNodeSettings.setOnClickListener(this);
+mIbNodeBookmark.setOnClickListener(this);
+
+// Query the database for a node containing the id which was passed
+// from BrowseActivity.
+mNodeData = mDbNodeHelper.getNodeData(mId);
+// Get variable data in case ads are off.
+mVariableData = mDbNodeHelper.getVariableListData();
+
+// Close the database.
+mDbNodeHelper.close();
+
+// Populate the UI fields with corresponding data from the SQLite
+// database.
+mTvNodeTitle.setText(mNodeData.title);
+mTvNodeBody.setText(Html.fromHtml(mNodeData.body, imgGetter, null));
+
+{% endhighlight %}
+
+      </div>
+    </div>
+  </div>
+</div>
+

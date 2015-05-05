@@ -1,21 +1,59 @@
     <!-- jQuery CDN and fallback -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script type="text/javascript">
-      window.jQuery || document.write(unescape("%3Cscript src='{{ site.url }}/js/jquery-1.9.1.min.js' type='text/javascript'%3E%3C/script%3E"));
+      window.jQuery || document.write(unescape("%3Cscript src='/js/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
-    
+
     <!-- Bootstrap CDN and fallback -->
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
     <script>
-      $.fn.modal || document.write(unescape("%3Cscript src='{{ site.url }}/js/bootstrap.min.js' type='text/javascript'%3E%3C/script%3E"));
+      $.fn.modal || document.write(unescape("%3Cscript src=' /js/bootstrap.min.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
-    
+
     <!-- Plugins and custom javascript -->
-    <script src="{{ site.url }}/js/hackbytes.min.js"></script>
-    
+    <script src="/js/hackbytes.min.js"></script>
+
+    <!-- Pikachoose and Fancybox integration -->
+    <script>
+      $(document).ready(function (){
+
+        var fancyboxfunctionvar = function(self){
+          self.anchor.fancybox();
+        };
+
+        // centers the main image in pika-stage
+        var centreImage = function(self) {
+            var $img = $('.pika-stage img');
+            var $stage = $('.pika-stage');
+
+            var imgHeight = $img.height();
+            var imgWidth = $img.width();
+            var stageHeight = $stage.height();
+            var stageWidth = $stage.width();
+
+            $img.css('margin-top', (stageHeight / 2) - (imgHeight / 2) + "px");
+            $img.css('margin-left', (stageWidth / 2) - (imgWidth / 2) + "px");
+        }
+
+        $('#pikame').pikachoose({buildFinished:fancyboxfunctionvar,
+                                animationFinished:centreImage,
+                                showCaption:false,
+                                hoverPause:true});
+
+        $(".fbox").fancybox({
+          'width'       : 1000,
+          'height'      : 600,
+          'autoScale'     : false,
+          'type'        : 'iframe'
+        });
+
+      });
+    </script>
+
+    <!-- Supersleight for png transparency in old browsers -->
     <!--[if lte IE 6]>
-    <script src="{{ site.url }}/js/supersleight.plugin.js"></script>
+    <script src="/js/supersleight.plugin.js"></script>
     <script language="javascript" type="text/javascript">
         $("img").each(function(){ $(this).supersleight() });
-    </script> 
+    </script>
     <![endif]-->
