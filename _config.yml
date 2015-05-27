@@ -36,7 +36,7 @@ pagination_mode: "categories" # categories => use page.category_name.smart_previ
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
 date_format: "%B %e, %Y %l:%M %p"
 email: byron@hackbytes.com
-phone: +1 (267) 262-5832
+phone: +1 (267) 779-7473
 recent_posts: 10       # Posts in the sidebar Recent Posts section
 
 ######################
