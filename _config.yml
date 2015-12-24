@@ -72,7 +72,6 @@ gravatar_default: "identicon"
 portfolio_tags:
 - mobile
 - web
-- system
 
 ######
 # Gems
