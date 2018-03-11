@@ -99,5 +99,13 @@ exclude:
 - assets/sass
 - bower.json
 - init.sh
+- deploy
+- design
+- CONTRIBUTING.md
+- COPYING
+- COPYRIGHT
+- CREDITS
+- docs
+- Vagrantfile
 include:
 - .htaccess
