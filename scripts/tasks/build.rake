@@ -12,7 +12,7 @@ task :build do
   end
   compile_site()
   if @config['environment_id'] == 0
-    test_gems_for_site()
+    # test_gems_for_site()
   end
   package_resources()
   chmod_site()
@@ -24,25 +24,6 @@ desc "Perform a clean of the application"
 task :clean do
   puts "Cleaning #{@config['destination']}..."
   system "rm -rf #{@config['destination']}"
-end
-
-desc "Deploy the app to the production server."
-task :deploy, :server_env do | t, args |
-  # staging
-  # production
-  server_id   = "-1"
-  server_id   = args[:server_env]
-
-  puts "Deploying application..."
-
-  case server_id
-  when "staging"
-    system "bundle exec cap staging deploy"
-  when "production"
-    system "bundle exec cap production deploy"
-  else
-    puts "Please enter a valid server environment: staging | production"
-  end
 end
 
 # TODO: Abstract the argument checker for env and nuke tasks
