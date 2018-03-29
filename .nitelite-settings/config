@@ -1,0 +1,2 @@
+src="hackbytes.io-web/build"
+dst="deploy:/srv/www/hackbytes.io/htdocs"
