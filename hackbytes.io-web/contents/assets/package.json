@@ -1,0 +1,16 @@
+{
+  "author": "hackBytes (https://hackBytes.io)",
+  "name": "hackBytes",
+  "description": "Personal Blog",
+  "version": "1.0.0",
+  "homepage": "https://hackBytes.io",
+  "repository": {
+    "type": "git",
+    "repository": "none"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.x",
+    "robotskirt": "~2.7.x",
+    "highlight.js": "~7.5.x"
+  }
+}
