@@ -8,7 +8,7 @@ module.exports = (env, callback) ->
     articles: 'articles' # directory containing contents to paginate
     first: 'index.html' # filename/url for first page
     filename: 'page/%d/index.html' # filename for rest of pages
-    perPage: 2 # number of articles per page
+    perPage: 5 # number of articles per page
     isEnabled: 1
 
   # assign defaults any option not set in the config file
@@ -40,7 +40,7 @@ module.exports = (env, callback) ->
     getView: -> (env, locals, contents, templates, callback) ->
       # simple view to pass articles and pagenum to the paginator template
       # note that this function returns a funciton
-    
+
       # remove unpublished articles
 
       # get the pagination template

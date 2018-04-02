@@ -1,0 +1,10 @@
+extends portfolio-default
+
+// Only want the main portfolio page index to be active, the subpages not.
+block navbar
+  +navbar(-1)
+
+block portfolio-content
+  div.pagebody
+    article.article
+      section.content!= typogr(page.html).typogrify()

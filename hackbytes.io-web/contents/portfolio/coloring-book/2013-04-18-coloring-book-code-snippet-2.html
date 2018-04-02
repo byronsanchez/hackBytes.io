@@ -1,0 +1,103 @@
+---
+date: 2013-04-18 00:09:45
+title: "Coloring Book - Code Snippet 2"
+author: Byron Sanchez
+category: code-snippet
+tags: mobile
+published: 1
+comments_enabled: 0
+template: layouts/code-snippet.jade
+description: 0
+---
+
+<!-- CODE SNIPPET -->
+<div class="row-fluid project-container">
+  <div class="span12">
+    <div class="project-code">
+      <h2>Code Snippet</h2>
+
+      <p class="snippet-description">
+        Because the device can be a phone, a tablet, or anything in between,
+        this code first examines the picture to be loaded before performing any
+        memory allocations. Scaling is performed only if the picture is bigger
+        than the screen of the device in use. No scale-ups are performed to
+        prevent degradation of picture quality. Memory allocation occurs only
+        AFTER screen-metric analysis to ensure heap memory is preserved.
+      </p>
+
+      <div class="code-sample">
+
+{% highlight java linenos %}
+
+private Bitmap decodeImage(int resId) {
+
+    // Get the screen width and height.
+    DisplayMetrics dm = new DisplayMetrics();
+    getWindowManager().getDefaultDisplay().getMetrics(dm);
+    float screenWidth = dm.widthPixels;
+    float screenHeight = dm.heightPixels;
+
+    // Decode the resource's bound information.
+    BitmapFactory.Options options = new BitmapFactory.Options();
+    options.inJustDecodeBounds = true;
+    BitmapFactory.decodeResource(getResources(),
+            resId, options);
+
+    int inSampleSize = 1;
+    int imageWidth = options.outWidth;
+    int imageHeight = options.outHeight;
+
+    // If the scale fails, we will need to use more memory to perform
+    // scaling for the layout, to support all screen sizes.
+    boolean scaleFailed = false;
+    Bitmap scaledBitmap = null;
+    float resizeRatioHeight = 1;
+
+    // Scale down if the image width exceeds the screen width.
+    if (imageWidth > screenWidth || imageHeight > screenHeight) {
+
+        // If we need to resize the image because the width or height is too
+        // big, get the resize ratios relative to landscape orientation.
+        resizeRatioHeight = (float) imageHeight / (float) screenHeight;
+
+        inSampleSize = (int) resizeRatioHeight;
+
+        if (inSampleSize <= 1) {
+            scaleFailed = true;
+        }
+    }
+
+    // Decode Bitmap with the proper scaling factor.
+    options.inSampleSize = inSampleSize;
+    options.inJustDecodeBounds = false;
+
+    Bitmap picture = BitmapFactory.decodeResource(getResources(), resId, options);
+
+    // If the scale failed, that means a scale was needed but didn't occur.
+    // We need to create a scaled copy of the image by allocating more
+    // memory. This is a last-resort scaling operation.
+    if (scaleFailed) {
+        int newWidth = (int) (picture.getWidth() / resizeRatioHeight);
+        int newHeight = (int) (picture.getHeight() / resizeRatioHeight);
+
+        scaledBitmap = Bitmap.createScaledBitmap(picture, newWidth, newHeight, true);
+
+        // Release the original unscaled bitmap from memory.
+        picture.recycle();
+    }
+    else {
+        // No last-resort scaling was needed!
+        scaledBitmap = picture;
+    }
+
+    // Return the decoded picture to prepare for on-screen display.
+    return scaledBitmap;
+}
+
+{% endhighlight %}
+
+      </div>
+    </div>
+  </div>
+</div>
+

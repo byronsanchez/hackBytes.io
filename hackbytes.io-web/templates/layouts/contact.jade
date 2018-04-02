@@ -1,7 +1,7 @@
 extends page
 
 block navbar
-  +navbar(3)
+  +navbar(5)
 
 block page-content
 
@@ -9,8 +9,12 @@ block page-content
     h2.title
       a(href='#{ page.url }').title-link= page.title
 
-  p If you want to contact me, use the form below.
-  p Thank you for reading!
+  p.
+    If you are thinking about working together, want some more information, or just want to chat, feel free to send me
+    an email at <a href="mailto:#{ locals.email }">#{ locals.email }</a>.
+
+  p You can also use the form below.
+
   div#endcomments &nbsp;
 
   // CONTACT FORM BEGINS

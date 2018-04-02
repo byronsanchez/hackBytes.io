@@ -1,0 +1,186 @@
+// MAIN PORTFOLIO PAGE
+// ---------------------------------------
+
+h3.project-title {
+	font: 16px "Roboto","Helvetica Neue",Helvetica,Arial,Freesans,Clean,sans-serif;
+  color: #363636 !important;
+  font-weight: 500;
+}
+
+.portfolio-container {
+  position: relative;
+  margin: 0 auto;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#filters {
+  margin: 1% 0 3.25% 0;
+  padding:0;
+  list-style:none;
+  display: block;
+  float: left;
+  text-align: center;
+  width: 100%;
+}
+
+#filters li {
+  display: inline;
+}
+
+#filters li span {
+  padding:5px 20px;
+  text-decoration:none;
+  color:#666;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#filters li span.mixitup-control-active {
+  background: #F9A732;
+  color:#fff;
+}
+
+/* Container
+---------------------------------------------------------------------- */
+
+.portfoliolist {
+    padding: 1rem;
+    //text-align: justify;
+    font-size: 0.1px;
+}
+
+.portfoliolist:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+/* Target Elements
+---------------------------------------------------------------------- */
+
+.portfolio {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.portfolio {
+    background: #fff;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.portfoliolist .portfolio {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  width:32%;
+  margin:0.66666666%;
+  display:none;
+  display: inline-block;
+  float:left;
+  overflow:hidden;
+}
+
+.portfolio-wrapper {
+  overflow:hidden;
+  position: relative !important;
+  background: none repeat scroll 0 0 rgba(251, 180, 80, 0.2);
+  //border: 1px solid rgba(248, 148, 6, 0.2);
+  cursor:pointer;
+}
+
+.portfolio img {
+  max-width:100%;
+  position: relative;
+}
+
+.portfolio .text-category {
+  display:block;
+  font-size:9px;
+}
+
+.portfolio .project-label {
+  text-align: center;
+}
+
+
+/* #Tablet (Portrait) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .portfoliolist .portfolio {
+    width:48%;
+    margin:1%;
+  }
+}
+
+
+/*  #Mobile (Portrait) - Note: Design for a width of 320px */
+@media only screen and (max-width: 767px) {
+
+  .portfoliolist .portfolio {
+    width:48%;
+    margin:1%;
+  }
+
+  #ads {
+    display:none;
+  }
+
+}
+
+
+/* #Mobile (Landscape) - Note: Design for a width of 480px */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  #ads {
+    display:none;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .portfoliolist .portfolio {
+    width:98%;
+    margin:1%;
+  }
+
+  #ads {
+    display:none;
+  }
+
+}
+
+// INDIVIDUAL PORTFOLIO PAGES
+// ---------------------------------------
+
+.project-description {
+  margin-bottom: 2em;
+}
+
+.code-snippet-table {
+  margin: 0 auto;
+}
+
+#blog .code-snippet-table h2 {
+  color: #aaa;
+  text-align: center;
+}
+
+.code-snippet-table .snippet-description {
+  color: #aaa;
+  font-size: 1em;
+  text-align: center;
+}
+
+.project-tagline {
+  font-style: italic;
+}
+
+// ADDITIONAL STUFF
+// ---------------------------------------
+
+.portfolio-container#filters {
+  @include clearfix;
+}
