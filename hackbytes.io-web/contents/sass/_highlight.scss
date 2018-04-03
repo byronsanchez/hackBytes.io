@@ -14,7 +14,7 @@ code {
 pre {
   display: block;
   margin: 0 0;
-  
+
   // Account for some code outputs that place code tags in pre tags
   code {
     color: inherit;
@@ -70,7 +70,7 @@ pre code {
 
 .highlight {
   border: $code-border;
-  background: $code-background-color; 
+  background: $code-background-color;
   overflow-y: hidden;
   overflow-x: auto;
   max-width: 960px;
@@ -80,7 +80,7 @@ pre code {
 
 .even .highlight {
   border: $content-border-color;
-  background: $body-background-color; 
+  background: $body-background-color;
 }
 
 // Reset everything on pre, code will do the legwork for all syntax highlighting.
@@ -257,53 +257,53 @@ pre code {
 /* dream key styles
 -------------------------------------------------- */
 
-.text-highlight.d,
-.text-highlight.d h1,
-.text-highlight.d h2,
-.text-highlight.d h3,
-.text-highlight.d h4,
-.text-highlight.d h5,
-.text-highlight.d h6 {
+.highlight.d,
+.highlight.d h1,
+.highlight.d h2,
+.highlight.d h3,
+.highlight.d h4,
+.highlight.d h5,
+.highlight.d h6 {
   color: $dream-d-color;
 }
 
-.text-highlight.hh,
-.text-highlight.hh h1,
-.text-highlight.hh h2,
-.text-highlight.hh h3,
-.text-highlight.hh h4,
-.text-highlight.hh h5,
-.text-highlight.hh h6 {
+.highlight.hh,
+.highlight.hh h1,
+.highlight.hh h2,
+.highlight.hh h3,
+.highlight.hh h4,
+.highlight.hh h5,
+.highlight.hh h6 {
   color: $dream-hh-color;
 }
 
-.text-highlight.ld,
-.text-highlight.ld h1,
-.text-highlight.ld h2,
-.text-highlight.ld h3,
-.text-highlight.ld h4,
-.text-highlight.ld h5,
-.text-highlight.ld h6 {
+.highlight.ld,
+.highlight.ld h1,
+.highlight.ld h2,
+.highlight.ld h3,
+.highlight.ld h4,
+.highlight.ld h5,
+.highlight.ld h6 {
   color: $dream-ld-color;
 }
 
-.text-highlight.fa,
-.text-highlight.fa h1,
-.text-highlight.fa h2,
-.text-highlight.fa h3,
-.text-highlight.fa h4,
-.text-highlight.fa h5,
-.text-highlight.fa h6 {
+.highlight.fa,
+.highlight.fa h1,
+.highlight.fa h2,
+.highlight.fa h3,
+.highlight.fa h4,
+.highlight.fa h5,
+.highlight.fa h6 {
   color: $dream-fa-color;
 }
 
-.text-highlight.nd,
-.text-highlight.nd h1,
-.text-highlight.nd h2,
-.text-highlight.nd h3,
-.text-highlight.nd h4,
-.text-highlight.nd h5,
-.text-highlight.nd h6 {
+.highlight.nd,
+.highlight.nd h1,
+.highlight.nd h2,
+.highlight.nd h3,
+.highlight.nd h4,
+.highlight.nd h5,
+.highlight.nd h6 {
   color: $dream-nd-color;
 }
 
@@ -311,46 +311,46 @@ pre code {
 -------------------------------------------------- */
 
 
-.text-highlight.out,
-.text-highlight.out h1,
-.text-highlight.out h2,
-.text-highlight.out h3,
-.text-highlight.out h4,
-.text-highlight.out h5,
-.text-highlight.out h6 {
+.highlight.out,
+.highlight.out h1,
+.highlight.out h2,
+.highlight.out h3,
+.highlight.out h4,
+.highlight.out h5,
+.highlight.out h6 {
   color: $pickup-out-color;
 }
 
 
-.text-highlight.in,
-.text-highlight.in h1,
-.text-highlight.in h2,
-.text-highlight.in h3,
-.text-highlight.in h4,
-.text-highlight.in h5,
-.text-highlight.in h6 {
+.highlight.in,
+.highlight.in h1,
+.highlight.in h2,
+.highlight.in h3,
+.highlight.in h4,
+.highlight.in h5,
+.highlight.in h6 {
   color: $pickup-in-color;
 }
 
 
-.text-highlight.sa,
-.text-highlight.sa h1,
-.text-highlight.sa h2,
-.text-highlight.sa h3,
-.text-highlight.sa h4,
-.text-highlight.sa h5,
-.text-highlight.sa h6 {
+.highlight.sa,
+.highlight.sa h1,
+.highlight.sa h2,
+.highlight.sa h3,
+.highlight.sa h4,
+.highlight.sa h5,
+.highlight.sa h6 {
   color: $pickup-sa-color;
 }
 
 
-.text-highlight.cl,
-.text-highlight.cl h1,
-.text-highlight.cl h2,
-.text-highlight.cl h3,
-.text-highlight.cl h4,
-.text-highlight.cl h5,
-.text-highlight.cl h6 {
+.highlight.cl,
+.highlight.cl h1,
+.highlight.cl h2,
+.highlight.cl h3,
+.highlight.cl h4,
+.highlight.cl h5,
+.highlight.cl h6 {
   color: $pickup-cl-color;
 }
 

@@ -53,7 +53,7 @@ class RobotskirtPage
       lang = options['lang'] || 'text'
       options['encoding'] = 'utf-8'
       output = null
-  
+
       options['isCode'] = true
       switch lang
         when 'd'
@@ -154,7 +154,7 @@ class RobotskirtPage
     return '<div class="highlight ' + lang + '"><pre><code class="'+lang+'">' + code + '</code></pre></div>'
 
   @addHighlightTags: (text, options, lang) ->
-    return '<div class="text-highlight ' + lang + '">' + text + '</div>'
+    return '<div class="highlight ' + lang + '">' + text + '</div>'
 
 root.fromMarkdown = (markdown) ->
 
@@ -164,6 +164,6 @@ root.fromMarkdown = (markdown) ->
       "smart": true
     }
   }
- 
+
   return RobotskirtPage.runMarkdownProcess(config, markdown)
 

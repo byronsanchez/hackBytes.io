@@ -4,7 +4,6 @@ fs = require 'fs'
 hljs = require 'highlight.js'
 
 module.exports = (env, callback) ->
-
   class RobotskirtPage extends env.plugins.MarkdownPage
 
     # a post or page is a draft is published is not explictly enabled
@@ -21,11 +20,11 @@ module.exports = (env, callback) ->
     # Licensed under the MIT license
     # https://github.com/lhagan/wintersmith-showdown/blob/master/plugin.coffee
     # Commit ID: 24cb3539b23d3749cfcad90012f1d98d544d9868
-    getHtml: (base=env.config.baseUrl) ->
+    getHtml: (base = env.config.baseUrl) ->
       # TODO: cleaner way to achieve this?
       # http://stackoverflow.com/a/4890350
       name = @getFilename()
-      name = name[name.lastIndexOf('/')+1..]
+      name = name[name.lastIndexOf('/') + 1..]
       loc = @getLocation(base)
       fullName = if name is 'index.html' then loc else loc + name
       # handle links to anchors within the page
@@ -60,61 +59,47 @@ module.exports = (env, callback) ->
       @_hasMore ?= (@_html.length > @_intro.length)
       return @_hasMore
 
-    @runHtmlProcess: (config, markdown) ->
-        preprocessedMarkdown = RobotskirtPage.preprocess(markdown)
-        renderedHtml = RobotskirtPage.renderHtmlIntoHtml(config, preprocessedMarkdown)
-        postprocessedMarkdown = RobotskirtPage.postprocess(renderedHtml)
-
-    @runMarkdownProcess: (config, markdown) ->
-        # preprocessedMarkdown = RobotskirtPage.preprocess(markdown)
-        # renderedHtml = RobotskirtPage.renderMarkdownIntoHtml(config, preprocessedMarkdown)
-        # postprocessedMarkdown = RobotskirtPage.postprocess(renderedHtml)
-
-        preprocessedMarkdown = RobotskirtPage.preprocess(markdown)
-        renderedHtml = RobotskirtPage.renderHtmlIntoHtml(config, preprocessedMarkdown)
-        postprocessedMarkdown = RobotskirtPage.postprocess(renderedHtml)
-
-    @preprocess: (markdown) ->
-      preprocessedMarkdown = RobotskirtPage.renderCustomTags(markdown)
-      return preprocessedMarkdown
-
-    @postprocess: (html) ->
-      return html
-
-    @renderHtmlIntoHtml: (config, markdownContent) ->
-      renderedHtml = markdownContent
+    @runHtmlProcess: (config, html) ->
+      console.log "|-- running HTML processor"
+      renderedHtml = html
       return renderedHtml
 
-    # @renderMarkdownIntoHtml: (config, markdownContent) ->
+    # extensions are extensions to markdown- eg. ext_autolink, ext_strikethrough, ext_superscript, ext_tables
     #
-    #   extensions = config.robotskirt.extensions or []
-    #   htmlFlags = config.robotskirt.htmlFlags or []
-    #   isSmartypantsEnabled = config.robotskirt.smart or false
-    #
-    #   robotskirtExtensions = RobotskirtPage.convertConfigurationStringsIntoRobotskirtIDs(extensions)
-    #   robotskirtHtmlFlags = RobotskirtPage.convertConfigurationStringsIntoRobotskirtIDs(htmlFlags)
-    #
-    #   renderer = new Robotskirt.HtmlRenderer(robotskirtHtmlFlags)
-    #   renderer = RobotskirtPage.defineSyntaxHighlightingForCodeBlocks(renderer, config)
-    #   markdown = new Robotskirt.Markdown(renderer, robotskirtExtensions)
-    #   renderedHtml = markdown.render(markdownContent)
-    #
-    #   if isSmartypantsEnabled
-    #     renderedHtml = Robotskirt.smartypantsHtml(renderedHtml)
-    #
-    #   return renderedHtml
+    # html flags are html rendering options- eg. html_use_xhtml, html_toc, html_hard_wrap, etc.
+    @runMarkdownProcess: (config, markdown) ->
+      console.log "|-- running MD processor"
+      preprocessedMarkdown = RobotskirtPage.renderCustomTags(markdown)
+      renderer = RobotskirtPage.defineSyntaxHighlightingForHtml(renderer, config)
+      markdown = new Robotskirt.Markdown(renderer, robotskirtExtensions)
+      renderedHtml = markdown.render(markdownContent)
 
-    # @convertConfigurationStringsIntoRobotskirtIDs: (configurationStringObject) ->
-    #
-    #   robotskirtIDs = []
-    #   for v,k in configurationStringObject
-    #     uppercaseValue = v.toUpperCase()
-    #     robotskirtIDs[k] = Robotskirt[uppercaseValue]
-    #
-    #   return robotskirtIDs
+#      extensions = config.robotskirt.extensions or []
+#      htmlFlags = config.robotskirt.htmlFlags or []
+#      isSmartypantsEnabled = config.robotskirt.smart or false
 
-    @defineSyntaxHighlightingForCodeBlocks: (renderer, config) ->
+#      robotskirtExtensions = RobotskirtPage.convertConfigurationStringsIntoRobotskirtIDs(extensions)
+#      robotskirtHtmlFlags = RobotskirtPage.convertConfigurationStringsIntoRobotskirtIDs(htmlFlags)
 
+#      renderer = new Robotskirt.HtmlRenderer(robotskirtHtmlFlags)
+#      renderer = RobotskirtPage.defineSyntaxHighlightingForMarkdown(renderer, config)
+#      markdown = new Robotskirt.Markdown(renderer, robotskirtExtensions)
+#      renderedHtml = markdown.render(markdownContent)
+#
+#      if isSmartypantsEnabled
+#        renderedHtml = Robotskirt.smartypantsHtml(renderedHtml)
+#
+#      return markdownContent
+
+    @convertConfigurationStringsIntoRobotskirtIDs: (configurationStringObject) ->
+      robotskirtIDs = []
+      for v,k in configurationStringObject
+        uppercaseValue = v.toUpperCase()
+      robotskirtIDs[k] = Robotskirt[uppercaseValue]
+
+      return robotskirtIDs
+
+    @defineSyntaxHighlightingForMarkdown: (renderer, config) ->
       renderer.blockcode = (code, lang) ->
         options = RobotskirtPage.parseSyntaxHighlightingOptions(lang)
         # Update the language based on our custom options feature.
@@ -124,7 +109,7 @@ module.exports = (env, callback) ->
 
         options['isCode'] = true
         switch lang
-          # dream
+        # dream
           when 'd'
             options.isCode = false
           when 'hh'
@@ -135,7 +120,7 @@ module.exports = (env, callback) ->
             options.isCode = false
           when 'nd'
             options.isCode = false
-          # pickup
+        # pickup
           when 'out'
             options.isCode = false
           when 'in'
@@ -152,7 +137,7 @@ module.exports = (env, callback) ->
           # Run it through the markdown process; otherwise, the raw markdown
           # will be output since this was flagged as a codeblock by the robotskirt
           output = RobotskirtPage.runMarkdownProcess(config, code)
-          RobotskirtPage.addHighlightTags(output, options, lang)
+          RobotskirtPage.addHighlightTags(output, lang)
 
       return renderer
 
@@ -197,46 +182,47 @@ module.exports = (env, callback) ->
 
       return options
 
-    @renderCustomTags: (markdown) ->
-      # Video tags.
-      # Only replace if there's at least one match. This is why scanning
-      # happens first.
-      syntax = /\[video\s+?(.*?)(?:\s+?\|\s+?(.*?))?\]/m
-      matches = markdown.match(syntax)
-
-      while ((matches = syntax.exec(markdown)) != null)
-
-        if matches
-          match_string = matches[0]
-          source = matches[1]
-          style = matches[2]
-
-          if !style
-            style = ''
-          else
-            style = ' ' + style
-
-          # Youtube Regex
-          syntax_youtube = /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:(?:watch\?v=)|(?:embed\/))?([\w\-]{10,})/m
-          source_matches = source.match(syntax_youtube)
-          id = source_matches[1]
-
-          if id
-            # Match only the particular tag we are working on. This is
-            # because there may be multiple video tags per page.
-            markdown = markdown.replace(match_string, '<div class="flex-video' + style + '"><iframe width="560" height="315" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe></div>')
-
-      return markdown
+# I moved this functionality to org-mode. Keeping it here for reference.
+#
+#    @renderCustomTags: (markdown) ->
+#      # Video tags.
+#      # Only replace if there's at least one match. This is why scanning
+#      # happens first.
+#      syntax = /\[video\s+?(.*?)(?:\s+?\|\s+?(.*?))?\]/m
+#      matches = markdown.match(syntax)
+#
+#      while ((matches = syntax.exec(markdown)) != null)
+#
+#        if matches
+#          match_string = matches[0]
+#          source = matches[1]
+#          style = matches[2]
+#
+#          if !style
+#            style = ''
+#          else
+#            style = ' ' + style
+#
+#          # Youtube Regex
+#          syntax_youtube = /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:(?:watch\?v=)|(?:embed\/))?([\w\-]{10,})/m
+#          source_matches = source.match(syntax_youtube)
+#          id = source_matches[1]
+#
+#          if id
+#            # Match only the particular tag we are working on. This is
+#            # because there may be multiple video tags per page.
+#            markdown = markdown.replace(match_string, '<div class="flex-video' + style + '"><iframe width="560" height="315" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe></div>')
+#
+#      return markdown
 
     @addCodeTags: (code, lang) ->
-      return '<div class="highlight ' + lang + '"><pre><code class="'+lang+'">' + code + '</code></pre></div>'
+      return '<div class="highlight ' + lang + '"><pre><code class="' + lang + '">' + code + '</code></pre></div>'
 
-    @addHighlightTags: (text, options, lang) ->
-      return '<div class="text-highlight ' + lang + '">' + text + '</div>'
+    @addHighlightTags: (text, lang) ->
+      return '<div class="highlight ' + lang + '">' + text + '</div>'
 
   RobotskirtPage.fromFile = (filepath, callback) ->
-
-    console.log "MARK DOW NFILE"
+    console.log "MARKDOWN FILE - PROCESSING: " + filepath.full
 
     async.waterfall [
       (callback) ->
@@ -248,7 +234,8 @@ module.exports = (env, callback) ->
         page = new this filepath, metadata, markdown
         callback null, page
       (page, callback) =>
-        page._htmlraw = RobotskirtPage.runMarkdownProcess(env.config, page.markdown)
+        # disabled markdown processing for now since I don't use it
+        page._htmlraw = RobotskirtPage.runHtmlProcess(env.config, page.markdown)
         callback null, page
       (page, callback) =>
         callback null, page
@@ -257,8 +244,7 @@ module.exports = (env, callback) ->
   class HtmlPage extends RobotskirtPage
 
   HtmlPage.fromFile = (filepath, callback) ->
-
-    console.log "HTM LFILE"
+    console.log "HTML FILE - PROCESSING: " + filepath.full
 
     async.waterfall [
       (callback) ->
