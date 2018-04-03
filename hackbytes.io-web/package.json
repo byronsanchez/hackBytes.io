@@ -63,6 +63,7 @@
 		"node": "~6.11.1"
 	},
 	"dependencies": {
+		"@fancyapps/fancybox": "^3.2.5",
 		"foundation-icons": "^1.0.1",
 		"foundation-sites": "^5.5.3",
 		"highlight.js": "^7.5.0",

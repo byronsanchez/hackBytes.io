@@ -5,3 +5,4 @@ require('moment')
 require('jquery/dist/jquery.js')
 require('foundation-sites/js/foundation.js')
 #require('mixitup')
+require("@fancyapps/fancybox");
