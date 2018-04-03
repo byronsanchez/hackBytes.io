@@ -9,11 +9,13 @@ $(document).ready(() ->
   #
   # MixItUp plugin
   # http://mixitup.io
-  containerEl = document.querySelector('.portfoliolist');
-  mixer = mixitup(containerEl, {
-    selectors: {
-      target: '.portfolio'
-    }
-  });
+  containerEl = document.querySelector('.portfoliolist')
+
+  if containerEl
+    mixer = mixitup(containerEl, {
+      selectors: {
+        target: '.portfolio'
+      }
+    })
 )
 
