@@ -1,13 +1,20 @@
 {
   "title": "Coloring Book",
+  "author": "Byron Sanchez",
+  "date": "2013-04-18 00:09:45",
+  "category": "portfolio-item",
+  "tags": "mobile",
+  "published": 1,
+  "comments_enabled": 0,
   "template": "layouts/portfolio-page.jade",
+  "description": 0,
   "tagline": "An application fitted perfectly for both mobile devices and tablets.",
   "portfolioItemImages": [
-    "coloring-book-1.png",
-    "coloring-book-2.png",
-    "coloring-book-3.png",
-    "coloring-book-4.png",
-    "coloring-book-5.png"
+    "coloring-book-01.png",
+    "coloring-book-02.png",
+    "coloring-book-03.png",
+    "coloring-book-04.png",
+    "coloring-book-05.png"
   ],
   "portfolioItemDescription": [
 	{

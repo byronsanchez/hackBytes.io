@@ -20,8 +20,7 @@ module.exports = (env, callback) ->
       # structure: /project-name/content.html
       for page_key_i, page_value_i of contents["portfolio"]
         for page_key_j, page_value_j of contents["portfolio"][page_key_i]
-
-          if page_value_j["metadata"]
+          if page_value_j["metadata"] && page_value_j["metadata"]["category"] && page_value_j["metadata"]["category"] == "portfolio-item"
             portfolio.push page_value_j if page_value_j instanceof env.plugins.Page && (page_value_j["metadata"]["published"] == "1" || page_value_j["metadata"]["published"] == 1)
 
       portfolio.sort (a, b) -> b.date - a.date

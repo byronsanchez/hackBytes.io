@@ -60,7 +60,6 @@ module.exports = (env, callback) ->
       return @_hasMore
 
     @runHtmlProcess: (config, html) ->
-      console.log "|-- running HTML processor"
       renderedHtml = html
       return renderedHtml
 
@@ -68,7 +67,6 @@ module.exports = (env, callback) ->
     #
     # html flags are html rendering options- eg. html_use_xhtml, html_toc, html_hard_wrap, etc.
     @runMarkdownProcess: (config, markdown) ->
-      console.log "|-- running MD processor"
       preprocessedMarkdown = RobotskirtPage.renderCustomTags(markdown)
       renderer = RobotskirtPage.defineSyntaxHighlightingForHtml(renderer, config)
       markdown = new Robotskirt.Markdown(renderer, robotskirtExtensions)
@@ -222,8 +220,6 @@ module.exports = (env, callback) ->
       return '<div class="highlight ' + lang + '">' + text + '</div>'
 
   RobotskirtPage.fromFile = (filepath, callback) ->
-    console.log "MARKDOWN FILE - PROCESSING: " + filepath.full
-
     async.waterfall [
       (callback) ->
         fs.readFile filepath.full, callback
@@ -244,8 +240,6 @@ module.exports = (env, callback) ->
   class HtmlPage extends RobotskirtPage
 
   HtmlPage.fromFile = (filepath, callback) ->
-    console.log "HTML FILE - PROCESSING: " + filepath.full
-
     async.waterfall [
       (callback) ->
         fs.readFile filepath.full, callback

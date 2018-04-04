@@ -32,12 +32,12 @@ block portfolio-content
           - var category = item.metadata.category
           - var formattedTitle = env.helpers.handleize(item.title)
           - var tags = item.metadata.tags
-          if category == "portfolio"
+          if category == "portfolio-item"
             a(href='#{ item.url }')
               div(class="portfolio #{ tags }" data-order="#{ index++ }")
                 div.portfolio-item
                   div.portfolio-wrapper
-                    img(src="/img/portfolio/#{ formattedTitle }/cover.png", alt="")
+                    img(src="/portfolio/#{ formattedTitle }/cover.png", alt="")
                   div.project-label
                     div.project-label-text
                       h3.project-title= item.title
