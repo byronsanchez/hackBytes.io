@@ -30,8 +30,7 @@ block portfolio-content
         - var index = 1
         for item in portfolio
           - var category = item.metadata.category
-          - var formattedTitle = item.title.replace('.', '-');
-          - formattedTitle = env.helpers.handleize(formattedTitle)
+          - var formattedTitle = env.helpers.handleize(item.title)
           - var tags = item.metadata.tags
           if category == "portfolio"
             a(href='#{ item.url }')
