@@ -1,9 +1,9 @@
 {
-	"author": "niteLite (https://niteLite.io)",
-	"name": "niteLite",
+	"author": "Byron Sanchez <byron@hackbytes.io>",
+	"name": "hackBytes.io",
 	"description": "Wintersmith blog about music, art, and my creative projects.",
 	"version": "1.0.0",
-	"homepage": "https://niteLite.io",
+	"homepage": "https://hackBytes.io",
 	"private": true,
 	"scripts": {
 		"build": "npm run build:db && npm run build:app",
