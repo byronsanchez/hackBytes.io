@@ -6,7 +6,7 @@
  * Requires the YAML PECL Extension.
  */
 
-define("DB_FILE", "/var/lib/nitelite/webserver/nitelite.io/database/comments.db");
+define("DB_FILE", "/var/lib/nitelite/webserver/hackbytes.io/database/comments.db");
 define("TBL_NAME", "comments");
 define("COL_NAME", "message");
 // The date stored in YAML format
@@ -292,9 +292,9 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
       $value = build_form_string($data);
       //      $db_result = db_insert($value);
 
-      $to = 'byron@nitelite.io';
+      $to = 'byron@hackbytes.io';
       $from = $data['email'];
-      $subject ='[niteLite.io]: ' . $data['id'] . ' - ' . $data['name'] . ' <' . $data['email'] . '>';
+      $subject ='[hackBytes.io]: ' . $data['id'] . ' - ' . $data['name'] . ' <' . $data['email'] . '>';
       $name = $data['name'];
 
       $message = $data['comment'] . "\r\n";

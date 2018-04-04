@@ -7,8 +7,8 @@
 // as all URLs will be permanent, in that old URLs point to the
 // new valid location.
 
-define("ROOT_PATH", "https://nitelite.io");
-define("DB_FILE", "/var/lib/nitelite/webserver/nitelite.io/database/path.db");
+define("ROOT_PATH", "https://hackbytes.io");
+define("DB_FILE", "/var/lib/nitelite/webserver/hackbytes.io/database/path.db");
 define("ERROR_404", "error-404/index.html");
 
 /**
@@ -42,7 +42,7 @@ function db_lookup($path = '') {
       // The db file and this php file are both located in the website's
       // assets/ directory.
       $db = new PDO("sqlite:" . DB_FILE);
-      $db->setAttribute(PDO::ATTR_ERRMODE, 
+      $db->setAttribute(PDO::ATTR_ERRMODE,
                             PDO::ERRMODE_SILENT);
 
       // Perform the lookup
