@@ -60,8 +60,30 @@ module.exports = (env, callback) ->
       return @_hasMore
 
     @runHtmlProcess: (config, html) ->
-      renderedHtml = html
+      highlightedHtml = @renderFencedCodeblocks(config, html)
+      renderedHtml = highlightedHtml
       return renderedHtml
+
+    @renderFencedCodeblocks: (config, html) ->
+      syntax = /```\s*?(.*?)\n([\s\S]+?)```/m
+      matches = html.match(syntax)
+
+      while ((matches = syntax.exec(html)) != null)
+        if matches
+          match_string = matches[0]
+          lang = matches[1]
+          code = matches[2]
+
+          if !lang
+            lang = ''
+
+          highlightedHtml = @highlightCode(code, config, lang)
+          highlightedHtml = @addCodeTags(highlightedHtml, lang)
+          # Match only the particular tag we are working on. This is
+          # because there may be multiple instances of the match on the page.
+          html = html.replace(match_string, highlightedHtml)
+
+      return html
 
     # extensions are extensions to markdown- eg. ext_autolink, ext_strikethrough, ext_superscript, ext_tables
     #
@@ -107,7 +129,6 @@ module.exports = (env, callback) ->
 
         options['isCode'] = true
         switch lang
-        # dream
           when 'd'
             options.isCode = false
           when 'hh'
@@ -118,7 +139,6 @@ module.exports = (env, callback) ->
             options.isCode = false
           when 'nd'
             options.isCode = false
-        # pickup
           when 'out'
             options.isCode = false
           when 'in'
@@ -180,38 +200,37 @@ module.exports = (env, callback) ->
 
       return options
 
-# I moved this functionality to org-mode. Keeping it here for reference.
-#
-#    @renderCustomTags: (markdown) ->
-#      # Video tags.
-#      # Only replace if there's at least one match. This is why scanning
-#      # happens first.
-#      syntax = /\[video\s+?(.*?)(?:\s+?\|\s+?(.*?))?\]/m
-#      matches = markdown.match(syntax)
-#
-#      while ((matches = syntax.exec(markdown)) != null)
-#
-#        if matches
-#          match_string = matches[0]
-#          source = matches[1]
-#          style = matches[2]
-#
-#          if !style
-#            style = ''
-#          else
-#            style = ' ' + style
-#
-#          # Youtube Regex
-#          syntax_youtube = /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:(?:watch\?v=)|(?:embed\/))?([\w\-]{10,})/m
-#          source_matches = source.match(syntax_youtube)
-#          id = source_matches[1]
-#
-#          if id
-#            # Match only the particular tag we are working on. This is
-#            # because there may be multiple video tags per page.
-#            markdown = markdown.replace(match_string, '<div class="flex-video' + style + '"><iframe width="560" height="315" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe></div>')
-#
-#      return markdown
+    # I moved this functionality to org-mode. Keeping it here for reference.
+    @renderCustomTags: (markdown) ->
+      # Video tags.
+      # Only replace if there's at least one match. This is why scanning
+      # happens first.
+      syntax = /\[video\s+?(.*?)(?:\s+?\|\s+?(.*?))?\]/m
+      matches = markdown.match(syntax)
+
+      while ((matches = syntax.exec(markdown)) != null)
+
+        if matches
+          match_string = matches[0]
+          source = matches[1]
+          style = matches[2]
+
+          if !style
+            style = ''
+          else
+            style = ' ' + style
+
+          # Youtube Regex
+          syntax_youtube = /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:(?:watch\?v=)|(?:embed\/))?([\w\-]{10,})/m
+          source_matches = source.match(syntax_youtube)
+          id = source_matches[1]
+
+          if id
+            # Match only the particular tag we are working on. This is
+            # because there may be multiple video tags per page.
+            markdown = markdown.replace(match_string, '<div class="flex-video' + style + '"><iframe width="560" height="315" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe></div>')
+
+      return markdown
 
     @addCodeTags: (code, lang) ->
       return '<div class="highlight ' + lang + '"><pre><code class="' + lang + '">' + code + '</code></pre></div>'
@@ -250,8 +269,7 @@ module.exports = (env, callback) ->
         page = new this filepath, metadata, markdown
         callback null, page
       (page, callback) =>
-        page._htmlraw = RobotskirtPage.runHtmlProcess(env.config, page.markdown)
-        page._htmlraw = page.markdown
+        page._htmlraw = HtmlPage.runHtmlProcess(env.config, page.markdown)
         callback null, page
       (page, callback) =>
         callback null, page

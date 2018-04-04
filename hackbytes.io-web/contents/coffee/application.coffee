@@ -1,4 +1,6 @@
 mixitup = require('mixitup')
+# jcarousel is a pikachoose dependency
+# it needs to be called here since the pikachoose package doesn't import it in it's js code
 jcarousel = require('pikachoose/lib/jquery.jcarousel.min.js')
 pikachoose = require('pikachoose')
 

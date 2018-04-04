@@ -11,27 +11,25 @@ description: 0
 ---
 
 <!-- CODE SNIPPET -->
-<div class="row-fluid project-container">
-  <div class="span12">
-    <div class="project-code">
-      <h2>Code Snippet</h2>
 
-      <p class="snippet-description">
-        If a reader fills out a form field, or if changes are made to a form field, an
-        event is triggered for that field and handled by the site's JavaScript code. The
-        following code contains a portion of the event-handling process for two
-        different form fields. Each handler serializes it's corresponding form field
-        data and passes it to the server for validation. The server then returns
-        validation information for that field.  This is useful, especially for
-        situations in which server-side data is needed to perform on-the-fly validation
-        (like when you are validating a username against a database of
-        already-registered users).
-      </p>
 
-      <div class="code-sample">
+<h2>Code Snippet</h2>
 
-{% highlight javascript linenos %}
+<p class="snippet-description">
+	If a reader fills out a form field, or if changes are made to a form field, an
+	event is triggered for that field and handled by the site's JavaScript code. The
+	following code contains a portion of the event-handling process for two
+	different form fields. Each handler serializes it's corresponding form field
+	data and passes it to the server for validation. The server then returns
+	validation information for that field. This is useful, especially for
+	situations in which server-side data is needed to perform on-the-fly validation
+	(like when you are validating a username against a database of
+	already-registered users).
+</p>
 
+<div class="code-sample">
+
+```javascript
 function validateEmail(){
 
   // Abort any pending requests
@@ -89,11 +87,6 @@ function validateLink(){
     $isLinkValid = (validate_link_request(1));
   });
 }
+```
 
-{% endhighlight %}
-
-      </div>
-    </div>
-  </div>
 </div>
-

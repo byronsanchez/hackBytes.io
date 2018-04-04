@@ -11,21 +11,18 @@ description: 0
 ---
 
 <!-- CODE SNIPPET -->
-<div class="row-fluid project-container">
-  <div class="span12">
-    <div class="project-code">
-      <h2>Code Snippet</h2>
 
-      <p class="snippet-description">
-        This is a Jekyll plugin I wrote for publishing comments to the <a
-          href="/"><b>blog</b></a>. It takes comments from a predefined directory and
-        attaches them to the post it is associated with.
-      </p>
+<h2>Code Snippet</h2>
 
-      <div class="code-sample">
+<p class="snippet-description">
+	This is a Jekyll plugin I wrote for publishing comments to the <a
+		href="/"><b>blog</b></a>. It takes comments from a predefined directory and
+	attaches them to the post it is associated with.
+</p>
 
-{% highlight ruby linenos %}
+<div class="code-sample">
 
+```ruby
 module Jekyll
 
   class CommentGenerator < Generator
@@ -152,11 +149,8 @@ module Jekyll
   end
 
 end
+```
 
-{% endhighlight %}
-
-      </div>
-    </div>
-  </div>
 </div>
+
 

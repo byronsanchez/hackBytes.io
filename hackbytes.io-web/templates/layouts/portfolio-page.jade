@@ -28,13 +28,7 @@ block portfolio-content
                         img(src=imgLink, alt="").project-screenshot
 
                 div.project-description
-                  for item in page.metadata.portfolioItemDescription
-                    if item.type == "h3"
-                      h3= item.value
-                    if item.type == "h4"
-                      h4= item.value
-                    if item.type == "p"
-                      p= item.value
+                  section.content!= typogr(page.html).typogrify()
 
           div.medium-3.columns
             div.side

@@ -11,24 +11,21 @@ description: 0
 ---
 
 <!-- CODE SNIPPET -->
-<div class="row-fluid project-container">
-  <div class="span12">
-    <div class="project-code">
-      <h2>Code Snippet</h2>
 
-      <p class="snippet-description">
-        Because the device can be a phone, a tablet, or anything in between,
-        this code first examines the picture to be loaded before performing any
-        memory allocations. Scaling is performed only if the picture is bigger
-        than the screen of the device in use. No scale-ups are performed to
-        prevent degradation of picture quality. Memory allocation occurs only
-        AFTER screen-metric analysis to ensure heap memory is preserved.
-      </p>
+<h2>Code Snippet</h2>
 
-      <div class="code-sample">
+<p class="snippet-description">
+	Because the device can be a phone, a tablet, or anything in between,
+	this code first examines the picture to be loaded before performing any
+	memory allocations. Scaling is performed only if the picture is bigger
+	than the screen of the device in use. No scale-ups are performed to
+	prevent degradation of picture quality. Memory allocation occurs only
+	AFTER screen-metric analysis to ensure heap memory is preserved.
+</p>
 
-{% highlight java linenos %}
+<div class="code-sample">
 
+```java
 private Bitmap decodeImage(int resId) {
 
     // Get the screen width and height.
@@ -93,11 +90,6 @@ private Bitmap decodeImage(int resId) {
     // Return the decoded picture to prepare for on-screen display.
     return scaledBitmap;
 }
+```
 
-{% endhighlight %}
-
-      </div>
-    </div>
-  </div>
 </div>
-

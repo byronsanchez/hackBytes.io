@@ -11,22 +11,18 @@ description: 0
 ---
 
 <!-- CODE SNIPPET -->
-<div class="row-fluid project-container">
-  <div class="span12">
-    <div class="project-code">
-      <h2>Code Snippet</h2>
+<h2>Code Snippet</h2>
 
-      <p class="snippet-description">
-        The following code snippet shows screen-metric and orientation analysis.
-        Screen metrics and orientation are stored in properties accessible by
-        the ViewController. As a result, the application can properly render
-        various UI elements for different screen sizes and orientations.
-      </p>
+<p class="snippet-description">
+	The following code snippet shows screen-metric and orientation analysis.
+	Screen metrics and orientation are stored in properties accessible by
+	the ViewController. As a result, the application can properly render
+	various UI elements for different screen sizes and orientations.
+</p>
 
-      <div class="code-sample">
+<div class="code-sample">
 
-{% highlight objective-c linenos %}
-
+```objectivec
 /*
  * This screen needs to be dynamically positioned to fit each screen
  * size fluidly.
@@ -68,11 +64,6 @@ switch (device) {
   }
     break;
 }
+```
 
-{% endhighlight %}
-
-      </div>
-    </div>
-  </div>
 </div>
-

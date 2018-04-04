@@ -11,25 +11,22 @@ description: 0
 ---
 
 <!-- CODE SNIPPET -->
-<div class="row-fluid project-container">
-  <div class="span12">
-    <div class="project-code">
-      <h2>Code Snippet</h2>
+<h2>Code Snippet</h2>
 
-      <p class="snippet-description">
-        The following code analyzes all touch events and constrains them to the
-        portion of the screen containing the coloring page. If a user is
-        coloring and if the drag event goes out of bounds, the most recent
-        in-bound coordinates are used to render more coloring points. The result
-        is that coloring out of bounds will simply color the edges of the page
-        as opposed to having the application simply stop painting at the edges
-        altogether. This way, the application remains responsive to all user
-        input, while maintaining a consistent experience.
-      </p>
+<p class="snippet-description">
+	The following code analyzes all touch events and constrains them to the
+	portion of the screen containing the coloring page. If a user is
+	coloring and if the drag event goes out of bounds, the most recent
+	in-bound coordinates are used to render more coloring points. The result
+	is that coloring out of bounds will simply color the edges of the page
+	as opposed to having the application simply stop painting at the edges
+	altogether. This way, the application remains responsive to all user
+	input, while maintaining a consistent experience.
+</p>
 
-      <div class="code-sample">
+<div class="code-sample">
 
-```objective-c
+```objectivec
 - (void)touchEventX:(CGFloat *)x y:(CGFloat *)y {
 
   // NOTE: Color strokes are referred to as drawings.
@@ -80,9 +77,4 @@ description: 0
 
 }
 ```
-
-      </div>
-    </div>
-  </div>
 </div>
-

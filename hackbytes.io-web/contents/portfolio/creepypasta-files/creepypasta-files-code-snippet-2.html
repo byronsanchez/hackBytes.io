@@ -11,22 +11,19 @@ description: 0
 ---
 
 <!-- CODE SNIPPET -->
-<div class="row-fluid project-container">
-  <div class="span12">
-    <div class="project-code">
-      <h2>Code Snippet</h2>
 
-      <p class="snippet-description">
-        The following snippet shows a portion of the story-loading process. A
-        connection to the SQLite database is made. If there were no problems,
-        the data is retrieved and the application's UI elements are populated.
-        This results in the user actually being able to read the story.
-      </p>
+<h2>Code Snippet</h2>
 
-      <div class="code-sample">
+<p class="snippet-description">
+	The following snippet shows a portion of the story-loading process. A
+	connection to the SQLite database is made. If there were no problems,
+	the data is retrieved and the application's UI elements are populated.
+	This results in the user actually being able to read the story.
+</p>
 
-{% highlight java linenos %}
+<div class="code-sample">
 
+```java
 // Get stored preferences, if any.
 mSharedPreferences = getSharedPreferences(sFilename, 0);
 
@@ -67,11 +64,6 @@ mDbNodeHelper.close();
 // database.
 mTvNodeTitle.setText(mNodeData.title);
 mTvNodeBody.setText(Html.fromHtml(mNodeData.body, imgGetter, null));
+```
 
-{% endhighlight %}
-
-      </div>
-    </div>
-  </div>
 </div>
-
