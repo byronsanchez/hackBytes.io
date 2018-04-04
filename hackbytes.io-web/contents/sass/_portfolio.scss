@@ -79,10 +79,20 @@ h3.project-title {
   -o-box-sizing: border-box;
   width:32%;
   margin:0.66666666%;
+  // This was probably for the old v2 intro animation
+  // Now we're using visibility
   display:none;
   display: inline-block;
   float:left;
   overflow:hidden;
+}
+
+.portfolio {
+    visibility: hidden;
+}
+
+.mixitup-ready .portfolio {
+    visibility: visible;
 }
 
 .portfolio-wrapper {
