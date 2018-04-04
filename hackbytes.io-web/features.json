@@ -9,7 +9,7 @@
     },
     "staging": {
         "config": {
-            "baseUrl": "https://staging.nitelite.io/",
+            "baseUrl": "https://staging.hackbytes.io/",
             "features": {
                 "enableComments": true
             }
@@ -17,7 +17,7 @@
     },
     "production": {
         "config": {
-            "baseUrl": "https://nitelite.io/",
+            "baseUrl": "https://hackbytes.io/",
             "features": {
                 "enableComments": true
             }

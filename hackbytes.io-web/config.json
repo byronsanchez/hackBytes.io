@@ -7,10 +7,10 @@
   "comments_author": "anonymous",
   "filenameTemplate": "/:file/index.html",
   "locals": {
-	"application": "nitelite.io",
-	"url": "https://nitelite.io",
-	"base_url": "nitelite.io",
-	"title": "nitelite.io",
+	"application": "hackbytes.io",
+	"url": "https://hackbytes.io",
+	"base_url": "hackbytes.io",
+	"title": "hackbytes.io",
 	"subtitle": "Wintersmith blog about software, productivity, and my tech projects.",
 	"author": "Byron Sanchez",
 	"description": "Wintersmith blog about software, productivity, and my tech projects.",
@@ -80,11 +80,11 @@
 	  "3 stars",
 	  "2 stars",
 	  "1 star",
-	  "art",
-	  "edm",
-	  "music",
-	  "piano",
-	  "singing"
+	  "angular",
+	  "mobile",
+	  "software",
+	  "system",
+	  "web"
 	]
   },
   "webpack": {
@@ -94,7 +94,8 @@
 	"tags": [
 	  "angular",
 	  "mobile",
-	  "web"
+	  "web",
+	  "system"
 	]
   },
   "pygments": true,
