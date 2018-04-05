@@ -15,7 +15,7 @@ body {
 	color: $body-text-color;
   line-height: 1.6;
   background-color: $body-background-color;
-  background-image: url(../img/bg-skulls.png);
+  background-image: url($bg-img-path);
 }
 
 p {
@@ -183,7 +183,7 @@ table tr th, table tr td
 #hero-unit {
   position: relative;
   padding: 60px 20px;
-  background: url("../img/starscape.svg") repeat scroll 0 0 $hero-background-color;
+  background: url($masthead-img-path) repeat scroll 0 0 $hero-background-color;
   overflow: hidden;
   height: 184px;
 }
@@ -226,22 +226,6 @@ table tr th, table tr td
   height: 100%;
   vertical-align: middle;
   //line-height: 120px;
-}
-
-.nite {
-  color: $nite-text-color;
-  font-weight: normal;
-}
-
-.lite {
-  color: $lite-text-color;
-  font-weight: bold;
-}
-
-.tpk {
-  color: $tpk-text-color;
-  font-weight: bold;
-  font-size: 64px;
 }
 
 .contain-to-grid {

@@ -254,7 +254,7 @@ pre code {
   background: $body-background-color;
 }
 
-/* dream key styles
+/* plain-text key styles
 -------------------------------------------------- */
 
 .highlight.d,
@@ -264,7 +264,7 @@ pre code {
 .highlight.d h4,
 .highlight.d h5,
 .highlight.d h6 {
-  color: $dream-d-color;
+  color: $txt-d-color;
 }
 
 .highlight.hh,
@@ -274,7 +274,7 @@ pre code {
 .highlight.hh h4,
 .highlight.hh h5,
 .highlight.hh h6 {
-  color: $dream-hh-color;
+  color: $txt-hh-color;
 }
 
 .highlight.ld,
@@ -284,7 +284,7 @@ pre code {
 .highlight.ld h4,
 .highlight.ld h5,
 .highlight.ld h6 {
-  color: $dream-ld-color;
+  color: $txt-ld-color;
 }
 
 .highlight.fa,
@@ -294,7 +294,7 @@ pre code {
 .highlight.fa h4,
 .highlight.fa h5,
 .highlight.fa h6 {
-  color: $dream-fa-color;
+  color: $txt-fa-color;
 }
 
 .highlight.nd,
@@ -304,12 +304,8 @@ pre code {
 .highlight.nd h4,
 .highlight.nd h5,
 .highlight.nd h6 {
-  color: $dream-nd-color;
+  color: $txt-nd-color;
 }
-
-/* pickup key styles
--------------------------------------------------- */
-
 
 .highlight.out,
 .highlight.out h1,
@@ -318,7 +314,7 @@ pre code {
 .highlight.out h4,
 .highlight.out h5,
 .highlight.out h6 {
-  color: $pickup-out-color;
+  color: $txt-out-color;
 }
 
 
@@ -329,7 +325,7 @@ pre code {
 .highlight.in h4,
 .highlight.in h5,
 .highlight.in h6 {
-  color: $pickup-in-color;
+  color: $txt-in-color;
 }
 
 
@@ -340,7 +336,7 @@ pre code {
 .highlight.sa h4,
 .highlight.sa h5,
 .highlight.sa h6 {
-  color: $pickup-sa-color;
+  color: $txt-sa-color;
 }
 
 
@@ -351,6 +347,6 @@ pre code {
 .highlight.cl h4,
 .highlight.cl h5,
 .highlight.cl h6 {
-  color: $pickup-cl-color;
+  color: $txt-cl-color;
 }
 
