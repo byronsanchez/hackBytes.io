@@ -1,0 +1,17 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title= locals.title
+  body
+    p
+      | Here is a sample handleize invocation within a jade template file.
+    - stringToHandleize = "The Wintersmith"
+    - handleizedString = env.helpers.handleize(stringToHandleize);
+    p
+      b String to handleize:&nbsp;
+      | #{ stringToHandleize }
+    p
+      b Handleized string:&nbsp;
+      | #{ handleizedString }
+

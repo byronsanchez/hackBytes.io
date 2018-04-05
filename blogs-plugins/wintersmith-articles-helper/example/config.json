@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    "./../index-dev.js",
+    "./plugins/sample-plugin.coffee"
+  ],
+  "locals": {
+    "title": "Handleize Helper Example"
+  }
+}
