@@ -1,3 +1,7 @@
+# Wintersmith Docker
+
+This software builds a base image for Wintersmith websites.
+
 # hackBytes.com
 
 hackBytes is a website dedicated to the mastery of software engineering and 

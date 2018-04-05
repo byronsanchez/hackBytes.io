@@ -11,29 +11,32 @@ RUN npm install -g webpack \
   grunt-cli \
   postcss-cli
 
-# Package directory
-RUN mkdir /home/wintersmith/packages
+# Global Package directory
+RUN mkdir /home/wintersmith/global-packages
+# App Package directory
+RUN mkdir /home/wintersmith/local-packages
 # App directory
 RUN mkdir /home/wintersmith/hackbytes.io
-
-WORKDIR /home/wintersmith/packages
-
-# Tell node where it can find the dependencies since they're not installed in the usual location
 
 # can be used with USER to install global packages to a user directory
 #RUN echo "prefix = /home/wintersmith/packages" > ~/.npmrc
 # tell node where to resolve modules in require() statements
-ENV NODE_PATH /home/wintersmith/packages/node_modules
-ENV PATH /home/wintersmith/packages/node_modules/.bin:$PATH
 
-COPY ./hackbytes.io-web/package.json /home/wintersmith/packages
-#RUN chown -R wintersmith:wintersmith /home/wintersmith/packages
-RUN npm install --prefix /home/wintersmith/packages
+# Copy global packages shared across blogs
+COPY ./blogs-web/package.json /home/wintersmith/global-packages
+WORKDIR /home/wintersmith/global-packages
+RUN npm install --prefix /home/wintersmith/global-packages
+ENV NODE_PATH /home/wintersmith/global-packages/node_modules:$NODE_PATH
+ENV PATH /home/wintersmith/global-packages/node_modules/.bin:$PATH
 
-COPY ./hackbytes.io-web/ /home/wintersmith/hackbytes.io
+# Copy this blog's specific packages
+COPY ./blogs-web/hackbytes.io-web/package.json /home/wintersmith/local-packages
+WORKDIR /home/wintersmith/local-packages
+RUN npm install --prefix /home/wintersmith/local-packages
+ENV NODE_PATH /home/wintersmith/local-packages/node_modules:$NODE_PATH
+ENV PATH /home/wintersmith/local-packages/node_modules/.bin:$PATH
 
-# This probably won't matter since we're mount binding anyway, and I'm not using docker containers for deployment yet
-#RUN chown -R wintersmith:wintersmith /home/wintersmith/hackbytes.io
+COPY ./blogs-web/hackbytes.io-web/ /home/wintersmith/hackbytes.io
 
 WORKDIR /home/wintersmith/hackbytes.io
 

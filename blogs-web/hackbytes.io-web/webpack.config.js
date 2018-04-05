@@ -145,8 +145,8 @@ module.exports = function makeWebpackConfig() {
 								path.resolve(__dirname, 'node_modules/foundation-sites/scss/'),
 								path.resolve(__dirname, 'node_modules/foundation-icons'),
 								// When installed using Dockerfile
-								path.resolve(__dirname, '../packages/node_modules/foundation-sites/scss/'),
-								path.resolve(__dirname, '../packages/node_modules/foundation-icons/')
+								path.resolve(__dirname, '../global-packages/node_modules/foundation-sites/scss/'),
+								path.resolve(__dirname, '../global-packages/node_modules/foundation-icons/')
 							]
 						}
 					}],
@@ -236,14 +236,16 @@ module.exports = function makeWebpackConfig() {
 			spin: 'spin.js'
 		},
 		modules: [
-			path.resolve(__dirname, '../packages/node_modules')
+			path.resolve(__dirname, '../global-packages/node_modules'),
+			path.resolve(__dirname, '../local-packages/node_modules')
 		]
 	};
 
 	config.resolveLoader = {
 		modules: [
 			// 'node_modules',
-			path.resolve(__dirname, '../packages/node_modules')
+			path.resolve(__dirname, '../global-packages/node_modules'),
+			path.resolve(__dirname, '../local-packages/node_modules')
 		]
 	};
 
