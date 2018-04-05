@@ -1,0 +1,27 @@
+{
+    "development": {
+        "config": {
+            "baseUrl": "http://localhost:8080/",
+            "features": {
+                "enableComments": true
+            }
+        }
+    },
+    "staging": {
+        "config": {
+            "baseUrl": "https://staging.hackbytes.io/",
+            "features": {
+                "enableComments": true
+            }
+        }
+    },
+    "production": {
+        "config": {
+            "baseUrl": "https://hackbytes.io/",
+            "features": {
+                "enableComments": true
+            }
+       }
+    }
+}
+

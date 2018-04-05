@@ -1,3 +1,0 @@
--- Baseline schema
-
-CREATE TABLE IF NOT EXISTS comments (_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, message TEXT, isPublished INTEGER DEFAULT 0);

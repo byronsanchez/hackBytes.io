@@ -1,0 +1,69 @@
+---
+date: 2013-04-17 00:09:45
+title: "Creepypasta Files - Code Snippet 1"
+author: Byron Sanchez
+category: code-snippet
+tags: mobile
+published: 1
+comments_enabled: 0
+template: layouts/code-snippet.jade
+description: 0
+---
+
+<!-- CODE SNIPPET -->
+<h2>Code Snippet</h2>
+
+<p class="snippet-description">
+	The following code snippet shows screen-metric and orientation analysis.
+	Screen metrics and orientation are stored in properties accessible by
+	the ViewController. As a result, the application can properly render
+	various UI elements for different screen sizes and orientations.
+</p>
+
+<div class="code-sample">
+
+```objectivec
+/*
+ * This screen needs to be dynamically positioned to fit each screen
+ * size fluidly.
+ */
+
+_isPortrait = UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
+
+// Get the screen metrics.
+CGRect screenRect = [[UIScreen mainScreen] bounds];
+
+// Use standard metrics. Autoresizing masks will take care of orientation
+// changes.
+_screenWidth = screenRect.size.width;
+_screenHeight = screenRect.size.height;
+
+// DETERMINE DEVICE TYPE
+NSInteger device = UI_USER_INTERFACE_IDIOM();
+
+// Set defaults
+_isTablet = NO;
+_isLarge = NO;
+
+switch (device) {
+  case UIUserInterfaceIdiomPhone: {
+    if (_screenHeight == 480) {
+
+      // iPhone Classic
+      _isLarge = NO;
+
+    }
+    if (_screenHeight == 568) {
+      _isLarge = YES;
+    }
+  }
+    break;
+
+  case UIUserInterfaceIdiomPad: {
+    _isTablet = YES;
+  }
+    break;
+}
+```
+
+</div>

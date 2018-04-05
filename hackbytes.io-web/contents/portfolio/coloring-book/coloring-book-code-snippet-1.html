@@ -1,0 +1,80 @@
+---
+date: 2013-04-18 00:09:45
+title: "Coloring Book - Code Snippet 1"
+author: Byron Sanchez
+category: code-snippet
+tags: mobile
+published: 1
+comments_enabled: 0
+template: layouts/code-snippet.jade
+description: 0
+---
+
+<!-- CODE SNIPPET -->
+<h2>Code Snippet</h2>
+
+<p class="snippet-description">
+	The following code analyzes all touch events and constrains them to the
+	portion of the screen containing the coloring page. If a user is
+	coloring and if the drag event goes out of bounds, the most recent
+	in-bound coordinates are used to render more coloring points. The result
+	is that coloring out of bounds will simply color the edges of the page
+	as opposed to having the application simply stop painting at the edges
+	altogether. This way, the application remains responsive to all user
+	input, while maintaining a consistent experience.
+</p>
+
+<div class="code-sample">
+
+```objectivec
+- (void)touchEventX:(CGFloat *)x y:(CGFloat *)y {
+
+  // NOTE: Color strokes are referred to as drawings.
+
+  // If the user exceeds any bound.
+  if (*x < 0) {
+    // Check if a draw has previously occured within bounds.
+    if (_lastX == -1) {
+      // If not, then use the default bound limit.
+      *x = 0;
+    } else {
+      // Else, use the last acceptable inbound position.
+      *x = _lastX;
+    }
+  }
+  // Do the same for the upper bound limit.
+  else if (*x > _imageWidth) {
+    if (_lastX == -1) {
+      *x = _imageWidth;
+    } else {
+      *x = _lastX;
+    }
+  }
+  // If a user is in bound...
+  else {
+    // Locally cache the bound for future out-of-bound handling.
+    _lastX = *x;
+  }
+
+  // Rinse and repeat for y.
+  if (*y < 0) {
+    if (_lastY == -1) {
+      *y = 0;
+    } else {
+      *y = _lastY;
+    }
+  }
+  else if (*y > _imageHeight) {
+    if (_lastY == -1) {
+      *y = _imageHeight;
+    } else {
+      *y = _lastY;
+    }
+  }
+  else {
+    _lastY = *y;
+  }
+
+}
+```
+</div>

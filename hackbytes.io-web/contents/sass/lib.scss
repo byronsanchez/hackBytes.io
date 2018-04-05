@@ -1,0 +1,17 @@
+
+// Third-party libraries.
+
+@import "variables";
+@import "settings";
+
+// imported from: node_modules/foundation-sites/scss/
+@import "normalize";
+// imported from: node_modules/foundation-icons/
+@import "foundation-icons.scss";
+// imported from: node_modules/foundation-sites/scss/
+@import "foundation";
+@import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
+
+// Custom app overrides
+
+@import "foundation_overrides";
