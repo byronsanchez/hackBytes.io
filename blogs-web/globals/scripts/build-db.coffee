@@ -4,13 +4,11 @@ path = require 'path'
 
 sh = require 'child_process'
 fs = require 'fs'
-yaml = require 'js-yaml'
 colors = require 'colors'
 glob = require 'glob'
 
 bootstrap = require(path.resolve(__dirname) + '/bootstrap.coffee')
-env = bootstrap.env
-config = bootstrap.env.config
+config = bootstrap.config
 
 # Reads and execute the db schema changescripts in assets/database
 console.log "------------------------------"

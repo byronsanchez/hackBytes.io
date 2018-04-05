@@ -6,6 +6,8 @@
 
 var webpack = require("webpack");
 var webpackMerge = require('webpack-merge');
+var process = require('process');
+var cwd = process.cwd();
 var webpackConfig = require("../webpack.config");
 var fs = require("fs-extra");
 var path = require("path");
@@ -47,7 +49,7 @@ module.exports = function xpile(entry, outFileName, callback) {
 		// programatically build the config object for each html page in the
 		// snowball of wintersmith json content
 		output: {
-			path: __dirname + '/../build/scripts',
+			path: cwd + '/./build/scripts',
 			filename: outFileName
 		}
 		// module: {

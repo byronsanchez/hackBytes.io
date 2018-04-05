@@ -7,14 +7,14 @@
 	"private": true,
 	"scripts": {
 		"build": "npm run build:db && npm run build:app",
-		"build:db": "coffee scripts/build-db.coffee",
+		"build:db": "coffee ../globals/scripts/build-db.coffee",
 		"build:app": "wintersmith build --clean",
 		"clean": "rm -rf ./build",
 		"lint": "",
 		"server": "wintersmith preview",
-		"server-watch": "nodemon --exec npm run server",
+		"server-watch": "nodemon --config ../globals/nodemon.json --exec npm run server",
 		"start": "npm run clean && npm run build && npm run server",
-		"start-watch": "nodemon --exec npm run start",
+		"start-watch": "nodemon --config ../globals/nodemon.json --exec npm run start",
 		"test": "karma start",
 		"test-watch": "karma start --auto-watch --no-single-run"
 	},

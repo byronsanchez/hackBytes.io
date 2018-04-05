@@ -6,6 +6,7 @@
   "comment_ext": "md",
   "comments_author": "anonymous",
   "filenameTemplate": "/:file/index.html",
+  "templates": "../globals/templates",
   "locals": {
 	"application": "nitelite.io",
 	"url": "https://nitelite.io",
@@ -27,13 +28,15 @@
 	"gravatar_default": "identicon"
   },
   "plugins": [
-	"./plugins/paginator.coffee",
-	"./plugins/wintersmith-articles-helper.coffee",
-	"./plugins/wintersmith-handleize-helper",
-	"./plugins/wintersmith-tag-pages.coffee",
-	"./plugins/wintersmith-robotskirt.coffee",
-	"./plugins/related_posts.coffee",
-	"./plugins/wintersmith-webpack.coffee"
+	"../globals/plugins/paginator.coffee",
+	"../globals/plugins/wintersmith-articles-helper.coffee",
+	"../globals/plugins/wintersmith-portfolio-helper.coffee",
+	"../globals/plugins/wintersmith-handleize-helper.coffee",
+	"../globals/plugins/wintersmith-titleize-helper.coffee",
+	"../globals/plugins/wintersmith-tag-pages.coffee",
+	"../globals/plugins/wintersmith-robotskirt.coffee",
+	"../globals/plugins/related_posts.coffee",
+	"../globals/plugins/wintersmith-webpack.coffee"
   ],
   "require": {
 	"moment": "moment",

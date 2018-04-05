@@ -36,6 +36,8 @@ RUN npm install --prefix /home/wintersmith/local-packages
 ENV NODE_PATH /home/wintersmith/local-packages/node_modules:$NODE_PATH
 ENV PATH /home/wintersmith/local-packages/node_modules/.bin:$PATH
 
+# Copy the global source files as the base, then overlay project specific divergences on top
+COPY ./blogs-web/globals/ /home/wintersmith/hackbytes.io
 COPY ./blogs-web/hackbytes.io-web/ /home/wintersmith/hackbytes.io
 
 WORKDIR /home/wintersmith/hackbytes.io

@@ -36,6 +36,8 @@ RUN npm install --prefix /home/wintersmith/local-packages
 ENV NODE_PATH /home/wintersmith/local-packages/node_modules:$NODE_PATH
 ENV PATH /home/wintersmith/local-packages/node_modules/.bin:$PATH
 
+# Copy the global source files as the base, then overlay project specific divergences on top
+COPY ./blogs-web/globals/ /home/wintersmith/nitelite.io
 COPY ./blogs-web/nitelite.io-web/ /home/wintersmith/nitelite.io
 
 WORKDIR /home/wintersmith/nitelite.io

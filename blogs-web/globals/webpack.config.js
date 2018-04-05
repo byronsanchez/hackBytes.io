@@ -6,7 +6,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-var pkg = require('./package.json');
+var process = require('process');
+var cwd = process.cwd();
+var pkg = require(cwd + '/./package.json');
 var path = require("path");
 
 var environment;
@@ -16,7 +18,7 @@ if (process.env.ENVIRONMENT) {
 	environment = process.env.ENVIRONMENT;
 }
 else {
-	environmentConfig = require('./environment.json');
+	environmentConfig = require(cwd + '/./environment.json');
 	environment = environmentConfig['environment'];
 
 	if (!environment) {
@@ -34,7 +36,7 @@ var extractCSS = new ExtractTextPlugin({
 	//disable: environment === "development"
 });
 
-var allEnvironmentFeatures = require('./features.json');
+var allEnvironmentFeatures = require(cwd + '/./features.json');
 var features = allEnvironmentFeatures[environment].config;
 var ENV = process.env.npm_lifecycle_event;
 var isTest = ENV === 'test' || ENV === 'test-watch';
@@ -61,12 +63,16 @@ module.exports = function makeWebpackConfig() {
 	};
 
 	config.output = isTest ? {} : {
+	    // NOTE: currently not used, gets overwritten by wintersmith-webpack
 		path: __dirname + '/dist',
+
 		// Output path from the view of the page
 		// Uses webpack-dev-server in development
 		//publicPath: isProd ? '/' : features.baseUrl,
 		// since dev server's url is changing, have webpack generate internal urls that are relative to whatever domain
 		// it might be
+
+		// NOTE: These do get used by wintersmith-webpack
 		publicPath: isProd ? '/scripts/' : '/scripts/',
 		filename: isProd ? '[name].[hash].js' : '[name].bundle.js',
 		chunkFilename: isProd ? '[name].[hash].js' : '[name].bundle.js'
@@ -108,7 +114,10 @@ module.exports = function makeWebpackConfig() {
 					}, {
 						loader: "postcss-loader",
 						options: {
-							sourceMap: true
+							sourceMap: true,
+							config: {
+								path: '../globals/postcss.config.js'
+							}
 						}
 					}],
 					// use style-loader in development
@@ -129,7 +138,10 @@ module.exports = function makeWebpackConfig() {
 					}, {
 						loader: "postcss-loader",
 						options: {
-							sourceMap: true
+							sourceMap: true,
+							config: {
+								path: '../globals/postcss.config.js'
+							}
 						}
 					}, {
 						loader: "resolve-url-loader",
