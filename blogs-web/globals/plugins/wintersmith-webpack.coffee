@@ -38,6 +38,7 @@ module.exports = (env, callback) ->
 
             callback error, plugin
 
+    console.log("registering webpack plugin for coffee files");
     env.registerContentPlugin 'scripts', pattern || '**/main.*(es|es6|jsx|coffee)', WebpackPlugin
 
     callback()

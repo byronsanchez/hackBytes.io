@@ -2,12 +2,16 @@
   "legacyWatch": true,
   "verbose": true,
   "ignore": [
+  "../blogs-libs/wintersmith/lib",
 	"build/*",
 	"node_modules/*",
-	"contents/scripts/*"
+	"contents/scripts/*",
+	"contents/database/bin/*"
   ],
   "watch": [
-	"../globals/"
+	"../blogs-libs/",
+	"../globals/",
+	"."
   ],
   "ext": "php js json coffee jade html txt asc xml scss css md org png jpg jpeg gif svg woff woff2 ttf eot",
   "execMap": {

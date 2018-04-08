@@ -5,6 +5,11 @@
 
 ### Custom
 
+# git repos we might be tracking upstream sources for but committing to the local fossil repo
+#
+# aka, ignore the actual git repo dbs
+*.git/
+
 # Jetbrains IDEs
 *.idea/
 

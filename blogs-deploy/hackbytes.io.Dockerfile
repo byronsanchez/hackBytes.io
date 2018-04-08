@@ -11,6 +11,8 @@ RUN npm install -g webpack \
   grunt-cli \
   postcss-cli
 
+WORKDIR /home/wintersmith
+
 # Global Package directory
 RUN mkdir /home/wintersmith/global-packages
 # App Package directory
@@ -21,6 +23,15 @@ RUN mkdir /home/wintersmith/hackbytes.io
 # can be used with USER to install global packages to a user directory
 #RUN echo "prefix = /home/wintersmith/packages" > ~/.npmrc
 # tell node where to resolve modules in require() statements
+
+# Copy third-party dependencies
+COPY ./blogs-libs/ /home/wintersmith/blogs-libs
+WORKDIR /home/wintersmith/blogs-libs/wintersmith
+# need to bootstrap wintersmith before it can be properly loaded as a dependency
+# the blogs' package.json will expect compiled js as opposed to the source coffeescript
+RUN npm install
+RUN npm run prepublishOnly
+WORKDIR /home/wintersmith
 
 # Copy global packages shared across blogs
 COPY ./blogs-web/package.json /home/wintersmith/global-packages

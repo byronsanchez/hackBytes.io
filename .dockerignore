@@ -3,11 +3,6 @@
 **/node_modules/
 
 # docker doesn't need design artifacts
-**/hackbytes.io-design/
+**/blogs-design/
 # same for docs
-**/hackbytes.io-docs/
-
-# docker doesn't need design artifacts
-**/nitelite.io-design/
-# same for docs
-**/nitelite.io-docs/
+**/blogs-docs/

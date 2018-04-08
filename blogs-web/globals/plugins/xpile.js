@@ -28,6 +28,8 @@ module.exports = function xpile(entry, outFileName, callback) {
 
 	var configs = [];
 
+	console.log("xpile called");
+
 	var wintersmithWebpackConfig = {
 		// wintersmith plugin assumes we're in contents, webpack does not
 		//

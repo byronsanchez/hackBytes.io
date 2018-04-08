@@ -6,6 +6,7 @@
   "comment_ext": "md",
   "comments_author": "anonymous",
   "filenameTemplate": "/:file/index.html",
+  "contents": "./contents",
   "templates": "../globals/templates",
   "locals": {
 	"application": "hackbytes.io",

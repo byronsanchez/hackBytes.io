@@ -6,7 +6,8 @@
 	"homepage": "https://niteLite.io",
 	"private": true,
 	"scripts": {
-		"build": "npm run build:db && npm run build:app",
+		"build": "npm run build:libs && npm run build:db && npm run build:app",
+		"build:libs": "cd ../blogs-libs/wintersmith && npm run prepublishOnly",
 		"build:db": "coffee ../globals/scripts/build-db.coffee",
 		"build:app": "wintersmith build --clean",
 		"clean": "rm -rf ./build",
