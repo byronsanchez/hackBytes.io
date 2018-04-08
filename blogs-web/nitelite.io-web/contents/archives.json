@@ -1,4 +1,4 @@
 {
   "title": "Archives",
-  "template": "layouts/archives.jade"
+  "template": "globals/layouts/archives.jade"
 }

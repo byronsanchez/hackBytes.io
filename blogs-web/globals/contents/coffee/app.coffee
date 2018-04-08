@@ -1,3 +1,3 @@
 
 require ('./bs-comments.coffee')
-require ('./application.coffee')
+require ('./bs-portfolio.coffee')

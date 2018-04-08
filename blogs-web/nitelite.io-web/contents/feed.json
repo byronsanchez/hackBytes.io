@@ -1,4 +1,4 @@
 {
-  "template": "layouts/feed.jade",
+  "template": "globals/layouts/feed.jade",
   "filename": "atom.xml"
 }

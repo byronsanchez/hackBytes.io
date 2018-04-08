@@ -423,7 +423,7 @@ h3.legend {
 .side h3 {
   font-size: 1.313rem;
   line-height: 1.313rem;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1rem 0;
   padding: 0;
 }
 
@@ -498,6 +498,22 @@ h3.legend {
   padding: 1.15rem 0 1.0rem;
 }
 
+.social-links .github {
+  height: 3.375rem;
+  background: $social-badge-4-color;
+  float: left;
+  color: $hero-text-color;
+  padding: 1rem 0 1rem;
+}
+
+.social-links .linkedin {
+  height: 3.375rem;
+  background: $social-badge-2-color;
+  float: left;
+  color: $hero-text-color;
+  padding: 1.15rem 0 1.0rem;
+}
+
 .social-icon {
   border: 0;
   padding-right: 0.25rem;
@@ -516,8 +532,8 @@ img.social-icon {
 
 .nl-label {
   width: auto;
-  height: 2.875rem;
-  padding: 1rem;
+  //height: 2.875rem;
+  padding: 1rem 1rem 0 ;
 }
 
 .mailing-list-label {
@@ -569,7 +585,7 @@ h3.side-label {
 }
 
 #mc_embed_signup form {
-  padding: 1rem 1rem 0 1rem;
+  padding: 0rem 1rem 0 1rem;
 }
 
 #mc_embed_signup .mc-field-group {
@@ -753,7 +769,7 @@ kbd {
 }
 
 .comments-body.odd i.l {
-  background: url("../img/comments-bubble-left-edge.png");
+  background: url("../img/layout/comments-bubble-left-edge.png");
   height: 1.75rem;
   left: 4.375rem;
   overflow: hidden;
@@ -768,7 +784,7 @@ kbd {
 }
 
 .comments-body.even i.l {
-  background: url("../img/comments-bubble-right-edge.png");
+  background: url("../img/layout/comments-bubble-right-edge.png");
   height: 1.75rem;
   right: 4.25rem;
   overflow: hidden;
@@ -879,7 +895,7 @@ kbd {
 }
 
 .search .search-button {
-  background: url("../img/search-icon.png") no-repeat scroll 50% 50% $hero-background-color;
+  background: url("../img/layout/search-icon.png") no-repeat scroll 50% 50% $hero-background-color;
   border: 0 none;
 }
 

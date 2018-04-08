@@ -1,4 +1,4 @@
 {
   "title": "Portfolio",
-  "template": "layouts/portfolio.jade"
+  "template": "globals/layouts/portfolio.jade"
 }

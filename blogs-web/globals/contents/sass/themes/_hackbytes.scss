@@ -23,11 +23,11 @@ $navbar-active-color: #444444;
 $rating-box-color: #98BC00;
 $mailing-list-box-color: #FF9E1E;
 $popular-box-color: #FF9E1E;
-$social-badge-0-color: $footer-background-color;
+$social-badge-0-color: #c74438;
 $social-badge-1-color: #3193D5;
 $social-badge-2-color: #277BB3;
 $social-badge-3-color: #BB372B;
-$social-badge-4-color: #FF7700;
+$social-badge-4-color: $footer-background-color;
 $link-text-color: #3295D6;
 $hero-background-color: #292929;
 $navbar-background-color: #333333;
@@ -54,6 +54,9 @@ $inlineColor: #333333;
 $code-background-color: $sidebar-background-color;
 //$code-default-text-color: #4d4d4c;
 $code-default-text-color: $body-text-color;
+// HEADER
+$hack-text-color: #FFFFFF;
+$bytes-text-color: #F9A732;
 
 // DERIVED COLORS
 
@@ -66,12 +69,14 @@ $comments-even-separator-color: $content-border-color;
 $comments-form-border-color: $content-border-color;
 $comments-form-background-color: $sidebar-background-color;
 $tag-title-color: $secondary-submit-button-color;
+// the portfolio bg for the selectable filter headers
+$portfolio-accent-color: $bytes-text-color;
 
-//$dream-d-color: #000080;
-//$dream-hh-color: #800080;
-//$dream-ld-color: #0000FF;
-//$dream-fa-color: #8B0000;
-//$dream-nd-color: #696969;
+//$txt-d-color: #000080;
+//$txt-hh-color: #800080;
+//$txt-ld-color: #0000FF;
+//$txt-fa-color: #8B0000;
+//$txt-nd-color: #696969;
 $txt-d-color: $body-text-color;
 $txt-hh-color: $rating-box-color;
 $txt-ld-color: $social-badge-1-color;
@@ -81,11 +86,6 @@ $txt-out-color: $txt-d-color;
 $txt-in-color: $txt-ld-color;
 $txt-sa-color: $txt-nd-color;
 $txt-cl-color: $txt-fa-color;
-
-// HEADER
-
-$hack-text-color: #FFFFFF;
-$bytes-text-color: #F9A732;
 
 .hack {
   color: $hack-text-color;

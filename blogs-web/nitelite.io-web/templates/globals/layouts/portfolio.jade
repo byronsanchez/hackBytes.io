@@ -1,0 +1,43 @@
+extends portfolio-default
+
+// Only want the main portfolio page index to be active, the subpages not.
+block navbar
+  +navbar(3)
+
+block portfolio-content
+  div.blog
+    - var portfolio_tags = env.config.portfolio.tags;
+    header
+      h2.title
+        a(href='#{ page.url }').title-link= page.title
+
+    include ../includes/services
+
+    div.portfolio-container
+
+      ul#filters
+        li
+          span Filter:
+        li
+          span.filter(data-filter="all") All
+        for tag in portfolio_tags
+          - var formattedTag = tag.replace(/-/g, ' ')
+          li
+            span.filter(data-filter='.' + tag) #{ env.helpers.titleize(formattedTag) }
+
+      div.portfoliolist
+        - var portfolio = env.helpers.getPortfolio(contents);
+        - var index = 1
+        for item in portfolio
+          - var category = item.metadata.category
+          - var formattedTitle = env.helpers.handleize(item.title)
+          - var tags = item.metadata.tags
+          if category == "portfolio-item"
+            a(href='#{ item.url }')
+              div(class="portfolio #{ tags }" data-order="#{ index++ }")
+                div.portfolio-item
+                  div.portfolio-wrapper
+                    img(src="/portfolio/#{ formattedTitle }/cover.png", alt="")
+                  div.project-label
+                    div.project-label-text
+                      h3.project-title= item.title

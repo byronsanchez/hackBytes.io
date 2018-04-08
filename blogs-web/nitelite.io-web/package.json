@@ -10,7 +10,7 @@
 		"build:libs": "cd ../blogs-libs/wintersmith && npm run prepublishOnly",
 		"build:db": "coffee ../globals/scripts/build-db.coffee",
 		"build:app": "wintersmith build --clean",
-		"clean": "rm -rf ./build",
+		"clean": "rm -rf ./build && rm -rf ./contents/scripts",
 		"lint": "",
 		"server": "wintersmith preview",
 		"server-watch": "nodemon --config ../globals/nodemon.json --exec npm run server",

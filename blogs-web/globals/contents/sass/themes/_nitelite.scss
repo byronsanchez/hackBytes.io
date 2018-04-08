@@ -54,6 +54,8 @@ $inlineColor: #333333;
 $code-background-color: $sidebar-background-color;
 //$code-default-text-color: #4d4d4c;
 $code-default-text-color: $body-text-color;
+// HEADER
+$tpk-text-color: #FFFFFF;
 
 // DERIVED COLORS
 
@@ -66,12 +68,13 @@ $comments-even-separator-color: $content-border-color;
 $comments-form-border-color: $content-border-color;
 $comments-form-background-color: $sidebar-background-color;
 $tag-title-color: $secondary-submit-button-color;
+$portfolio-accent-color: #3193D5;
 
-//$dream-d-color: #000080;
-//$dream-hh-color: #800080;
-//$dream-ld-color: #0000FF;
-//$dream-fa-color: #8B0000;
-//$dream-nd-color: #696969;
+//$txt-d-color: #000080;
+//$txt-hh-color: #800080;
+//$txt-ld-color: #0000FF;
+//$txt-fa-color: #8B0000;
+//$txt-nd-color: #696969;
 $txt-d-color: $body-text-color;
 $txt-hh-color: $rating-box-color;
 $txt-ld-color: $social-badge-1-color;
@@ -81,10 +84,6 @@ $txt-out-color: $txt-d-color;
 $txt-in-color: $txt-ld-color;
 $txt-sa-color: $txt-nd-color;
 $txt-cl-color: $txt-fa-color;
-
-// HEADER
-
-$tpk-text-color: #FFFFFF;
 
 .tpk {
   color: $tpk-text-color;

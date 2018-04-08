@@ -1,4 +1,4 @@
 {
   "title": "Contact",
-  "template": "layouts/contact.jade"
+  "template": "globals/layouts/contact.jade"
 }

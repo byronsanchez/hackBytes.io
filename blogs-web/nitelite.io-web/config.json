@@ -7,11 +7,12 @@
   "comments_author": "anonymous",
   "filenameTemplate": "/:file/index.html",
   "contents": "./contents",
-  "templates": "../globals/templates",
+  "templates": "./templates",
   "locals": {
 	"application": "nitelite.io",
 	"url": "https://nitelite.io",
 	"base_url": "nitelite.io",
+	"feed_url": "https://feeds.nitelite.io/nitelite/",
 	"title": "nitelite.io",
 	"subtitle": "Wintersmith blog about music, art, and my creative projects.",
 	"author": "Byron Sanchez",
@@ -45,14 +46,15 @@
 	"typogr": "typogr"
   },
   "jade": {
-	"pretty": true
+	"pretty": true,
+	"basedir": "./templates"
   },
   "most_popular_articles": {
 	"limit": 5
   },
   "paginator": {
 	"isEnabled": 1,
-	"template": "layouts/index.jade",
+	"template": "globals/layouts/index.jade",
 	"perPage": 5
   },
   "articlesHelper": {
@@ -75,7 +77,7 @@
   },
   "tagPages": {
 	"perPage": 5,
-	"template": "layouts/tags.jade",
+	"template": "globals/layouts/tags.jade",
 	"filter": [
 	  "5 stars",
 	  "4 stars",
