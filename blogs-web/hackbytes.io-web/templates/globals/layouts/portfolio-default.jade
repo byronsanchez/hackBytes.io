@@ -1,0 +1,11 @@
+extends site-default
+
+block navbar
+  +navbar(-1)
+
+block main
+  div.row.main-container
+    div.medium-12.columns.content-container
+      // The blog content
+      div#nl-content
+        block portfolio-content

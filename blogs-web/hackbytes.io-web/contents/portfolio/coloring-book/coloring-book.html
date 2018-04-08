@@ -1,0 +1,167 @@
+---
+title: Coloring Book
+author: Byron Sanchez
+date: '2013-04-18 00:09:45'
+category: portfolio-item
+tags: mobile
+published: 1
+comments_enabled: 0
+template: globals/layouts/portfolio-page.jade
+description: 0
+tagline: An application fitted perfectly for both mobile devices and tablets.
+portfolioItemImages:
+- coloring-book-01.png
+- coloring-book-02.png
+- coloring-book-03.png
+- coloring-book-04.png
+- coloring-book-05.png
+portfolioItemDistribution:
+- type: header
+  value: iOS
+- type: link
+  href: https://itunes.apple.com/us/app/coloring-book-collection-fun/id611799960?mt=8&amp;uo=4
+  icon: "/img/icons/ios-icon-16x16.png"
+  alt: iOS icon
+  value: View in The App Store
+- type: link
+  href: https://fossil.hackbytes.com/byronsanchez/coloring-book-ios
+  icon: "/img/icons/sourcecode-icon-16x16.png"
+  alt: Source Code icon
+  value: View Source Code
+- type: link
+  href: https://github.com/byronsanchez/coloring-book-ios
+  icon: "/img/icons/github-icon-16x16.png"
+  alt: Github icon
+  value: View on Github
+- type: link
+  href: https://bitbucket.com/byronsanchez/coloring-book-ios
+  icon: "/img/icons/bitbucket-icon-16x16.png"
+  alt: Bitbucket icon
+  value: View on Bitbucket
+- type: header
+  value: Android
+- type: link
+  href: https://play.google.com/store/apps/details?id=net.globide.coloring_book_08
+  icon: "/img/icons/android-icon-16x16.png"
+  alt: Android icon
+  value: View on Google Play
+- type: link
+  href: https://fossil.hackbytes.com/byronsanchez/coloring-book-android
+  icon: "/img/icons/sourcecode-icon-16x16.png"
+  alt: Source Code icon
+  value: View Source Code
+- type: link
+  href: https://github.com/byronsanchez/coloring-book-android
+  icon: "/img/icons/github-icon-16x16.png"
+  alt: Github icon
+  value: View on Github
+- type: link
+  href: https://bitbucket.com/byronsanchez/coloring-book-android
+  icon: "/img/icons/bitbucket-icon-16x16.png"
+  alt: Bitbucket icon
+  value: View on Bitbucket
+portfolioItemTechnology:
+- Objective-C, Java
+- HTML, CSS, JavaScript
+- SQLite
+- Paint-bucket and brush mode
+- Compatible with phones and tablets
+portfolioItemCodeSnippets:
+- coloring-book-code-snippet-1
+- coloring-book-code-snippet-2
+---
+
+<h3>Project Details</h3>
+
+<p>
+	Coloring Book is for anyone of any age and contains lots of pictures to color!
+	This application contains no ads.
+</p>
+
+<h3>Multiple books to choose from</h3>
+
+<p>
+	Coloring Book contains many different collections of images to
+	color.
+</p>
+
+<h4>Coloring Books</h4>
+
+<p>
+	Each coloring book, represented by a single canvas, contains a
+	set of 10 images. The application comes with a free set to
+	color. Should you decide you want more, you can always
+	purchase more sets in the application shop.
+</p>
+
+<p>
+	Each set is a purchase-once unlimited use item. All purchases
+	are restorable. So even if, one day, you uninstall the
+	application and decide to reinstall it in the future, you will
+	be able to color your purchased sets.
+</p>
+
+<p>
+	The pictures range from toys and games to farm animals and
+	cute pets. And more are on their way. As more sets get
+	released, there will be more and more images to color.
+</p>
+
+<h3>Paint or Fill? Brush or bucket?</h3>
+
+<p>
+	With these tools at your disposal, you can color your images
+	exactly how you want to.
+</p>
+
+<h4>Brush-mode</h4>
+
+<p>
+	With brush-mode, gone are the days where you just touch an
+	area to fill it with color. Brush-mode allows you to color an
+	image exactly the way you want to.
+</p>
+
+<p>
+	The brush-mode algoritms are constantly being improved in each
+	update to allow for ever-improving accuracy on mobile devices.
+</p>
+
+<h4>Fill-mode</h4>
+
+<p>
+	Fill-mode allows you to completely fill a bounded section with
+	color. The floodfill algorithm allows for pixel-perfect
+	accuracy when using the fill-bucket.
+</p>
+
+<h3>It's all in the layers...</h3>
+
+<p>
+	The coloring book rendering engine uses multiple layers for
+	rendering the image. This has many benefits and gives more
+	control with regards to the presentation of the coloring
+	pages.
+</p>
+
+<h4>Erase with ease</h4>
+
+<p>
+	Erasing your colors will not erase the picture. The colors a
+	user paints and the actual picture are drawn to two seperate
+	layers. The result is that the picture will always be
+	displayed, no matter how a user chooses to alter the image.
+</p>
+
+<h4>Layer maps make flood-filling a breeze</h4>
+
+<p>
+	Each picture is backed by a "layer map." These maps contain an
+	outline of the pictures, with the outline being 1 pixel in
+	width. The on-screen picture's stroke-widths vary, as can be
+	seen on the images to the left. The maps let the flood-fill
+	algorithm fill an area without producing aliasing artifacts.
+	The layering also allows for the fill to occur
+	"behind-the-scenes." The user only sees the result of the
+	algorithm.
+</p>

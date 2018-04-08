@@ -1,0 +1,110 @@
+{
+  "port": 8080,
+  "baseUrl": "/",
+  "editor": "vim",
+  "post_ext": "html",
+  "comment_ext": "md",
+  "comments_author": "anonymous",
+  "filenameTemplate": "/:file/index.html",
+  "contents": "./contents",
+  "templates": "./templates",
+  "locals": {
+	"application": "nitelite.io",
+	"url": "https://nitelite.io",
+	"base_url": "nitelite.io",
+	"feed_url": "https://feeds.nitelite.io/nitelite/",
+	"title": "nitelite.io",
+	"subtitle": "Wintersmith blog about music, art, and my creative projects.",
+	"author": "Byron Sanchez",
+	"description": "Wintersmith blog about music, art, and my creative projects.",
+	"comments_enabled": true,
+	"ratings_enabled": true,
+	"skills_enabled": true,
+	"keys_enabled": true,
+	"related_entries_limit": 5,
+	"date_format_post": "dddd, MMMM Do, YYYY",
+	"date_format_comment": "MMMM Do, YYYY h:mm A",
+	"email": "byron@nitelite.io",
+	"gravatar_url": "http://www.gravatar.com/avatar",
+	"gravatar_size": 64,
+	"gravatar_default": "identicon"
+  },
+  "plugins": [
+	"../globals/plugins/paginator.coffee",
+	"../globals/plugins/wintersmith-articles-helper.coffee",
+	"../globals/plugins/wintersmith-portfolio-helper.coffee",
+	"../globals/plugins/wintersmith-handleize-helper.coffee",
+	"../globals/plugins/wintersmith-titleize-helper.coffee",
+	"../globals/plugins/wintersmith-tag-pages.coffee",
+	"../globals/plugins/wintersmith-robotskirt.coffee",
+	"../globals/plugins/related_posts.coffee",
+	"../globals/plugins/wintersmith-webpack.coffee"
+  ],
+  "require": {
+	"moment": "moment",
+	"_": "underscore",
+	"typogr": "typogr"
+  },
+  "jade": {
+	"pretty": true,
+	"basedir": "./templates"
+  },
+  "most_popular_articles": {
+	"limit": 5
+  },
+  "paginator": {
+	"isEnabled": 1,
+	"template": "globals/layouts/index.jade",
+	"perPage": 5
+  },
+  "articlesHelper": {
+	"articles": "notebooks"
+  },
+  "portfolioHelper": {
+	"portfolio": "portfolio"
+  },
+  "robotskirt": {
+	"extensions": [
+	  "ext_fenced_code",
+	  "ext_no_intra_emphasis",
+	  "ext_autolink",
+	  "ext_strikethrough",
+	  "ext_lax_spacing",
+	  "ext_superscript",
+	  "ext_tables"
+	],
+	"smart": true
+  },
+  "tagPages": {
+	"perPage": 5,
+	"template": "globals/layouts/tags.jade",
+	"filter": [
+	  "5 stars",
+	  "4 stars",
+	  "3 stars",
+	  "2 stars",
+	  "1 star",
+	  "art",
+	  "edm",
+	  "music",
+	  "piano",
+	  "singing"
+	]
+  },
+  "webpack": {
+	"output": "main.bundle.js"
+  },
+  "portfolio": {
+	"tags": [
+	  "piano",
+	  "edm"
+	]
+  },
+  "pygments": true,
+  "ignore": [
+	"README.md",
+	"README.org",
+	"Gruntfile"
+  ]
+}
+

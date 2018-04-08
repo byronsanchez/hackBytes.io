@@ -1,7 +1,8 @@
 
 # Dependency directories
 **/node_modules/
+
 # docker doesn't need design artifacts
-**/hackbytes.io-design/
+**/blogs-design/
 # same for docs
-**/hackbytes.io-docs/
+**/blogs-docs/
