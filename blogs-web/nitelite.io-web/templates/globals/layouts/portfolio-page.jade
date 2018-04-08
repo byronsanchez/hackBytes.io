@@ -14,7 +14,7 @@ block portfolio-content
             div.pagebody
               article
                 header
-                  h2.title
+                  h1.title
                     a(href=page.url).title-link= page.title
 
                 div.project-tagline
@@ -33,7 +33,7 @@ block portfolio-content
           div.medium-3.columns
             div.side
               div.text-center
-                h3.dark-title Distribution
+                h2.dark-title Distribution
 
               ul.side-nav
                 for item in page.metadata.portfolioItemDistribution
@@ -48,7 +48,7 @@ block portfolio-content
 
             div.side
               div.text-center
-                h3.dark-title Technology
+                h2.dark-title Technology
 
               ul.side-nav
                 for item in page.metadata.portfolioItemTechnology
@@ -59,7 +59,7 @@ block portfolio-content
 
             div.side
               div.text-center
-                h3.dark-title Code Snippets
+                h2.dark-title Code Snippets
 
               ul.side-nav
                 for item in page.metadata.portfolioItemCodeSnippets

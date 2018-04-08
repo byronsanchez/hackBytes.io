@@ -1,7 +1,7 @@
 // MAIN PORTFOLIO PAGE
 // ---------------------------------------
 
-h3.project-title {
+h2.project-title {
 	font: 16px "Roboto","Helvetica Neue",Helvetica,Arial,Freesans,Clean,sans-serif;
   color: #363636 !important;
   font-weight: 500;
@@ -174,7 +174,7 @@ h3.project-title {
   margin: 0 auto;
 }
 
-#blog .code-snippet-table h2 {
+#blog .code-snippet-table h1 {
   color: #aaa;
   text-align: center;
 }
@@ -189,7 +189,7 @@ h3.project-title {
   font-style: italic;
 }
 
-#blog h3.dark-title {
+#blog h2.dark-title {
   background: #222222;
   /*background: #1b1b1b;*/
   font-size: 14px;
@@ -231,7 +231,7 @@ h3.project-title {
   margin-right: 5px;
 }
 
-#blog .side h3.dark-title {
+#blog .side h2.dark-title {
   margin: 0;
 }
 

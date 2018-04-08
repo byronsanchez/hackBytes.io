@@ -32,41 +32,52 @@ h4,
 h5,
 h6 {
   font-family: $header-font-family;
-	font-weight:bold;
-	margin:1em 0 1rem;
+  font-weight: bold;
+  margin: 1em 0 1rem;
+  line-height: 1.6rem;
+  color: $header-text-color;
+}
+
+div.logo-text {
+  font-size: 28px;
+  line-height: 28px;
+  font-family: $header-font-family;
+  font-weight: bold;
+  margin: 1em 0 1rem;
   line-height: 1.6rem;
   color: $header-text-color;
 }
 
 h1 {
-	font-size: 28px;
-  line-height: 28px;
-}
-
-h2 {
-	font-size: 24px;
+  font-size: 24px;
   line-height: 24px;
 }
 
-h3 {
-	font-size: 18px;
+h2 {
+  font-size: 18px;
   line-height: 18px;
 }
 
+h3 {
+  font-size: 14px;
+  line-height: 14px;
+}
+
 h4 {
-	font-size: 14px;
+  color: #333;
+  font-size: 14px;
   line-height: 14px;
 }
 
 h5 {
-	color: #333;
-	font-size: 14px;
+  color: #777;
+  font-size: 14px;
   line-height: 14px;
 }
 
 h6 {
-	color: #777;
-	font-size: 14px;
+  color: #777;
+  font-size: 14px;
   line-height: 14px;
 }
 
@@ -189,7 +200,7 @@ table tr th, table tr td
 }
 
 // Text's parent div's line heights must match text size.
-#hero-unit h1, #hero-unit h1 a {
+#hero-unit .logo-text, #hero-unit .logo-text a {
   font-family: $title-font-family;
   font-size: 48px;
   color: $hero-text-color;
@@ -199,7 +210,7 @@ table tr th, table tr td
   height: 60px;
 }
 
-#hero-unit h1 a:hover {
+#hero-unit .logo-text a:hover {
   text-decoration: none;
 }
 
@@ -221,7 +232,7 @@ table tr th, table tr td
   margin: 0 20px;
 }
 
-.logo-text, .logo-text h1, .logo-text h1 a {
+.logo-text, .logo-text a {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
@@ -287,7 +298,7 @@ table tr th, table tr td
 .blogfooter {
 }
 
-h2.title
+h1.title
 {
   margin: 0;
 	font-size: 1.75rem;
@@ -333,8 +344,8 @@ h2.title
   text-decoration: none;
 }
 
-.index-title-top h2,
-.index-title-bottom h2 {
+.index-title-top h1,
+.index-title-bottom h1 {
   text-align: center;
   font-size: 1.125rem;
   line-height: 1.125rem;
@@ -381,7 +392,7 @@ h2.title
   padding-bottom: 0.125rem;
 }
 
-h3.category {
+h2.category {
   margin: 0;
 	font-weight: normal;
   font-size: 1rem;
@@ -389,7 +400,7 @@ h3.category {
   text-align: right;
 }
 
-h3.legend {
+h2.legend {
   margin: 0;
 	font-weight: normal;
   font-size: 0.875rem;
@@ -420,14 +431,14 @@ h3.legend {
   margin-bottom: 0.563rem;
 }
 
-.side h3 {
+.side h2 {
   font-size: 1.313rem;
   line-height: 1.313rem;
   margin: 0 0 1rem 0;
   padding: 0;
 }
 
-.side .about-me h3 {
+.side .about-me h2 {
   margin: 0 0 1rem;
 }
 
@@ -564,7 +575,7 @@ img.social-icon {
   text-align: right;
 }
 
-h3.side-label {
+h2.side-label {
   color: $hero-text-color;
 }
 
@@ -1078,7 +1089,7 @@ p.license {
   padding-left: 2rem;
 }
 
-.archive h2 {
+.archive h1 {
   font-size: 1rem;
   color: #a9b7b7;
   margin: 0;

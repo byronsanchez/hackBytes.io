@@ -8,7 +8,7 @@ block portfolio-content
   div.blog
     - var portfolio_tags = env.config.portfolio.tags;
     header
-      h2.title
+      h1.title
         a(href='#{ page.url }').title-link= page.title
 
     include ../includes/services
@@ -40,4 +40,4 @@ block portfolio-content
                     img(src="/portfolio/#{ formattedTitle }/cover.png", alt="")
                   div.project-label
                     div.project-label-text
-                      h3.project-title= item.title
+                      h2.project-title= item.title

@@ -20,13 +20,11 @@ block content
       - for (var year in archives[skill][notebook]) {
         - archives[skill][notebook][year] = _.groupBy(archives[skill][notebook][year], function(item){return item.date.getMonth();})
       - }
-
     - }
-
   - }
 
   section.archive
-    h2 archives
+    h1 archives
 
     - var skillsK = _.chain(archives).keys().sort().value()
     - for(skill in skillsK) {
@@ -34,7 +32,7 @@ block content
 
         - notebooks = archives[skillsK[skill]]
 
-        h3.skill-label() #{ skillsK[skill].charAt(0).toUpperCase() + skillsK[skill].slice(1) }
+        h2.skill-label() #{ skillsK[skill].charAt(0).toUpperCase() + skillsK[skill].slice(1) }
 
         - var notebooksK = _.chain(notebooks).keys().value()
         - for(var notebook in notebooksK){
@@ -43,7 +41,7 @@ block content
 
             - years = notebooks[notebooksK[notebook]]
 
-            // h4.notebook-label()=notebooksK[notebook]
+            // h3.notebook-label()=notebooksK[notebook]
 
             ul
               - var yearsK = _.chain(years).keys().reverse().value()

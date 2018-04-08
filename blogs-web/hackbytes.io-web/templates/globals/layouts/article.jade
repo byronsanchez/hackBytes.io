@@ -9,7 +9,7 @@ block content
       div.content-meta
         include ../includes/skills
         div(class='article-title')
-          h2.title
+          h1.title
             a(href='#{ page.url }').title-link= page.title
           include ../includes/keys
         div(class='article-meta')
@@ -25,7 +25,7 @@ block content
 
       // Related Posts
       if page.related_articles
-        h3 Related Entries
+        h2 Related Entries
         div.related-posts
           ul
             - var i = 0
