@@ -60,6 +60,10 @@ module.exports = (env, callback) ->
       return @_hasMore
 
     @runHtmlProcess: (config, html) ->
+      renderedHtml = html
+      return renderedHtml
+
+    @runHtmlProcessWithCodeBlocks: (config, html) ->
       highlightedHtml = @renderFencedCodeblocks(config, html)
       renderedHtml = highlightedHtml
       return renderedHtml
@@ -275,8 +279,28 @@ module.exports = (env, callback) ->
         callback null, page
     ], callback
 
+  class HtmlPageWithCodeBlocks extends RobotskirtPage
+
+  HtmlPageWithCodeBlocks.fromFile = (filepath, callback) ->
+    async.waterfall [
+      (callback) ->
+        fs.readFile filepath.full, callback
+      (buffer, callback) ->
+        HtmlPage.extractMetadata buffer.toString(), callback
+      (result, callback) =>
+        {markdown, metadata} = result
+        page = new this filepath, metadata, markdown
+        callback null, page
+      (page, callback) =>
+        page._htmlraw = HtmlPage.runHtmlProcessWithCodeBlocks(env.config, page.markdown)
+        callback null, page
+      (page, callback) =>
+        callback null, page
+    ], callback
+
   env.registerContentPlugin 'pages', '**/*.*(markdown|mkd|md)', RobotskirtPage
-  env.registerContentPlugin 'pages', '**/*.html', HtmlPage
+  env.registerContentPlugin 'pages', 'notebooks/**/*.html', HtmlPage
+  env.registerContentPlugin 'pages', 'portfolio/**/*.html', HtmlPageWithCodeBlocks
 
   env.helpers.RobotskirtPage = RobotskirtPage
   env.helpers.HtmlPage = HtmlPage

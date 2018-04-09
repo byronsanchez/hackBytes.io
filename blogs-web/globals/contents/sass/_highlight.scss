@@ -88,6 +88,9 @@ pre code {
   padding: 0;
   background: none;
   margin-bottom: 0;
+  // Border helps since there's little contrast between codeblock bg and main bg
+  // this also matches with inline highlight styles
+  border: 1px solid #e2e2e2;
 }
 
 // Customize!

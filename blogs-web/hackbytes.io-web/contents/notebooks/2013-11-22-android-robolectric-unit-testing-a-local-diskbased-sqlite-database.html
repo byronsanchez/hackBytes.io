@@ -1,0 +1,130 @@
+---
+date: 2013-11-22 22:39:00
+title: "Android: Robolectric Unit Testing a Local Disk-Based SQLite Database"
+author: Byron Sanchez
+category: software
+tags: android mobile development robolectric sqlite testing
+published: 1
+comments_enabled: 1
+template: globals/layouts/article.jade
+description: 0
+id: 06cc2bc3-b1db-44cb-9ae5-fe23126d8116
+---
+<p>
+
+</p>
+
+<p>
+Documentation was sparse regarding how to run Robolectric unit tests on a local
+database file stored on your computer. So here is what I managed to find.
+</p>
+
+<div id="outline-container-orgc8e126d" class="outline-2">
+<h2 id="orgc8e126d"><a id="ID-b6b0a189-7554-41d3-8626-78144053bfc0"></a>The Problem</h2>
+<div class="outline-text-2" id="text-orgc8e126d">
+<p>
+Robolectric is a great framework for running Android unit tests without having
+to deploy the application to your device or to an emulator. As a result, this
+significantly speeds up unit testing during Android application development.
+</p>
+
+<p>
+However, SQLite databases become tricky when you have a premade database on
+which you wish to operate and invoke tests. This is because Robolectric uses an
+"in-memory" database for all SQLite operations. This works great, if you are
+running database creation queries and building your tables directly within the
+testing environment. Otherwise, you may find yourself looking for a way to test
+on a premade database.
+</p>
+
+<p>
+Don't worry. If you want to use a pre-made database and run your tests on that
+SQLite file, Robolectric's got your back.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaabe435" class="outline-2">
+<h2 id="orgaabe435"><a id="ID-975d8f6d-9def-49f8-8ffd-f5ab38b1a3f2"></a>The Solution</h2>
+<div class="outline-text-2" id="text-orgaabe435">
+<p>
+First, ensure that the Robolectric dependency in your <code>pom.xml</code> file is version
+2.1 or later. Support for local disk-based SQLite testing was <a href="http://robolectric.blogspot.com/2013/05/robolectric-21.html">introduced in
+version 2.1</a>.
+</p>
+
+<div class="highlight xml"><pre><code class="xml hljs"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">groupid</span>&gt;</span>org.robolectric<span class="tag">&lt;/<span class="name">groupid</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">artifactid</span>&gt;</span>robolectric<span class="tag">&lt;/<span class="name">artifactid</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>
+</code></pre></div>
+
+<p>
+Once you have that done, place a copy of your database file in the
+<code>${project_root}/src/test/resources</code> directory.
+</p>
+
+<p>
+When you compile your tests, files in this directory will get copied into an
+"output directory" containing all the compiled classes and files. On my machine,
+the directory is located at <code>${project_root}/target/test-classes</code>. Thus, the
+file you place in the <code>${project_root}/src/test/resources</code> directory will not be
+modified in any way. The copied file in the "output directory" <b>will</b> be
+modified. Any database operations performed in your unit tests will be operating
+on that "output directory" database file.
+</p>
+
+<p>
+Now create a new Java test file. We'll call ours <code>DaoTest.java</code>:
+</p>
+
+<div class="highlight java"><pre><code class="java hljs"><span class="meta">@RunWith</span>(RobolectricTestRunner.class)
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DaoTest</span> </span>{
+
+    <span class="comment">// This path is relative to ${project_root}/src/test/resources</span>
+    <span class="comment">// This path is used in building the absolute path for the database</span>
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> string DB_PATH = <span class="string">"/database/MyDbFile.db"</span>;
+    <span class="comment">// This will contain the absolute file path to the database</span>
+    <span class="keyword">private</span> string dbPath;
+
+    <span class="meta">@Before</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{
+        String path = getClass.getResource(DB_PATH).toURI().getPath();
+        File dbFile = <span class="keyword">new</span> File(path);
+        assertThat(dbFile.exists()).isTrue();
+        dbPath = dbFile.getAbsolutePath();
+
+        <span class="comment">// Perform any other necessary set-up operations...</span>
+    }
+
+    <span class="meta">@After</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">tearDown</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{
+        <span class="comment">// Perform any necessary clean-up operations...</span>
+    }
+
+    <span class="meta">@Test</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{
+        SQLiteDatabase db = SQLitedatabase.open(dbPath, <span class="keyword">null</span>, OPEN_READWRITE);
+
+        <span class="comment">// Perform database operations...</span>
+
+        <span class="comment">// Perform assertions on query results...</span>
+
+        db.close();
+    }
+}
+</code></pre></div>
+
+<p>
+That's it. It really is that simple!
+</p>
+
+<p>
+<code>dbPath</code> will contain the absolute path to the database file in that "output
+directory." From there, you can invoke <code>SQLiteDatabase.openDatabase()</code> and
+perform any necessary operations on the disk-based SQLite database file.
+</p>
+</div>
+</div>
