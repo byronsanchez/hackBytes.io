@@ -41,3 +41,61 @@ block portfolio-content
                   div.project-label
                     div.project-label-text
                       h2.project-title= item.title
+
+block resume-content
+
+  //div.row.main-container.resume-outro
+  //  div.medium-12.columns.content-container
+  //    //h2.resume-title Resume
+  //    p
+  //      a(href='/assets/byronsanchez-resume.pdf')
+  //        img.resume-icon-large(src='/img/icons/pdf-icon-24x24.png', alt='PDF icon')
+  //        | &nbsp;
+  //        | Download PDF
+  //      | |      
+  //      a(href='/assets/byronsanchez-resume.docx')
+  //        img.resume-icon-large(src='/img/icons/docx-icon-24x24.png', alt='DOCX icon')
+  //        | &nbsp;
+  //        | Download DOCX
+
+  div.row.main-container.resume-outro
+    div.medium-12.columns.content-container
+
+      ul.resume-info
+        li.resume-list-header
+          | Resume:
+        li
+          a(href='/assets/byronsanchez-resume.pdf', rel='alternate')
+            img.resume-icon(src='/img/icons/pdf-icon-16x16.png', alt='PDF icon')
+            | &nbsp;
+            | Download PDF
+        li.muted ·
+        li
+          a(href='/assets/byronsanchez-resume.docx', rel='alternate')
+            img.resume-icon(src='/img/icons/docx-icon-16x16.png', alt='DOCX icon')
+            | &nbsp;
+            | Download DOCX
+
+
+      ul.resume-info
+        li
+          a(href='http://hackbytes.io', rel='alternate')
+            img.resume-icon(src='/img/icons/person-icon-16x16.png', alt='Person icon')
+            | &nbsp;
+            | #{ locals.author }
+        li.muted ·
+        li
+          img.resume-icon(src='/img/icons/phone-icon-16x16.png', alt='Phone icon')
+          | &nbsp;
+          | #{ locals.phone }
+        li.muted ·
+        li
+          a(href='mailto:#{ locals.email }', rel='alternate')
+            img.resume-icon(src='/img/icons/mail-icon-16x16.png', alt='Mail icon')
+            | &nbsp;
+            | #{ locals.email }
+        li.muted ·
+        li
+          img.resume-icon(src='/img/icons/location-icon-16x16.png', alt='Location icon')
+          | &nbsp;
+          | #{ locals.location }

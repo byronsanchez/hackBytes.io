@@ -1,0 +1,91 @@
+---
+date: 2014-01-17 00:09:45
+title: "niteLite.io - Code Snippet 1"
+author: Byron Sanchez
+category: code-snippet
+tags: web
+published: 1
+comments_enabled: 0
+template: globals/layouts/code-snippet.jade
+description: 0
+---
+
+<h1>Code Snippet</h1>
+
+<p class="snippet-description">
+	If a reader fills out a form field, or if changes are made to a form field, an
+	event is triggered for that field and handled by the site's JavaScript code. The
+	following code contains a portion of the event-handling process for two
+	different form fields. Each handler serializes it's corresponding form field
+	data and passes it to the server for validation. The server then returns
+	validation information for that field. This is useful, especially for
+	situations in which server-side data is needed to perform on-the-fly validation
+	(like when you are validating a username against a database of
+	already-registered users).
+</p>
+
+<div class="code-sample">
+
+```coffeescript
+###
+Performs validation on the email field. Delegates validation check to the server.
+Validates on server failure. Pure server-side validation is the contingency.
+###
+validateEmail = () ->
+
+  # Abort any pending requests
+  if ($request_validate_email)
+      $request_validate_email.abort()
+
+  # serialize the data in the field
+  serializedData = $fieldEmail.serialize()
+
+  $request_validate_email = $.ajax({
+    url: $ajax_file,
+    type: "post",
+    data: serializedData + "&invoke=validate_email",
+    dataType: "json"
+  })
+
+  # callback handler that will be called on success
+  $request_validate_email.done( (response) ->
+    $isEmailValid = (validate_email_request(response.validate_result))
+  )
+
+  # callback handler that will be called on failure
+  $request_validate_email.fail( () ->
+    $isEmailValid = (validate_email_request(1))
+  )
+
+###
+Performs validation on the link field. Delegates validation check to the server.
+Validates on server failure. Pure server-side validation is the contingency.
+###
+validateLink = () ->
+
+  # Abort any pending requests
+  if ($request_validate_link)
+    $request_validate_link.abort()
+
+  # serialize the data in the field
+  serializedData = $fieldLink.serialize()
+
+  $request_validate_link = $.ajax({
+    url: $ajax_file,
+    type: "post",
+    data: serializedData + "&invoke=validate_link",
+    dataType: "json"
+  })
+
+  # callback handler that will be called on success
+  $request_validate_link.done( (response) ->
+    $isLinkValid = (validate_link_request(response.validate_result))
+  )
+
+  # callback handler that will be called on failure
+  $request_validate_link.fail( () ->
+    $isLinkValid = (validate_link_request(1))
+  )
+```
+
+</div>

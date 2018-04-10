@@ -1,0 +1,58 @@
+h2.resume-title {
+  font-size: 1.75em;
+  font-weight: 400;
+  color: #282729;
+  margin-top: 0;
+}
+
+.resume-outro {
+  //padding-bottom: 4em;
+  //text-align: center;
+  //border-bottom: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+}
+
+// The contact info below the outro.
+.resume-info {
+  margin: 1.0em 0;
+  text-align: center;
+}
+
+.resume-info li {
+  display: inline;
+  padding: 0 2px;
+}
+
+.resume-info li:first-child {
+  padding-left: 0;
+}
+
+li.resume-list-header {
+  font-weight: bold;
+}
+
+.resume-icon {
+  width: 19px;
+  height: 16px;
+  vertical-align: middle;
+  border: 0;
+  padding-right: 3px;
+}
+
+.resume-icon-large {
+  width: 27px;
+  height: 24px;
+  vertical-align: middle;
+  border: 0;
+  padding-right: 3px;
+}
+
+.resume-outro {
+  text-align: left;
+}
+
+@media #{$medium-up} {
+  .resume-outro {
+      text-align: center;
+  }
+}

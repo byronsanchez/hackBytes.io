@@ -23,7 +23,8 @@ module.exports = (env, callback) ->
           if page_value_j["metadata"] && page_value_j["metadata"]["category"] && page_value_j["metadata"]["category"] == "portfolio-item"
             portfolio.push page_value_j if page_value_j instanceof env.plugins.Page && (page_value_j["metadata"]["published"] == "1" || page_value_j["metadata"]["published"] == 1)
 
-      portfolio.sort (a, b) -> b.date - a.date
+      #portfolio.sort (a, b) -> b.date - a.date
+      portfolio.sort (a, b) -> b.metadata.order - a.metadata.order
       return portfolio
 
   updateOptions()

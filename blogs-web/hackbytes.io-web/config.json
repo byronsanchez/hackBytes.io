@@ -24,7 +24,9 @@
 	"related_entries_limit": 5,
 	"date_format_post": "dddd, MMMM Do, YYYY",
 	"date_format_comment": "MMMM Do, YYYY h:mm A",
+	"phone": "+1 (267) 779-7473",
 	"email": "byron@hackbytes.io",
+	"location": "Philadelphia, PA",
 	"gravatar_url": "http://www.gravatar.com/avatar",
 	"gravatar_size": 64,
 	"gravatar_default": "identicon"
