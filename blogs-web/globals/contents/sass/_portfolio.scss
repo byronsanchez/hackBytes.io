@@ -175,12 +175,12 @@ h2.project-title {
 }
 
 #blog .code-snippet-table h1 {
-  color: #aaa;
+  color: $header-text-color;
   text-align: center;
 }
 
 .code-snippet-table .snippet-description {
-  color: #aaa;
+  color: $body-text-color;
   font-size: 1em;
   text-align: center;
 }
@@ -190,7 +190,7 @@ h2.project-title {
 }
 
 #blog h2.dark-title {
-  background: #222222;
+  background: $hero-background-color;
   /*background: #1b1b1b;*/
   font-size: 14px;
   font-weight: bold;

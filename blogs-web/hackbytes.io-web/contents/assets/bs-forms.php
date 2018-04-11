@@ -6,6 +6,8 @@
  * Requires the YAML PECL Extension.
  */
 
+define("EMAIL_RECIPIENT", "byron@hackbytes.io");
+define("APP_NAME", "hackBytes.io");
 define("DB_FILE", "/var/lib/nitelite/webserver/hackbytes.io/database/comments.db");
 define("TBL_NAME", "comments");
 define("COL_NAME", "message");
@@ -292,9 +294,9 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
       $value = build_form_string($data);
       //      $db_result = db_insert($value);
 
-      $to = 'byron@hackbytes.io';
+      $to = EMAIL_RECIPIENT;
       $from = $data['email'];
-      $subject ='[hackBytes.io]: ' . $data['id'] . ' - ' . $data['name'] . ' <' . $data['email'] . '>';
+      $subject ='[' . APP_NAME . ']: ' . $data['id'] . ' - ' . $data['name'] . ' <' . $data['email'] . '>';
       $name = $data['name'];
 
       $message = $data['comment'] . "\r\n";

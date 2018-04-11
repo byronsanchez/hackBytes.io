@@ -7,8 +7,8 @@
 // as all URLs will be permanent, in that old URLs point to the
 // new valid location.
 
-define("ROOT_PATH", "https://hackbytes.io");
-define("DB_FILE", "/var/lib/nitelite/webserver/hackbytes.io/database/path.db");
+define("ROOT_PATH", "https://nitelite.io");
+define("DB_FILE", "/var/lib/nitelite/webserver/nitelite.io/database/path.db");
 define("ERROR_404", "error-404/index.html");
 
 /**

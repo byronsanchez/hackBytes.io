@@ -1,0 +1,35 @@
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+.tomorrow-comment, pre .hljs-comment, pre .hljs-title {
+  color: $comment-color;
+}
+
+.tomorrow-red, pre .hljs-variable, pre .hljs-attribute, pre .hljs-tag, pre .hljs-regexp, pre .ruby .hljs-constant, pre .xml .hljs-tag .hljs-title, pre .xml .hljs-pi, pre .xml .hljs-doctype, pre .html .hljs-doctype, pre .css .hljs-id, pre .css .hljs-class, pre .css .hljs-pseudo {
+  color: $variable-color;
+}
+
+.tomorrow-orange, pre .hljs-number, pre .hljs-preprocessor, pre .hljs-built_in, pre .hljs-literal, pre .hljs-params, pre .hljs-constant {
+  color: $number-color;
+}
+
+.tomorrow-yellow, pre .hljs-class, pre .ruby .hljs-class .hljs-title, pre .css .hljs-rules .hljs-attribute {
+  color: $class-color;
+}
+
+.tomorrow-green, pre .hljs-string, pre .hljs-value, pre .hljs-inheritance, pre .hljs-header, pre .ruby .hljs-symbol, pre .xml .hljs-cdata {
+  color: $string-color;
+}
+
+.tomorrow-aqua, pre .css .hljs-hexcolor {
+  color: $hex-color;
+}
+
+.tomorrow-blue, pre .hljs-function, pre .python .hljs-decorator, pre .python .hljs-title, pre .ruby .hljs-function .hljs-title, pre .ruby .hljs-title .hljs-keyword, pre .perl .hljs-sub, pre .javascript .hljs-title, pre .coffeescript .hljs-title {
+  color: $function-color;
+}
+
+.tomorrow-purple, pre .hljs-keyword, pre .javascript .hljs-function {
+  color: $keyword-color;
+}

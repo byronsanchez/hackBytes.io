@@ -299,8 +299,12 @@ module.exports = (env, callback) ->
     ], callback
 
   env.registerContentPlugin 'pages', '**/*.*(markdown|mkd|md)', RobotskirtPage
-  env.registerContentPlugin 'pages', 'notebooks/**/*.html', HtmlPage
   env.registerContentPlugin 'pages', 'portfolio/**/*.html', HtmlPageWithCodeBlocks
+  # I tried an ordering with a recursive glob after the portfolio, and that didn't work, the HtmlPage without codeblocks
+  # to precedence for portfolio. So that's why I'm manually specifying each non-codeblocked source path here.
+  env.registerContentPlugin 'pages', 'notebooks/**/*.html', HtmlPage
+  env.registerContentPlugin 'pages', 'errors/*.html', HtmlPage
+  env.registerContentPlugin 'pages', '*.html', HtmlPage
 
   env.helpers.RobotskirtPage = RobotskirtPage
   env.helpers.HtmlPage = HtmlPage

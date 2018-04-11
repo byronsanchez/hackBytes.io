@@ -1,0 +1,327 @@
+---
+date: 2013-07-03 12:23:00
+title: "Markdown Syntax Cheat Sheet"
+author: Byron Sanchez
+category: software
+tags: cheat-sheet markdown reference syntax software
+published: 1
+comments_enabled: 1
+template: globals/layouts/article.jade
+description: 0
+id: 48be30e3-c20c-4db4-bc23-0cb0f834d196
+---
+<p>
+
+</p>
+
+<p>
+Here is a quick markdown reference. Everything described here holds true
+for hackBytes and most markdown-processors unless otherwise stated.
+</p>
+
+<div id="outline-container-orgcf0be45" class="outline-2">
+<h2 id="orgcf0be45"><a id="ID-fe56138b-c83d-46b6-a09b-0195b73c7fe2"></a>Literal characters</h2>
+<div class="outline-text-2" id="text-orgcf0be45">
+<p>
+Escape with backslash.
+</p>
+
+<pre class="example">
+\*       ==      *
+\*\*     ==      **
+\#       ==      #
+\#\#     ==      ##
+\\       ==      \
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orge696ad3" class="outline-2">
+<h2 id="orge696ad3"><a id="ID-5379563c-b27d-4e8f-857b-c4a8715ff112"></a>Headers</h2>
+<div class="outline-text-2" id="text-orge696ad3">
+<div class="highlight markdown"><pre><code class="markdown hljs"><span class="hljs-section">#h1</span>
+<span class="hljs-section">##h2</span>
+<span class="hljs-section">###h3</span>
+<span class="hljs-section">####h4</span>
+<span class="hljs-section">#####h5</span>
+<span class="hljs-section">######h6</span>
+
+OR
+
+<span class="hljs-section">h1 can be done with 1 or more equal signs on the line below
+===========================================================</span>
+
+<span class="hljs-section">h2 can be done with 1 or more dashes on the line below
+------------------------------------------------------</span>
+</code></pre></div>
+</div>
+</div>
+
+<div id="outline-container-org66bc25a" class="outline-2">
+<h2 id="org66bc25a"><a id="ID-66345679-2357-4a39-b63d-3f936dbda49b"></a>Emphasis (bold and italic)</h2>
+<div class="outline-text-2" id="text-org66bc25a">
+<p>
+For bold AND italic, you can use what is displayed here or combine <code>*</code> and <code>_</code>.
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs"><span class="hljs-emphasis">_underlined text_</span>
+<span class="hljs-emphasis">*italic text*</span>
+<span class="hljs-strong">**bold text**</span>
+<span class="hljs-strong">***bold and italic**</span>*
+</code></pre></div>
+</div>
+</div>
+
+<div id="outline-container-org9518bae" class="outline-2">
+<h2 id="org9518bae"><a id="ID-953169bd-a354-47c9-b14c-55d526f66f94"></a>Linking</h2>
+<div class="outline-text-2" id="text-org9518bae">
+<p>
+Titles are optional for all formats.
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs">[<span class="hljs-string">anchor text goes here</span>](<span class="hljs-link">https://www.example.com</span>) "Title"
+</code></pre></div>
+
+<p>
+You can also link using references/footnote-style links. The first set
+of square brackets defines the anchor text. The second set of square
+brackets defines the reference id. You can define the link anywhere in
+the document.
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs">This is the [<span class="hljs-string">anchor text</span>][<span class="hljs-symbol">id</span>] for a link.
+
+Now I'll just define the link at the bottom.
+
+[<span class="hljs-symbol">id</span>]: <span class="hljs-link">http://www.example.com/  "Title"</span>
+</code></pre></div>
+</div>
+</div>
+
+<div id="outline-container-orgf7a674b" class="outline-2">
+<h2 id="orgf7a674b"><a id="ID-66d55e02-95be-45e4-b5e7-912f92be307f"></a>Paragraphs and Line Breaks</h2>
+<div class="outline-text-2" id="text-orgf7a674b">
+<p>
+<b><b>Paragraphs</b></b>
+</p>
+
+<p>
+Single newlines are ignored. Two or more newlines make a new paragraph.
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs">This line is example 1. It is its own paragraph.
+
+This line is example 2. It is its own paragraph.
+
+This set of lines is example 3.
+The single newlines used in this example will be ignored.
+The entire text in this example is treated as if it were a single paragraph.
+</code></pre></div>
+
+<p>
+<b><b>Line Breaks</b></b>
+</p>
+
+<p>
+This one is a little tricky to describe, but it is really easy to use.
+</p>
+
+<p>
+Line breaks are newlines <i>rendered</i> as <code>&lt;br&gt;</code> instead of as <code>&lt;p&gt;</code> tags. With the
+paragraph rules alone, there would be no way to render <code>&lt;br&gt;</code> tags. However,
+markdown <i>does</i> let you render them.
+</p>
+
+<p>
+Simply add two spaces at the end of the lines you wish to break. Otherwise,
+markdown will treat the set of lines as a single paragraph, as mentioned
+earlier.
+</p>
+
+<p>
+Personally, I'm not a fan of this since I like trimming whitespace all the time.
+So I don't use this.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org00a5336" class="outline-2">
+<h2 id="org00a5336"><a id="ID-472e580f-d51a-4590-a12f-78c415f11dc8"></a>Horizontal Rules &lt;hr&gt;</h2>
+<div class="outline-text-2" id="text-org00a5336">
+<p>
+Use three or more dashes, underscores or asterisks on a single line.
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs">Sample text with hr underneath. Two newlines required here, as single newline
+conlicts with h2 header rule.
+
+------------------------------
+
+Or like this. A single newline is required, but two will work as well.
+
+<span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-emphasis">___</span>_
+
+Or even this. A single newline is required, but two will work as well.
+<span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-emphasis">***</span>*
+</code></pre></div>
+</div>
+</div>
+
+<div id="outline-container-orge36908f" class="outline-2">
+<h2 id="orge36908f"><a id="ID-4c0c6138-7baa-441f-9eda-68bc9e19044b"></a>Code</h2>
+<div class="outline-text-2" id="text-orge36908f">
+<p>
+Wrap code with three backticks to render code tags for syntax
+highlighting.
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs"><span class="hljs-code">```
+def syntax_highlight() {
+  puts "Hi!"
+}
+```</span>
+</code></pre></div>
+</div>
+</div>
+
+<div id="outline-container-orgc507d81" class="outline-2">
+<h2 id="orgc507d81"><a id="ID-34641a32-fcd8-4998-90c7-b5ba6f39c36d"></a>Blockquotes</h2>
+<div class="outline-text-2" id="text-orgc507d81">
+<div class="highlight markdown"><pre><code class="markdown hljs"><span class="hljs-quote">&gt; Add blockquotes to your pages</span>
+<span class="hljs-quote">&gt; using the greater-than angle bracket</span>
+<span class="hljs-quote">&gt; for each line you want to be part of the quote.</span>
+
+<span class="hljs-quote">&gt; &gt; Nest quotes with multiple angle brackets.</span>
+
+<span class="hljs-quote">&gt; You can use any of the other markdown styles within blockquotes.</span>
+</code></pre></div>
+</div>
+</div>
+
+<div id="outline-container-org64470e6" class="outline-2">
+<h2 id="org64470e6"><a id="ID-e1a19405-3871-4764-a1bd-77930d1e27d7"></a>Tables</h2>
+<div class="outline-text-2" id="text-org64470e6">
+<p>
+Use pipes <code>|</code> to define tables.
+</p>
+
+<p>
+The actual text does not have to line up to look like a nice table. Whitespacing
+doesn't really matter (except for newlines).
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs">| Table header 1 | Table Header 2 |
+|----------------|----------------|
+| row1 - column1 | row1 - column2 |
+| row2 - column1 | row2 - column2 |
+
+Outer pipes are optional:
+
+ Table header 1 | Table Header 2
+----------------|----------------
+ row1 - column1 | row1 - column2
+ row2 - column1 | row2 - column2
+
+You can also define column alignment via the table-header and
+table-body separator:
+
+|:---| - left-align
+|---:| - right-align
+|:--:| - centered
+|----| - default (no defined alignment in the rendered html).
+</code></pre></div>
+</div>
+</div>
+
+<div id="outline-container-org34cea38" class="outline-2">
+<h2 id="org34cea38"><a id="ID-36f3a4d4-7eb6-42fb-921f-029ba69883eb"></a>Lists</h2>
+<div class="outline-text-2" id="text-org34cea38">
+<p>
+Numbered Lists
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs"><span class="hljs-bullet">1. </span>List item 1
+<span class="hljs-bullet">2. </span>List item 2
+<span class="hljs-bullet">3. </span>List item 3
+</code></pre></div>
+
+<p>
+Bulleted Lists
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs"><span class="hljs-bullet">* </span>List item 1
+<span class="hljs-bullet">* </span>List item 2
+<span class="hljs-bullet">* </span>List item 3
+
+<span class="hljs-bullet">- </span>List item 1
+<span class="hljs-bullet">- </span>List item 2
+<span class="hljs-bullet">- </span>List item 3
+
+<span class="hljs-bullet">+ </span>List item 1
+<span class="hljs-bullet">+ </span>List item 2
+<span class="hljs-bullet">+ </span>List item 3
+</code></pre></div>
+
+<p>
+Nested Lists
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs">You can nest lists like this.
+
+<span class="hljs-bullet">1. </span>Level 1
+1.1. Level 2
+
+<span class="hljs-bullet">* </span>Level 1
+** Level 2
+
+<span class="hljs-bullet">1. </span>Level 1
+** Level 2
+
+Or with tabs
+
+<span class="hljs-bullet">1. </span>Level 1
+  * Level 2
+</code></pre></div>
+</div>
+</div>
+
+<div id="outline-container-org3ad8bc0" class="outline-2">
+<h2 id="org3ad8bc0"><a id="ID-fd69c188-fa4b-4abf-9e4b-8d7184e92d1b"></a>HTML</h2>
+<div class="outline-text-2" id="text-org3ad8bc0">
+<p>
+Type in some raw HTML&#x2026;
+</p>
+
+<div class="highlight html"><pre><code class="html hljs">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"test"</span>&gt;
+  Just like <span class="hljs-keyword">this</span>!
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+</code></pre></div>
+</div>
+</div>
+
+<div id="outline-container-org2cc37b3" class="outline-2">
+<h2 id="org2cc37b3"><a id="ID-a5cc9e5a-52bc-4f41-a190-5423d290e1b1"></a>Images</h2>
+<div class="outline-text-2" id="text-org2cc37b3">
+<p>
+Images are a lot like markdown links prefixed an exclamation mark.
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs">![<span class="hljs-string">alt-text</span>](<span class="hljs-link">/img-path.jpg "Optional title"</span>)
+</code></pre></div>
+</div>
+</div>
+
+<div id="outline-container-orgce7dd6c" class="outline-2">
+<h2 id="orgce7dd6c"><a id="ID-e92e469f-cc3a-4b7c-a6e1-cd0edb535b40"></a>Videos (hackBytes-specific)</h2>
+<div class="outline-text-2" id="text-orgce7dd6c">
+<p>
+This is simply a convenience tag for hackBytes and is <b>not</b> part of
+markdown. It will not work anywhere else unless it is manually
+implemented.
+</p>
+
+<div class="highlight markdown"><pre><code class="markdown hljs">[video url-here]
+[video url-here | style-here]
+</code></pre></div>
+</div>
+</div>

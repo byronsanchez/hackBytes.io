@@ -8,8 +8,9 @@ block portfolio-content
   div.pagebody
     article.article
       div.row
-        - var formattedTitle = env.helpers.handleize(page.title)
-        div(class=formattedTitle)
+        - var formattedTitle = env.helpers.handleize(page.title, false)
+        - var handleizedTitle = env.helpers.handleize(page.title, true)
+        div(class=handleizedTitle)
           div.medium-7.columns
             div.pagebody
               article

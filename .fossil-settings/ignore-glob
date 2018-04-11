@@ -40,3 +40,7 @@
 *data/
 *.sql
 *assets/database/
+
+# Ignore local backup files that I manually manage for this repo
+backups/
+
