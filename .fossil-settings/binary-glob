@@ -6,3 +6,5 @@
 
 # Adobe XD files
 *.xd
+# Word files
+*.docx
