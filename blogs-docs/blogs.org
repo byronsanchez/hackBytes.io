@@ -21,6 +21,15 @@
 :ID:       3409e7d7-cfdd-4bfc-9757-feb7fc312c3b
 :END:
 [2018-05-02 Wed 12:09]
+** OPEN Set up docker-compose
+:PROPERTIES:
+:ID:       4651f40d-6ce0-4606-8587-2c927c59ae0e
+:END:
+[2018-05-02 Wed 12:25]
+
+Set up docker-compose so that it's much more trivial to orchestrate building,
+running, deployment of all blog instances.
+
 ** FIXED Fix footnote collisions by adding manually chosen ids
 :PROPERTIES:
 :ID: 76181e87-7954-e439-09f0-3645ec3e3031
