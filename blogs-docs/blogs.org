@@ -16,7 +16,12 @@
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
 
-* FIXED Fix footnote collisions by adding manually chosen ids
+* Backlog
+:PROPERTIES:
+:ID:       3409e7d7-cfdd-4bfc-9757-feb7fc312c3b
+:END:
+[2018-05-02 Wed 12:09]
+** FIXED Fix footnote collisions by adding manually chosen ids
 :PROPERTIES:
 :ID: 76181e87-7954-e439-09f0-3645ec3e3031
 :EXPORT_FOSSIL_SOURCE: t
@@ -34,7 +39,7 @@
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 1
@@ -46,7 +51,7 @@
 :ID:       30167705-1cf1-4682-a224-2d34578d053d
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 1
@@ -60,7 +65,7 @@
 [2017-02-19 Sun 17:06]
 
 In case you ever need to seriously debug this again, there's some footnote debugging data available in your physical notes in the hackBytes project folder.
-** 3
+*** 3
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 1
@@ -94,7 +99,7 @@ Then the exported footnote link will look something like this:
 In other words, index pages won't have collision issues between documents with footnotes even if they both use the same footnote naming convention (fn:1, fn:2, etc.) because the exported links will always take you to the target document's permalink which isolates the footnote scope to that document!
 
 For those reasons, I am marking this as fixed.
-* OPEN Secure comments and path dbs
+** OPEN Secure comments and path dbs
 :PROPERTIES:
 :ID: 05c9d643-9484-042a-1bdc-9f895e9fd968
 :EXPORT_FOSSIL_SOURCE: t
@@ -112,7 +117,7 @@ For those reasons, I am marking this as fixed.
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 2
@@ -124,7 +129,7 @@ For those reasons, I am marking this as fixed.
 :ID:       4f1bdb2c-0372-48df-af89-38c6b5325c53
 :END:
 [2014-05-28 Wed 13:31]
-* FIXED Clean up config files and bootstrap file
+** FIXED Clean up config files and bootstrap file
 :PROPERTIES:
 :ID: 0b5e9d23-99dd-d13e-ff0a-9b1e04fb856d
 :EXPORT_FOSSIL_SOURCE: t
@@ -142,7 +147,7 @@ For those reasons, I am marking this as fixed.
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 3
@@ -154,7 +159,7 @@ For those reasons, I am marking this as fixed.
 :ID:       6695d03b-9b5b-404f-806c-45d306015768
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 3
@@ -166,7 +171,7 @@ For those reasons, I am marking this as fixed.
 :ID:       7849a0fc-cdca-416d-8fc6-ecaaf2401b28
 :END:
 [2018-04-11 Wed 00:27]
-* CLOSED Consider removal of rake from Gemfile
+** CLOSED Consider removal of rake from Gemfile
 :PROPERTIES:
 :ID: 9fe5212f-97bc-4363-190b-3b129065bd8c
 :EXPORT_FOSSIL_SOURCE: t
@@ -184,7 +189,7 @@ For those reasons, I am marking this as fixed.
 :EXPORT_FOSSIL_RESOLUTION: Overcome_By_Events
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 4
@@ -196,7 +201,7 @@ For those reasons, I am marking this as fixed.
 :ID:       04b3f79e-ccf2-46cf-86a6-93edd8023ca9
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 4
@@ -208,7 +213,7 @@ For those reasons, I am marking this as fixed.
 :ID:       1ac3a2b3-964c-4f38-af7f-3632b1b31f0b
 :END:
 [2018-04-11 Wed 00:21]
-* CLOSED Fix up capistrano deployment hooks to work on the appropriate server
+** CLOSED Fix up capistrano deployment hooks to work on the appropriate server
 :PROPERTIES:
 :ID: 6931e637-70f2-97fc-5e5e-9c1e28d5956a
 :EXPORT_FOSSIL_SOURCE: t
@@ -226,7 +231,7 @@ For those reasons, I am marking this as fixed.
 :EXPORT_FOSSIL_RESOLUTION: Overcome_By_Events
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 5
@@ -238,7 +243,7 @@ For those reasons, I am marking this as fixed.
 :ID:       6dc1a578-3bbf-483a-877f-7787b24b1d7e
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 5
@@ -252,7 +257,7 @@ For those reasons, I am marking this as fixed.
 [2018-04-11 Wed 00:20]
 
 Moved away from using capistrano and am keeping development environments as simple as possible, no need for staging yet.
-* CLOSED Fix up comments to target production and staging envs
+** CLOSED Fix up comments to target production and staging envs
 :PROPERTIES:
 :ID: 82a62851-70b6-5c3a-14fc-285f8812c3d9
 :EXPORT_FOSSIL_SOURCE: t
@@ -270,7 +275,7 @@ Moved away from using capistrano and am keeping development environments as simp
 :EXPORT_FOSSIL_RESOLUTION: Overcome_By_Events
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 6
@@ -282,7 +287,7 @@ Moved away from using capistrano and am keeping development environments as simp
 :ID:       a19de4cf-30a7-4a41-b830-53869fa2b401
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 6
@@ -296,7 +301,7 @@ Moved away from using capistrano and am keeping development environments as simp
 [2018-04-11 Wed 00:27]
 
 I got rid of staging environments for the static sites, since they aren't really useful. Makes more sense if you have a team of people sharing changes and require an integration/staging environment.
-* FIXED Simplify Portfolio Structure
+** FIXED Simplify Portfolio Structure
 :PROPERTIES:
 :ID: 6abaf680-c074-a3c0-3ba1-3b0dab9c09ca
 :EXPORT_FOSSIL_SOURCE: t
@@ -314,7 +319,7 @@ I got rid of staging environments for the static sites, since they aren't really
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 7
@@ -326,7 +331,7 @@ I got rid of staging environments for the static sites, since they aren't really
 :ID:       144623d3-9ff0-4df1-a890-0c9f95561ec2
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 7
@@ -338,7 +343,7 @@ I got rid of staging environments for the static sites, since they aren't really
 :ID:       82fd579b-b431-4918-92cf-3e6e2cf2d632
 :END:
 [2018-04-11 Wed 00:21]
-* OPEN Add html validation as part of the build process
+** OPEN Add html validation as part of the build process
 :PROPERTIES:
 :ID: d377af8c-9f5c-8339-e897-1e21be3fa941
 :EXPORT_FOSSIL_SOURCE: t
@@ -356,7 +361,7 @@ I got rid of staging environments for the static sites, since they aren't really
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 8
@@ -368,7 +373,7 @@ I got rid of staging environments for the static sites, since they aren't really
 :ID:       07288cc6-9cb5-40d7-b9fa-14b249d1fb9f
 :END:
 [2014-05-28 Wed 13:31]
-* OPEN Add image optimization as part of the build process
+** OPEN Add image optimization as part of the build process
 :PROPERTIES:
 :ID: 6dd6c484-693f-b348-25b4-8c52c365664f
 :EXPORT_FOSSIL_SOURCE: t
@@ -386,7 +391,7 @@ I got rid of staging environments for the static sites, since they aren't really
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 9
@@ -398,7 +403,7 @@ I got rid of staging environments for the static sites, since they aren't really
 :ID:       fc346e88-1bc3-4e87-8464-ed0747c307c0
 :END:
 [2014-05-28 Wed 13:31]
-* CLOSED Migrate from Bootstrap 2 to Bootstrap 3
+** CLOSED Migrate from Bootstrap 2 to Bootstrap 3
 :PROPERTIES:
 :ID: 1a9bbdc4-8294-5c75-f545-9e3b74fd668b
 :EXPORT_FOSSIL_SOURCE: t
@@ -416,7 +421,7 @@ I got rid of staging environments for the static sites, since they aren't really
 :EXPORT_FOSSIL_RESOLUTION: Overcome_By_Events
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 10
@@ -434,7 +439,7 @@ Bootstrap 3 implementation will require a careful migration. Bootstrap 3 is mobi
 Prior to migration, make sure the final design is complete and the mockups are readily available so it can be used as a reference.
 
 Legacy IE support will also require a lot of rework.
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 10
@@ -448,7 +453,7 @@ Legacy IE support will also require a lot of rework.
 [2018-04-10 Tue 18:55]
 
 Migrated everything to the wintersmith backend, so it's now using Foundation.
-* FIXED Update mockups for v2.0.0
+** FIXED Update mockups for v2.0.0
 :PROPERTIES:
 :ID: 9950513f-0d66-b753-3f96-bb30efddce58
 :EXPORT_FOSSIL_SOURCE: t
@@ -466,7 +471,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 11
@@ -478,7 +483,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :ID:       fe7dff0a-f59d-4ae1-986b-7d3978f30718
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 11
@@ -490,7 +495,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :ID:       cdad92e9-9203-443f-addf-a2ec342affc4
 :END:
 [2018-04-11 Wed 00:21]
-* CLOSED Update wireframes for v1.0.0
+** CLOSED Update wireframes for v1.0.0
 :PROPERTIES:
 :ID: 642d2b36-0b95-71e2-b9e6-fc8567631a2c
 :EXPORT_FOSSIL_SOURCE: t
@@ -508,7 +513,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :EXPORT_FOSSIL_RESOLUTION: Overcome_By_Events
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 12
@@ -520,7 +525,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :ID:       9c138031-157b-4217-967a-18564fd326c7
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 12
@@ -532,7 +537,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :ID:       95487b7c-8063-4b2c-869e-848082adaf28
 :END:
 [2018-04-11 Wed 00:21]
-* CLOSED Update specs for v1.0.0
+** CLOSED Update specs for v1.0.0
 :PROPERTIES:
 :ID: 56c4e76f-ddb5-c6cc-0963-cfd718629670
 :EXPORT_FOSSIL_SOURCE: t
@@ -550,7 +555,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :EXPORT_FOSSIL_RESOLUTION: Overcome_By_Events
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 13
@@ -562,7 +567,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :ID:       7e084518-e390-414e-8ed5-780da8ad0a60
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 13
@@ -574,7 +579,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :ID:       f6ec14b2-d27e-4ed4-bcf2-f2f691ffb7df
 :END:
 [2018-04-11 Wed 00:21]
-* CLOSED Update requirements for v1.0.0
+** CLOSED Update requirements for v1.0.0
 :PROPERTIES:
 :ID: 582e00c0-ad43-97bf-1931-0029a387c1f1
 :EXPORT_FOSSIL_SOURCE: t
@@ -592,7 +597,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :EXPORT_FOSSIL_RESOLUTION: Overcome_By_Events
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 14
@@ -604,7 +609,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :ID:       92d21e66-9221-4d58-98c8-d47100564a22
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 14
@@ -616,7 +621,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :ID:       616d128f-c5e7-4135-a66a-714cf3149857
 :END:
 [2018-04-11 Wed 00:22]
-* CLOSED Make sure the website is buildable on different operating systems
+** CLOSED Make sure the website is buildable on different operating systems
 :PROPERTIES:
 :ID: 1881c823-8bcb-343b-cc8b-0d4321ef17ac
 :EXPORT_FOSSIL_SOURCE: t
@@ -634,7 +639,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 :EXPORT_FOSSIL_RESOLUTION: Rejected
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 15
@@ -648,7 +653,7 @@ Migrated everything to the wintersmith backend, so it's now using Foundation.
 [2014-05-28 Wed 13:31]
 
 This involves making sure that the init and one-step-build tasks are fully functional across different operating systems.
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 15
@@ -662,7 +667,7 @@ This involves making sure that the init and one-step-build tasks are fully funct
 [2016-01-02 Sat 12:09]
 
 Decided against this. I only require it to be buildable on my workstation. Treating it like a library would involve a lot more work for little value.
-* OPEN Ensure that rem is being used
+** OPEN Ensure that rem is being used
 :PROPERTIES:
 :ID: 992d4866-888e-fecb-7fb2-418960beb9fe
 :EXPORT_FOSSIL_SOURCE: t
@@ -680,7 +685,7 @@ Decided against this. I only require it to be buildable on my workstation. Treat
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 16
@@ -696,7 +701,7 @@ Decided against this. I only require it to be buildable on my workstation. Treat
 Ensure that the rem measurement is being used in stylesheets as opposed to px or ems (unless absolutely necessary).
 
 Legacy IE does not support this, so a polyfill will be necessary.
-* OPEN Improve function definitions
+** OPEN Improve function definitions
 :PROPERTIES:
 :ID: 61622ced-ab2f-726e-b7d2-86b0603a7c4e
 :EXPORT_FOSSIL_SOURCE: t
@@ -714,7 +719,7 @@ Legacy IE does not support this, so a polyfill will be necessary.
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 17
@@ -731,7 +736,7 @@ Two enhancements can be performed on the codebase in terms of improving function
 
 1. Ensure modularity in each definition.
 2. Give each function a very descriptive name so that anyone who reads the code can instantly know what the function does without having to mentally decode the algorithms.
-* OPEN Move content management task operation definitions to support directory
+** OPEN Move content management task operation definitions to support directory
 :PROPERTIES:
 :ID: ea5738a8-d795-bcd5-0809-14cf57ac60ce
 :EXPORT_FOSSIL_SOURCE: t
@@ -749,7 +754,7 @@ Two enhancements can be performed on the codebase in terms of improving function
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 18
@@ -761,7 +766,7 @@ Two enhancements can be performed on the codebase in terms of improving function
 :ID:       fb20ed2c-49c6-4464-8124-2b9d379e43ee
 :END:
 [2014-05-28 Wed 13:31]
-* OPEN Comment links prepend http to https addresses
+** OPEN Comment links prepend http to https addresses
 :PROPERTIES:
 :ID: 5a5c59fc-fe7b-6f00-7cb4-f27e67433afc
 :EXPORT_FOSSIL_SOURCE: t
@@ -779,7 +784,7 @@ Two enhancements can be performed on the codebase in terms of improving function
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 19
@@ -801,7 +806,7 @@ Steps for reproduction:
 1 - Go to a page containing a comment form.
 2 - Submit a comment, while setting the website url field to a url containing the https protocol.
 3 - The output stored in the database will contain http://https://[url]
-* OPEN Add documentation generation
+** OPEN Add documentation generation
 :PROPERTIES:
 :ID: c22eb425-62ee-f07a-eb9a-686682d683a7
 :EXPORT_FOSSIL_SOURCE: t
@@ -819,7 +824,7 @@ Steps for reproduction:
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 20
@@ -831,7 +836,7 @@ Steps for reproduction:
 :ID:       e4bdc88b-1dd6-48a6-b13b-3f7e45b0f3b6
 :END:
 [2014-05-28 Wed 13:31]
-* OPEN Build docs containing all write-ups and info for the project
+** OPEN Build docs containing all write-ups and info for the project
 :PROPERTIES:
 :ID: 7e40e549-8e45-e096-a027-f37c311d12e9
 :EXPORT_FOSSIL_SOURCE: t
@@ -849,7 +854,7 @@ Steps for reproduction:
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 21
@@ -861,7 +866,7 @@ Steps for reproduction:
 :ID:       941403e7-5c67-40a7-8768-7fd823c75518
 :END:
 [2014-05-28 Wed 13:31]
-* OPEN Create a standard development configuration for builds
+** OPEN Create a standard development configuration for builds
 :PROPERTIES:
 :ID: b34b3fdf-e253-4d76-395a-8d5b0bf9d3da
 :EXPORT_FOSSIL_SOURCE: t
@@ -879,7 +884,7 @@ Steps for reproduction:
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 22
@@ -893,7 +898,7 @@ Steps for reproduction:
 [2014-05-28 Wed 13:31]
 
 The current implementation uses a boolean to determine environments and how the build process will occur. A possible enhancement may be to use built-in features such as the local server shipped with jekyll. In addition to using the preview server, the project can also use build targets; one for development builds and one for production builds.
-* OPEN Implement a linter as part of the build process
+** OPEN Implement a linter as part of the build process
 :PROPERTIES:
 :ID: 341784a0-13fb-a2a7-7510-346c32f5fcee
 :EXPORT_FOSSIL_SOURCE: t
@@ -911,7 +916,7 @@ The current implementation uses a boolean to determine environments and how the 
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 23
@@ -925,7 +930,7 @@ The current implementation uses a boolean to determine environments and how the 
 [2014-05-28 Wed 13:31]
 
 The linter will ensure the maintenance of code quality and readability. Consider making it optional so builds can still occur.
-* OPEN Move scss hex codes and other common styles into variables
+** OPEN Move scss hex codes and other common styles into variables
 :PROPERTIES:
 :ID: e9a837ca-b7c1-2732-ffe3-a3d7c660679a
 :EXPORT_FOSSIL_SOURCE: t
@@ -943,7 +948,7 @@ The linter will ensure the maintenance of code quality and readability. Consider
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 24
@@ -957,7 +962,7 @@ The linter will ensure the maintenance of code quality and readability. Consider
 [2014-05-28 Wed 13:31]
 
 This will make it easier to manage styles.
-* CLOSED Rebuild native extensions as opposed to downloading and installing gems
+** CLOSED Rebuild native extensions as opposed to downloading and installing gems
 :PROPERTIES:
 :ID: f7260284-cefd-6137-afec-3c9a9a95ea46
 :EXPORT_FOSSIL_SOURCE: t
@@ -975,7 +980,7 @@ This will make it easier to manage styles.
 :EXPORT_FOSSIL_RESOLUTION: Overcome_By_Events
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 25
@@ -995,7 +1000,7 @@ Gems are checked into the repo, so it makes more sense to simply use them and si
 The command to invoke is as follows:
 
     bundle exec gem pristine --all
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 25
@@ -1009,7 +1014,7 @@ The command to invoke is as follows:
 [2018-04-11 Wed 00:26]
 
 All the ruby tasks are essentially being closed because I'm sticking to front-end dev with NodeJS and trying to minimize the amount of tech I have to maintain (eg. app environments and everything).
-* FIXED Merge submodules into main repository
+** FIXED Merge submodules into main repository
 :PROPERTIES:
 :ID: f6d782b5-4313-75d8-0ac9-c80b78309345
 :EXPORT_FOSSIL_SOURCE: t
@@ -1027,7 +1032,7 @@ All the ruby tasks are essentially being closed because I'm sticking to front-en
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 26
@@ -1039,7 +1044,7 @@ All the ruby tasks are essentially being closed because I'm sticking to front-en
 :ID:       030efbdf-3e29-4f02-ada1-2c453b0fc360
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 26
@@ -1053,7 +1058,7 @@ All the ruby tasks are essentially being closed because I'm sticking to front-en
 [2014-05-28 Wed 13:31]
 
 Remove the closure binary. Consider something like the juicer gem instead.
-** 3
+*** 3
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 26
@@ -1065,7 +1070,7 @@ Remove the closure binary. Consider something like the juicer gem instead.
 :ID:       71d66ac9-d5b1-48f1-9265-a076dee110f5
 :END:
 [2014-06-04 Wed 23:56]
-** 4
+*** 4
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 26
@@ -1079,7 +1084,7 @@ Remove the closure binary. Consider something like the juicer gem instead.
 [2014-06-04 Wed 23:56]
 
 decided not to remove the closure binary, but did merge submodules into main repo, so fixed!
-* OPEN Add Unit Tests
+** OPEN Add Unit Tests
 :PROPERTIES:
 :ID: df2b43f5-a8a6-11c4-437e-9b385a6d7e18
 :EXPORT_FOSSIL_SOURCE: t
@@ -1097,7 +1102,7 @@ decided not to remove the closure binary, but did merge submodules into main rep
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 27
@@ -1111,7 +1116,7 @@ decided not to remove the closure binary, but did merge submodules into main rep
 [2014-05-28 Wed 13:31]
 
 Add unit tests. This will actually save a LOT of time (as opposed to constant manual tests) and increase code confidence corresponding to the amount of coverage.
-* CLOSED Consider an alternative javascript minifier
+** CLOSED Consider an alternative javascript minifier
 :PROPERTIES:
 :ID: a6e8141e-d040-4ad1-9302-5c5ff30a73a2
 :EXPORT_FOSSIL_SOURCE: t
@@ -1129,7 +1134,7 @@ Add unit tests. This will actually save a LOT of time (as opposed to constant ma
 :EXPORT_FOSSIL_RESOLUTION: Rejected
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 28
@@ -1141,7 +1146,7 @@ Add unit tests. This will actually save a LOT of time (as opposed to constant ma
 :ID:       9bb22c98-ad4b-42a1-ad1c-e8bed36a5e4b
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 28
@@ -1155,7 +1160,7 @@ Add unit tests. This will actually save a LOT of time (as opposed to constant ma
 [2014-05-28 Wed 13:31]
 
 nahhh, decided against it. Closure is great and there's no current reason to switch. The only thing I don't like is tracking the binary. I'll figure that out with #3 or as a separate issue if necessary.
-** 3
+*** 3
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 28
@@ -1167,7 +1172,7 @@ nahhh, decided against it. Closure is great and there's no current reason to swi
 :ID:       75ac0850-ea56-4b29-bb84-58445eb1a7d3
 :END:
 [2014-06-04 Wed 22:12]
-* CLOSED Add linting as part of the build process
+** CLOSED Add linting as part of the build process
 :PROPERTIES:
 :ID: 29df3f97-116a-120b-6a71-5a413e2f9504
 :EXPORT_FOSSIL_SOURCE: t
@@ -1185,7 +1190,7 @@ nahhh, decided against it. Closure is great and there's no current reason to swi
 :EXPORT_FOSSIL_RESOLUTION: Duplicate
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 29
@@ -1197,7 +1202,7 @@ nahhh, decided against it. Closure is great and there's no current reason to swi
 :ID:       8cff79cc-4d29-4af9-bbba-d77a1a9bfbb5
 :END:
 [2014-05-28 Wed 13:31]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 29
@@ -1211,7 +1216,7 @@ nahhh, decided against it. Closure is great and there's no current reason to swi
 [2014-05-28 Wed 13:31]
 
 Closing because it's a duplicate of #6.
-** 3
+*** 3
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 29
@@ -1225,7 +1230,7 @@ Closing because it's a duplicate of #6.
 [2014-06-04 Wed 22:12]
 
 after fossil migration, duplicate of [341784a013]
-* FIXED Implement CI via Travis
+** FIXED Implement CI via Travis
 :PROPERTIES:
 :ID: 17fed14f-557d-dd70-3ad8-901da2e686f5
 :EXPORT_FOSSIL_SOURCE: t
@@ -1243,7 +1248,7 @@ after fossil migration, duplicate of [341784a013]
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 30
@@ -1259,7 +1264,7 @@ after fossil migration, duplicate of [341784a013]
 Mostly to follow standard practices and to learn how to use the technologies involved with proper CI.
 
 CI is good practice for ensuring integration of code does not cause build failures, test failures, etc. And should these errors and failures occur, devs can know quickly and fix them.
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 30
@@ -1271,7 +1276,7 @@ CI is good practice for ensuring integration of code does not cause build failur
 :ID:       0ed3b423-0dd3-4cb5-9729-41e6000d6b77
 :END:
 [2014-06-04 Wed 22:13]
-* FIXED Cross-browser compatibility testing.
+** FIXED Cross-browser compatibility testing.
 :PROPERTIES:
 :ID: 443f1398-dff5-b8e1-6a7d-69835fd87c94
 :EXPORT_FOSSIL_SOURCE: t
@@ -1289,7 +1294,7 @@ CI is good practice for ensuring integration of code does not cause build failur
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2014-05-28 Wed 13:31]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 31
@@ -1305,7 +1310,7 @@ CI is good practice for ensuring integration of code does not cause build failur
 This will be done once 15-20 articles have been posted. Do a secondary testing across all targeted browsers and make sure everything works as specified by the specs.
 
 Last I checked, there were a few bugs in some older browsers that came about with some CSS modifications. More to come.
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 31
@@ -1319,7 +1324,7 @@ Last I checked, there were a few bugs in some older browsers that came about wit
 [2014-05-28 Wed 13:31]
 
 I tested across several different browsers on different systems using placeholder content. Everything is working from IE6+.
-** 3
+*** 3
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 31
@@ -1331,7 +1336,7 @@ I tested across several different browsers on different systems using placeholde
 :ID:       988f2c67-8f02-4abc-959c-9f030f1dbc85
 :END:
 [2014-06-04 Wed 22:13]
-* OPEN consider better design for db mgmt
+** OPEN consider better design for db mgmt
 :PROPERTIES:
 :ID: e9abefe2-2b12-14b5-c64b-07487efe4569
 :EXPORT_FOSSIL_SOURCE: t
@@ -1349,7 +1354,7 @@ I tested across several different browsers on different systems using placeholde
 :EXPORT_FOSSIL_RESOLUTION: Open
 :END:
 [2014-05-31 Sat 13:36]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 32
@@ -1367,7 +1372,7 @@ The current style of pulling the comments db, editing the values and pushing it 
 One idea is to create a small API to wrap simple db ops. Then, use a client script to invoke these ops. The result is that there is never a risk of causing collisions (during the pull and edit, the prod db is still capturing comments while you are editing your db; then when you push it back up, those comments have not been merged to the db you are pushing back up).
 
 Thus, the API could be used to perform simple db ops. You can still pull the db, but you can't push. That way, you can also generate comments as necessary.
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 32
@@ -1379,7 +1384,7 @@ Thus, the API could be used to perform simple db ops. You can still pull the db,
 :ID:       9626c3b3-9f4d-44e2-b58b-3d1ef1c8a91a
 :END:
 [2014-05-31 Sat 13:37]
-* FIXED remove capistrano deployment
+** FIXED remove capistrano deployment
 :PROPERTIES:
 :ID: 8ce9fabc-5c8c-8ff7-bbd2-5c27538e886c
 :EXPORT_FOSSIL_SOURCE: t
@@ -1397,7 +1402,7 @@ Thus, the API could be used to perform simple db ops. You can still pull the db,
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2014-05-29 Thu 22:23]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 33
@@ -1411,7 +1416,7 @@ Thus, the API could be used to perform simple db ops. You can still pull the db,
 [2014-05-29 Thu 22:23]
 
 The official deployment method is to use portage and overlays, so capistrano is no longer needed.
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 33
@@ -1423,7 +1428,7 @@ The official deployment method is to use portage and overlays, so capistrano is 
 :ID:       aae87091-55b3-494b-9d47-1de8c2a831b9
 :END:
 [2014-05-29 Thu 22:24]
-** 3
+*** 3
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 33
@@ -1435,7 +1440,7 @@ The official deployment method is to use portage and overlays, so capistrano is 
 :ID:       11a78e69-a009-486f-882a-e5368478d43b
 :END:
 [2018-04-11 Wed 00:22]
-* FIXED make contact messages send via email
+** FIXED make contact messages send via email
 :PROPERTIES:
 :ID: fa20eb43-cd29-6b60-9370-572f431bb1d0
 :EXPORT_FOSSIL_SOURCE: t
@@ -1453,7 +1458,7 @@ The official deployment method is to use portage and overlays, so capistrano is 
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2014-06-03 Tue 19:05]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 34
@@ -1467,7 +1472,7 @@ The official deployment method is to use portage and overlays, so capistrano is 
 [2014-06-03 Tue 19:05]
 
 that way i can have a copy through offlineimap
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 34
@@ -1479,7 +1484,7 @@ that way i can have a copy through offlineimap
 :ID:       c9bfc5a5-c54e-4f34-8ac4-206b5c70cec4
 :END:
 [2018-04-11 Wed 00:22]
-* OPEN make sure the avatar hash generated for each user persists
+** OPEN make sure the avatar hash generated for each user persists
 :PROPERTIES:
 :ID: d14ce066-490a-6259-1ae0-9a9c046a01c1
 :EXPORT_FOSSIL_SOURCE: t
@@ -1497,7 +1502,7 @@ that way i can have a copy through offlineimap
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2014-06-03 Tue 20:19]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 35
@@ -1509,7 +1514,7 @@ that way i can have a copy through offlineimap
 :ID:       8691187e-d462-4f65-a509-56e31a50757e
 :END:
 [2014-06-03 Tue 20:19]
-* CLOSED research moving server-side vendor directory to a place where it cannot be served by nginx
+** CLOSED research moving server-side vendor directory to a place where it cannot be served by nginx
 :PROPERTIES:
 :ID: 28a9cfbb-c598-aa58-3c9d-3ddc72f0f533
 :EXPORT_FOSSIL_SOURCE: t
@@ -1527,7 +1532,7 @@ that way i can have a copy through offlineimap
 :EXPORT_FOSSIL_RESOLUTION: Overcome_By_Events
 :END:
 [2014-06-04 Wed 23:58]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 36
@@ -1539,7 +1544,7 @@ that way i can have a copy through offlineimap
 :ID:       faf53466-56bf-47e6-b4ab-32475e7a99e6
 :END:
 [2014-06-04 Wed 23:58]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 36
@@ -1551,7 +1556,7 @@ that way i can have a copy through offlineimap
 :ID:       0a479388-b804-46fe-a2a3-f05fc6c177f4
 :END:
 [2018-04-11 Wed 00:23]
-* FIXED research and see if you can do a 301 redirect without the domain portion
+** FIXED research and see if you can do a 301 redirect without the domain portion
 :PROPERTIES:
 :ID: 7a8668f5-6b41-1a3d-3448-ee22b3898f35
 :EXPORT_FOSSIL_SOURCE: t
@@ -1569,7 +1574,7 @@ that way i can have a copy through offlineimap
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2014-06-05 Thu 01:03]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 37
@@ -1583,7 +1588,7 @@ that way i can have a copy through offlineimap
 [2014-06-05 Thu 01:03]
 
 this is for path.php. currently, the 301 redirect makes it so that the stage website redirects to the production site. this isn't really a problem, but see if a 301 redirect without the domain name portion is possible.
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 37
@@ -1595,7 +1600,7 @@ this is for path.php. currently, the 301 redirect makes it so that the stage web
 :ID:       05fd3298-e91a-40a5-b90d-6ff1ccdecf13
 :END:
 [2018-04-11 Wed 00:23]
-* OPEN consider absolute url output functionality
+** OPEN consider absolute url output functionality
 :PROPERTIES:
 :ID: afa0f110-dc34-e1aa-bab4-0e1e041d21b2
 :EXPORT_FOSSIL_SOURCE: t
@@ -1613,7 +1618,7 @@ this is for path.php. currently, the 301 redirect makes it so that the stage web
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2015-02-02 Mon 01:58]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 38
@@ -1627,7 +1632,7 @@ this is for path.php. currently, the 301 redirect makes it so that the stage web
 [2015-02-02 Mon 01:58]
 
 To prevent SEO issues
-* OPEN When you click preview button for comments, requests gets sent multple times.
+** OPEN When you click preview button for comments, requests gets sent multple times.
 :PROPERTIES:
 :ID: 62fb680c-0f8b-a8b1-ee8a-3a3bfe3fa273
 :EXPORT_FOSSIL_SOURCE: t
@@ -1645,7 +1650,7 @@ To prevent SEO issues
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2016-01-02 Sat 12:07]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 39
@@ -1661,7 +1666,7 @@ To prevent SEO issues
 It usually requires 2 clicks of the preview button to get it to actually preview since the first click does nothing. Analyzing the NET requests on firefox reveals that POSTs are getting sent out on that first click even though it appears nothing is happening.
 
 Investigate more and fix.
-* FIXED Switch from bower to NPM
+** FIXED Switch from bower to NPM
 :PROPERTIES:
 :ID: 5639ef5b-052c-8d60-6712-4418a6b3f12a
 :EXPORT_FOSSIL_SOURCE: t
@@ -1679,7 +1684,7 @@ Investigate more and fix.
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2018-03-26 Mon 01:20]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 40
@@ -1691,7 +1696,7 @@ Investigate more and fix.
 :ID:       165d6e43-7647-4f36-8195-35d6a39174ed
 :END:
 [2018-03-26 Mon 01:20]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 40
@@ -1703,7 +1708,7 @@ Investigate more and fix.
 :ID:       972f1352-f063-4f09-87b2-46297e75fe29
 :END:
 [2018-04-10 Tue 18:55]
-* OPEN Make sure google analytics is working on your blogs
+** OPEN Make sure google analytics is working on your blogs
 :PROPERTIES:
 :ID: b0b15e25-de42-cf17-8394-a22f4b79219a
 :EXPORT_FOSSIL_SOURCE: t
@@ -1721,7 +1726,7 @@ Investigate more and fix.
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-03-30 Fri 00:55]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 41
@@ -1735,7 +1740,7 @@ Investigate more and fix.
 [2018-03-30 Fri 00:55]
 
 Make sure you have the most up-to-date snippets and they are reporting data properly.
-* OPEN Make sure RSS feeds are working on your blogs
+** OPEN Make sure RSS feeds are working on your blogs
 :PROPERTIES:
 :ID: 89db4b9a-5a7c-facd-9ec7-34abe6e63277
 :EXPORT_FOSSIL_SOURCE: t
@@ -1753,7 +1758,7 @@ Make sure you have the most up-to-date snippets and they are reporting data prop
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-03-30 Fri 01:15]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 42
@@ -1765,7 +1770,7 @@ Make sure you have the most up-to-date snippets and they are reporting data prop
 :ID:       fae8c308-a476-4aee-a023-f99360a49d86
 :END:
 [2018-03-30 Fri 01:15]
-* OPEN Consider implementing line numbers for code syntax highlighting (and not for plain text like md, d, nd, etc.)
+** OPEN Consider implementing line numbers for code syntax highlighting (and not for plain text like md, d, nd, etc.)
 :PROPERTIES:
 :ID: 82c6aedf-5bf8-d1ea-279e-b66eb5ec3013
 :EXPORT_FOSSIL_SOURCE: t
@@ -1783,7 +1788,7 @@ Make sure you have the most up-to-date snippets and they are reporting data prop
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-03 Tue 17:38]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 43
@@ -1795,7 +1800,7 @@ Make sure you have the most up-to-date snippets and they are reporting data prop
 :ID:       2556d379-97c4-43a1-a716-b24660750b66
 :END:
 [2018-04-03 Tue 17:38]
-* OPEN Add an RSS Button or section for easy RSS subscription via like a feedburner or just make the atom feed a link that's easy to find on the page
+** OPEN Add an RSS Button or section for easy RSS subscription via like a feedburner or just make the atom feed a link that's easy to find on the page
 :PROPERTIES:
 :ID: cecfc263-37f9-c1e9-2e9e-868d8f503fbe
 :EXPORT_FOSSIL_SOURCE: t
@@ -1813,7 +1818,7 @@ Make sure you have the most up-to-date snippets and they are reporting data prop
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-09 Mon 22:49]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 44
@@ -1825,7 +1830,7 @@ Make sure you have the most up-to-date snippets and they are reporting data prop
 :ID:       8a31f72c-6fd5-44d6-8c92-197a347922de
 :END:
 [2018-04-09 Mon 22:49]
-* OPEN Validate that comments.xml was properly imported into Disqus
+** OPEN Validate that comments.xml was properly imported into Disqus
 :PROPERTIES:
 :ID: d08c26db-f834-f6ea-2c82-37250142911d
 :EXPORT_FOSSIL_SOURCE: t
@@ -1843,7 +1848,7 @@ Make sure you have the most up-to-date snippets and they are reporting data prop
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-10 Tue 12:46]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 45
@@ -1855,7 +1860,7 @@ Make sure you have the most up-to-date snippets and they are reporting data prop
 :ID:       4d3b9747-b77c-4a43-88a3-6be2e219091b
 :END:
 [2018-04-10 Tue 12:46]
-* CLOSED Consider having post links use ids instead of dates at the prepend for uniquification
+** CLOSED Consider having post links use ids instead of dates at the prepend for uniquification
 :PROPERTIES:
 :ID: 0ad7a095-d8d2-344b-30bd-e1a6ffd4e831
 :EXPORT_FOSSIL_SOURCE: t
@@ -1873,7 +1878,7 @@ Make sure you have the most up-to-date snippets and they are reporting data prop
 :EXPORT_FOSSIL_RESOLUTION: Rejected
 :END:
 [2018-04-10 Tue 12:39]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 46
@@ -1885,7 +1890,7 @@ Make sure you have the most up-to-date snippets and they are reporting data prop
 :ID:       0ef35808-27b7-44ac-8ec4-fa22510cda61
 :END:
 [2018-04-10 Tue 12:39]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 46
@@ -1909,7 +1914,7 @@ And on and on.
 Perhaps the best approach is to keep it as simple as possible. Always stick to a static flat URI structure: domain.name/document-name
 
 No attempt at taxonomy since taxonomy implies change. Collisions are simply handled by appending a number to the document.
-** 3
+*** 3
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 46
@@ -1927,7 +1932,7 @@ The only reason I used the YYYY-MM-dd structure was because I picked up the habi
 I needed a way to encode the date data of file creation in the path name, because it's a pseudo unique id that prevents collisions.
 
 Is that necessary anymore? Can I remove that portion?
-** 4
+*** 4
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 46
@@ -1949,7 +1954,7 @@ I liked the YYYY-MM-dd structure because I used it for old journals a lot. But t
 The flat structure seems the most appropriate and in line with my goals for the blog, so I'll go with that.
 
 Though, I am very happy I was able to implement ids for [1a9f7b133d]. Those aren't meant to be human-readable links, but machine-readable persistent links, so it all works out.
-* OPEN Make footnotes number and text inline/next to each other
+** OPEN Make footnotes number and text inline/next to each other
 :PROPERTIES:
 :ID: 498e7b69-157c-fecd-2bc6-635dbc6e6f73
 :EXPORT_FOSSIL_SOURCE: t
@@ -1967,7 +1972,7 @@ Though, I am very happy I was able to implement ids for [1a9f7b133d]. Those aren
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-10 Tue 18:45]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 47
@@ -1979,7 +1984,7 @@ Though, I am very happy I was able to implement ids for [1a9f7b133d]. Those aren
 :ID:       0b606305-1c28-464e-b1ff-16d2ce9f8304
 :END:
 [2018-04-10 Tue 18:45]
-* OPEN Re-validate my license files and make sure I've accounted for all obligations
+** OPEN Re-validate my license files and make sure I've accounted for all obligations
 :PROPERTIES:
 :ID: af7a48e5-193b-fd88-410e-b6878ae40e75
 :EXPORT_FOSSIL_SOURCE: t
@@ -1997,7 +2002,7 @@ Though, I am very happy I was able to implement ids for [1a9f7b133d]. Those aren
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-10 Tue 19:26]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 48
@@ -2009,7 +2014,7 @@ Though, I am very happy I was able to implement ids for [1a9f7b133d]. Those aren
 :ID:       e508d46e-e532-45f7-8702-fb531c2d33e1
 :END:
 [2018-04-10 Tue 19:26]
-* FIXED Consider implementing id uniquification for asset directories
+** FIXED Consider implementing id uniquification for asset directories
 :PROPERTIES:
 :ID: 1a9f7b13-3d3e-d06a-d086-17f6c035b641
 :EXPORT_FOSSIL_SOURCE: t
@@ -2027,7 +2032,7 @@ Though, I am very happy I was able to implement ids for [1a9f7b133d]. Those aren
 :EXPORT_FOSSIL_RESOLUTION: Fixed
 :END:
 [2018-04-10 Tue 21:30]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 49
@@ -2043,7 +2048,7 @@ Though, I am very happy I was able to implement ids for [1a9f7b133d]. Those aren
 Similar to [0ad7a095d8].
 
 It would work in parallel to org-attach ids. Have an assets id attach directory mirrored in the blog assets folder.
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 49
@@ -2055,7 +2060,7 @@ It would work in parallel to org-attach ids. Have an assets id attach directory 
 :ID:       9b64a06d-9d41-4044-b1a0-2f9b07eb3c45
 :END:
 [2018-04-10 Tue 22:26]
-* OPEN Consider updating portfolio images for nitelite.io
+** OPEN Consider updating portfolio images for nitelite.io
 :PROPERTIES:
 :ID: e485a90e-5527-cea3-ac9c-81e8824024c3
 :EXPORT_FOSSIL_SOURCE: t
@@ -2073,7 +2078,7 @@ It would work in parallel to org-attach ids. Have an assets id attach directory 
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-10 Tue 18:44]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 50
@@ -2085,7 +2090,7 @@ It would work in parallel to org-attach ids. Have an assets id attach directory 
 :ID:       683370de-d5b0-41ff-848a-cfcf25978d8b
 :END:
 [2018-04-10 Tue 18:44]
-* OPEN Consider implementing newest projects in portfolio
+** OPEN Consider implementing newest projects in portfolio
 :PROPERTIES:
 :ID: 173966a5-3aab-c7db-09de-9a45b9224a6a
 :EXPORT_FOSSIL_SOURCE: t
@@ -2103,7 +2108,7 @@ It would work in parallel to org-attach ids. Have an assets id attach directory 
 :EXPORT_FOSSIL_RESOLUTION: Open
 :END:
 [2018-04-11 Wed 00:18]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 51
@@ -2115,7 +2120,7 @@ It would work in parallel to org-attach ids. Have an assets id attach directory 
 :ID:       a5502476-5453-46fb-b78e-bef418183dd7
 :END:
 [2018-04-11 Wed 00:18]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 51
@@ -2129,7 +2134,7 @@ It would work in parallel to org-attach ids. Have an assets id attach directory 
 [2018-04-11 Wed 00:28]
 
 Like create new portfolio items for projects you've built but haven't yet added.
-* CLOSED Validate that google analytics is working for each blog instance
+** CLOSED Validate that google analytics is working for each blog instance
 :PROPERTIES:
 :ID: 9815cba4-c633-718a-c1cc-10d7cbd34a95
 :EXPORT_FOSSIL_SOURCE: t
@@ -2147,7 +2152,7 @@ Like create new portfolio items for projects you've built but haven't yet added.
 :EXPORT_FOSSIL_RESOLUTION: Duplicate
 :END:
 [2018-04-11 Wed 00:17]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 52
@@ -2159,7 +2164,7 @@ Like create new portfolio items for projects you've built but haven't yet added.
 :ID:       197ccea5-65ca-409c-a019-548f1021de59
 :END:
 [2018-04-11 Wed 00:17]
-** 2
+*** 2
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 52
@@ -2171,7 +2176,7 @@ Like create new portfolio items for projects you've built but haven't yet added.
 :ID:       b6dc5dd3-7a57-4689-9255-4413a9e094e0
 :END:
 [2018-04-11 Wed 00:24]
-* OPEN Fix hamburger menu toggle alignment and clickability
+** OPEN Fix hamburger menu toggle alignment and clickability
 :PROPERTIES:
 :ID: 327909e6-edae-7a81-9137-c0101b6463c8
 :EXPORT_FOSSIL_SOURCE: t
@@ -2189,7 +2194,7 @@ Like create new portfolio items for projects you've built but haven't yet added.
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-11 Wed 00:17]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 53
@@ -2203,7 +2208,7 @@ Like create new portfolio items for projects you've built but haven't yet added.
 [2018-04-11 Wed 00:17]
 
 The hamburger menu isn't consistently clickable on small screens.
-* OPEN Validate search works for each blog instance
+** OPEN Validate search works for each blog instance
 :PROPERTIES:
 :ID: f3b4cc32-d331-1660-7518-29e0bd531e0f
 :EXPORT_FOSSIL_SOURCE: t
@@ -2221,7 +2226,7 @@ The hamburger menu isn't consistently clickable on small screens.
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-11 Wed 00:18]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 54
@@ -2233,7 +2238,7 @@ The hamburger menu isn't consistently clickable on small screens.
 :ID:       9c26f1db-7dc2-4235-83a4-4715e1f859ef
 :END:
 [2018-04-11 Wed 00:18]
-* OPEN Navbar overflow bug on medium-sized screens
+** OPEN Navbar overflow bug on medium-sized screens
 :PROPERTIES:
 :ID: 5f02131d-5760-62e3-c852-d931c324b259
 :EXPORT_FOSSIL_SOURCE: t
@@ -2251,7 +2256,7 @@ The hamburger menu isn't consistently clickable on small screens.
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-11 Wed 00:16]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 55
@@ -2267,7 +2272,7 @@ The hamburger menu isn't consistently clickable on small screens.
 The introduction of the portfolio item causes overflow on medium sized screens.
 
 Update the widths of the required elements so transitions between screen sizes don't cause overflows.
-* OPEN Consider updating fossil.nitelite.io source links to fossil.hackbytes.io
+** OPEN Consider updating fossil.nitelite.io source links to fossil.hackbytes.io
 :PROPERTIES:
 :ID: d7bdbf8b-6f40-a475-5431-41b3fe18bfa5
 :EXPORT_FOSSIL_SOURCE: t
@@ -2285,7 +2290,7 @@ Update the widths of the required elements so transitions between screen sizes d
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-11 Wed 13:18]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 56
@@ -2297,7 +2302,7 @@ Update the widths of the required elements so transitions between screen sizes d
 :ID:       7dfec2b9-8e65-4ea4-9b97-b0c32424662e
 :END:
 [2018-04-11 Wed 13:18]
-* OPEN Fix GitHub reported vulnerabilities
+** OPEN Fix GitHub reported vulnerabilities
 :PROPERTIES:
 :ID: bdea2a8a-7c45-6d0f-8374-5041afe088a1
 :EXPORT_FOSSIL_SOURCE: t
@@ -2315,7 +2320,7 @@ Update the widths of the required elements so transitions between screen sizes d
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-11 Wed 00:17]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 57
@@ -2327,7 +2332,7 @@ Update the widths of the required elements so transitions between screen sizes d
 :ID:       e058fb9a-3692-4fae-a0ff-5240ada3cb2c
 :END:
 [2018-04-11 Wed 00:17]
-* OPEN Fix jquery bugs on pikachoose portfolio carousel
+** OPEN Fix jquery bugs on pikachoose portfolio carousel
 :PROPERTIES:
 :ID: 570560bb-c417-c725-e71f-8e9877308c86
 :EXPORT_FOSSIL_SOURCE: t
@@ -2345,7 +2350,7 @@ Update the widths of the required elements so transitions between screen sizes d
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-11 Wed 00:15]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 58
@@ -2361,7 +2366,7 @@ Update the widths of the required elements so transitions between screen sizes d
 It's pretty volatile. Image size changes in the same carousel have unpredictable effects, perhaps due to the manual jquery centering I implemented.
 
 Fix those issues, perhaps replace the carousel lib since this one isn't maintained anymore it seems.
-* OPEN Vertically center the search bar
+** OPEN Vertically center the search bar
 :PROPERTIES:
 :ID: 618818d2-15bd-81a2-78b8-2dfe1b9bdc97
 :EXPORT_FOSSIL_SOURCE: t
@@ -2379,7 +2384,7 @@ Fix those issues, perhaps replace the carousel lib since this one isn't maintain
 :EXPORT_FOSSIL_RESOLUTION: nil
 :END:
 [2018-04-11 Wed 00:17]
-** 1
+*** 1
 :PROPERTIES:
 :EXPORT_FOSSIL_SOURCE: t
 :EXPORT_FOSSIL_TKT_ID: 59
@@ -2391,3 +2396,59 @@ Fix those issues, perhaps replace the carousel lib since this one isn't maintain
 :ID:       6773e3be-bdb3-497e-98c3-a23a227d6a2f
 :END:
 [2018-04-11 Wed 00:17]
+* Documentation
+:PROPERTIES:
+:ID:       e09fc572-e3fa-41c8-8274-0aebcb2a92ec
+:END:
+[2018-05-02 Wed 12:16]
+** Bower To Webpack Migration
+:PROPERTIES:
+:ID:       c134e5c4-fe40-4800-a1d8-80304ea4a765
+:END:
+[2018-03-27 Tue 23:14]
+
+The key requirement is to essentially remove all grunt build tasks such that the
+entire website can be built from running a single command:
+
+    wintersmith build
+
+That's it!
+** npm
+:PROPERTIES:
+:ID:       a86f2379-b259-4761-9617-bde31980f577
+:END:
+[2018-03-29 Thu 21:32]
+*** NPM Prefix
+:PROPERTIES:
+:ID:       2f66a949-9ca1-4b48-938e-5a323bdd913f
+:END:
+[2018-03-29 Thu 21:32]
+
+The following explains why the Dockerfile uses both `--prefix` and `NODE_PATH`.
+
+The prefix argument *must* be supplied within docker containers if you want
+packages to be installed in non-standard directories.
+
+If you are in a root project directory and run `npm install`, it'll install it
+in that project directory, duh! So you have to provide an `npm --prefix
+/path/to/dir install` argument if you want the packages to be installed
+elsewhere.
+
+`$NODE_PATH` does nothing in terms of deciding *where* to install packages. All
+it does is tell node additional directoies to look in order to resolve
+`require`'s in js code.
+* Reference
+:PROPERTIES:
+:ID:       01f29a91-9c59-4104-ac05-92bc6b923f7b
+:END:
+[2018-05-02 Wed 12:17]
+* Someday/Maybe
+:PROPERTIES:
+:ID:       3583e586-3048-43dd-8e38-f8723babe44e
+:END:
+[2018-05-02 Wed 12:17]
+* Project Files
+:PROPERTIES:
+:ID:       de3225c3-3a18-470d-87bc-d4a25c5e6728
+:END:
+[2018-05-02 Wed 12:17]
