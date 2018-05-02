@@ -1,4 +1,21 @@
 
+#+TITLE: blogs
+#+DATE: 2018-05-02 Wednesday 11:30:10 -0400
+#+AUTHOR: Byron Sanchez
+#+EMAIL: byron@hackbytes.io
+#+LANGUAGE:  en
+#+DESCRIPTION: Monorepo for all of the blogs I write
+#+KEYWORDS: BLOGS HACKBYTES PROJECTS
+#+FILETAGS: BLOGS HACKBYTES PROJECTS
+
+#+OPTIONS:   H:3 num:t   toc:3 \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:nil
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS:   author:t creator:t timestamp:t email:t
+#+SEQ_TODO: OPEN CLOSED FIXED DEFERRED
+#+INFOJS_OPT: view:nil toc:t ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+
 * FIXED Fix footnote collisions by adding manually chosen ids
 :PROPERTIES:
 :ID: 76181e87-7954-e439-09f0-3645ec3e3031
