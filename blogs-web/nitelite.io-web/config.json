@@ -105,8 +105,7 @@
   "pygments": true,
   "ignore": [
 	"README.md",
-	"README.org",
-	"Gruntfile"
+	"README.org"
   ]
 }
 

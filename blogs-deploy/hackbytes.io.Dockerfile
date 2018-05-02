@@ -6,9 +6,7 @@ RUN apk --no-cache add \
   sqlite
 
 RUN npm install -g webpack \
-  live-server \
   coffeescript \
-  grunt-cli \
   postcss-cli
 
 WORKDIR /home/wintersmith
