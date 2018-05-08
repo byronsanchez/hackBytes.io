@@ -2,12 +2,12 @@
   "legacyWatch": true,
   "verbose": true,
   "ignore": [
-  "../blogs-libs/wintersmith/lib/*",
-  "../blogs-libs/wintersmith/node_modules/*",
-	"build/*",
-	"node_modules/*",
-	"contents/scripts/*",
-	"contents/database/bin/*"
+  "../blogs-libs/wintersmith/lib/",
+  "../blogs-libs/wintersmith/node_modules/",
+	"build/",
+	"node_modules/",
+	"contents/scripts/",
+	"contents/database/bin/"
   ],
   "watch": [
 	"../blogs-libs/",
