@@ -21,6 +21,18 @@
 :ID:       3409e7d7-cfdd-4bfc-9757-feb7fc312c3b
 :END:
 [2018-05-02 Wed 12:09]
+** OPEN Fix up global templates symlinks
+:PROPERTIES:
+:ID:       5010629e-9887-41d2-8068-a8dd2a35ba37
+:END:
+[2018-05-08 Tue 12:02]
+
+It looks like there might be a bug that causes docker builds to override the
+symlinks?
+
+Explore why the symlinks are getting deleted and replaced with actual copies of
+the global templates directory. It might be a Dropbox thing, it might be a build
+thing (bind mounts?). See if you can produce the override and fix the issue.
 ** OPEN Set up docker-compose
 :PROPERTIES:
 :ID:       4651f40d-6ce0-4606-8587-2c927c59ae0e
@@ -29,7 +41,6 @@
 
 Set up docker-compose so that it's much more trivial to orchestrate building,
 running, deployment of all blog instances.
-
 ** FIXED Fix footnote collisions by adding manually chosen ids
 :PROPERTIES:
 :ID: 76181e87-7954-e439-09f0-3645ec3e3031
