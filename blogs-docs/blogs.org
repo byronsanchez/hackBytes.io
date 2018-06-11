@@ -2386,6 +2386,192 @@ Update the widths of the required elements so transitions between screen sizes d
 It's pretty volatile. Image size changes in the same carousel have unpredictable effects, perhaps due to the manual jquery centering I implemented.
 
 Fix those issues, perhaps replace the carousel lib since this one isn't maintained anymore it seems.
+** FIXED Test contact form or switch to email info
+CLOSED: [2018-03-26 Mon 14:10]
+:PROPERTIES:
+:ID:       1bbbdb9a-8d15-415e-9a8e-87410dfd2c46
+:END:
+   [2017-08-03 Thu 23:06]
+*** CLOSED Test contact form                                 :CANCELLED:
+CLOSED: [2018-03-24 Sat 12:49]
+:PROPERTIES:
+:ID:       8b094812-083a-4283-8421-505e2c59dc5e
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "NEXT"       [2018-03-24 Sat 12:49]
+:END:
+[2017-08-04 Fri 11:43]
+*** CLOSED Explore options for email                         :CANCELLED:
+CLOSED: [2018-03-24 Sat 12:50]
+:PROPERTIES:
+:ID:       532cc187-7228-4e54-a33c-70219c50b0e1
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "NEXT"       [2018-03-24 Sat 12:50]
+:END:
+[2017-08-04 Fri 11:43]
+*** FIXED Use the jekyll static comment thing you once saw to send you an email from the contact form instead of storing it in sqlite
+CLOSED: [2018-03-24 Sat 12:50]
+:PROPERTIES:
+:ID:       aa001a56-31b9-43ae-9036-67b8ab15271c
+:END:
+[2017-08-04 Fri 11:43]
+** OPEN Consider using visible tags for tags instead of the properties
+:PROPERTIES:
+:ID:       acd7d771-609b-4f4e-ae51-b5246a7a20b0
+:END:
+:LOGBOOK:
+- State "TODO"       from "CANCELLED"  [2018-01-31 Wed 19:06]
+- State "CANCELLED"  from "TODO"       [2018-01-31 Wed 19:05]
+:END:
+   [2017-08-04 Fri 07:51]
+** OPEN See if you can pull a sleight of hand and serve feedburner nitelite/blog on nitelite feeds.nitelite.io/nitelite :@home:
+:PROPERTIES:
+:ID:       e77991a1-cda0-4095-9d2f-dc608d0a15a5
+:END:
+    [2017-08-02 Wed 22:44]
+
+Try to see if a domain alias can work.
+
+Or nginx, something like:
+
+#+begin_example
+location /nitelite {
+  alias /path/to/real/thing
+}
+#+end_example
+
+source: https://stackoverflow.com/questions/21399789/nginx-how-to-create-an-alias-url-route
+** FIXED Fix undefined notebook labels (used to be like journal, dream, etc.)
+CLOSED: [2018-03-24 Sat 17:11]
+:PROPERTIES:
+:ID:       9896d302-1aeb-4405-8f0a-a0ec9dd5d0c7
+:END:
+    [2017-08-03 Thu 22:58]
+
+Looks like category and special tags were used here for archives.
+*** FIXED Decide if I want to replace it with something or not
+CLOSED: [2018-03-24 Sat 17:11]
+:PROPERTIES:
+:ID:       4057e718-8292-4888-80fd-2c6ba01ae6e1
+:END:
+[2017-08-04 Fri 11:42]
+** FIXED Test paths.db php functionality
+CLOSED: [2018-03-22 Thu 13:56]
+:PROPERTIES:
+:ID:       a36c9cf1-9ed4-4acf-b634-a3974a418100
+:END:
+   [2017-08-03 Thu 22:57]
+** OPEN Fix bug where link right before headline breaks export in prepare function in ox-wintersmith-subtree
+:PROPERTIES:
+:ID:       175f1846-3d9e-4c0b-b6d5-78db501f5324
+:END:
+   [2017-08-03 Thu 22:57]
+** OPEN Fix weird bug where topbar-height rem might not be correct since the search bar isn't centered properly
+:PROPERTIES:
+:ID:       1798f888-12cf-4627-9f7d-c49400913c1a
+:END:
+   [2017-08-03 Thu 23:01]
+** OPEN Clean up assets in build/ for nitlite.io
+:PROPERTIES:
+:ID:       9763cfaa-8594-43b3-8b10-3ae7a9c6b899
+:END:
+  :LOGBOOK:
+  CLOCK: [2017-08-03 Thu 20:42]--[2017-08-03 Thu 20:43] =>  0:01
+  :END:
+[2017-08-03 Thu 20:42]
+[[file:~/Dropbox/byronsanchez/nitelite.io/contents/org/nitelite.io.org::*Intro][Intro]]
+** OPEN Consider using custom ids for blog publishing
+:PROPERTIES:
+:ID:       8a3c4fc5-d94b-41d9-b113-a751eb242050
+:END:
+  :LOGBOOK:
+  CLOCK: [2017-07-31 Mon 15:54]--[2017-07-31 Mon 15:55] =>  0:01
+  :END:
+[2017-07-31 Mon 15:54]
+[[file:~/.dotfiles/emacs/.emacs.d.symlink/config.org::*org-export%20blogs][org-export blogs]]
+
+https://writequit.org/articles/emacs-org-mode-generate-ids.html
+** OPEN Get wintersmith compilation output to display through the execSync call in scripts/support/build.coffee
+:PROPERTIES:
+:ID:       6bc69006-d910-4e83-be67-53a695b4150d
+:END:
+  [2017-08-01 Tue 20:02]
+** CLOSED Update byronsanchez.io blog dependencies            :CANCELLED:
+CLOSED: [2018-03-24 Sat 16:02]
+:PROPERTIES:
+:ID:       b4e4a693-83f6-4568-be38-7fdd34fe27d8
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2018-03-24 Sat 16:02]
+:END:
+[2017-07-31 Mon 08:00]
+** FIXED Create an email list for niteLite.io blog posts
+CLOSED: [2018-03-24 Sat 16:02]
+:PROPERTIES:
+:ID:       05eb9d79-2216-4789-877d-1205012fe0f8
+:END:
+[2017-09-14 Thu 11:09]
+
+** FIXED Decide on "live in emacs" or "live in fossil" for repo projects
+CLOSED: [2018-03-19 Mon 00:57]
+:PROPERTIES:
+:ID:       b7e3782f-c0ca-4624-9ac6-7c39dee4490f
+:END:
+:LOGBOOK:
+- State "DONE"       from "HOLD"       [2018-03-19 Mon 00:57]
+- State "HOLD"       from "TODO"       [2018-02-18 Sun 14:05] \\
+  Waiting to see how my project management develops over long spans of time (eg.
+  music production project tasks and notes, blog project tasks and notes, and any
+  other projects I pursue and track using org-mode).
+
+  This will give me more data on how I should efficiently track my individual
+  projects.
+CLOCK: [2018-02-18 Sun 14:04]--[2018-02-18 Sun 14:06] =>  0:02
+:END:
+[2018-02-18 Sun 14:04]
+[[file:x:/notebook/blogs/hackbytes.org]]
+
+Mainly because it seems I'm moving everythign to org files, at least for some
+projects (blogs). Like docs, and tasks are best managed by org-mode for my blog
+projects.
+
+Perhaps the same will be true for music production and other software projects I
+have.
+
+[2018-03-19 Mon 00:53]
+
+Decided to live in the project systems (fossil, ticketing, etc.) since it's more
+potential to open for collabs and scaling.
+
+I will "check out" tasks and stuff into org-mode, but the authoritative source
+will be in the project repo- fossil, git issue tracker, whatever it is.
+
+Maybe I'll adopt the same policy for Salesforce...
+
+I don't own the data with that, so I'm more hesitant, but I'll think about it.
+Maybe if I get comfortable with managing exported data.
+
+** CLOSED Consider implementing smilies or emojis on your blogs  :CANCELLED:
+CLOSED: [2018-03-24 Sat 16:02]
+:PROPERTIES:
+:ID:       05d630d0-47f9-4dca-87ef-6bd7ee9b1bd0
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2018-03-24 Sat 16:02]
+:END:
+[2018-02-27 Tue 11:06]
+[[file:x:/notebook/org/entrepreneurship.org::*Autoresponders%20(?)][Autoresponders (?)]]
+** CLOSED Consider moving wintersmith plugins to nitelite.io     :CANCELLED:
+CLOSED: [2018-03-24 Sat 16:02]
+:PROPERTIES:
+:ID:       073bc6f8-9126-4253-8fa1-aea7cf3f7503
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2018-03-24 Sat 16:02]
+:END:
+[2018-03-13 Tue 09:02]
+[[file:x:/notebook/org/capture.org::*Monorepo%20vs%20multi-repo][Monorepo vs multi-repo]]
 ** OPEN Vertically center the search bar
 :PROPERTIES:
 :ID: 618818d2-15bd-81a2-78b8-2dfe1b9bdc97
@@ -2416,11 +2602,717 @@ Fix those issues, perhaps replace the carousel lib since this one isn't maintain
 :ID:       6773e3be-bdb3-497e-98c3-a23a227d6a2f
 :END:
 [2018-04-11 Wed 00:17]
+** CLOSED Study landing page effectiveness and understand it before redesigning your new portfolio :CANCELLED:
+CLOSED: [2018-03-24 Sat 16:02]
+:PROPERTIES:
+:ID:       a791df16-2d41-4eee-bafa-8aeefabcabe4
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2018-03-24 Sat 16:02]
+:END:
+[2018-03-13 Tue 19:10]
 * Documentation
 :PROPERTIES:
 :ID:       e09fc572-e3fa-41c8-8274-0aebcb2a92ec
 :END:
 [2018-05-02 Wed 12:16]
+** hackbytes.io
+:PROPERTIES:
+:ID:       2eb4b37b-ea8e-4ce7-a89e-aafb2692356d
+:END:
+[2018-01-17 Wed 15:04]
+*** CANCELLED Fix hackBytes security issue reported on github   :CANCELLED:
+CLOSED: [2018-04-12 Thu 13:34]
+:PROPERTIES:
+:ID:       95785b2a-6139-4b94-a9df-8b1541e3cd53
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2018-04-12 Thu 13:34] \\
+  Stored this in fossil tickets
+:END:
+[2018-01-17 Wed 15:35]
+[[gnus:nnimap%2Bbfs5030@gmail.com:INBOX#5a1de870.c6fa240a.7489e.c27fSMTPIN_ADDED_BROKEN@mx.google.com][Email from GitHub: {byronsanchez/hackbytes.com} O]]
+
+*** Analysis
+:PROPERTIES:
+:ID:       b4fa15c3-8f79-4c93-b17d-ed76c7d30391
+:END:
+[2013-09-07 Sat 00:20]
+
+# hackBytes Analysis
+
+## Description
+
+hackBytes is the brand that represents Byron Sanchez. A lot more can be
+done by branding the name hackBytes, as opposed to branding a normal
+name like "Byron Sanchez."
+
+One area of consideration is freelancing. Should the freelancing brand
+be seperate, or should it be hackBytes? This decision is not important now, but it is necessary to be aware of.
+For now, we must assume that hackBytes could very well evolve into a
+freelance business and treat it as such. This is the most best way
+to approach the project while maintaining all options for the future.
+
+So for now, let's assume that hackBytes its both my brand as a
+developer, should I ever wish to get hired by a company or should I ever
+wish to take on clients.
+
+One final area of consideration is hackBytes videos. While it is
+tempting to pursue the creation of tutorial series in video format, it
+would be best to use video as a content channel only when it is truly
+the best medium to communicate the content (for example, if I must
+display a lot of visuals and screenshots would actually be much less
+helpful). hackBytes is not going to be a tutorial site teaching
+programmers how to develop from the ground up. It will contain guides
+and documents, but not entire courses. So if we want videos, make them
+relevant and make sure they are the best channel for communication.
+
+In short, the brand is Byron Sanchez, the developer. I want to market myself
+as a well-versed mobile and web application developer capable of guiding others
+to becoming professionals within these fields.
+
+## Google Analysis
+
+### Findings
+
+**Search Term: Byron Sanchez**
+**Platform: Tor**
+
+Facebook = 2
+Anomaly Radio = 5
+Github = 6
+hackBytes = 8
+twitter = 9
+
+Page 3 = Internet Archive Creator Page
+Page 4 = StackOverflow, lastfm generic artist page
+Page 6 = CU Podfeed
+Page 7 = Paracast forum membership
+
+## hackBytes Account Username List
+
+Note: It may make sense to use "byronsanchez" whenever possible, as this
+might get linked. Usually, these links point to the site's profile page
+which may get indexed on Google. Do this if you WANT the results
+to show up in Google.
+
+If a target site has multiple accounts, one is meant for the professional hackbytes page
+while the other is meant for the "casual" personal page.
+
+hackBytes.com - None - 1x week
+Github - byronsanchez - 1x a day
+StackExchange - byronsanchez - 3x a week
+LinkedIn - byronsanchez - 1x a day
+Twitter - byronsanchez - 1x a day
+Twitter - hackBytes - 1x a day
+Youtube - ?
+Youtube - hackBytes - 1x a month
+Facebook - byronsanchez - 1x a day
+Facebook Page - hackBytes - ?
+Google Plus - bfs5030@gmail.com - 1x a day
+
+discussions.apple.com - byronsanchez - 3x a week
+iphonedevsdk.com - byronsanchez - 3x a week
+forums.macrumors.com - byronsanchez - 3x a week
+
+androidforums.com - byronsanchez - 3x a week
+forum.xda-developers.com - byronsanchez - 3x a week
+androidcentral.com - byronsanchez - 3x a week
+
+drupal.org - byronsanchez - 1x a month
+disqus/blogs - bfs5030@gmail.com - 1x a day
+
+Guru
+Rent a Coder
+Elance
+oDesk
+
+### TODO: Process
+
+- Remove Anomaly Radio from front page
+- Move hackBytes to first result
+- StackOverflow to front page
+- Linked-in to front page
+- Use hootsuite, buffer and tweetdeck for building presences on various
+  social media sites.
+- Find relevant, interesting forums, create accounts and participate
+- Aim for once a month videos to post on the hackBytes website
+- Post regular content. Ideally 3x a week, but aim for at least 1x a week for now
+- Commit daily (or at least make an effort to. The effort will translate to some
+  kind of regularity)
+- Tone it down, just like Darwin did with his profile. Time to go professional
+- Determine if Chompix should be front-paged.
+
+- Hootsuite
+- Buzzbundle
+- Buffer
+- Tweetdeck
+*** Inspiration
+:PROPERTIES:
+:ID:       9df53aa5-65d1-4a52-b5eb-b457abbc9ada
+:END:
+[2018-03-19 Mon 14:58]
+**** http://rocketink.net/2013/01/my-nvalt-setup.html - The Layout, Colors, Logo, Font, etc.
+:PROPERTIES:
+:ID:       fd9be6f2-222f-4742-9dd5-94b35c5ab6ad
+:END:
+[2018-03-19 Mon 14:58]
+**** https://www.over-yonder.net/~fullermd/ - hacker minimalist
+:PROPERTIES:
+:ID:       21412ae1-1568-47fa-a821-c082bfd4034b
+:END:
+[2018-03-21 Wed 12:08]
+*** Analytics
+:PROPERTIES:
+:ID:       70608584-df56-4882-94cb-280039947390
+:END:
+[2014-02-23 Sun 19:33]
+
+Goals:
+
+  - Build a large readership
+  - Sell freelance services for mobile and web apps/sites
+
+Notes:
+
+  - The two goals cater to two different audiences, though  there may be overlap.
+    However, the readership will probably not be the paying customer (for
+    freelance services). Thus, here we may have two distinct market segments.
+
+*** Comments
+:PROPERTIES:
+:ID:       306c9094-84b6-4171-a319-6f3f589c3642
+:END:
+[2014-05-31 Sat 21:06]
+
+# notes
+
+some notes regarding the comments system
+
+## current workflow
+
+the comment database on the production server acts as a net. it captures
+comments that can be moderated.
+
+I'm working on making the workflow a lot simpler, but for now I'm keeping these
+notes so I know where I left off in the design of the comments system.
+
+### net management
+
+net management is currently done as follows.
+
+- comments db is on server and captures comments
+- author pulls a copy of the comments db
+- author moderates comments
+- author pushes updated db to server
+- the local copy of the db can be used to generate static html pages containing
+  the comments
+
+this is a direct, two-way dev machine to prod machine connection. stage isn't
+used for this.
+
+tldr;
+
+  1. pull db from prod
+  2. moderate db
+  3. push db to prod
+  4. use local copy to gen the static pages
+
+### comment publishing
+
+  this is step 4 above
+
+  the db copy is read by a script and yaml files are generated
+  during the jekyll build process, the yaml files are read and the content of
+  the comments are placed in the appropriate page
+
+*** DONE Fix hackbytes.com and nitelite.io contact forms from sql to mail or something like that
+  CLOSED: [2018-04-12 Thu 13:34] SCHEDULED: <2018-03-11 Sun>
+  :PROPERTIES:
+  :ID:       12c16e6d-ccf7-4e75-89e3-561faa080e1a
+  :END:
+  :LOGBOOK:
+  CLOCK: [2018-03-05 Mon 11:41]--[2018-03-05 Mon 11:42] =>  0:01
+  :END:
+[2018-03-05 Mon 11:41]
+[[file:~/Dropbox/hackBytes/ringcentral-web-widget-demos/docs/salesforce_lightning_more/code/RCPhone.vfp::})%3B][file:~/Dropbox/hackBytes/ringcentral-web-widget-demos/docs/salesforce_lightning_more/code/RCPhone.vfp::});]]
+*** CANCELLED Add contact form daily test like a cron job for both sites :CANCELLED:
+CLOSED: [2018-03-11 Sun 21:27] SCHEDULED: <2018-03-11 Sun>
+:PROPERTIES:
+:ID:       65f4d642-f0b3-436a-ae2c-8024d8af22ff
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2018-03-11 Sun 21:27] \\
+  Just gonna do a manual check whenever I update the servers. Fixes would be
+  manual anyway.
+:END:
+[2018-03-11 Sun 13:47]
+*** DONE add my name to my main website title- emacs config - byron sanchez (hackbytes.com) or something like that, so it feels more personal
+CLOSED: [2018-04-12 Thu 13:34]
+:PROPERTIES:
+:ID:       68dc658a-beac-4e36-ab32-b3d89ef9b0e6
+:END:
+[2018-03-17 Sat 23:59]
+[[file:x:/notebook/org/capture.org::*Conclusions%20on%20my%20IDE/workstation%20policy][Conclusions on my IDE/workstation policy]]
+** niteLite.io
+:PROPERTIES:
+:ID:       ff92d59d-3079-4060-8aab-21f636a9b41a
+:END:
+[2017-08-03 Thu 23:02]
+
+*** Deployment
+:PROPERTIES:
+:ID:       148a1508-e8b1-4370-a280-f0c41a04029e
+:END:
+[2015-12-24 Thu 18:10]
+
+# Notes
+
+### Troubleshooting
+*** Requirements
+:PROPERTIES:
+:ID:       78c33092-c7ae-46b5-aebe-bcfb72e6343a
+:END:
+[2015-07-20 Mon 20:46]
+
+# tehpotatoking.com Requirements
+
+List of things needed for the final product.
+
+There are two general infrastructures to consider for building this
+application.  The reader system and the publisher system. The reader system
+contains all components related to using the actual website, reading the
+content, and commenting on content. The reader system is almost entirely
+interacted with using a web browser. The publisher system contains all
+components related to the authoring and publishing of content to the website.
+The publisher system is almost entirely interacted with using the command line.
+
+## Features
+
+### Reader
+
+All reader features are available through the website.
+
+- An index of the most recent posts in the home page
+- Individual pages for standalone content
+- Individual post pages, dedicated to displaying a post and it's comments
+- Reader can write comments to posts
+- Reader can use markdown within comments for styling (same markdown as
+  publisher)
+- Reader can leave optional information along with their comment
+  - Email
+  - Website
+  - Name
+- Chronological archive of old posts
+- An RSS Feed that can be used with RSS readers for latest posts
+- Contact page containing a form and an email address that readers can use to
+  send an email
+- A horizontal navbar containing main links below masthead
+  - Social icons on the opposite end to balance the links
+- A right sidebar containing extra, interesting relevant content
+
+### Publisher
+
+All publisher features should be available through the command line.
+
+- Publisher can post articles using markdown for styling
+- Publisher can create pages using markdown for styling
+- Publisher can embed videos using markdown
+  - Widescreen or normal aspect ratio
+- Publisher can embed code using markdown
+  - With or without line numbers
+  - A styling for plain text is available
+- Publisher can embed non-youtube audio using markdown
+- Publisher can embed non-youtube video using markdown
+- Publisher can add tags to each post for creating related posts and for the
+  possibility of any tag display in the future
+- Ability to display an optional description instead of the full text of the
+  post on the indexes
+- Publisher can moderate comments
+- Publisher can build and deploy the website
+
+## Platforms
+
+- Desktops
+- Phone Devices
+- Tablet Devices
+
+## Deployment
+
+- Via web using Grunt
+
+
+*** Specifications
+:PROPERTIES:
+:ID:       03dc9d0d-832d-4889-b8b7-2733ddef8360
+:END:
+[2015-07-20 Mon 20:46]
+
+# tehpotatoking.com Specifications
+
+Description of how the app works.
+
+## Overview
+
+tehpotatoking.com is my personal blog. It is intended to be a place where I can
+post
+about anything I want, without any filter. The main purpose of the website is
+to keep track of the different projects and goals I am pursuing, to log my
+experiences as well as what I learn, and to drive me into accomplishing
+whatever I set out to do. Ultimately, I want to accomplish as many of my goals
+as I can - these range from building all kinds of different software to
+learning many different skills and even travelling to lots of different places.
+
+Disclaimer - This spec is a work in progress! Software is constantly changing
+and this spec will undergo future revisions to keep up with changing
+requirements. If there is anything wrong with this spec, let me know and I will
+review it. The graphics here are not representative of the final product.  They
+are simply used to help communicate the underlying functionality of the app. The
+purpose of this spec is to described what the user will see as they interact
+with the application. Lastly, the details concerning algorithms to be
+implemented are not covered in great depth within this spec. If explanations and
+further documentation are necessary, they will be located in another document.
+
+## Scenarios
+
+Some sample scenarios of how the stereotypical user may use the app.
+
+**Scenario 1: Tom the Reader**
+
+Tom is a software engineer working in Buffalo, New York. He doesn't follow many
+blogs. A few have caught his eye and fewer have kept his interest.
+tehpotatoking.com has fortunately made it on his list of must-follows. He can
+sometimes relate to
+the author. The author often makes a fool of himself when trying to accomplish a
+particular task or goal, especially when it is something he has never done
+before, but there is often some good experience gained. Tom values this and does
+the same. To Tom, it is refreshing to know others are willing to take risks and
+look like a fool, because Tom does this as well. And sometimes, when you are
+trying to do something that may be considered intimidating or risky, its great
+to know you're not the only one.
+
+**Scenario 2: Jenna the Reader**
+
+Jenna is a one of a large community of bloggers interested in getting the most
+out of life and finding adventures wherever possible and most importantly,
+accomplishing the goals each person has set for themselves. She keeps
+up-to-date with other bloggers by following their writings and they stay in
+touch with her, typically through her blog. One of the blogs she follows is
+tehpotatoking.com. By reading the writings that focus on finding adventure and
+accomplising goals, Jenna is surrounding herself with attitudes that encourage
+her and support her own drive in doing the same.
+
+**Scenario 3: Byron the Publisher**
+
+Byron (me!) is a developer who loves building things. Most importantly, he loves
+learning things and having awesome experiences with great people. To keep track
+of the different projects he is working on, to keep track of the goals he is
+pursuing, and to make sure there is some pressure of accountability so he
+actually completes at least *some* of the things he wants to do, Byron starts a
+blog. He publishes to the blog regularly. He talks about everything he is
+learning as well as the progress he is making with his goals.
+
+He maintains the entire website, mostly through the command line. He uses
+content management commands to create posts and pages. He uses comment
+management commands to moderate and approve comments. Finally, he uses website
+commands to generate the static website, along with any submitted comments, and
+deploy the website to production. The entire process allows him to quickly
+generate a website and deploy it without the need for memory-consuming processes
+in production (the website is static, so the bare-minimum is needed in
+production to serve pages to readers!).
+
+## Non-Goals
+
+This version will *not* support the following features:
+
+  - An easily customized replicable website from which other custom websites can
+    easily be derived.
+    - This requires complete abstraction of tehpotatoking.com custom information
+      which
+      is currently not on the agenda. A future release may allow for this, but
+      it is not the focus of the current release.
+
+## tehpotatoking.com
+
+The guts of the spec are located below. For now, here's a quick flow chart to
+get started. It's not 100% complete, but it'll give you the overall idea for the
+"storyboard" of how the website will be used, from the perspective of the
+reader.
+
+![](img/app-flow.png)
+
+The publisher command line interface can be divided into three general
+subsystems:
+
+  1. The Content Management System - Creating posts and pages
+  2. The Comment Management System - Moderating user comments
+  3. The Build System - Generating the static files and deploying the website to a
+     server
+
+![](img/cli-flow.png)
+
+## Screen by Screen Specification
+
+tehpotatoking.com is made of several different pages. Almost every page will
+have the
+same design and have similar functionality. Design will be implemented
+separately, so the images used here are not representative of the final product.
+This doc is focused on functionality and interaction desig, not the exact look
+and feel of the website.
+
+### Main Template
+
+Almost all pages will have the same layout and structure. Unless otherwise
+noted, all pages discussed in this spec contain the following structure:
+
+![](img/screen-template.png)
+
+The masthead will contain the website name and a short description. The navbar
+will be the main navigation tool used for major parts of the website. Social
+links will provide readers with different ways to connect. The sidebar is
+intended to be flexible and will contain blocks of content. Things like an
+"About Me" area, "Recent Posts", or "External Links" are a few possibilities for
+sidebar content blocks.
+
+The content area is a critical component of the template. It is where
+page-specific content will be displayed. The actual content is dependent on the
+URL of the page. The archives link will be displayed only on the index page,
+below the content area. The footer contains any site-wide data and links, such
+as copyright messages, developer and design information, and a back-to-top link.
+
+### Index
+
+When the user first visits the website, they will be immediately taken to the
+index page. This page is located at the root of the website. It displays the
+five most recent posts. The layout for each post in the content area looks like
+this:
+
+![](img/content-index.png)
+
+The format is similar to that of a journal entry:
+
+  - The date is at the top right corner
+  - The title is aligned to the left and underlined
+  - Optional data tags are located to the right of the title. These are not
+    underlined, and these are smaller than the title text
+  - Optional "legend" for possible color codes and formatting used within the
+    entry
+  - Optional "rating" on a scale of 1-5; used for rating the personal
+    significance of the content within an entry
+  - Optional image(s)
+  - Optional embedded audio
+  - Optional embedded video
+  - Optional YouTube video
+  - The main post content with optional headers for defining subsections
+
+The index provides a "Read Post" link that takes a reader to the post page for
+that entry. Below the "Read Post" link is author and comment information.
+
+### Posts
+
+Post pages are dedicated to displaying a single post. The content structure for
+a page dedicated to displaying a single post is as follows:
+
+![](img/content-post.png)
+
+Posts pages contain almost the exact same structure as that of the index. The
+differences include:
+
+  - Comment information is moved to the comment section
+  - Five related post links are displayed below the author information
+  - Pagination links are displayed if there are previous or next posts in the
+    timeline of all posts. The most recent post will not have a next link and the
+    oldest post will not have a previous link. If there is only one post, then no
+    pagination links will be displayed.
+
+### Comments
+
+Comments are displayed below posts, on pages where a single post is the main
+content:
+
+![](img/content-comments.png)
+
+The total comment count is shown at the top. Below that is a thin border.
+
+Comments are displayed in chronological order. Each comment will have an
+associated user metadata. This includes:
+
+  - An avatar
+  - Username
+  - Date and time the comment was posted
+  - A Permalink so individual comments can be linked to
+
+> **Design Note**
+>
+> Each odd comment will have the user image and comment metadata on the left
+> side. Each even comment will have the user image and comment metadata on the
+> right side. Comments will have a dialogue-bubble design.
+
+### Comment Form
+
+> **Technical Note**
+>
+> The comment form will use JavaScript front-end validation as well as backend
+> PHP validation. JavaScript will need to be enabled if a user wishes to
+> submit a comment.
+
+The comment form is displayed in post pages, below the comments section. It
+takes on the following structure:
+
+![](img/content-comment-form.png)
+
+The comment textarea is the only required field. The name, email and web url
+fields are optional. If a name is not provided, the user will be considered an
+anonymous commenter. Below the comment input field are instructions explaining
+how the comment system works. The post button will submit the comment for
+moderation. The preview button will create a sample of what the comment will
+look like when it is published.
+
+### Pages
+
+The content structure for a standard page is as follows:
+
+![](img/content-page.png)
+
+The structure of a page can be thought of as a stripped down version of a post.
+There is no date information nor is there any author information. Comments are
+not displayed at all. Pages are intended to be standalone pieces of content.
+
+### Contact Form
+
+The contact form's structure is a lot like that of the comment form, with a few
+subtle differences. The contact form's structure is as follows:
+
+![](img/content-contact-form.png)
+
+Instructions for contacting me are below the page heading. The message, name and
+email fields are required. The web url field is optional. The contact form does
+not have a preview button. Instead, the message can only be submitted.
+
+### Archives
+
+The archives will list all available posts on the website in reverse
+chronological order.  The structure is as follows:
+
+![](img/content-archives.png)
+
+The archive will contain the entire list of all published posts. There will be a
+heading for each month, along with the year. Below the heading will be that
+month's list of links.
+
+### RSS Feed
+
+The RSS Feed will not use the same template as other pages. It will be a valid
+RSS file that readers can subscribe to. The link will be internal, using the
+tehpotatoking.com domain. The feed should allow readers to read the last ten posts of
+the website. More is acceptable, in fact the more the better. But no less than
+ten if there are ten or more posts available.
+
+## CLI Specification
+
+tehpotatoking.com management is done via the command line. This functionality consists
+of various commands that execute different administrative tasks.
+
+### Content Management
+
+The following commands should be available for managing the website's content:
+
+  - draft[title] - Creates a new draft. Drafts are not compiled into generated
+    websites.
+  - post[title] - Creates a new post. Posts will be compiled into generated
+    websites.
+  - publish[title] - Publishes a draft by moving it from the draft directory to
+    the post directory. This makes it so that the content is compiled into
+    generated websites. Title is optional. If no title is specified, list all
+    files in the drafts directory.
+  - page[title] - Creates a new page, to be compiled into generated websites.
+
+### Comment Management
+
+The following commands should be available for managing reader submitted
+comments:
+
+  - comments-pull - pulls the comment database from the server
+  - comments-push - pushes the local comment database to the server
+  - comments-generate - generates markdown files from the local comment
+    database. These files are then used during website compilation. Only
+    published comments are generated into markdown files
+  - comments-list - list all comments in the database
+  - comments-review[id] - view a specified comment
+  - comments-delete[id] - delete a comment from the local database
+  - comments-publish[id] - publish a specified comment
+  - comments-unpublish[id] - unpublish a specified comment
+  - comments-merge - fix a server-local database merge conflict. This is used in
+    the case that the server database received new comments while a local
+    comment database was being modified. The comment subsystem will try to merge
+    these databases. However, if there are merge conflicts, these conflicts will
+    need to be manually fixed. Once these conflicts are fixed, this command must
+    be run to complete the entire process. If the server is repeatedly getting
+    new comments while a local database is being modified, then it is a sign
+    that a new solution is necessary
+
+### Website Management
+
+The following commands should be available for managing the website's overall
+build and deployment process:
+
+  - init - Sets up the project so that it is immediately usable after a fresh
+    clone. This command will ensure any dependencies are downloaded and all
+    initial commands and configurations are executed and set
+  - build - Runs the site compilation steps and generates the static website.
+  - test - Runs all available tests
+  - build-tests - Compiles all available tests that needs compilation or any
+    other kind of setup
+  - run-tests - Runs tests without building them. This command assumes that any
+    tests that needed building have already been built
+  - clean - Deletes generated and compiled directories
+  - env[id] - The id is optional. Without the id, the command will output the
+    current environment being used. Passing an id sets the environment to the
+    one associated with that id. In our case, 0 = development and 1 =
+    production
+  - deploy - Deploys the website to a server. The server can be staging or a
+    production server
+
+*** My Decision for Using Wintersmith as a Static-Site Generator     :NOTE:
+    :PROPERTIES:
+    :ID:       146abc38-7824-437a-ab6a-ef56bb948a04
+    :END:
+    :LOGBOOK:
+    CLOCK: [2018-04-16 Mon 12:10]--[2018-04-16 Mon 12:11] =>  0:01
+    :END:
+  [2018-04-16 Mon 12:10]
+  [[id:e7137777-ac88-41ae-bc3f-1a0688e613d8][Stack]]
+
+  wintersmith decision
+
+  restore backup of blogs, revert wintersmith to non-edited checkpoint, and just
+  leverage import paths for coffee and sass files, and see if you can do the same
+  with templates (eg. layout: ../../globals/contents/templates) etc.
+
+  manage it like that.
+
+  to really go in deep with wintersmith, I have to learn the entire architecture.
+  everything is tied together:
+
+  - async ops
+  - relative and full file paths relative to contents directory
+  - plugin loading, template loading, content output files, etc.
+
+  and im not sure that's a wise move given alternative solutions like react based
+  ones, and even perhaps just moving to straight org mode with reference
+  templating as front end assets, but moving compile-time steps to org-mode.
+
+  basically, it's not a quick hack fix, it's a small architecture rewrite to get
+  wintersmith to do what i want to do.
+
+  So I'd rather just work with it as it exists now, and evaluate alternative
+  solutions if it becomes to much of a bottleneck, and only then decide on
+  wintersmith small rewrite, vs. org-mode migration vs. alternative static site
+  generator that does what I need it to if it exists. (and if it doesn't, I'll
+  have to weigh the options of cost of migration + cost of rewrite and whether
+  it'll be trivial or non-trivial, etc. I think org-mode migration is the most
+  viable long-term solution however, since other than jekyll, most generators seem
+  to come and go).
 ** Bower To Webpack Migration
 :PROPERTIES:
 :ID:       c134e5c4-fe40-4800-a1d8-80304ea4a765
@@ -2457,6 +3349,211 @@ elsewhere.
 `$NODE_PATH` does nothing in terms of deciding *where* to install packages. All
 it does is tell node additional directoies to look in order to resolve
 `require`'s in js code.
+* Notes
+:PROPERTIES:
+:ID:       70e79b5c-72de-4d37-b0ba-459e6cb3e9cd
+:END:
+[2015-07-20 Mon 20:46]
+
+- tpk is a personal blog
+- the main thread is the story of the author trying to achieve an around the
+  world adventure
+- focused on having adventures
+- focused on personal growth
+- focused on learning
+- once the adventure can be achieved, focused on the travel aspect
+- the entire format is supposed to be like a public journal, filtered for only
+  stuff people might be interested in.
+- This can be considered "tpk's workbook"
+  - it can have project progress pages, project lists, etc.
+- In fact its probably best to think of this as a workbook for tracking
+  projects
+- Design should be dark-ish.
+- a simple blog. Nothing has to be too over the top and all out. Just a nice
+  design that can be oriented to adventure and travel
+- adventure oriented.
+- lots of photos
+
+- context analysis
+
+  There are currently many travel blogs, some with huge followings, some with
+  little. There are many more personal blogs out there and it is very tough to
+  build a readership, especially in blogging. The more popular blogs tend to
+  regularly offer something of value to the reader. Whether it is
+  self-improvement tips, awesome photos or videos, or advice of any kind.
+
+  Most shared posts are short, simple and easy to relate to. By short, this
+  means not hard to read. A wall of text is very intimidating. The longer the
+  text, the more an investment reading is.
+
+  Most readers use mobile devices, such as cell phones and tablets. The days of
+  everyone using desktops is long over. My readership will be mostly people
+  using mobile and tablet devices. Especially, since most are probably out and
+  about and doing some kind of "reporting back" as they stretch from their own
+  comfort zones to go on their own adventures.
+
+  The readership will probably not be on the site all day. Chances are, there
+  will be more checking in than hours of devotion to the single site. Much like
+  DV DJs. Those who check in may be loyal, but depending on my own habits and
+  the content, it may be few.
+
+  The best way to build a readership is to become part of the communities I am
+  interested in - self improvement as well as travel. Those are clearly the two
+  main points I am currently interested in. Make it adventure, make the content
+  itself an adventure, as if they are on it with me, and make it something they
+  may be able to do as well. Have a site that is very simple to check in as
+  opposed to a site that one must commit themselves to. No forums are
+  necessary.
+
+- target audience?
+
+  - age range - mid-to-late twenties - my age when I begin to travel so
+    probably around 27-30
+  - Geographic location - America, probably metropolitan areas
+  - Interests - travel, adventure, self-improvement, learning
+  - Needs - They want to improve who they are as people. They want to live more
+    fulfilling lives, which implies they are willing (or at least considering)
+    making changes to the way they live. They love adventures and want to be
+    exposed to the idea of traveling. They love learning, growing and doing
+    awesome things.
+
+- message to communicate?
+
+  - "lets go on an adventure >:)"
+    - The attitude that smile conveys to me is important. Though be careful on
+      coming across as a complete dumbass or douchebag.
+    - Important because there are lots of pressures, both self-imposed and
+      externally imposed, to do certain things, live certain ways, follow
+      patterns, styles, etc. The smile is "fuck you. fuck them. lets have fun
+      and do awesome things."
+    - a personal feel definitely. it should be relatable, so they can easily
+      think of themselves pursuing their dreams unapologetically.
+
+- technical requirements
+
+  - The end result will consist of a package of files that can be used on a
+    Wintersmith website. It will contain png, psd, jade, css, javascript and
+    other needed files that comprise a complet web site template.
+  - The website will use a fluid grid system to implement responsive design.
+  - The fluid grid will use the following sizes at least:
+    - 1200, 900, 768, 480
+    - If time allows, more can be implemented.
+  - Complete freedom in design, no constraints except those imposed on the
+    wireframes. If necessary, these constraints can be removed by the designer.
+  - A logo or a picture to associate with tpk, something brandable that
+    represents a symbol for the identity
+  - deadline January 5, 2013
+
+Comparing other projects
+
+  webapplog
+
+    - the position of the navbar
+      - The social links in the navbar on the top right
+    - The overall simple layout
+    - the clear uncluterred sidebar
+
+  hackBytes
+
+    - The overall structure of the blog. Simple and easy to navigate
+
+  Dream Views
+
+    - The colorscheme - a dark navy with a hint of leaning towards the purple
+    - The fonts of the djs - Georgia with serifs and the color coding
+    - The journal entry heading styles
+    - There version is neutralish, but I'd like more saturation on the color
+      scheme
+
+  Gaia Online
+
+    - Love the alternating position of the comment bubble design.
+    - worried that it might throw off the overall design
+    - alignment of chat bubbles or like GO where they just pass the metadata
+      box
+
+  Deviant Art Comments
+
+    - Love the comment bubble design
+    - usernames and metdata at the top
+
+  Mr. and Mrs. Adventure
+
+    - The way the left sidebar gives a dedicated feel, sort of like a remote
+      control to the page
+      - It also appears to have a very slight opacity which gives it a slight
+        glassy feel
+    - The main post boxes have the same slight opacity as the sidebar
+    - This implies a bg that can be seen through the slight opacity
+
+  ItsAlyx.com
+
+    - LOVE the "scrapbook"/workbook feel
+      - Definitely want tpk to be the "scrapbook" of my life
+
+  IntrepidXJ
+
+    - Love the Journal style they use
+    - X Trip YYYY | Day n
+    - Tuesday, February 14th, 2013
+
+    - Potential ideas:
+      - Every post can be "categorized" under a project
+      - the project has a name and day/task or some enumerable component
+
+  Fearful Adventurer
+
+    - The Instragrammy-ish photo cover for each entry is cool.
+      - It matches the layout and seems perfectly fitted to it.
+    - Don't like the top brittle design
+    - love the way the main content area and the wide sidebar complement each
+      other
+    - The greys seem to work well in emphasizing the photos often used
+    - Generous use of design - love this; feel free to create and use design tpk
+      content. its great practice and can communicate more than words
+    - love the font of the main site title
+    - like how she has a huge splash portion for images
+    - then she has categories
+    - then she has the recent posts
+    - This is the first magazine-ish structure I've seen that I actually like
+    - For blog posts she doesn't use a big splash image but a normal image that
+      aligns with the width of the text
+    - love the image collages, makes it feel like a true scrapbook
+
+  Conclusion/Requirements
+
+    DISCLAIMER - This is the conclusion of what the customer MAY be going for.
+    It is up to the designer to truly explore all possibilities to tell a story
+    or communicate the appropriate message the client wishes to. To do this,
+    the designer must not yet constrain themself to what the client has said.
+
+    - Looks like the overall architecture of the site is to go for a
+      magazine-ish scrapbook. AKA a showy, image-oriented scrapbook, with
+      subtleties of the scrapbook portion and more of the magazine-ish portion.
+    - The structure/layout should ultimately conform to a standard blog design,
+      but there will be new elements added on top of this to give it more of
+      the feel of a well organized magazine.
+    - The design will contain subtleties that are reminiscent of a scrapbook.
+      (fronts, the way images may be collaged/laid out together, etc)
+    - The bubble comments is optional, only if it fits the design
+
+  I would get a conceptual agreement based on my understanding of the
+  requirements, and have them entertain the willingness to consider a proposal.
+  The CA is an oral agreement that the objectives, mos and val to organization
+  is accurate. This is key so that they understand the value of your service
+  and there is demand for you.
+
+PROPOSAL
+
+  If there were to be a proposal to this project, it would conform to my
+  general freelance proposal methodology. I would truly understand the scope of
+  the project and have a good estimate as the time it would take based on the
+  requirements I have gathered from client interviews. I would build these
+  requirements and present them to the client in the proposal.
+
+  Most freelance graphic design should fit nicely with the freelance
+  methodology.
+
 * Reference
 :PROPERTIES:
 :ID:       01f29a91-9c59-4104-ac05-92bc6b923f7b
