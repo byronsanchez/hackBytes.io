@@ -6,10 +6,11 @@
 	"homepage": "https://niteLite.io",
 	"private": true,
 	"scripts": {
-		"build": "npm run build:libs && npm run build:db && npm run build:app",
+		"build": "npm run build:libs && npm run build:db && npm run build:app && npm run build:clean",
 		"build:libs": "cd ../blogs-libs/wintersmith && npm run prepublishOnly",
 		"build:db": "coffee ../globals/scripts/build-db.coffee",
 		"build:app": "wintersmith build --clean",
+		"build:clean": "rm -rf ./build/coffee && rm -rf ./build/sass && rm -rf build/database",
 		"clean": "rm -rf ./build && rm -rf ./contents/scripts",
 		"lint": "",
 		"package": "npm run clean && npm run build",

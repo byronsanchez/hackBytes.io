@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-deploy -c ./blogs-deploy/hackbytes.io-deploy
+deploy-aws -c ./blogs-deploy/hackbytes.io-deploy

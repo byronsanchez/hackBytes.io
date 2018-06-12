@@ -1,2 +1,2 @@
 src="blogs-web/hackbytes.io-web/build"
-dst="deploy:/srv/www/hackbytes.io/htdocs"
+dst="s3://hackbytes.io/"

@@ -29,6 +29,9 @@ chown -R deployer:www-data "${DATABASE_DIR}"
 find ${DATABASE_DIR} -type d -exec chmod 2770 '{}' \;
 find ${DATABASE_DIR} -type f -exec chmod 660 '{}' \;
 
+
+# TODO: Validate I have this perm set equivalent working on S3
+
 chown -R deployer:www-data "${ROOT_WEB_DIR}"
 find ${WEB_PKG_DIR} -type d -exec chmod 2750 '{}' \;
 find ${WEB_PKG_DIR} -type f -exec chmod 640 '{}' \;

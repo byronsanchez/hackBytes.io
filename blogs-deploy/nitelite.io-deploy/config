@@ -1,2 +1,2 @@
 src="blogs-web/nitelite.io-web/build"
-dst="deploy:/srv/www/nitelite.io/htdocs"
+dst="s3://nitelite.io/"
