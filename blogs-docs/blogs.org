@@ -31,6 +31,11 @@ That way, I don't have to manually deploy.
 
 As soon as I push to maybe github, the build kicks off and if the static assets
 compile, they get sent off to S3.
+** OPEN Consider committing demo.hackbytes.com static files
+:PROPERTIES:
+:ID:       94da084a-893e-42e6-8280-0e3a84e32135
+:END:
+[2018-06-14 Thu 23:12]
 ** OPEN Fix up global templates symlinks
 :PROPERTIES:
 :ID:       5010629e-9887-41d2-8068-a8dd2a35ba37
