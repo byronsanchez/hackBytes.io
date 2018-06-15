@@ -1,0 +1,69 @@
+---
+title: crm
+author: Byron Sanchez
+date: '2018-06-14 20:44:38'
+category: portfolio-item
+tags: web
+published: 1
+comments_enabled: 0
+template: globals/layouts/portfolio-page.jade
+description: 0
+tagline: Angular web app for managing your sales pipeline
+portfolioItemImages:
+- crm-01.png
+- crm-02.png
+- crm-03.png
+- crm-04.png
+- crm-05.png
+portfolioItemDistribution:
+- type: link
+  href: https://crm.hackbytes.io
+  icon: "/img/icons/website-icon-16x16.png"
+  alt: Website icon
+  value: View Web App
+portfolioItemTechnology:
+- Angular, TypeScript, JavaScript, Sass
+- NodeJS, Express API, PostgreSQL
+- AWS Cloud Infrastructure
+- Docker Containers
+- Terraform
+portfolioItemCodeSnippets:
+- crm-code-snippet-1
+- crm-code-snippet-2
+order: 8
+---
+
+<h2>Project Details</h2>
+
+<p>
+	<b>crm</b> is a web-app I am actively working on to manage my sales pipelines.
+</p>
+
+<p>
+	The front-end is built using Angular. The project build chain is managed by
+	angular-cli, which leverages webpack under-the-hood to compile the
+	TypeScript, Sass. and other front-end assets. Unit-tests are written using
+	the Jasmine framework, and are executed with the Karma test runner.
+</p>
+
+<p>
+	The back-end is built using the Express framework. It serves as the
+	REST-like API layer, reading and writing data to a PostgreSQL database. Both
+	Objection.js and Knex.js are leveraged where it makes sense, Objection for
+	managing relational queries and Knex whenever more complex queries are
+	needed.
+</p>
+
+<p>
+	The overall architecture is managed by Docker and AWS, in order to
+	approximate more and more of an immutable infrastructure (and AWS is pretty
+	mature in terms of AMI deployment patterns; Docker squeezes out efficiencies
+	in making immutable infrastructure accessible and efficient for all
+	environments, from development to production).
+</p>
+
+<p>
+	The app is still in active development, with my primary goal being to make
+	it more and	more useful for managing my own business pipelines.
+</p>
+

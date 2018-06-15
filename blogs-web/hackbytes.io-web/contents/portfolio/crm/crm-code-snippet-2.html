@@ -1,0 +1,52 @@
+---
+date: 2018-06-14 22:33:28
+title: "crm - Code Snippet 2"
+author: Byron Sanchez
+category: code-snippet
+tags: web
+published: 1
+comments_enabled: 0
+template: globals/layouts/code-snippet.jade
+description: 0
+---
+
+<!-- CODE SNIPPET -->
+
+<h1>Code Snippet</h1>
+
+<p class="snippet-description">
+	A simple HTTP GET request, which makes a query for Lead data. This request
+	paginates by default, to ensure the backend database doesn't get hit with
+	queries for huge data sets. Without pagination, it would return everything
+	in the Lead table by default. And for leads, that could potentially be <em>a
+	lot</em> of data. The observable is returned so that callers can pipe,
+	subscribe, etc., when necessary.
+</p>
+
+<div class="code-sample">
+
+```typescript
+	getLeads(pageIndex: number = 0, pageSize: number = 15, sortColumn: string =
+	'createdAt', sortOrder: string = 'asc', fields: string[] = []):
+	Observable<LeadEnvelope> {
+		return this.http.get<LeadEnvelope>(this.leadsUrl, {
+			params: new HttpParams()
+				.set('pageIndex', pageIndex.toString())
+				.set('pageSize', pageSize.toString())
+				.set('sortColumn', sortColumn)
+				.set('sortOrder', sortOrder)
+				.set('fields', fields.join(','))
+		})
+			.pipe(
+				tap((leadEnvelope: LeadEnvelope) => this.log(`fetched leads`)),
+				catchError(this.handleError<LeadEnvelope>('getLeads', (<LeadEnvelope> {
+					meta: {},
+					request: {},
+					response: {count: 0, totalCount: 0, data: (<Lead> [])},
+					links: {}
+				})))
+			);
+	}
+```
+
+</div>

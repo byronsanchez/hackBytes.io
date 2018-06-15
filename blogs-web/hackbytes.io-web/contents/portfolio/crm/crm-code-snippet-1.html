@@ -1,0 +1,70 @@
+---
+date: 2018-06-14 22:33:11
+title: "crm - Code Snippet 1"
+author: Byron Sanchez
+category: code-snippet
+tags: web
+published: 1
+comments_enabled: 0
+template: globals/layouts/code-snippet.jade
+description: 0
+---
+
+<h1>Code Snippet</h1>
+
+<p class="snippet-description">
+	Checks a numeric input string and determines whether or not it can be
+	accurately represented in JavaScript as a number type.
+
+	If there are more than 15 digits of precision in the fractional part, or
+	if the number is not a safe number (exceeds the bounds of
+	Number.MAX_SAFE_INTEGER), then the number cannot be accurately
+	represented in JavaScript and the function will return false.
+
+	But if the conditions are met, will return true and we can safely convert
+	the string to a JS number without losing accuracy.
+</p>
+
+<div class="code-sample">
+
+```typescript
+	// Check if the number stored in the db can be represented in JavaScript as
+	// numeric data type
+	function isSafeNumber(numberToCheck: string): boolean {
+		const parts = numberToCheck.split('.');
+		const integerPart = parts[0];
+		let fractionalPart;
+
+		// Isolated the fractional part in case the number is just a bigint
+		if (parts.length > 1) {
+			fractionalPart = parts[1];
+			const lengthOfFractionalPart = fractionalPart.length;
+			// JavaScript can only represent up to 15 digits of precision
+			// accurately. If we have more, then we can't return the number as a
+			// numeric type in JS and will have to return a string.
+			if (lengthOfFractionalPart > 15) {
+				return false;
+			}
+		}
+
+		return Number.isSafeInteger(parseFloat(integerPart));
+	}
+
+	// Numeric data type (OID - 1700) - string to float conversion
+	types.setTypeParser(1700, 'text', function (val) {
+		if (isSafeNumber(val)) {
+			return parseFloat(val);
+		}
+		return val;
+	});
+
+	// bigint/int8 data type (OID - 20) - string to float conversion
+	types.setTypeParser(20, 'text', function (val) {
+		if (isSafeNumber(val)) {
+			return parseFloat(val);
+		}
+		return val;
+	});
+```
+
+</div>
