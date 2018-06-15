@@ -68,33 +68,33 @@ resource "aws_iam_user_policy" "prod_user_ro" {
 EOF
 }
 
-resource "aws_route53_zone" "main" {
-  name = "${var.domain}"
-}
-
-resource "aws_route53_record" "root_domain" {
-   zone_id = "${aws_route53_zone.main.zone_id}"
-   name = "${var.domain}"
-   type = "A"
-
-  alias {
-    name = "${aws_cloudfront_distribution.cdn.domain_name}"
-    zone_id = "${aws_cloudfront_distribution.cdn.hosted_zone_id}"
-    evaluate_target_health = false
-  }
-}
-
-resource "aws_route53_record" "root_domain_www" {
-   zone_id = "${aws_route53_zone.main.zone_id}"
-   name = "www.${var.domain}"
-   type = "A"
-
-  alias {
-    name = "${aws_s3_bucket.site_www.website_domain}"
-    zone_id = "${aws_s3_bucket.site_www.hosted_zone_id}"
-    evaluate_target_health = false
-  }
-}
+//resource "aws_route53_zone" "main" {
+//  name = "${var.domain}"
+//}
+//
+//resource "aws_route53_record" "root_domain" {
+//   zone_id = "${aws_route53_zone.main.zone_id}"
+//   name = "${var.domain}"
+//   type = "A"
+//
+//  alias {
+//    name = "${aws_cloudfront_distribution.cdn.domain_name}"
+//    zone_id = "${aws_cloudfront_distribution.cdn.hosted_zone_id}"
+//    evaluate_target_health = false
+//  }
+//}
+//
+//resource "aws_route53_record" "root_domain_www" {
+//   zone_id = "${aws_route53_zone.main.zone_id}"
+//   name = "www.${var.domain}"
+//   type = "A"
+//
+//  alias {
+//    name = "${aws_s3_bucket.site_www.website_domain}"
+//    zone_id = "${aws_s3_bucket.site_www.hosted_zone_id}"
+//    evaluate_target_health = false
+//  }
+//}
 
 resource "aws_cloudfront_distribution" "cdn" {
   origin {
