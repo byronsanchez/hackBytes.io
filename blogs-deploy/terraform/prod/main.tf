@@ -24,3 +24,10 @@ module "nitelite_io" {
   iam_user = "${module.iam.iam_user}"
   domain = "nitelite.io"
 }
+
+module "demo_hackbytes_com" {
+  source = "../modules/web"
+
+  iam_user = "${module.iam.iam_user}"
+  domain = "demo.hackbytes.com"
+}
