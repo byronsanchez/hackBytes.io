@@ -21,6 +21,16 @@
 :ID:       3409e7d7-cfdd-4bfc-9757-feb7fc312c3b
 :END:
 [2018-05-02 Wed 12:09]
+** OPEN Automate deployment using AWS CodeBuild
+:PROPERTIES:
+:ID:       33ce8168-3ded-4804-ac2a-1cc0b709075d
+:END:
+[2018-06-14 Thu 23:09]
+
+That way, I don't have to manually deploy.
+
+As soon as I push to maybe github, the build kicks off and if the static assets
+compile, they get sent off to S3.
 ** OPEN Fix up global templates symlinks
 :PROPERTIES:
 :ID:       5010629e-9887-41d2-8068-a8dd2a35ba37
