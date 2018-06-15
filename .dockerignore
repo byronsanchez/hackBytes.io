@@ -1,8 +1,33 @@
+.git
+.gitignore
+LICENSE
+VERSION
+README.md
+Changelog.md
+Makefile
+docs
 
 # Dependency directories
 **/node_modules/
+
+# Backups don't need to be in the container
+**/backups/
 
 # docker doesn't need design artifacts
 **/blogs-design/
 # same for docs
 **/blogs-docs/
+
+# We're currently not using these plugins
+**/blogs-plugins/
+
+# We don't need to package the deploy files to run the app, but we do need to
+# package the Dockerfiles themselves
+**/blogs-deploy/terraform/
+**/blogs-scripts/
+# Output build files for wintersmith will be built in-container, so no need to
+# provide them as part of the context
+**/blogs-libs/wintersmith/lib/
+
+**/blogs-web/*/build/
+
