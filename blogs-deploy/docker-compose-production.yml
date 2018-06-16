@@ -4,13 +4,13 @@ services:
     build:
       context: ../
       dockerfile: blogs-deploy/wintersmith-docker.Dockerfile
-    image: "byronsanchez/wintersmith-docker:latest"
+    image: "${REPOSITORY_URI_WINTERSMITH_DOCKER}:latest"
     env_file: prod.env
   blogs-hackbytes:
     build:
       context: ../
       dockerfile: blogs-deploy/hackbytes.io.Dockerfile
-    image: "byronsanchez/blogs-hackbytes:latest"
+    image: "${REPOSITORY_URI_BLOGS_HACKBYTES}:latest"
     ports:
       - '8082:8080'
     volumes:
@@ -30,7 +30,7 @@ services:
     build:
       context: ../
       dockerfile: blogs-deploy/nitelite.io.Dockerfile
-    image: "byronsanchez/blogs-nitelite:latest"
+    image: "${REPOSITORY_URI_BLOGS_NITELITE}:latest"
     ports:
       - '8084:8080'
     volumes:
