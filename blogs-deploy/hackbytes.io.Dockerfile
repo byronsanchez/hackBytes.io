@@ -12,11 +12,11 @@ RUN npm install -g webpack \
 WORKDIR /home/wintersmith
 
 # Global Package directory
-RUN mkdir /home/wintersmith/global-packages
+RUN mkdir /home/wintersmith/blogs-universal
 # App Package directory
 RUN mkdir /home/wintersmith/local-packages
 # App directory
-RUN mkdir /home/wintersmith/hackbytes.io
+RUN mkdir /home/wintersmith/blogs-hackbytes
 
 # can be used with USER to install global packages to a user directory
 #RUN echo "prefix = /home/wintersmith/packages" > ~/.npmrc
@@ -32,24 +32,24 @@ RUN npm run prepublishOnly
 WORKDIR /home/wintersmith
 
 # Copy global packages shared across blogs
-COPY ./blogs-web/package.json /home/wintersmith/global-packages
-WORKDIR /home/wintersmith/global-packages
-RUN npm install --prefix /home/wintersmith/global-packages
-ENV NODE_PATH /home/wintersmith/global-packages/node_modules:$NODE_PATH
-ENV PATH /home/wintersmith/global-packages/node_modules/.bin:$PATH
+COPY ./blogs-universal/package.json /home/wintersmith/blogs-universal
+WORKDIR /home/wintersmith/blogs-universal
+RUN npm install --prefix /home/wintersmith/blogs-universal
+ENV NODE_PATH /home/wintersmith/blogs-universal/node_modules:$NODE_PATH
+ENV PATH /home/wintersmith/blogs-universal/node_modules/.bin:$PATH
 
 # Copy this blog's specific packages
-COPY ./blogs-web/hackbytes.io-web/package.json /home/wintersmith/local-packages
+COPY ./blogs-hackbytes/package.json /home/wintersmith/local-packages
 WORKDIR /home/wintersmith/local-packages
 RUN npm install --prefix /home/wintersmith/local-packages
 ENV NODE_PATH /home/wintersmith/local-packages/node_modules:$NODE_PATH
 ENV PATH /home/wintersmith/local-packages/node_modules/.bin:$PATH
 
 # Copy the global source files as the base, then overlay project specific divergences on top
-COPY ./blogs-web/globals/ /home/wintersmith/hackbytes.io
-COPY ./blogs-web/hackbytes.io-web/ /home/wintersmith/hackbytes.io
+COPY ./blogs-universal/ /home/wintersmith/blogs-hackbytes
+COPY ./blogs-hackbytes/ /home/wintersmith/blogs-hackbytes
 
-WORKDIR /home/wintersmith/hackbytes.io
+WORKDIR /home/wintersmith/blogs-hackbytes
 
 #USER wintersmith
 
@@ -75,4 +75,4 @@ CMD ["npm", "run", "start-watch"]
 
 # TODO: other (execs, etc.)
 # /var/lib/nitelite/webserver as a persistent data store
-# VOLUME /var/lib/nitelite/hackbytes.io/
+# VOLUME /var/lib/nitelite/blogs-hackbytes/

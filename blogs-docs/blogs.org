@@ -3302,7 +3302,7 @@ build and deployment process:
 
   restore backup of blogs, revert wintersmith to non-edited checkpoint, and just
   leverage import paths for coffee and sass files, and see if you can do the same
-  with templates (eg. layout: ../../globals/contents/templates) etc.
+  with templates (eg. layout: ../blogs-universal/src/contents/templates) etc.
 
   manage it like that.
 

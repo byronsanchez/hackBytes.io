@@ -1,0 +1,31 @@
+{
+	"author": "Byron Sanchez <byron@hackbytes.io>",
+	"name": "hackBytes.io",
+	"description": "Wintersmith blog about music, art, and my creative projects.",
+	"version": "1.0.0",
+	"homepage": "https://hackBytes.io",
+	"private": true,
+	"scripts": {
+		"build": "npm run build:libs && npm run build:db && npm run build:app && npm run build:clean",
+		"build:libs": "cd ../blogs-libs/wintersmith && npm run prepublishOnly",
+		"build:db": "coffee ../blogs-universal/src/scripts/build-db.coffee",
+		"build:app": "wintersmith build --clean",
+		"build:clean": "rm -rf ./build/coffee && rm -rf ./build/sass && rm -rf build/database",
+		"clean": "rm -rf ./build && rm -rf ./contents/scripts",
+		"lint": "",
+		"package": "npm run clean && npm run build",
+		"server": "wintersmith preview",
+		"server-watch": "nodemon --config ../blogs-universal/src/nodemon.json --exec npm run server",
+		"start": "npm run clean && npm run build && npm run server",
+		"start-watch": "nodemon --config ../blogs-universal/src/nodemon.json --exec npm run start",
+		"test": "karma start",
+		"test-watch": "karma start --auto-watch --no-single-run"
+	},
+	"repository": {
+		"type": "git",
+		"repository": "none"
+	},
+	"engine": {
+		"node": "~6.11.1"
+	}
+}

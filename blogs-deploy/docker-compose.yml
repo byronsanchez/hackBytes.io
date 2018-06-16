@@ -1,0 +1,48 @@
+version: '3.3'
+services:
+  wintersmith-docker:
+    build:
+      context: ../
+      dockerfile: blogs-deploy/wintersmith-docker.Dockerfile
+    image: "byronsanchez/wintersmith-docker:latest"
+    env_file: .env
+  blogs-hackbytes:
+    build:
+      context: ../
+      dockerfile: blogs-deploy/hackbytes.io.Dockerfile
+    image: "byronsanchez/blogs-hackbytes:latest"
+    ports:
+      - '8082:8080'
+    volumes:
+      - type: bind
+        source: ../blogs-libs
+        target: /home/wintersmith/blogs-libs
+      - type: bind
+        source: ../blogs-universal/src
+        target: /home/wintersmith/blogs-universal/src
+      - type: bind
+        source: ../blogs-hackbytes
+        target: /home/wintersmith/blogs-hackbytes
+    env_file: .env
+    depends_on:
+      - wintersmith-docker
+  blogs-nitelite:
+    build:
+      context: ../
+      dockerfile: blogs-deploy/nitelite.io.Dockerfile
+    image: "byronsanchez/blogs-nitelite:latest"
+    ports:
+      - '8084:8080'
+    volumes:
+      - type: bind
+        source: ../blogs-libs
+        target: /home/wintersmith/blogs-libs
+      - type: bind
+        source: ../blogs-universal/src
+        target: /home/wintersmith/blogs-universal/src
+      - type: bind
+        source: ../blogs-nitelite
+        target: /home/wintersmith/blogs-nitelite
+    env_file: .env
+    depends_on:
+      - wintersmith-docker

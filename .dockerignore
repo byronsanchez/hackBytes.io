@@ -29,5 +29,5 @@ docs
 # provide them as part of the context
 **/blogs-libs/wintersmith/lib/
 
-**/blogs-web/*/build/
-
+blogs-hackbytes/build/
+blogs-nitelite/build/

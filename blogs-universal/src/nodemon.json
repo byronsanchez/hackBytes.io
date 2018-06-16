@@ -1,0 +1,20 @@
+{
+  "legacyWatch": true,
+  "verbose": true,
+  "ignore": [
+  "../blogs-libs/wintersmith/lib/",
+  "../blogs-libs/wintersmith/node_modules/",
+	"build/",
+	"node_modules/",
+	"contents/scripts/",
+	"contents/database/bin/"
+  ],
+  "watch": [
+	"../blogs-libs/",
+	"../blogs-universal/src/",
+	"."
+  ],
+  "ext": "php js json coffee jade html txt asc xml scss css md org png jpg jpeg gif svg woff woff2 ttf eot",
+  "execMap": {
+  }
+}

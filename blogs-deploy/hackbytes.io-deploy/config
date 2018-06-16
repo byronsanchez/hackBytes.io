@@ -1,2 +1,0 @@
-src="blogs-web/hackbytes.io-web/build"
-dst="s3://hackbytes.io/"

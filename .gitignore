@@ -51,3 +51,7 @@ assets/database/
 
 # Ignore local backup files that I manually manage for this repo
 backups/
+
+# Ignore webpack compiled files
+blogs-hackbytes/contents/scripts/
+blogs-nitelite/contents/scripts/
