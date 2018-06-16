@@ -13,6 +13,17 @@ services:
     image: "byronsanchez/blogs-hackbytes:latest"
     ports:
       - '8082:8080'
+    # If you get coffee compile issues with wintersmith lib, it's because you're
+    # bind-mounting, so the node_modules gets overwritten. The wintersmith
+    # upstream project structure isn't made for docker mounting (ie. src files
+    # in a dedicated location distinct from node_modules such that you can
+    # cache-layer the node_modules), so I'm just leaving it as it is for now,
+    # and will build it on the host machine if necessary so that the container
+    # can see the libs when bind-mounted.
+    #
+    # This won't work for prod, so the compose yml for prod removes it (ie.
+    # node_modules would get overwritten with a blank node_modules in prod since
+    # I wouldn't access the host directly to bind mount it on the build host).
     volumes:
       - type: bind
         source: ../blogs-libs
