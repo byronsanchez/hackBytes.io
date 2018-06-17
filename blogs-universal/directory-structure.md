@@ -14,3 +14,17 @@ create a clearer globals-overlay vs. globals (non-overlay) directory structure.
 What actually happens now is globals and blog-specific directories get isolated in docker, and the npm tooling will
 reference both as necessary to build the static site. So no overlaying behavior is actually implemented yet other than
 the Dockerfile lines which isn't used in development due to those directories being bind-mounted.
+
+# UPDATE - 2018-06-17
+
+Removed docker-container file layering in terms of setting the base as the
+initial layer and then copying blog instance specific files on top of it
+
+I think it's just easier to directly refer to globals or local files by way of
+the template: globals/template.jade rather than overlaying and not being sure
+which file is being referenced.
+
+The other goal was to make the host machine directory structure and the
+container directory structure exactly the same. Instead of mutating the
+container directory structure that you have to put effort into visualizing how
+the changes will end up in the container.

@@ -46,7 +46,7 @@ ENV NODE_PATH /home/wintersmith/local-packages/node_modules:$NODE_PATH
 ENV PATH /home/wintersmith/local-packages/node_modules/.bin:$PATH
 
 # Copy the global source files as the base, then overlay project specific divergences on top
-COPY ./blogs-universal/ /home/wintersmith/blogs-hackbytes
+COPY ./blogs-universal/ /home/wintersmith/blogs-universal
 COPY ./blogs-hackbytes/ /home/wintersmith/blogs-hackbytes
 
 WORKDIR /home/wintersmith/blogs-hackbytes

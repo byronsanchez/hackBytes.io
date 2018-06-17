@@ -56,7 +56,7 @@ ENV NODE_PATH /home/wintersmith/local-packages/node_modules:$NODE_PATH
 ENV PATH /home/wintersmith/local-packages/node_modules/.bin:$PATH
 
 # Copy the global source files as the base, then overlay project specific divergences on top
-COPY ./blogs-universal/ /home/wintersmith/blogs-nitelite
+COPY ./blogs-universal/ /home/wintersmith/blogs-universal
 COPY ./blogs-nitelite/ /home/wintersmith/blogs-nitelite
 
 WORKDIR /home/wintersmith/blogs-nitelite
