@@ -46,8 +46,6 @@ RUN npm install --prefix /home/wintersmith/local-packages
 ENV NODE_PATH /home/wintersmith/local-packages/node_modules:$NODE_PATH
 ENV PATH /home/wintersmith/local-packages/node_modules/.bin:$PATH
 
-RUN tree -a /home/wintersmith/blogs-hackbytes/templates/
-
 # Copy the global source files as the base, then overlay project specific divergences on top
 COPY ./blogs-universal/ /home/wintersmith/blogs-universal
 COPY ./blogs-hackbytes/ /home/wintersmith/blogs-hackbytes
@@ -55,6 +53,7 @@ COPY ./blogs-hackbytes/ /home/wintersmith/blogs-hackbytes
 WORKDIR /home/wintersmith/blogs-hackbytes
 
 RUN tree -a /home/wintersmith/blogs-hackbytes/templates/
+RUN ls -altih /home/wintersmith/blogs-hackbytes/templates/
 
 #USER wintersmith
 
