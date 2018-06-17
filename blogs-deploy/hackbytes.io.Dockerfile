@@ -60,11 +60,12 @@ WORKDIR /home/wintersmith/blogs-hackbytes/templates
 # creation to this Dockerfile itself. In the future, test this out again on the
 # build host until we can just COPY the symlinks with the earlier command
 RUN rm globals
-RUN ln -s ../../blogs-universal/src/templates/ globals
+RUN ln -s ../../blogs-universal/src/templates globals
 
 WORKDIR /home/wintersmith/blogs-hackbytes
 
 RUN tree -a templates/
+RUN tree -a /home/wintersmith/blogs-universal/src/templates
 
 #USER wintersmith
 
