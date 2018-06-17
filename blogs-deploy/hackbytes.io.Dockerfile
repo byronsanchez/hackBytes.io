@@ -50,10 +50,19 @@ ENV PATH /home/wintersmith/local-packages/node_modules/.bin:$PATH
 COPY ./blogs-universal/ /home/wintersmith/blogs-universal
 COPY ./blogs-hackbytes/ /home/wintersmith/blogs-hackbytes
 
-WORKDIR /home/wintersmith/blogs-hackbytes
+WORKDIR /home/wintersmith/blogs-hackbytes/templates
 
-RUN tree -a /home/wintersmith/blogs-hackbytes/templates/
-RUN ls -altih /home/wintersmith/blogs-hackbytes/templates/
+# Add symlinks to global templates
+#
+# NOTE: Ideally, this should work by the COPY command earlier, but it looks like
+# on earlier docker versions (aka ~17.09, which is what the CI build host uses)
+# does not support COPYing symlinks properly. So we're adding the symlink
+# creation to this Dockerfile itself. In the future, test this out again on the
+# build host until we can just COPY the symlinks with the earlier command
+RUN rm globals
+RUN ln -s ../../blogs-universal/src/templates/ globals
+
+WORKDIR /home/wintersmith/blogs-hackbytes
 
 #USER wintersmith
 
