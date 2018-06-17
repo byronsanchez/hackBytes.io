@@ -64,6 +64,8 @@ RUN ln -s ../../blogs-universal/src/templates/ globals
 
 WORKDIR /home/wintersmith/blogs-hackbytes
 
+RUN tree -a templates/
+
 #USER wintersmith
 
 CMD ["npm", "run", "start-watch"]
