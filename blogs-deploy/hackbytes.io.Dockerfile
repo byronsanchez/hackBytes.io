@@ -52,9 +52,6 @@ COPY ./blogs-hackbytes/ /home/wintersmith/blogs-hackbytes
 
 WORKDIR /home/wintersmith/blogs-hackbytes
 
-RUN tree -a templates
-RUN tree -a /home/wintersmith/blogs-universal/src/templates
-
 #USER wintersmith
 
 CMD ["npm", "run", "start-watch"]

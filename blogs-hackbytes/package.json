@@ -6,7 +6,7 @@
 	"homepage": "https://hackBytes.io",
 	"private": true,
 	"scripts": {
-		"build": "npm run build:libs && tree -a /home/wintersmith/blogs-hackbytes/templates/ && npm run build:db && npm run build:app && npm run build:clean",
+		"build": "npm run build:libs && npm run build:db && npm run build:app && npm run build:clean",
 		"build:libs": "cd ../blogs-libs/wintersmith && npm run prepublishOnly",
 		"build:db": "coffee ../blogs-universal/src/scripts/build-db.coffee",
 		"build:app": "wintersmith build --clean",
