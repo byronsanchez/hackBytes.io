@@ -45,7 +45,6 @@ lib/
 
 # Ignore binary files
 
-data/
 *.sql
 assets/database/
 
