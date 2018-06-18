@@ -26,10 +26,12 @@ phases:
       - REPOSITORY_URI_BLOGS_HACKBYTES=${repository_url_blogs_hackbytes}
       - REPOSITORY_URI_BLOGS_NITELITE=${repository_url_blogs_nitelite}
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+
       - echo $IMAGE_TAG
       - echo $REPOSITORY_URI_WINTERSMITH_DOCKER
       - echo $REPOSITORY_URI_BLOGS_HACKBYTES
       - echo $REPOSITORY_URI_BLOGS_NITELITE
+
       - echo Entered the pre_build phase...
   build:
     commands:
@@ -70,6 +72,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI_BLOGS_HACKBYTES:latest
       - docker push $REPOSITORY_URI_BLOGS_HACKBYTES:$IMAGE_TAG

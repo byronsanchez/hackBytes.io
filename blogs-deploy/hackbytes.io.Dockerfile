@@ -3,8 +3,7 @@ FROM byronsanchez/wintersmith-docker
 LABEL maintainer "Byron Sanchez <byron@hackbytes.io>"
 
 RUN apk --no-cache add \
-  sqlite \
-  tree
+  sqlite
 
 RUN npm install -g webpack \
   coffeescript \
