@@ -17,3 +17,7 @@ output "s3_website_endpoint_www" {
 //output "route53_domain_www" {
 //  value = "${aws_route53_record.root_domain_www.fqdn}"
 //}
+
+output "bucket_name" {
+  value = "${aws_s3_bucket.site.bucket}"
+}

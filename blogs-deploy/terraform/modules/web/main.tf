@@ -2,6 +2,7 @@
 resource "aws_s3_bucket" "site" {
   bucket = "${var.domain}"
   acl = "public-read"
+  force_destroy = true
 
   policy = <<EOF
 {
@@ -25,6 +26,8 @@ EOF
 resource "aws_s3_bucket" "site_www" {
   bucket = "www.${var.domain}"
   acl = "public-read"
+  force_destroy = true
+
 
   website {
 	redirect_all_requests_to = "${var.domain}"

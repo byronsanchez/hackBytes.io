@@ -9,3 +9,7 @@ variable "aws_secret_key" {
 variable "aws_region" {
   description = "e.g. us-east-2"
 }
+
+variable "github_token" {
+  description = "Github token for pulling repositories"
+}

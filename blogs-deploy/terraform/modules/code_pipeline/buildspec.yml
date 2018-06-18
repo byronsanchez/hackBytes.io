@@ -1,0 +1,87 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - pip install awscli --upgrade --user
+      - echo `docker version`
+      - echo `docker-compose version`
+      - echo `aws --version`
+      - echo `node --version`
+      - echo `npm --version`
+
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr  get-login --region ${region} --no-include-email)
+
+      - echo Generating required symlinks
+      - rm blogs-hackbytes/templates/globals
+      - rm blogs-nitelite/templates/globals
+      - cd $CODEBUILD_SRC_DIR/blogs-hackbytes/templates
+      - ln -s ../../blogs-universal/src/templates globals
+      - cd $CODEBUILD_SRC_DIR/blogs-nitelite/templates
+      - ln -s ../../blogs-universal/src/templates globals
+      - cd $CODEBUILD_SRC_DIR
+
+      - REPOSITORY_URI_WINTERSMITH_DOCKER=${repository_url_wintersmith_docker}
+      - REPOSITORY_URI_BLOGS_HACKBYTES=${repository_url_blogs_hackbytes}
+      - REPOSITORY_URI_BLOGS_NITELITE=${repository_url_blogs_nitelite}
+      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - echo $IMAGE_TAG
+      - echo $REPOSITORY_URI_WINTERSMITH_DOCKER
+      - echo $REPOSITORY_URI_BLOGS_HACKBYTES
+      - echo $REPOSITORY_URI_BLOGS_NITELITE
+      - echo Entered the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+
+      # Build the wintersmith-docker image
+      - echo Building the wintersmith-docker image...
+      - docker-compose -f blogs-deploy/docker-compose-production.yml build wintersmith-docker
+      - docker tag $REPOSITORY_URI_WINTERSMITH_DOCKER:latest $REPOSITORY_URI_WINTERSMITH_DOCKER:$IMAGE_TAG
+
+      # We need to give a local, non-repository tag, for the blog-specific
+      # Dockerfiles to be able to pull them (FROM
+      # 'byronsanchez/wintersmith-docker'); that way, we don't have to manage
+      # different repo urls like docker hub vs ecr urls in dev and prod envs.
+      - docker tag $REPOSITORY_URI_WINTERSMITH_DOCKER:latest byronsanchez/wintersmith-docker:latest
+
+      # Build the hackbytes.io image
+      - echo Building the hackbytes.io image...
+      - docker-compose -f blogs-deploy/docker-compose-production.yml build blogs-hackbytes
+      - docker tag $REPOSITORY_URI_BLOGS_HACKBYTES:latest $REPOSITORY_URI_BLOGS_HACKBYTES:$IMAGE_TAG
+
+      # Build the nitelite.io image
+      - echo Building the nitelite.io image...
+      - docker-compose -f blogs-deploy/docker-compose-production.yml build blogs-nitelite
+      - docker tag $REPOSITORY_URI_BLOGS_NITELITE:latest $REPOSITORY_URI_BLOGS_NITELITE:$IMAGE_TAG
+
+      # Compile the hackbytes.io static website
+      - echo Compiling hackbytes.io...
+      - docker-compose -f blogs-deploy/docker-compose-production.yml run blogs-hackbytes npm run build
+
+      # Compile the nitelite.io static website
+      - echo Compiling nitelite.io...
+      - docker-compose -f blogs-deploy/docker-compose-production.yml run blogs-nitelite npm run build
+
+      # Review the compiled assets
+      - ls -altih blogs-hackbytes/build
+      - ls -altih blogs-nitelite/build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI_BLOGS_HACKBYTES:latest
+      - docker push $REPOSITORY_URI_BLOGS_HACKBYTES:$IMAGE_TAG
+      - docker push $REPOSITORY_URI_BLOGS_NITELITE:latest
+      - docker push $REPOSITORY_URI_BLOGS_NITELITE:$IMAGE_TAG
+
+       # Sync the front-end static assets to S3
+      - echo Deploying the blogs-web app...
+      - aws s3 sync --delete blogs-hackbytes/build/ s3://${s3_bucket_name_blogs_hackbytes}
+      - aws s3 sync --delete blogs-nitelite/build/ s3://${s3_bucket_name_blogs_nitelite}
+
+artifacts:
+  files:
+    - blogs-hackbytes/build/**/*
+    - blogs-nitelite/build/**/*
