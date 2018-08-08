@@ -2,6 +2,12 @@
 
 Personal blogs powered by the Wintersmith static site generator
 
-## Comments
+## Instructions
 
-Comments are handled via Disqus.
+To build the app, execute:
+
+    docker-compose -f ./blogs-deploy/docker-compose.yml build
+    
+To run the app:
+
+    docker-compose -f ./blogs-deploy/docker-compose.yml up
