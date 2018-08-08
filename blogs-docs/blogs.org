@@ -2625,7 +2625,13 @@ Maybe I'll adopt the same policy for Salesforce...
 
 I don't own the data with that, so I'm more hesitant, but I'll think about it.
 Maybe if I get comfortable with managing exported data.
+** DEFERRED Switch to IAM roles instead of users
+:PROPERTIES:
+:ID:       7e6fca92-715b-46ed-8cee-ee9d1cf35b46
+:END:
+[2018-07-06 Fri 15:33]
 
+For any outstanding things still using users.
 * Documentation
 :PROPERTIES:
 :ID:       e09fc572-e3fa-41c8-8274-0aebcb2a92ec
