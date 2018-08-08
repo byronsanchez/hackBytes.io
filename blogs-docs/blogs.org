@@ -21,6 +21,11 @@
 :ID:       3409e7d7-cfdd-4bfc-9757-feb7fc312c3b
 :END:
 [2018-05-02 Wed 12:09]
+** OPEN Refactor Terraform scripts into it's own aws dir
+:PROPERTIES:
+:ID:       dfcdea7d-25ae-4f28-8a2c-fc424d2a7611
+:END:
+[2018-08-08 Wed 09:46]
 ** OPEN Automate deployment using AWS CodeBuild
 :PROPERTIES:
 :ID:       33ce8168-3ded-4804-ac2a-1cc0b709075d
