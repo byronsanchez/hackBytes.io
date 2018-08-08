@@ -1,0 +1,14 @@
+<mockup version="1.0" skin="wireframe" fontFace="Balsamiq Sans" measuredW="1866" measuredH="587" mockupW="1848" mockupH="569">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="18" y="18" w="-1" h="-1" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Globide%0A%20%0ATutorials%20and%20learning%20resource.%0ACompletely%20free.%0AVery%20organized%20and%20high%20quality%20video%20courses.%0AAccompanying%20notes.%0AEventually%20books%20and%20stuff.%0AVery%20simple%2C%20efficient%2C%20not%20cluttered.</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::SiteMap" x="30" y="37" w="-1" h="-1" measuredW="1836" measuredH="550" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Home%0A-%20Learn%0A--%20Videos%0A---%20Unix/Linux%20Tutorials%0A---%20Microsoft%20Office%20Tutorials%0A---%20Mobile%20Phones%0A---%20Google%20Hacking%0A---%20Drupal%20Tutorials%0A----%20Let%27s%20Contrib%20To%20Drupal%0A--%20Text%0A---%20Application%20Development%0A----%20Let%27s%20Make%20An%20Android%20Application%0A----%20Let%27s%20Make%20an%20iOS%20Application%0A----%20Let%27s%20Make%20a%20Universal%20Application%0A-%20About%20Us%5CrCompany%0A-%20Blog%0A-%20Community</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
